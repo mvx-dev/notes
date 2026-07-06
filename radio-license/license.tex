@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage{preamble}
+
+\title{Advanced Radio License Notes}
+\author{Oskar Meszaros (z5636164)}
+\date{July 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+This are the notes from following the advanced course on HamRadio.au.
+
+\section{Electronics and Circuit Theory}
+\subsection{Impedance}
+\subsubsection{Introduction}
+Impedance is how a circuit stores or resists AC (or any changing) energy. If the impedances within a circuit aren't matched, then power gets reflected back instead of going where it is needed.
+
+Impedance is the combination of resistance and reactance. Resistance is the restriction of the "flow" of energy, and converts that restricted energy to heat. This is measured in Ohms $\Omega $. Reactance can be thought of as a flywheel, it stores energy temporarily and releases it. This is what capacitors and inductors do. This is also measured in Ohms. This means that impedance is the total opposition to current.
+\begin{callout}{info}[Why this matters]
+The transmitter expects to see $50\Omega $ of impedance. The coax is also $50\Omega $. If the antenna isn't also close to $50\Omega $, then the power from the transmitter gets reflected, which is what SWR (standard wave ratio) measures.
+\end{callout}
+
+\subsubsection{Reactance}
+There are two types of reactance. One is found in inductors, and the other in capacitors.
+
+Inductors (any coil of wire) opposes changes in current, i.e. their reactance increases with frequency
+\[
+    X_L=2\pi fL.
+\]
+This means that the higher the frequency, the more and inductor blocks the signal. This is why they are used in low-pass filters, they all for low frequencies but block high ones.
+
+Capacitors opposes changes in voltage. Their reactance decreases with frequency
+\[
+    X_C=\frac{1}{2\pi fC}.
+\]
+The higher the frequency, the easier it passes through the capacitors. This is why a capacitor in series blocks DC but passes RF.
+
+\subsubsection{Impedance formula}
+We can then write impedance as
+\[
+    Z=R+jX,
+\]
+where $R$ is the resistance, $X$ is the impedance, and $j$ is used in place of $i$ for imaginary numbers due to $i$ being used for current. The resistance part is where the energy is consumed, and the reactive part is where the energy is stored and returned.
+The total impedance is then given by the magnitude of this complex number
+\[
+    |Z|=\sqrt{R^2+X^2}
+\]
+
+\begin{callout}{Example}[Example]
+    An antenna has $R=50\Omega $ and $X=25\Omega $. The total impedance magnitude is
+    \begin{align*}
+        Z &= \sqrt{2500+625} \\
+          &=\sqrt{3125} \\
+          &\approx 56\Omega 
+    \end{align*}
+\end{callout}
+
+\end{document}
