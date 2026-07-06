@@ -60,4 +60,49 @@ The total impedance is then given by the magnitude of this complex number
     \end{align*}
 \end{callout}
 
+\subsection{Resonance}
+\subsubsection{Introduction}
+When an inductor and capacitor are combined, at one specific frequency their reactances become equal and therefore cancel each other out. This is called resonance, and when this happens the circuit behaves as purely resistive. This is how a single frequency is selected while rejecting everything else.
+\begin{callout}{Example}[Radio Example]
+    Tuned circuits within a receiver use this resonance to select a station to hear, and reject everything else. Antennas are resonant at a specific frequency, which is where it works best.
+\end{callout}
+
+The formula to find the resonant frequency is given by
+\[
+    f_r=\frac{1}{2\pi \sqrt{LC}}.
+\]
+This says that for a given inductor $L$ and capacitor $C$, there's exactly one frequency where they resonate. This is an important formula.
+
+\subsubsection{Series and Parallel Resonance}
+Series and parallel arrangements of $L$ and $C$ result in opposite behaviour at resonance.
+\begin{table}[h]
+    \centering
+    \caption{Behaviour of circuits at resonance}
+    \label{tab:1}
+    \begin{tabular}{c|c|c}
+        & Series $LC$ & Parallel $LC$ \\
+        \hline
+        \hline
+        Impedance & Minimum (just $R$) & Maximum \\
+        Current & Maximum & Minimum from source \\
+        Used for & Passing a desired frequency (band-pass) & Blocking a desired frequency (or selecting it) (band-stop)
+    \end{tabular}
+\end{table}
+
+\begin{callout}{Example}[Radio Example]
+    A series-resonant circuit in an antenna trap passed the trap's frequency through, while a parallel-resonant circuit in a receiver's IF stage has high-impedance at the desired frequency, which develops a large signal voltage across it.
+\end{callout}
+
+\subsubsection{Q-Factor}
+The Q-factor described how selective a resonant circuit is. A higher A means a very sharp tuning (with narrow bandwidth), and low Q means a very broad tuning (wide bandwidth)
+\[
+    Q=\frac{f_r}{\text{Bandwidth}}
+\]
+For a series $RLC$, $Q=\frac{X_L}{R}$, so less resistance means higher Q.
+\begin{callout}{info}[Bandwidth Rule]
+    Bandwidth is $\frac{f_r}{Q}$, so a circuit with $Q=100$ at 7 MHz has a bandwidth of 70 kHz, which is enough to cover a portion of the 40m band. A crystal filter width $Q=50 000$ at 9 MHz has a bandwidth of only 180 Hz, which is perfect for CW.
+\end{callout}
+
+
+
 \end{document}

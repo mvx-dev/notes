@@ -731,8 +731,13 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1
 
-] [2] (license.aux)
+]
+Overfull \hbox (39.05504pt too wide) in paragraph at lines 82--90
+ [][] 
+ []
+
+[2] [3] (license.aux)
 Package rerunfilecheck Info: File `license.out' has not changed.
-(rerunfilecheck)             Checksum: AA837E77682E32AAB6546FD7307F6A3B;801.
+(rerunfilecheck)             Checksum: AA92D921352AEF2D522A2884ACB50441;1359.
  )
-Output written on license.xdv (2 pages, 46128 bytes).
+Output written on license.xdv (3 pages, 78588 bytes).
