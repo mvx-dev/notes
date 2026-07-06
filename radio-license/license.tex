@@ -90,7 +90,7 @@ Series and parallel arrangements of $L$ and $C$ result in opposite behaviour at 
 \end{table}
 
 \begin{callout}{Example}[Radio Example]
-    A series-resonant circuit in an antenna trap passed the trap's frequency through, while a parallel-resonant circuit in a receiver's IF stage has high-impedance at the desired frequency, which develops a large signal voltage across it.
+    A series-resonant circuit in an antenna trap passed the trap's frequency through, while a parallel-resonant circuit in a receiver's IF (intermediate frequency) stage has high-impedance at the desired frequency, which develops a large signal voltage across it.
 \end{callout}
 
 \subsubsection{Q-Factor}
@@ -103,6 +103,59 @@ For a series $RLC$, $Q=\frac{X_L}{R}$, so less resistance means higher Q.
     Bandwidth is $\frac{f_r}{Q}$, so a circuit with $Q=100$ at 7 MHz has a bandwidth of 70 kHz, which is enough to cover a portion of the 40m band. A crystal filter width $Q=50 000$ at 9 MHz has a bandwidth of only 180 Hz, which is perfect for CW.
 \end{callout}
 
+\subsection{Filters}
+\subsubsection{Introduction}
+Filters are extremely important in radio. They are what selects the frequencies that get let through and what get blocked. Without filters, a receiver would hear literally everything at the same time, and the transmitter would spray harmonics all over the spectrum (which happens to be illegal).
 
+\subsubsection{Types of Filter}
+There are four basic types of filter.
+\begin{table}[h]
+    \centering
+    \caption{Basic types of filter}
+    \label{tab:2}
+    \begin{tabular}{p{0.2\linewidth}|p{0.4\linewidth}|p{0.4\linewidth}}
+        Filter Type & Behaviour & Where it is in radios \\
+        \hline
+        \hline
+        Low-pass & Passes low frequencies, blocks high frequencies & After the transmitter PA (power amplifier). It blocks harmonics before reaching the antenna \\
+        \hline
+            High-pass & Passes high frequencies, block low frequencies & At a TV antenna input. It blocks HF signals, but lets VHF/UHF TV through \\
+        \hline
+            Band-pass & Passes a specific range, blocks everything else & IF (intermediate frequency) filters in a receiver. It selects the signal bandwidth that you want. \\
+        \hline
+            Band-stop (notch) & Blocks a specific range, passes everything else & Notch filter to remove an interfering carrier.
+    \end{tabular}
+\end{table}
+
+\subsubsection{LC Filter}
+Filters use inductors and capacitors in combinations to make a specific filter. From above, we know
+\begin{itemize}
+    \item Inductors block high frequencies (reactance increases with frequency)
+    \item Capacitors block low frequencies (reactance decreases with frequency)
+\end{itemize}
+
+\begin{callout}{Example}[Low-pass Filter]
+    A low-pass filter wants to block high frequencies, and allow low frequencies through. This means that the circuit would put an inductor in series (to block high frequencies), and capacitors to ground (short high frequencies to ground).
+\end{callout}
+
+\subsubsection{Filter Steepness}
+In practice, filters can't instantly go from passing a frequency to blocking another. The change is gradual, and this is affected by the number of LC sections (called a pole). Each pole adds 20 dB/decade of rolloff. The higher this number, the more steep the dropoff, as it is saying that per decade (1 decade is a ratio of 10 between two numbers on a logarithmic scale), the scale drops by 20 dB.
+\begin{callout}{Example}[Example]
+    Consider a transmitter that produces a 7 MHz signal. The 2nd harmonic at 14 MHz and 3rd harmonic at 21 MHz must be supressed. A good 5-element low-pass filter with a cutoff just about 7 MHz can suppress the 2nd harmonic by 40+ dB and the 3rd by 60+ dB. This is the difference between a clean signal and an interference complaint.
+\end{callout}
+
+A typical transmitter low-pass filter has 5-poles (100 dB/decade, a steep slope). For critical applications, a 7-pole filter is used (140 dB/decade, a very steep slope).
+
+\subsubsection{Crystal Filters}
+Crystal filters have very high Q factors (10 000 to 100 000+). Multiple crystals combined in a so-called ladder filter give the sharp selectivity for IF stages
+\begin{itemize}
+    \item 2.4 kHz bandwidth - for SSB reception
+    \item 500 Hz bandwidth - for CW reception
+    \item 6 kHz bandwidth - for AM reception
+\end{itemize}
+In modern radios however, crystals are being replaced with DSP (digital signal processing) filters, as they allow changing the bandwidth on the fly.
+
+\subsubsection{Filter Response Shapes}
+Different mathematical designs give different trade-offs. Butterworth designs have a smooth, flat passband with no ripple. This is used where consistent gain across the passband matters. Chebyshev has a steeper rolloff than Butterworth, but some some ripple in the passband. This is used where sharp selectivity matters more than a perfectly flat response.
 
 \end{document}
