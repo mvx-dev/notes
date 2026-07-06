@@ -260,4 +260,24 @@ A mixer takes two signals and produces their sum and difference frequencies
 \]
 This is how receivers convert the signal you want to the IF, and how transmitters shift the generated signal to the operating frequency. The best type of mixer is the double-balanced mixer. This makes filtering much easier.
 
+\subsection{AGC and Power Supplies}
+\subsubsection{Introduction}
+AGC (automatic gain control) automatically adjusts the gain of a receiver so that the audio level remains roughly constant. It works by
+\begin{enumerate}
+    \item The receiver measures the strength of the incoming signal
+    \item This creates a control voltage
+    \item The control voltage adjusts the of the RF and IF amplifier stages
+\end{enumerate}
+This allows for less gain with strong signals, and more gain with weaker signals. AGC can be either fast or slow. Fast AGC has a quick attack and release, which is best for CW and digital modes, and allows for quick recovery between elements. Slow AGC still has quick attack, however the release is slowed. This is best for SSB voice, and doesn't "pump" between syllables. Pumping is volume surging between words.
+\subsubsection{Power Supplies for Radio}
+Most amateur HF transceivers need a regulated 13.8V DC supply. There are two main types of power supply.
+
+Linear power supply: simple and electrically quiet. Works by dropping excess voltage across a regulator, which turns into heat. The efficient is dependent on the input and output voltages, i.e. efficiency = $V_{\text{out}}/V_{\text{in}}$. The result of all this is that it is preferred for HF because of low noise, however requires a large mains transformer.
+
+Switch-mode power supply (SMPS): must more efficient and lighter, but can generate RF interference. It works by rapidly switching DC on and off (50-500 kHz), which is then usually passed through a filter to reduce noise. This is significantly cheaper and lighter than linear power supplied.
+
+\begin{callout}{important}[EMC Consideration]
+    If a receiver has buzzing or whining that changes with tuning, the SMPS might be the cause. Ferrite chokes on the DC power leads dampen this, and keep the power leads away from the antenna feedline.
+\end{callout}
+
 \end{document}

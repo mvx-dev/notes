@@ -757,9 +757,6 @@ Overfull \hbox (35.99283pt too wide) in paragraph at lines 116--128
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [3] [4]
 Underfull \hbox (badness 1365) in paragraph at lines 179--179
 []\TU/lmr/m/n/10 Conducts exactly half the time (180°).
@@ -772,6 +769,6 @@ Overfull \hbox (60.00714pt too wide) in paragraph at lines 171--182
 
 [5] [6] [7] (license.aux)
 Package rerunfilecheck Info: File `license.out' has not changed.
-(rerunfilecheck)             Checksum: 18C935BD8DA9F97075FDECB127A6A30F;3480.
+(rerunfilecheck)             Checksum: AABD65D449F54F72EDAF91D6DA32F36A;3982.
  )
-Output written on license.xdv (7 pages, 205612 bytes).
+Output written on license.xdv (7 pages, 230200 bytes).
