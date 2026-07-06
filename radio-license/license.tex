@@ -158,4 +158,106 @@ In modern radios however, crystals are being replaced with DSP (digital signal p
 \subsubsection{Filter Response Shapes}
 Different mathematical designs give different trade-offs. Butterworth designs have a smooth, flat passband with no ripple. This is used where consistent gain across the passband matters. Chebyshev has a steeper rolloff than Butterworth, but some some ripple in the passband. This is used where sharp selectivity matters more than a perfectly flat response.
 
+\subsection{Amplifier Classes}
+\subsubsection{Introduction}
+The final stage of a transmitter is a power amplifier. This amplifier will have some bias, and depending on how that bias is configured changes two important things. First is the linearity - how faithfully does the amplifier reproduce the signal shape (critical for SSB and AM). The second is efficiency - how much of the DC power becomes RF (all excess is heat).
+
+\subsubsection{Classes}
+These are the different classes of amplifiers
+\begin{table}[h]
+    \centering
+    \caption{Amplifier classes}
+    \label{tab:3}
+    \begin{tabular}{p{0.1\linewidth}|p{0.4\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.3\linewidth}}
+        Class & How it works & Efficiency & Linearity & Used for \\
+        \hline
+        \hline
+        A & Transistor conducts all the time (360\textdegree). Always on & $~25-50\%$ & Excellent & Low-power stages, driver stages \\
+        \hline
+        AB & Conducts most of the time (180\textdegree-360\textdegree). Slightly biased below full-on & $~50-65\%$ & Very good & Standard choice for SSB power amplifiers \\
+        \hline
+        B & Conducts exactly half the time (180\textdegree). Needs push-pull pairs & $~65-78\%$ & OK & Push-pull audio amps \\
+        C & Conducts less than half the time (<180\textdegree). Very "punchy" & $~75-85\%$ & Poor & FM and CW only
+    \end{tabular}
+\end{table}
+
+\begin{callout}{important}[Important]
+    Class C amplifiers are not suitable for SSB or AM. Both of these carry information in the variation in amplitude, so when class C clips the signal information is destroyed. It is fine for FM and CW as these modes have a constant amplitude.
+\end{callout}
+
+Most HF transceivers use Class AB for the final PA. It is linear enough to handle SSB without excessive distortion, and efficient enough that a 400W output doesn't require a large heatsink. If a Class AB amp is overdriven (i.e. mic gain is too high), it starts producing intermodulation distortion. This is a "splatter" that interferes with adjacent frequencies.
+
+\subsubsection{Decibels}
+Decibels allows for working with ratios by simply adding and subtracting instead of multiplying and dividing.
+\begin{table}[h]
+    \centering
+    \caption{Shortcuts for working with decibels}
+    \label{tab:4}
+    \begin{tabular}{c|c|c|c}
+        dB & Power ratio & Voltage ratio & Notes \\
+        \hline
+        \hline
+        +3 dB & $\times 2$ & $\times 1.41$ & Double the power \\
+        +6 dB & $\times 4$ & $\times 2$ & Double the voltage \\
+        +10 dB & $\times 10$ & $\times 3.16$ & Ten times the power \\
+        +20 dB & $\times 100$ & $\times 10$ & Ten times the voltage \\
+        -3 dB & $\times 0.5$ & $\times 0.71$ & Half the power \\
+    \end{tabular}
+\end{table}
+
+\begin{callout}{Example}[Example]
+    An amplifier has 13 dB of gain. That is $10+3=\times 10\times\times 2=\times 20$ power. Put in 20W, get out 400W.
+\end{callout}
+
+\begin{callout}{info}[Info]
+    The factor is 10 for power, 20 for voltage. That is because power is proportional to the voltage squared.
+
+    Power formula: $G_{\text{dB}}=10\log_{10}(P_{\text{out}}/P_{\text{in}})$.
+
+    Voltage formula: $G_{\text{dB}}=20\log_{10}(P_{\text{out}}/P_{\text{in}})$.
+\end{callout}
+
+\subsection{Oscillators}
+\subsubsection{Introduction}
+An oscillator generates a continuous AC signal at a specific frequency. This is what the transmitter uses to generate the carrier signal, and the receiver needs one to convert signals to the IF. An oscillator is an amplifier where some of the output is fed back into the input in-phase (positive feedback).
+
+In order for this to work correctly, two criteria must be met (known as the Barkhasuen criteria). The first is that the loop gain must be greater than or equal to 1. The fed-back signal must be at least as strong as what is needed at the input. The second criteria is that the fed-back signal must be in phase so that it can reinforce the original signal.
+
+\subsubsection{Common Types}
+Colpitts Oscillator: uses two capacitors and one inductor. The two capacitors form a voltage divider for the feedback. It is very popular in VFOs (Variable Frequency Oscillators) as it is stable and easy to tune by varying one of the capacitors.
+\[
+    f=\frac{1}{2\pi \sqrt{L\cdot \frac{C_1C_2}{C_1+C_2}}}
+\]
+
+Hartley Oscillator: uses one capacitor and a tapped inductor (or two inductors). The tapped inductor provides the feedback. This is less common in modern equipment.
+
+Crystal Oscillator: uses a quartz crystal as the frequency determining element. The crystal has an extremely high Q (10 000+), making it incredibly stable. It is used for reference oscillators in synthesisers, BFO (Beat Frequency Oscillator) in CW/SSB receivers, and any application where frequency accuracy is critical.
+\begin{callout}{info}[Radio Connection]
+    When tuning a HF radio, usually you are not changing the oscillator directly, rather modern radios use a PLL (Phase-Locked Loop) synthesiser. This is a crystal oscillator that provides the stable reference, and the PLL multiplies it to the frequency that you want.
+\end{callout}
+
+\subsubsection{PLL Frequency Synthesiser}
+The PLL is how modern radios generate precise, tunable frequencies. In simple terms:
+\begin{enumerate}
+    \item A crystal reference provides an accurate, stable signal (e.g. 10 kHz)
+    \item A VCO (Voltage-Controlled Oscillator) generates the output frequency
+    \item A divider divides the VCO output down
+    \item A phase detector compares the divided output with the reference
+    \item If they don't match, it adjusts the VCO until they do.
+\end{enumerate}
+
+\[
+    f_{\text{out}}=N\times f_{\text{ref}}
+\]
+\begin{callout}{example}[Example]
+    Consider a reference $f_{\text{ref}}=10$ kHz and $N=1450$. The output is then $f_{\text{out}}=14.500$ MHz (20 metres). Changing $N$ to 1451 gives $f_{\text{ref}}=14.510$ MHz. This is how a tuning knob works in 10 kHz steps.
+\end{callout}
+
+\subsubsection{Mixers}
+A mixer takes two signals and produces their sum and difference frequencies
+\[
+    f_{\text{out}}=f_1+f_2\quad \text{and}\quad f_{\text{out}}=f_1-f_2.
+\]
+This is how receivers convert the signal you want to the IF, and how transmitters shift the generated signal to the operating frequency. The best type of mixer is the double-balanced mixer. This makes filtering much easier.
+
 \end{document}

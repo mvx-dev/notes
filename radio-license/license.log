@@ -154,11 +154,16 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box55
 \enit@count@id=\count275
 \enitdp@description=\count276
+) (gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+) (textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (iftex.sty
+
+(iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count277
@@ -177,7 +182,7 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \c@definition=\count280
 
 
-Package amsthm Warning: Unknown theoremstyle `example' on input line 27.
+Package amsthm Warning: Unknown theoremstyle `example' on input line 29.
 
 \c@example=\count281
 (xcolor.sty
@@ -657,6 +662,17 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
+\symgns@font=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 9.
+Package gensymb Info: Math companion symbols declared on input line 9.
+LaTeX Info: Redefining \degree on input line 9.
+LaTeX Info: Redefining \celsius on input line 9.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 9.
+LaTeX Info: Redefining \ohm on input line 9.
+Package gensymb Info: Using \textohm for \ohm on input line 9.
+Package gensymb Info: Using \textmu for \micro on input line 9.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -731,21 +747,31 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1
 
-]
+] [2]
 Overfull \hbox (39.05504pt too wide) in paragraph at lines 82--90
+ [][] 
+ []
+
+
+Overfull \hbox (35.99283pt too wide) in paragraph at lines 116--128
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2]
-Overfull \hbox (35.99283pt too wide) in paragraph at lines 116--128
+[3] [4]
+Underfull \hbox (badness 1365) in paragraph at lines 179--179
+[]\TU/lmr/m/n/10 Conducts exactly half the time (180°).
+ []
+
+
+Overfull \hbox (60.00714pt too wide) in paragraph at lines 171--182
  [][] 
  []
 
-[3] [4] (license.aux)
+[5] [6] [7] (license.aux)
 Package rerunfilecheck Info: File `license.out' has not changed.
-(rerunfilecheck)             Checksum: 358B87723F8AE0C5B51C36EA6E6CABE8;2142.
+(rerunfilecheck)             Checksum: 18C935BD8DA9F97075FDECB127A6A30F;3480.
  )
-Output written on license.xdv (4 pages, 123028 bytes).
+Output written on license.xdv (7 pages, 205612 bytes).
