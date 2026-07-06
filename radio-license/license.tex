@@ -258,7 +258,7 @@ A mixer takes two signals and produces their sum and difference frequencies
 \[
     f_{\text{out}}=f_1+f_2\quad \text{and}\quad f_{\text{out}}=f_1-f_2.
 \]
-This is how receivers convert the signal you want to the IF, and how transmitters shift the generated signal to the operating frequency. The best type of mixer is the double-balanced mixer. This makes filtering much easier.
+This is how receivers convert the signal you want to the IF, and how transmitters shift the generated signal to the operating frequency. The best type of mixer is the double-balanced mixer. This makes filtering much easier as it suppresses both input signals at the output, passing main the sum and difference products.
 
 \subsection{AGC and Power Supplies}
 \subsubsection{Introduction}
@@ -279,5 +279,101 @@ Switch-mode power supply (SMPS): must more efficient and lighter, but can genera
 \begin{callout}{important}[EMC Consideration]
     If a receiver has buzzing or whining that changes with tuning, the SMPS might be the cause. Ferrite chokes on the DC power leads dampen this, and keep the power leads away from the antenna feedline.
 \end{callout}
+
+\section{Transmitters and Receivers}
+\subsection{The Superheterodyne Receiver}
+Trying to make a very narrow filter that can be tuned across the entire HF spectrum (3-30 MHz) would result in having tto retune the filter each time the frequency is change. Superheterodyne (superhet) receivers solve this problem by instead of adjusting the filter, it modifies the signal such that it falls within the filter.
+
+A superhet receiver is broken down into stages
+\begin{enumerate}
+    \item RF Preselector: a broad filter that roughly selects the band of interest, and rejects signals that are obviously out of band.
+    \item Mixer + Local Oscillator (LO): The mixer combines the signal with the LO. This transforms the signal to match the IF. For example, if you are tuned to 14.200 MHz and the IF is 9 MHz, then the LO runs at 23.200 MHz (23.200-14.200=9.000 MHz)
+    \item IF Filter: this is fixed at 9 MHz (or whatever IF), and doesn't change when you tune. It provides the sharp selectivity required. Crystal or DSP filters are used here to determine the bandwidth.
+    \item IF Amplifier: This boosts the filtered signal (controlled by AGC).
+    \item Detector: Converts the IF signal back to audio. For SSB, this is a product detector (mixer with a BFO).
+    \item Audio Amplifier: Drives the output audio device.
+\end{enumerate}
+
+\subsubsection{The Image Problem}
+Because the mixer doesn't know which signal produced the 9 MHz difference, there is a second "image" of the signal placed at 2 times the IF. For example, if the LO is at 23.2 MHzm both a signal at 14.2 MHZ and a signal at 32.2 MHz produce a 9 MHz signal.
+\[
+    f_{\text{image}}=f_{\text{signal}}\pm2\times f_{\text{IF}}.
+\]
+The RF preselector must be good enough to reject the image. A higher IF makes this easier as the separation between the frequencies is higher. High-end receivers combat this by first converting to a high IF (i.e. 45-70 MHz) to create the separation between the signal and the image, then converts to the final IF (9 MHz or 455 MHz), which allows for narrow and affordable crystal filters.
+
+\subsection{SSB}
+\subsubsection{Introduction}
+Regular AM transmits a carrier plus two sidebands, but since the carrier carries no information and the sidebands carry the same information this is wasteful. Instead, SSB (single sideband modulation) removes the carrier and one sideband, which saves power and bandwidth. Generally, the process is
+\begin{enumerate}
+    \item Audio amplifier: the amplified output of the microphone
+    \item Balanced modulator: mixes the audio with a carrier frequency. It still generates both sidebands, but suppresses the carrier. This is now called DSB-SC (Double Sideband, Suppressed Carrier)
+    \item Crystal filter: a very sharp band-pass filter that passes one of the sidebands and rejects the other
+    \item Mixer: shift the SSB signal from the filter up to the operating frequency
+    \item Power amplifier (Class AB): boosts the signal to the desired output power
+    \item Low-pass filter: removes the harmonics before transmitting
+\end{enumerate}
+
+\begin{callout}{info}[Convention]
+    The global convention or which sideband is used is dependant on the frequency. When it is less than 10 MHz, the LSB (lower sideband) is used, and for 10 MHz and above, USB (upper sideband) is used.
+\end{callout}
+
+\subsubsection{The Phasing Method}
+Instead of using an expensive crystal oscillator, this method uses phase shifting to cancel one sideband mathematically. It requires precise 90\textdegree shifts in both the audio and RF paths. This is popular in SDR (software defined radio) as phase shifting is easy to do in software.
+
+\subsubsection{Balanced Modulator}
+The balanced modulator is a mixer that is specifically designed so that the carrier leaks through as little as possible. The output contains the two sidebands, but almost no carrier. That is why it is called balanced.
+
+\subsection{FM}
+\subsubsection{Introduction}
+Whilst SSB (and AM) modulates the amplitude of the signal to carry voice, FM varies the frequency, and the amplitude remains constant. FM is used for most VHF/UHF communication (2m and 70cm repeaters), as it is simpler, more noise resistant, and sounds better than SSB for local communications.
+
+For FM, there are three important values. The first is deviation ($\delta f$), and is a measure of how far the frequency swings from the carrier. For amateur narrow-band FM, this is $\pm 5$ kHz. The next value is modulation index $\beta $, and this is the deviation divided by the audio frequency $\beta =\delta f/f_m$. The final value is the bandwidth (Carson's rule), and is given by
+\[
+    \text{BW}\approx^2(\delta f+f_m).
+\]
+
+\begin{callout}{example}[Example]
+    With a $\pm 5$ kHz deviation and 3 kHz maximum audio, bandwidth is given by $2(5+3)=16$ kHz. This is why FM channels on 2m are spaced 12.5 or 25 kHz apart.
+\end{callout}
+
+One of the biggest advantages of FM is that when two stations transmit on the same frequency, the stronger signal wins completely. The weaker signal is suppressed, not mixed in with the strong one.
+
+\begin{callout}{info}[Info]
+    The capture effect is why FM works so well for repeaters. If two station accidentally transmit at the same time, you hear the stronger one clearly and not a mix of both. With SSB, you'd hear both simultaneously.
+\end{callout}
+
+\subsubsection{Pre- and De-emphasis}
+FM noise gets worse at higher audio frequencies. To prevent this, transmitters (pre-emphasis) boost high audio frequencies before transmission, and receivers (de-emphasis) cuts high audio frequencies after demodulation. The boost and cut cancel out for the unwanted signal, but the noise (which was not boosted) gets cut. This results in better signal-to-noise.
+
+\subsection{Receiver Performance}
+\subsubsection{Introduction}
+On a busy HF band, a receiver might be dealing with signals ranging from barely detectable (-130 dBm), to extremely strong (-10 dBm), which is a range of over 100 million to one. Good receivers are able to handle both simultaneously.
+
+\subsubsection{Sensitivity}
+Sensitivity is limited by noise. Every receiver generates some internal noise, and the signal must be stronger than this noise floor to be heard. The noise figure of the front is the key specification, as it tells you how much noise the receiver adds compared to the perfect receiver.
+\begin{callout}{info}[Friis Formula]
+    The noise figure of the first stage dominates, because noise from later stages gets divided by the gain of earlier stages. This is why a low-noise preamp at the antenna makes a big difference.
+    \[
+        NF_{\text{total}}\approx NF_{1}+\frac{NF_2-1}{G_1}+\frac{NF_3-1}{G_1G_2}+\cdots.
+    \]
+\end{callout}
+
+\subsubsection{Intermodal Distortion (IMD)}
+When two strong signals hit a receiver, any non-linearity creates phantom signals at new frequencies. The most troublesome are third-order products
+\[
+    f_{\text{IMD}}=2f_1-f_2\quad \text{and}\quad 2f_2-f_1.
+\]
+This falls close to the original signals and cannot be filtered out.
+\begin{callout}{example}[Example]
+    Two strong stations on 14.200 and 14.210 MHz create a phantom signal at $2(14.200)-14.210-14.190$ MHz. If you are trying to hear a weaker station at the frequency, you would only be able to hear the IMD product.
+\end{callout}
+
+IP3 (third-order intercept point) is the key specification from strong signal handling. Higher IP3 is better. This is the theoretical point where the IMD products would equal the wanted signal. This is never reached in practice.
+
+\subsubsection{Reciprocal Mixing}
+In the real world, no oscillator is perfect, they all have some sort of phase noise (random frequency jitter). When a strong off-channel signal mixes with this phase noise, it creates at the IF that buries weak signals. This means that a better oscillator gives better reception, and why more expensive radios perform better on crowded bands.
+
+\subsubsection{Dynamic Range}
+Dynamic range is the difference between the weakest signal the receiver can detect and the strongest signal it can handle without distortion. More dynamic range means better performance on busy bands. A receiver with 90 dB of dynamic range can simultaneously handle signals differing by 90 dB, which is about 1 billion to one in power.
 
 \end{document}
