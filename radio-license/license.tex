@@ -445,4 +445,227 @@ It is possible to bounce signal off of Lunar. This requires high-gain antennas, 
 \subsubsection{Satellite Communication}
 Amateur radio satellites (OSCAR series, etc) provide a relay capability. This can be difficult due to Doppler shift, and the need to track the satellite and continuously adjust frequency.
 
+\section{Antennas and Feedlines}
+\subsection{Antenna Basics}
+\subsubsection{Introduction}
+An antenna converts electrical energy (RF current from a transmitter) into electromagnetic waves that travel through space. On receive, it does the reverse.The simplest (effective) antenna is a half-wave dipole. This is just a wire, half a wavelength long, split in the middle, and fed with coax.
+
+\subsubsection{The Half-Wave Dipole}
+The formula to calculate the length of a half-wave dipole is
+\[
+    L_{\text{metres}}=\frac{143}{f_{\text{MHz}}}.
+\]
+This formula accounts for the end effect, where the electrical length is slightly shorter than the physical length.
+
+\begin{callout}{example}[Example Half-Wave Length]
+    These are some common half-wave lengths.
+
+    For 40m band (7.1 MHz): 143/7.1 = 20.1 metres total.
+
+    For 20m band (14.2 MHz): 143/14.2 = 10.1 metres total.
+
+    For 2m band (146 MHz): 143/146 = 0.98 metres total.
+\end{callout}
+
+\subsubsection{Gain}
+Antenna gain doesn't create extra power, it focuses the existing power in a preferred direction. Because of conservation of energy, this results in less gain the non-focused direction.
+
+Gain is measured in two ways
+\begin{itemize}
+    \item dBi: Compared to an imaginary perfect point source (called an isotropic radiator)
+    \item dBd: Compared to a half-wave dipole
+\end{itemize}
+\[
+    dBi = dBd+2.15
+\]
+A dipole has 2.15 dBi (or 0 dBd).
+
+\subsubsection{Other Properties}
+Antennas have a few other properties.
+
+Radiation resistance is the resistance that accounts for the power actually being radiated. For a half-wave dipole in free space, this is
+\[
+    R_{\text{rad}}\approx 73\Omega 
+\]
+This is close the $50\Omega $ figure, but not exact. This is why a dipole has a slight SWR when fed with $50\Omega $ coax. This discrepancy isn't enough to make it unusable.
+
+Polarisation is another property. There are three types
+\begin{itemize}
+    \item Horizontal: The dipole is mounted horizontally. This is standard for HF as the ionosphere scrambles polarisation anyway.
+    \item Vertical: The dipole is mounted vertically. This is common for VHF/UHF mobile and base antennas.
+    \item Circular: This is a dish, and is used on satellites as it handles random Faraday rotation in the ionosphere.
+\end{itemize}
+Cross-polarisation loss (horizontal antenna receiving a vertical signal) is about 20 dB, which is a significant loss. This is why matching polarisation matters.
+
+The final property is effective radiated power (ERP). This is the power that appears to the be transmitter, taking antenna gain and feedline losses into account
+\[
+    ERP_{dBW}=P_{tx(dBW)}+G_{dBd}-L_{feedline(dB)}.
+\]
+\begin{callout}{example}[High-Power Yagi]
+    With a 400W and a 3-element Yagi (7dBd) but a 1 dB feedline loss, the ERP is given by
+    \[
+        26+7-1=32dBw=1585W \text{ ERP}.
+    \]
+    The 400W radio then looks like nearly 1600W in the antenna's main beam direction.
+\end{callout}
+
+\subsection{Directional Antennas}
+\subsubsection{Introduction}
+A dipole radiates equally in two directions (broadside). If a station is in a specific direction, half the power is going the wrong way. This is why directional antennas are used, they focus the power (and receiving sensitivity) into a single direction.
+
+\subsubsection{Yagi-Uda Antenna}
+The most popular directional antenna for amateur radio is the Yagi-Uda (often called just Yagi) antenna. It has 3 main elements
+\begin{itemize}
+    \item Reflector (behind): Slightly longer than $\lambda /2$, and reflects all the energy forward.
+    \item Driven element (middle): This is about $\lambda /2$, and is the only element connected to the feedline.
+    \item Directors (front): These are slightly shorter than $\lambda /2$, and are used to pull energy forward.
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \caption{Specs of Yagi Antennas}
+    \label{tab:6}
+    \begin{tabular}{c|c|c|c}
+        Elements & Gain (dBd) & Front-to-back & Notes \\
+        \hline
+        \hline
+        2 & ~5 & ~10 dB & Compact, good starter beam \\
+        3 & ~7 & ~15 dB & Most popular for 20m/15m/10m \\
+        5 & ~9 & ~20 dB & Good for series DX (distance)
+    \end{tabular}
+\end{table}
+
+\begin{callout}{info}[Info]
+    The front-to-back ratio is just as important as gain. It tells you how well the antenna rejects signals from behind. A 20 dB front-to-back ratio means stations behind are $100\times$ weaker. This is good too reduce interference from any unwanted directions.
+\end{callout}
+
+\subsubsection{Quad Antenna}
+A quad antenna used full-wavelength square or diamond loops instead of straight elements. For the same boom length, a quad has significantly more gain than a Yagi and wider bandwidth. The drawback is that it is physically larger and harder to build.
+
+\subsubsection{Log-Period Dipole Array (LPDA)}
+This is the "broadband" directional antenna. Unlike a Yagi (which is designed for one band), and LPDA works across a wide range of frequencies, for example one antenna might be able to do 14-30 MHz. The downside of these is that the gain is lower than a Yagi on any single frequency. An LPDA gives maybe 5 dBd whereas a 3-element Yagi gives 7 dBd, but the LPDA covers many bands without switching.
+
+\subsection{Coax and Feedlines}
+\subsubsection{Introduction}
+Feedlines carries RF from a transmitter to the antenna (and back for received signals). The most common type is a coaxial cable (coax), which is a center conductor surrounded by insulation, then a shield, then a jacket.
+
+\subsubsection{Characteristic Impedance}
+Every feedline has a characteristic impedance ($Z_0$) that is determined by its physical construction.
+\begin{table}[h]
+    \centering
+    \caption{Types of feedlines}
+    \label{tab:7}
+    \begin{tabular}{c|c|c|c}
+        Type & $Z_0$ & Loss (per 30m @ 150 MHz) & Best for \\
+        \hline
+        \hline
+        RG-58 & $50\Omega $ & ~6 dB (high) & Short runs, low power, patch leads \\
+        RG-213 & $50\Omega $ & ~3 dB & General HF use, moderate runs \\
+        LMR-400 & $50\Omega $ & ~1.5 dB (low) & VHF/UHF where loss matters \\
+        $450\Omega $ ladder line & ~0.3 dB (very low) & Balanced antennas, lowest loss.
+    \end{tabular}
+\end{table}
+
+\begin{callout}{info}[Info]
+    A good rule of thumb for feedline is use the lowest-loss cable possible, especially for VHF/UHF where loss really matters. If 3 dB of a signal is lost in the coax, half of the total power is turned into heat.
+\end{callout}
+
+\subsubsection{Velocity Factor}
+RF travels slower in a feedline than in free space (by definition). The velocity factor tells you how much slower. Some typical values are
+\begin{itemize}
+    \item Solid polyethylene coax: ~0.66 (i.e. 66\% speed of light)
+    \item Foam dielectric coax: ~0.8
+    \item Air-spaced line: ~0.95
+\end{itemize}
+If you need a quarter-wave matching section of coax, then you must account for the velocity factor. A $\lambda /4$ section at 14 MHz in solid coax is shorter than expected
+\[
+    \frac{300}{14/4}\times 0.66=3.54m,
+\]
+not the expected 5.36 metres.
+
+\subsubsection{Standing Wave Ratio (SWR)}
+When the impedance isn't matched between the antenna and feedline, some power reflects back. This creates standing waves on the feedline, measured as SWR
+\begin{table}[h]
+    \centering
+    \caption{Affects of different SWRs}
+    \label{tab:8}
+    \begin{tabular}{c|c|c}
+        SWR & Reflected Power & Notes \\
+        \hline
+        \hline
+        1.0:1 & 0\% & Perfectly matched, this is theoretical \\
+        1.5:1 & 4\% & Excellent \\
+        2.0:1 & 11\% & Good \\
+        3.0:1 & 25\% & Needs attention (use a tuner) \\
+        $\infty:1$ & 100\% & Open or short circuit, nothing radiates
+    \end{tabular}
+\end{table}
+High SWR doesn't mean that all the reflected power is lost, it just bounces back and forth until its radiated or lost as heat in the feedline. The actual problem is feedline loss. With low-loss feedline, even a high SWR isn't necessarily terrible, but with a lossy one it is much worse.
+
+\subsection{Impedance Matching and Baluns}
+\subsubsection{Introduction}
+A transmitter is designed to deliver power into $50\Omega $. If the antenna system presents something different, a matching network is needed to transform the impedance. Without one, the transmitter may reduce power (via SWR protection), or produce excessive reflected power.
+
+\subsubsection{Antenna Tuner (transmatch)}
+This is the most common matching device. It sits between a transmitter and feedline, and transforms whatever impedance the antenna presents back to the $50\Omega $ the transmitter wants. There are three common topologies
+\begin{itemize}
+    \item L-Network: Two components (series + parallel). This is the simplest, and works well for a moderate mismatch range.
+    \item T-Network: This is three components. It has a wide matching range and is most popular in commercial tuners. Can handle very high SWR.
+    \item Pi-Network: Again three components It can also provide some harmonic filtering, and is common in valve amplifier output stages.
+\end{itemize}
+\begin{callout}{important}[Important]
+    An antenna tuner does not fix a bad antenna, it just tricks the transmitter into think everything is ok. The mismatch (and associated feedline losses) are still there between the tuner and antenna. The best approach is to make sure the antenna is resonant, then use the tuner for fine-tuning.
+\end{callout}
+
+\subsubsection{Quarter-Wave Transformer}
+A length of coax exactly $\lambda /4$ long with a specific impedance can transform one impedance to another. The require impedance of the matching section is then
+\[
+    Z_{\text{match}}=\sqrt{Z_1\times Z_2}
+\]
+
+\begin{callout}{example}[Example]
+    Match $50\Omega $ coax to a $200 \Omega $ folder dipole.
+    
+    \begin{align*}
+        Z &= \sqrt{50\times^200} \\
+          &=\sqrt{10000} \\
+          &=100\Omega .
+    \end{align*}
+    This means you want to use a $\lambda /4$ section of $100\Omega $ coax (or two pieces of $50\Omega $ in series).
+\end{callout}
+
+\subsubsection{Baluns}
+Baluns is BALanced to UNbalacned. A dipole is balanced, i.e. the two halves are symmetrical. Coax is unbalanced because the shield is grounded. Connecting them directly would cause problems. RF current would flow on the outside of the coax shield, the feedline would radiate (distorting the antenna pattern), and RF would get into the shack/station, which would cause interference with other equipment.
+
+This problem is solved using a balun. There are two common types
+\begin{itemize}
+    \item 1:1 current balun: No impedance change, just forces balanced currents. This is best for dipoles fed with $50\Omega $ coax.
+    \item 4:1 balun: transforms $200\Omega $ balanced to $50\Omega $ unbalanced. This is good for folded dipoles and some loop antennas.
+\end{itemize}
+\begin{callout}{tip}[Tip]
+A simple and effective 1:1 current balun can be made by winding 10-12 turns of coax through a ferrite toroid at the antenna feedpoint. This chokes off common-mode current on the coax shield.
+\end{callout}
+
+\subsubsection{The Smith Chart}
+The Smith chart is a graphical tool for impedance matching problems. There are few things to know
+\begin{itemize}
+    \item Centre = $50\Omega $, SWR = 1:1
+    \item Circles around the centre = constant SWR
+    \item Upper half = inductive (positive reactance)
+    \item Lower half = capacitive (negative reactance)
+    \item Moving clockwise = moving towards the transmitter along the feedline.
+\end{itemize}
+
+\subsection{DIY Antennas}
+\subsubsection{Introduction}
+One of the things allowed under the Advanced license is that you can design, build, and modify you own antennas. Home-built antennas can perform just as well as commercial ones, and will provide a greater understanding.
+
+\subsubsection{Half-Wave Dipole}
+This is the simplest effective HF antenna. All it needs is a wire, centre insulator, two end insulators, and some coax. To build it
+\begin{enumerate}
+    \item Calculate the length: The total length (as given above) is given by $L=143/f_{\text{MHz}}$ metres. Each leg of the antenna is half of that
+    \item Cut the wire: Use insulated or bare copper/steel wire. Cut a little longer than calculated
+    \item Centre insulator: this is where the coax is connected. Solder the centre conductor to one leg, the shield to the other. Add a 1:1 choke balun
+\end{enumerate}
+
 \end{document}
