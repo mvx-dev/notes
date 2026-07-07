@@ -767,8 +767,11 @@ Overfull \hbox (60.00714pt too wide) in paragraph at lines 171--182
  [][] 
  []
 
-[5] [6] [7] [8] [9] [10] (license.aux)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5] [6] [7] [8] [9] [10] [11] [12] (license.aux)
 Package rerunfilecheck Info: File `license.out' has not changed.
-(rerunfilecheck)             Checksum: 8FEAD5D72DB7034C09598D6892FEB02C;6340.
+(rerunfilecheck)             Checksum: 4C407BD604D4C83C755F9D8A0895CF64;7881.
  )
-Output written on license.xdv (10 pages, 343348 bytes).
+Output written on license.xdv (12 pages, 381968 bytes).

@@ -376,4 +376,50 @@ In the real world, no oscillator is perfect, they all have some sort of phase no
 \subsubsection{Dynamic Range}
 Dynamic range is the difference between the weakest signal the receiver can detect and the strongest signal it can handle without distortion. More dynamic range means better performance on busy bands. A receiver with 90 dB of dynamic range can simultaneously handle signals differing by 90 dB, which is about 1 billion to one in power.
 
+\section{Propagation}
+\subsection{The Ionosphere}
+\subsubsection{Introduction}
+The ionosphere is a layer of charged gas in the upper atmosphere (60-500 km), which is caused by ultraviolet radiation from Sol stripping away electrons. Because of this charge, HF signals are able to bounce off of this layer and travel thousands of kilometres.
+
+\subsubsection{The Layers}
+There are three main layers in the ionosphere.
+
+The D Layer (60-90km) absorbs signals, but only exists during the daylight. It mostly affects signals below 10 MHz, but reflects barely any signals.
+
+The E Layer (90-150km) is able to reflect signals up to 10 MHz (roughly) during the day, but also disappears during the night.
+
+The F Layer (150-500km) is the most important layer for HF communication. During the day it is separated into a F1 and F2 layer, however recombines during the night to a single F layer. The F2 layer is the highest and has the most ionisation, and hence capable of the longest skip distances.
+
+\begin{callout}{info}[The day/night cycle of HF]
+    During the day, the D layer absorbs low-band signals (80m, 40m), but the F2 layer supports higher bands (20m, 15m, 10m). At night, the D layer vanishes opening up the low bands, while the F layer weakens, which closes the high bands. This affects what bands to use at what times.
+\end{callout}
+
+\subsection{Selecting the Right Frequency}
+\subsubsection{Introduction}
+For any given path between two stations, there's a range of frequencies that will work. Too high of a frequency and the signal will punch through the ionosphere, too low and the D layer absorbs it.
+
+\subsubsection{Maximum Usable Frequency (MUF)}
+The MUF is the highest frequency the ionosphere will return to Earth for a specific path. Above this, signal passes straight through into space. This frequency varies with time of day, season, solar cycle, and path length.
+
+\subsubsection{Minimum Usable Frequency (LUF)}
+This is the lowest frequency that provides a usable signal. Below this, the D layer absorption is too strong. The LUF is higher during the day and lower during the night.
+
+\subsubsection{Frequency of Optimum Traffic (FOT)}
+This is the most optimum frequency, given by
+\[
+    \text{FOT}=0.85\times \text{MUF}
+\]
+This is the frequency for the most reliable communication.
+
+\begin{table}[h]
+    \centering
+    \caption{The best bands for different times}
+    \label{tab:5}
+    \begin{tabular}{c|c|c}
+        Time & Best Bands & Notes \\
+        \hline
+        \hline
+    \end{tabular}
+\end{table}
+
 \end{document}
