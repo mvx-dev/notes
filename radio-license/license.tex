@@ -419,7 +419,30 @@ This is the frequency for the most reliable communication.
         Time & Best Bands & Notes \\
         \hline
         \hline
+        Daytime & 20m, 17m, 15m, 12m, 10m & High MUF, D-Layer absorbs low bands\\
+        Evening & 40m, 30m, 20m & D Layer fading, F layer still good \\
+        Night & 160m, 80m, 40m & No D layer absorption, low MUF \\
+        Sunrise/sunset & 160m, 80m (grey line) & Special propagation, see below.
     \end{tabular}
 \end{table}
+
+\subsubsection{Skip Distance and Skip Zone}
+When a signal goes up to the ionosphere and comes back down, it obviously does not come back down directly next to the transmitter. We call the minimum distance where the skywave signal returns to Earth the skip distance, and the area between where the ground wave fades out and where the skywave returns the skip zone (also known as dead zone). In general, a higher frequency corresponds to a longer skip distance. On 10m, the skip might be 1000+ km, where as 40m it might be 300km.
+
+\subsection{Special Propagation}
+\subsubsection{Sporadic E}
+Sometimes a random patches of ionisation in the E layer can reflect signals well into the VHF range, especially on 6 metres (50 MHz), and even 2m. This is most common in the summer, but is very unpredictable. Single hop distances can be 500-2300 km. 
+
+\subsubsection{Grey-Line Propagation}
+The grey-line is the sunset/sunrise boundary on Earth. Along this line, the D layer is either yet to form (sunrise), or has just disappeared (sunset), but the F layer still has enough ionisation to reflect signals. This creates a low-absorption "duct" that reflects signals on the low bands. This is a brief window, and both the transmitting and receiving stations must be on or near the grey line.
+
+\subsubsection{Tropospheric Ducting}
+Not all propagation has to involve the ionosphere. Temperature inversions in the lower atmosphere (troposphere, 0-12km) can create ducts that trap VHF/UHF signals. This is most common over water or flat terrain, and is often accompanied by fog or haze conditions. It can extend VHF/UHF range to 1000+ km.
+
+\subsubsection{Earth-Moon-Earth (EME/Moonbounce)}
+It is possible to bounce signal off of Lunar. This requires high-gain antennas, high power, and very sensitive receivers. The path loss is very high (approx 250+ dB). This is common on 144 MHz, 432 MHz, and 1296 MHz.
+
+\subsubsection{Satellite Communication}
+Amateur radio satellites (OSCAR series, etc) provide a relay capability. This can be difficult due to Doppler shift, and the need to track the satellite and continuously adjust frequency.
 
 \end{document}
