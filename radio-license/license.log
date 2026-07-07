@@ -743,21 +743,21 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) (license.toc [1
 
-])
+] [2])
 \tf@toc=\write5
 \openout5 = `license.toc'.
 
- [2] [3]
+ [3]
 Overfull \hbox (39.05504pt too wide) in paragraph at lines 82--90
  [][] 
  []
 
-
+[4]
 Overfull \hbox (35.99283pt too wide) in paragraph at lines 116--128
  [][] 
  []
 
-[4] [5]
+[5]
 Underfull \hbox (badness 1365) in paragraph at lines 179--179
 []\TU/lmr/m/n/10 Conducts exactly half the time (180°).
  []
@@ -767,13 +767,17 @@ Overfull \hbox (60.00714pt too wide) in paragraph at lines 171--182
  [][] 
  []
 
-[6] [7] [8] [9] [10] [11] [12] [13] [14]
+[6] [7] [8] [9] [10] [11]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13] [14]
 Overfull \hbox (17.86734pt too wide) in paragraph at lines 558--567
  [][] 
  []
 
-[15] [16] [17] (license.aux)
+[15] [16] [17] [18] [19] [20] (license.aux)
 Package rerunfilecheck Info: File `license.out' has not changed.
-(rerunfilecheck)             Checksum: 32E7ED21CC347C9D214F6F58EC57C8BA;12848.
+(rerunfilecheck)             Checksum: 27D0F02C31AACAA82105A48829609E2A;14392.
  )
-Output written on license.xdv (17 pages, 568664 bytes).
+Output written on license.xdv (20 pages, 653856 bytes).

@@ -668,4 +668,105 @@ This is the simplest effective HF antenna. All it needs is a wire, centre insula
     \item Centre insulator: this is where the coax is connected. Solder the centre conductor to one leg, the shield to the other. Add a 1:1 choke balun
 \end{enumerate}
 
+\section{EMC and Interference}
+\subsection{Understanding and Fixing Interference}
+\subsubsection{Introduction}
+With the Advanced license allowing for up to 400W, there two different sides that are likely to cause issues with EMI. The first is your signal interfering with others, such as TV interference (TVI), affecting neighbouring electronics, etc. The second is other thing interfering with you, such as plasma TVs, LED lights, switch mode power supplies, solar inverters, etc.
+
+There are two main paths for interference to get into
+\begin{itemize}
+    \item Conducted: interference travels along cables, such as power leads, audio cables, Ethernet cables, antenna feedlines. The cables act as unintentional antennas.
+    \item Radiated: interference travels through air as electromagnetic waves directly into the affected device.
+\end{itemize}
+In amateur radio, conducted interference via common-mode currents is usually the culprit. RF gets onto the outside of cables and enters equipment where it's not wanted.
+
+\subsubsection{EMC Toolkit}
+Ferrite chokers are the most common fix. Snap-on or toroidal ferrite cores around cables are the most useful EMC tool. They block common-mode currents while having minimal effect on the wanted signal. They can be used on DC power leads to the radio, coax feedline at the entry to the shack, or cables on affected equipment.
+
+Low-pass filters can be placed after the transmitter to suppress harmonics of the transmitted signal. A 7 MHz signal has harmonics at 14, 21, 28 MHz, etc. These must be suppressed to legal limits. A good LPF gives 40-60 dB suppression.
+
+High-pass filters go on affected devices, such as on a neighbour's TV antenna input to block HF signal.
+
+Band-pass filters can be used for specific problems. They pass only the operating frequency and reject everything else. This is the best filtering, but only works on one band.
+
+\subsubsection{Intermodulation}
+If you overdrive your amplifier, it creates intermodulation product. These are spurious signals that interfere with other users. To prevent this, keep drive levels within the linear range of the PA.
+
+\subsection{EMR Safety}
+\subsubsection{Introduction}
+At 400W with a directional antenna, you are generating significant RF fields near the antenna. Radio waves at sufficient intensity can cause tissue heating, and legally your station has to comply with safety limits.
+
+In the far field, power density follows the inverse square law
+\[
+    S=\frac{P\times G}{4\pi d^2}\text{W/m}^2
+\]
+Where P is power (W), G is the antenna gain (linear, not dB), and d is the distance (m).
+\begin{callout}{example}[Example]
+    400W into a Yagi with 10 dBi gain (=10 linear):
+    \begin{itemize}
+        \item At 5 metres: $S=(400\times 10)/(4\pi \times 25)=12.7 \text{W/m}^2$. This potentially exceeds limits.
+        \item At 10 metres: $S=(400\times 10)/(4\pi \times 100)=3.2 \text{W/m}^2$
+        \item At 20 metres: $S=(400\times 10)/(4\pi \times 400)=0.8 \text{W/m}^2$. This is safe for most limits
+    \end{itemize}
+\end{callout}
+We can rearrange this for distance to get
+\[
+    d=\sqrt{\frac{P\times G}{4\pi \times S_{\text{limit}}}}.
+\]
+
+\begin{callout}{info}[Rule of thumb for 400W]
+    Keep people at least 10-15 metres from a directional HF antenna during transmission. The exact distance depends on the gain of the antenna and the applicable exposure limit for the frequency.
+\end{callout}
+
+\subsubsection{Australian Requirements}
+You must comply with ARPANSA RPS3 (Radiation Protection Standard). Key points from this
+\begin{itemize}
+    \item Exposure limits vary with frequency
+    \item General public limits are stricter than occupational limits
+    \item Duty cycle matters. SSB and CW have lower average power than FM because they aren't a continuous transmission.
+\end{itemize}
+There are some practical safety measures
+\begin{itemize}
+    \item Keep antennas high. This reduces exposure at ground level
+    \item Use minimum power
+    \item Consider duty cycle
+    \item Restrict access to areas near antennas during transmission
+    \item Never touch antenna elements or feedlines during transmission.
+\end{itemize}
+
+\begin{callout}{warning}[Near-field wanring]
+    The above formula are for far-field. Close the antenna, fields are complex and can be much stronger than the formula predicts. On 80m, a few wavelengths is 500+ metres, so for HF antennas you may always be in the near field at ground level. Use conservative estimates.
+\end{callout}
+
+\subsubsection{Worked EMC Examples}
+These are similar to questions on the exam.
+
+\begin{callout}{example}[Is my antenna safe]
+    \textbf{Problem}: You're running 400W PEP into a 3-element Yagi with 7 dBi gain. Your neighbour's fence is 8 metres from the antenna. The exposure limit for your frequency is $2 \text{W/m}^2$. Is it safe?
+
+    \textbf{Answer}
+    \begin{enumerate}
+        \item Convert gain from dBi to linear: $7 \text{dBi}=10^(7/10)=5.01$
+        \item Calculate the power density: $S=PG/(4\pi d^2)=(400\times 5.01)/(4\pi \times 64)=2.94 \text{W/m}^2$
+        \item Compare to limit: $2.49>2.0 \text{W/m}^2$
+    \end{enumerate}
+    This is not safe to operate like this.
+\end{callout}
+
+\begin{callout}{example}[What's the safe distance]
+    \textbf{Problem}: Same setup, but now find the minimum safe difference for this limit.
+
+    \textbf{Answer}
+    \begin{enumerate}
+        \item Use the distance formula: $d=\sqrt{PG/(4\pi S_{\text{limit}})}$
+        \item Substituting the values: $d=\sqrt{(400\times 5.01)/(4\pi 2)}=8.93$ metres.
+    \end{enumerate}
+\end{callout}
+
+\begin{callout}{example}[How much harmonic suppression is needed]
+    \textbf{Problem}: Your 7 MHz transmitter produces a harmonic at 14 MHz that's 30 dB below the fundamental. The legal limit requires harmonics to be at least 50 dB below. How much additional filtering is needed.
+
+    \textbf{Answer}: You need an additional $50-30=20$ dB of suppression. A simple 3-element low-pass filter (3 poles times -20 dB/decade) would be marginal at one octave above cutoff. A 5-element filter would give a comfortable margin.
+\end{callout}
+
 \end{document}
