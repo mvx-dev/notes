@@ -793,22 +793,19 @@ Overfull \hbox (25.86507pt too wide) in paragraph at lines 872--880
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24] [25] [26]
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1079.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24] [25] [26] [27]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1118.
 
 Missing character: There is no ° ("B0) in font cmr10!
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[27] [28] [29] [30] [31] [32] (license.aux)
+[28] [29] [30] [31] [32] [33] (license.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `license.out' has not changed.
 (rerunfilecheck)             Checksum: AAD9484839AA78AAA1894C160BDFCA8C;22464.
  )
-Output written on license.xdv (32 pages, 996352 bytes).
+Output written on license.xdv (33 pages, 1006792 bytes).
