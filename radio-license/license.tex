@@ -769,4 +769,95 @@ These are similar to questions on the exam.
     \textbf{Answer}: You need an additional $50-30=20$ dB of suppression. A simple 3-element low-pass filter (3 poles times -20 dB/decade) would be marginal at one octave above cutoff. A 5-element filter would give a comfortable margin.
 \end{callout}
 
+\section{Measurements and Test Equipment}
+\subsection{RF Power and Antenna Measurements}
+\subsubsection{Measuring RF Power}
+There are two common pieces of equipment used for measuring RF power.
+
+The first is the directional wattmeter. It measures forward power (power going to the antenna) and reflected power simultaneously. The net power to the antenna is then forward power minus reflected power. This also allows SWR to be calculated.
+
+The other is a dummy load. This is a non-radiating $50\Omega $ resistive load for testing transmitters without going on air. This allows for checking transmitter output power, adjusting drive levels, and testing without causing interference.
+
+\subsubsection{Power in Decibels}
+Instead of saying 0.001 watts or 400 watts, you can also use decibels referenced to a standard power level.
+
+\begin{table}[h]
+    \centering
+    \caption{Different ways to express power in decibels}
+    \label{tab:9}
+    \begin{tabular}{c|c|c}
+        dBm (ref: 1 mW) & dBW (ref: 1 W) & Actual Power \\
+        \hline
+        \hline
+        0 dBm & -30 dBW & 1 mW \\
+        +30 dBm & 0 dBW & 1 W \\
+        +40 dBm & +10 dBW & 10 W \\
+        +50 dBm & +20 dBW & 100 W \\
+        +56 dBm & +26 dBW & 400 W
+    \end{tabular}
+\end{table}
+
+\subsubsection{Antenna Analyser}
+An antenna analyser sweeps across a frequency range and shows
+\begin{itemize}
+    \item SWR vs frequency: shows where the antenna is resonant and how wide the usable bandwidth is
+    \item Impedance: tells you if the antenna needs to be longer (capacitive) or short (inductive)
+    \item Return loss: another way to express how well the antenna matches $50\Omega $
+\end{itemize}
+
+\subsubsection{Frequency Counter}
+A frequency counter directly measures the frequency of a signal. The gate time determines the resolution. A 1 second gate means 1 Hz resolution, a 10 second gate means 0.1 Hz resolution.  GPS-disciplined counters provide the highest accuracy timebase.
+
+\subsection{Practical Measurement Scenarios}
+\begin{callout}{example}[My SWR is suddenly high on 20m]
+    Tools needed: antenna analyser.
+    \begin{enumerate}
+        \item Disconnect the coax from the radio and connect the antenna analyser
+        \item Sweep 13-15 MHz and look at the SWR curve
+        \item If SWR is high everywhere: possible broken feedline or open connection, check connectors and cable
+        \item If SWR dip has shifted frequency: something has changed the antenna (i.e. damage). The analyser shows you where the resonance has moved to
+        \item If the impedance shows high R (e.g. $150\Omega $): possible feedline issue, water in the coax can change the impedance
+    \end{enumerate}
+\end{callout}
+
+\begin{callout}{example}[Someone reports my signal has splatter]
+    Tools needed: Spectrum analyser or SDR waterfall, dummy load
+    \begin{enumerate}
+        \item Connect transmitter to dummy load through a directional coupler or use a loose coupling to the spectrum analyser
+        \item Transmit into the dummy load while speaking normally
+        \item Watch the spectrum. The signal should be clean with defined edges
+        \item If you see broad shoulders spreading beyond signal bandwidth, reduce mic gain or drive level
+        \item Check that ALC is not being driven excessively
+    \end{enumerate}
+\end{callout}
+
+\begin{callout}{example}[I want to check my transmitter's harmonics]
+    Tools needed: spectrum analyser, dummy load, attenuator
+    \begin{enumerate}
+        \item Connect transmitter to the dummy load through a low-pass filter, with a tap or coupler to the spectrum analyser
+        \item Use an attenuator between the coupler and spectrum analyser to avoid overloading it
+        \item Transmit a carrier and look for signals at 2, 3, and 4 times your fundamental frequency
+        \item Harmonics should be at least 40-50 dB below the fundamental
+        \item If they're not, the low-pass filter may be faulty or the wrong cutoff frequency
+    \end{enumerate}
+\end{callout}
+
+\begin{table}[h]
+    \centering
+    \caption{Common power in measurement questions}
+    \label{tab:9}
+    \begin{tabular}{c|c|c}
+        Power & dBm & dBW \\
+        \hline
+        \hline
+        1 mW & 0 dBm & -30 dBW \\
+        10 mW & +10 dBm & -20 dBW \\
+        100 mW & +20 dBm & -10 dBW \\
+        1 W & +30 dBm & 0 dBW \\
+        10 W & +40 dBm & +10 dBW \\
+        100 W & 50 dBm & +20 dBW \\
+        400 W & +56 dBm & +26 dBW
+    \end{tabular}
+\end{table}
+
 \end{document}
