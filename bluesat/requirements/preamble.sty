@@ -1,0 +1,153 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{calligra}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{enumerate}
+\RequirePackage{float}
+\RequirePackage{mathrsfs}
+\RequirePackage{physics}
+\RequirePackage{enumitem}
+\RequirePackage{gensymb}
+\RequirePackage{textcomp}
+\RequirePackage[margin=1in]{geometry}
+
+% \RequirePackage[backend=biber]{biblatex}
+% \addbibresource{~/Documents/references.bib}
+
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\newcommand{\scriptr}{\raisebox}
+
+\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{example}
+\newtheorem{example}{Example}[section]
+
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+
+% Colours
+\definecolor{ctpRosewater}{HTML}{F5E0DC}
+\definecolor{ctpFlamingo}{HTML}{F2CDCD}
+\definecolor{ctpPink}{HTML}{F5C2E7}
+\definecolor{ctpMauve}{HTML}{CBA6F7}
+\definecolor{ctpRed}{HTML}{F38BA8}
+\definecolor{ctpMaroon}{HTML}{EBA0AC}
+\definecolor{ctpPeach}{HTML}{FAB387}
+\definecolor{ctpYellow}{HTML}{F9E2AF}
+\definecolor{ctpGreen}{HTML}{A6E3A1}
+\definecolor{ctpTeal}{HTML}{94E2D5}
+\definecolor{ctpSky}{HTML}{89DCEB}
+\definecolor{ctpSapphire}{HTML}{74C7EC}
+\definecolor{ctpBlue}{HTML}{89B4FA}
+\definecolor{ctpLavender}{HTML}{B4BEFE}
+\definecolor{ctpText}{HTML}{CDD6F4}
+\definecolor{ctpSubtext1}{HTML}{BAC2DE}
+\definecolor{ctpSubtext0}{HTML}{A6ADC8}
+\definecolor{ctpOverlay0}{HTML}{6C7086}
+\definecolor{ctpSurface0}{HTML}{313244}
+\definecolor{ctpBase}{HTML}{1E1E2E}
+
+% NOTE: type keys are matched case-sensitively — pass lowercase, e.g.
+% \begin{callout}{info}
+
+\newcommand{\setcallouttitlefromtype}[1]{%
+    \IfStrEqCase{#1}{%
+        {note}{\def\callouttitle{Note}}%
+        {info}{\def\callouttitle{Info}}%
+        {todo}{\def\callouttitle{Todo}}%
+        {tip}{\def\callouttitle{Tip}}%
+        {hint}{\def\callouttitle{Hint}}%
+        {important}{\def\callouttitle{Important}}%
+        {success}{\def\callouttitle{Success}}%
+        {check}{\def\callouttitle{Check}}%
+        {done}{\def\callouttitle{Done}}%
+        {question}{\def\callouttitle{Question}}%
+        {help}{\def\callouttitle{Help}}%
+        {faq}{\def\callouttitle{FAQ}}%
+        {warning}{\def\callouttitle{Warning}}%
+        {caution}{\def\callouttitle{Caution}}%
+        {attention}{\def\callouttitle{Attention}}%
+        {failure}{\def\callouttitle{Failure}}%
+        {fail}{\def\callouttitle{Fail}}%
+        {missing}{\def\callouttitle{Missing}}%
+        {danger}{\def\callouttitle{Danger}}%
+        {error}{\def\callouttitle{Error}}%
+        {bug}{\def\callouttitle{Bug}}%
+        {example}{\def\callouttitle{Example}}%
+        {quote}{\def\callouttitle{Quote}}%
+        {cite}{\def\callouttitle{Quote}}%
+    }[\edef\callouttitle{\MakeUppercase{#1}}]%
+}
+
+\newcommand{\setcalloutaccent}[1]{%
+  \IfStrEqCase{#1}{%
+    {note}{\def\calloutaccent{ctpBlue}}%
+    {info}{\def\calloutaccent{ctpSky}}%
+    {todo}{\def\calloutaccent{ctpLavender}}%
+    {tip}{\def\calloutaccent{ctpTeal}}%
+    {hint}{\def\calloutaccent{ctpTeal}}%
+    {important}{\def\calloutaccent{ctpMauve}}%
+    {success}{\def\calloutaccent{ctpGreen}}%
+    {check}{\def\calloutaccent{ctpGreen}}%
+    {done}{\def\calloutaccent{ctpGreen}}%
+    {question}{\def\calloutaccent{ctpYellow}}%
+    {help}{\def\calloutaccent{ctpYellow}}%
+    {faq}{\def\calloutaccent{ctpYellow}}%
+    {warning}{\def\calloutaccent{ctpPeach}}%
+    {caution}{\def\calloutaccent{ctpPeach}}%
+    {attention}{\def\calloutaccent{ctpPeach}}%
+    {failure}{\def\calloutaccent{ctpRed}}%
+    {fail}{\def\calloutaccent{ctpRed}}%
+    {missing}{\def\calloutaccent{ctpRed}}%
+    {danger}{\def\calloutaccent{ctpRed}}%
+    {error}{\def\calloutaccent{ctpRed}}%
+    {bug}{\def\calloutaccent{ctpMaroon}}%
+    {example}{\def\calloutaccent{ctpMauve}}%
+    {quote}{\def\calloutaccent{ctpOverlay0}}%
+    {cite}{\def\calloutaccent{ctpOverlay0}}%
+  }[\def\calloutaccent{ctpBlue}]%
+}
+
+\NewDocumentEnvironment{callout}{m o}
+{%
+  \def\callouttype{#1}%
+  \setcalloutaccent{#1}%
+  \IfNoValueTF{#2}
+    {\setcallouttitlefromtype{#1}}
+    {\def\callouttitle{#2}}%
+  \begin{tcolorbox}[
+    breakable,
+    sharp corners,
+    skin=enhancedmiddle jigsaw,
+    parbox=false,
+    boxrule=0mm,
+    leftrule=2mm,
+    boxsep=0mm,
+    arc=0mm,
+    outer arc=0mm,
+    attach title to upper,
+    after title={.\ },
+    coltitle=black,
+    colback=\calloutaccent!10,
+    colframe=\calloutaccent,
+    title={\callouttitle},
+    fonttitle=\bfseries
+  ]
+}
+{%
+  \end{tcolorbox}
+}
+
+% Must be imported last
+\RequirePackage{hyperref}
