@@ -1,13 +1,120 @@
 \documentclass{article}
 
 \usepackage{preamble}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
 
-\title{LaTeX template}
+\title{Flight System Requirements}
 \author{Oskar Meszaros (z5636164)}
-\date{}
+\date{July 2026}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This document outlines the requirements of all flight systems. The scope of this document includes all electrical and software requirements pertaining to relevant systems within the Flight Systems subteam.
+
+\subsection{Terminology}
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as in \href{https://datatracker.ietf.org/doc/html/rfc2119}{RFC 2119}. Note that these definitions are relative to the board or system that it is concerned with. For example, the Pfotzer-Regener detector must include a silicon photomultiplier. This means the Pfotzer-Regener subsystem requires a silicon photomultiplier to function correctly, however this isn't a strict requirement of the project overall as the Pfotzer-Regener subsystem is a should have requirement.
+
+This can be summarised with
+\begin{itemize}
+    \item \textbf{MUST}, \textbf{REQUIRED}, \textbf{SHALL} mean that the definition is an absolute requirement
+    \item \textbf{MUST NOT}, \textbf{SHALL NOT} mean that the definition is an absolute prohibition.
+    \item \textbf{SHOULD}, \textbf{RECOMMENDED} mean that there may exist valid reasons in particular circumstances to ignore a particular item or definition, but the full implications must be understood.
+    \item \textbf{SHOULD NOT}, \textbf{NOT RECOMMENDED} mean that there may exist valid reasons in particular circumstances when a particular item or definition is acceptable, but the full implications must be understood.
+    \item \textbf{MAY}, \textbf{OPTIONAL} mean that an item is truly optional.
+\end{itemize}
+
+\section{High-Level Design}
+\subsection{Overview}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/payload-diagram.png}
+    \caption{The high-level block diagram for the V2 payload.}
+    \label{fig:1}
+\end{figure}
+The flight systems on the High-Altitude Balloon (HAB) is defined as any electrical system that does not require communication with any satellite or receiver that isn't GPS/GNSS. On the V2 payload, this includes the On-Board Computer (OBC), Power Management Board (PMB), and On-Board Flight Cameras (OBFC). Also included are the two experimental subsystems, the Pfotzer-Regener Detector (PRD) and Solar Monitoring Board (SMB).
+
+\subsection{Requirements}
+\begin{enumerate}
+    \item The total cost of Payload must not exceed \$2000, excluding existing components, materials, and tools
+    \item The total weight of the Payload must not exceed 2.5kg
+    \item The Payload must be entirely contained within the as yet to be defined volume of the Payload. This excludes
+        \begin{enumerate}
+            \item Any external sensors, such as TPH
+            \item Any external devices that require outside access, such as the OBFC
+        \end{enumerate}
+    \item All devices of the Payload must be recovered and should be in a state to be reused for future launches.
+        \begin{enumerate}
+            \item The electronics must be capable of withstanding impact at a peak descent velocity of 5m/s
+        \end{enumerate}
+    \item The electronics of the Payload must be active once given an appropriate power source
+    \item The Payload must be easily locatable and visible once it has landed
+        \begin{enumerate}
+            \item The Payload must be brightly coloured
+            \item The Payload must have a radio beacon that transmits a constant radio signal post-landing
+                \begin{enumerate}
+                    \item The beacon must continuously transmit for a minimum of 5 hours post-landing
+                    \item The beacon must have a minimum range of 200m in all directions
+                \end{enumerate}
+        \end{enumerate}
+    \item The Payload must have a dedicated experimental payload bed
+        \begin{enumerate}
+            \item The Payload bed must be capable of mounting an experimental payload with dimensions no greater than $100\times 100\times 100$mm
+        \end{enumerate}
+    \item The Payload must have temperature, pressure, and humidity sensors both within and immediately surrounding the Payload, operational for the duration of the flight
+        \begin{enumerate}
+            \item The Payload must have at least 1 primary and 1 secondary TPH, both within and immediately surrounding external to the Payload
+            \item All TPH sensors must provide measurements at a frequency of no greater than every 5 seconds
+            \item All temperature sensors must provide measurements with an accuracy of no greater than $\pm 1\degree C$
+            \item All pressure sensors must provide measurements with an accuracy of no greater than $\pm 2$hPa
+            \item All humidity sensors must provide measurements with an accuracy of no greater than $\pm 5\%$RH
+            \item All temperature, pressure, and humidity sensors must be capable of reliably operating with an external Payload ambient temperature of $-70\degree C$
+        \end{enumerate}
+    \item The Payload must be capable of measuring the altitude of the Payload for the duration of the flight
+        \begin{enumerate}
+            \item The Payload must have at least 1 primary and 1 secondary altitude measurement unit within the Payload
+            \item All altitude measurement units must provide measurements at a frequency of no greater than every 5 seconds
+            \item All altitude measurements must provide measurements with an accuracy of no greater than $\pm 20$m
+            \item All altitude measurement units must be capable of reliably operating with an external payload ambient temperature of $-70\degree C$
+        \end{enumerate}
+    \item The Payload must have 9-axis (accelerometer, gyroscope, magnetometer) inertial measurements units (IMUs) within the Payload, operational for the duration of the flight
+        \begin{enumerate}
+            \item The Payload must have at least 1 primary and 1 secondary 9-axis IMY within the Payload
+            \item All IMUs must provide measurements at a frequency of no greater than every 10ms
+            \item All IMUs must 
+        \end{enumerate}
+\end{enumerate}
+
+\section{On-Board Computer}
+\subsection{Overview}
+The On-Board Computer (OBC) is the main controller for the payload. It is directly responsible for the control of the battery heater(s), control of the foxhunt transmitter, and logging temperature (TPH) and acceleration, rotation, and magnetism.
+
+\subsection{Requirements}
+
+\section{Power Management Board}
+\subsection{Overview}
+\subsection{Requirements}
+
+\section{On-Board Flight Cameras}
+\subsection{Overview}
+\subsection{Requirements}
+
+\section{Pfotzer-Regener Detector}
+\subsection{Overview}
+\subsection{Requirements}
+
+\section{Solar Monitoring Board}
+\subsection{Overview}
+\subsection{Requirements}
+
+\appendix
+\section{Glossary of Terms}
+
+\section{Specifications of Parts}
+
 
 \end{document}
