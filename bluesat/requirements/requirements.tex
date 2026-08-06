@@ -28,6 +28,15 @@ This can be summarised with
     \item \textbf{MAY}, \textbf{OPTIONAL} mean that an item is truly optional.
 \end{itemize}
 
+Every requirement is assigned a level, indicating the degree to which any particular definition is required for the success of the Payload.
+\begin{enumerate}
+    \item A level 1 requirement indicates a "hard" requirement. These define the bare minimum in order to have functioning payload, as well as defining any limits associated with the payload.
+    \item A level 2 requirement indicates an "good to have" requirement. These define systems or definitions that are good to have on a functional payload.
+    \item A level 3 requirement indicates an "ideal" requirement. These are systems or definitions that would be present on an ideal payload.
+\end{enumerate}
+
+Additionally, all requirements have an associated ID. This takes the form of \texttt{RL.XX/YY-ZZ}, where \texttt{L} is the level of the requirement, \texttt{XX} denote the major number, \texttt{YY} is the minor letter/number, and \texttt{ZZ} is the particular index. Note that all numbers are 0-padded, and that any field may be omitted (bar the major number). For example, the requirement dictating the required voltage for the experimental payload beds is \texttt{R2.07/B}, and the particulars of the requirement can be referred to as \texttt{R2.07/B-i} and \texttt{R2.07/B-ii}, respectively.
+
 \section{High-Level Design}
 \subsection{Overview}
 \begin{figure}[H]
@@ -39,6 +48,7 @@ This can be summarised with
 The flight systems on the High-Altitude Balloon (HAB) is defined as any electrical system that does not require communication with any satellite or receiver that isn't GPS/GNSS. On the V2 payload, this includes the On-Board Computer (OBC), Power Management Board (PMB), and On-Board Flight Cameras (OBFC). Also included are the two experimental subsystems, the Pfotzer-Regener Detector (PRD) and Solar Monitoring Board (SMB).
 
 \subsection{Requirements}
+The below dictates the hard (or level 1) requirements of the Payload.
 \begin{enumerate}
     \item The total cost of Payload must not exceed \$2000, excluding existing components, materials, and tools
     \item The total weight of the Payload must not exceed 2.5kg
@@ -64,6 +74,11 @@ The flight systems on the High-Altitude Balloon (HAB) is defined as any electric
     \item The Payload must have a dedicated experimental payload bed
         \begin{enumerate}
             \item The Payload bed must be capable of mounting an experimental payload with dimensions no greater than $100\times 100\times 100$mm
+            \item The Payload must supply a regulated voltage rail to the experimental payload bed
+                \begin{enumerate}
+                    \item The specific voltage/capacity of each experimental bed power rail is dictated by the experiment itself
+                    \item A particular experiment may not require an external power source, and in such a circumstance one will not have to provided by the Payload
+                \end{enumerate}
         \end{enumerate}
     \item The Payload must have temperature, pressure, and humidity sensors both within and immediately surrounding the Payload, operational for the duration of the flight
         \begin{enumerate}
@@ -83,10 +98,29 @@ The flight systems on the High-Altitude Balloon (HAB) is defined as any electric
         \end{enumerate}
     \item The Payload must have 9-axis (accelerometer, gyroscope, magnetometer) inertial measurements units (IMUs) within the Payload, operational for the duration of the flight
         \begin{enumerate}
-            \item The Payload must have at least 1 primary and 1 secondary 9-axis IMY within the Payload
+            \item The Payload must have at least 1 primary and 1 secondary 9-axis IMU within the Payload
             \item All IMUs must provide measurements at a frequency of no greater than every 10ms
-            \item All IMUs must 
+            \item All IMU accelerometers must provide measurements with a range of at least $\pm 16$g
+            \item All IMU gyroscopes must provide measurements with a range of at least $\pm 2000$dps
+            \item All IMU magnetometers must provide measurements with a range of at least $\pm 1300\mu $T
+            \item All IMUs must be capable of reliably operating with an external Payload temperature of $-70\degree C$
         \end{enumerate}
+    \item The Payload must have reliable and continuous two-way communication to a ground-based team for the duration of the flight
+    \item The Payload have at least 3 cameras operational for the duration of the flight
+        \begin{enumerate}
+            \item All cameras must record at a resolution of at least 1080p
+            \item All cameras must record at a frame rate of at least 30 frames per second
+            \item All cameras must have sufficient storage capacity to store all recorded footage for the duration of the flight
+            \item All cameras must be external-facing and have a minimum horizontal field of view of 120\textdegree for the duration of the flight
+            \item All cameras must be capable of reliably operating with an external Payload ambient temperature of $-70\degree$
+            \item Collectively, all cameras should cover the following angles
+                \begin{enumerate}
+                    \item Vertically to capture the balloon
+                    \item Vertically to capture the earth
+                    \item Horizontally to capture the horizon
+                \end{enumerate}
+        \end{enumerate}
+    \item The Payload must store all primary and secondary flight environment and flight dynamics data from the duration of the flight
 \end{enumerate}
 
 \section{On-Board Computer}
