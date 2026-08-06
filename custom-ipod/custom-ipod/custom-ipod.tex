@@ -1,0 +1,176 @@
+\documentclass{article}
+
+\usepackage{preamble}
+
+\title{Custom iPod Project}
+\author{Oskar Meszaros (z5636164)}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+\section{Design Brief}
+\subsection{Overview}
+The primary objective of this device is to design and implement a portable, battery-powered digital audio player capable of high-fidelity playback of lossless audio formats. This design will focus on only local playback of audio files, rather than streaming from cloud services.
+
+This device will be implemented using an STM32 microcontroller, and will focus on repairability, transparency, and reproducibility.
+
+\subsection{Motivation}
+Most portable audio players are either a smartphone with compromised audio stages (due to other requirements of those devices), or premium digital audio players that are expensive and proprietary. This project aims to demonstrate and construct a purpose-built embedded platform that can achieve comparable objective performance using modern components while remaining open and reproducible.
+
+\subsection{Objectives}
+\subsubsection{Primary Objectives}
+Below are the primary objectives of the device.
+\begin{enumerate}
+    \item It should be portable and battery-powered
+    \item It should be capable of playing back lossless audio formats
+    \item It should have a high-dynamic range
+    \item It should have low output noise
+    \item It should have low harmonic distortion
+    \item It should have support for low- to mid-power headphones and audio devices
+    \item It should have long battery life
+\end{enumerate}
+
+\subsubsection{Secondary Objectives}
+\begin{enumerate}
+    \item It should have the ability to function as a USB DAC
+    \item It should have expandable storage
+    \item It should have easy to update firmware
+    \item It should be completely open-source
+    \item It should be completely user-repairable
+\end{enumerate}
+
+\subsection{Requirements}
+\subsubsection{Functional Requirements}
+\begin{enumerate}
+    \item The device shall be capable of playing all popular audio formats
+        \begin{enumerate}
+            \item WAV
+            \item FLAC
+            \item MP3
+        \end{enumerate}
+    \item It shall support pulse-control modulation (PCM) up to at least 24-bit/192 kHz
+    \item It shall decode files from removable storage
+    \item It shall maintain playback location between sessions or after power loss.
+    \item It shall display metadata about the currently playing file
+        \begin{enumerate}
+            \item Title/Artist/Album
+            \item Duration/position in file
+            \item Album cover/file icon
+        \end{enumerate}
+    \item It shall provide hardware volume control
+    \item It shall provide information on the state of the device
+        \begin{enumerate}
+            \item Battery monitoring
+            \item Storage capacity and usage
+        \end{enumerate}
+    \item It shall utilise the current standard connectors/ports where applicable
+        \begin{enumerate}
+            \item The charging and data transfer shall use a USB Type-C connecction
+            \item The audio output shall use a standard 3.5mm audio jack.
+        \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Performance Requirements}
+The device shall have at minimum the following specifications
+\begin{table}[H]
+    \centering
+    \caption{Performance requirements for the device}
+    \label{tab:1}
+    \begin{tabular}{l|c}
+        Parameter & Target\\
+        \hline
+        \hline
+        Frequency response & 20 Hz-20 kHz $\pm 0.2$ dB \\
+        THD+N (total harmonic distortion) & $<0.001\%$ \\
+        Dynamic range & $>120$ dB \\
+        SNR (signal-to-noise ratio) & $>120$ dB \\
+        Crosstalk & $<-100$ dB \\
+        Output impedance & $<1\Omega $ \\
+        Headphone output & $>500$ mW @ $32\Omega $ balanced \\
+        Idle battery life & $>20$h \\
+        Playback battery life & $>10$h
+    \end{tabular}
+\end{table}
+
+\subsubsection{Interface Requirements}
+\begin{enumerate}
+    \item The interface shall match or exceed the follow specifications of the iPod Classic 7th Gen display
+        \begin{enumerate}
+            \item 2.5in (63.5 mm) (diagonal) colour LCD with LED backlight
+            \item 320x240 pixel resolution at 163 PPI
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Design Considerations}
+\subsubsection{Audio Integrity}
+\begin{enumerate}
+    \item The device shall separate analogue and digital ground planes with a controlled connection
+    \item The device shall isolate high-speed digital traces from sensitive analogue circuitry
+    \item The device shall use differential routing for DAC outputs where appropriate
+    \item The device shall minimise loop areas and return-path discontinuities
+\end{enumerate}
+
+\subsubsection{Power}
+\begin{enumerate}
+    \item The device shall have separate analogue and digital regulators
+    \item The device shall have low-noise references
+    \item The device shall have high PSRR LDOs
+    \item The device shall have sufficient decoupling
+\end{enumerate}
+
+\subsubsection{EMC}
+\begin{enumerate}
+    \item The device shall shield crystal oscillators
+    \item The device shall have controlled impedance USB routing
+    \item The device shall have ground stitching around analogue sections
+\end{enumerate}
+
+\subsection{Verification}
+In order to verify device performance, the following tests must be conducted
+\begin{enumerate}
+    \item Frequency response
+    \item THD+N
+    \item SNR
+    \item Dynamic range
+    \item Crosstalk
+    \item Output impedance
+    \item Maximum output power
+    \item Battery runtime
+    \item Power consumption
+    \item Thermal performance
+\end{enumerate}
+
+
+
+\section{Research}
+\subsection{DAC Chip}
+\begin{enumerate}
+    \item \href{https://www.digikey.com.au/en/products/detail/texas-instruments/PCM1794ADBR/1426892}{PCM1794ADBR} - High-quality 24-bit DAC with 127-132 dB dynamic range.
+\end{enumerate}
+
+\subsection{Display}
+\begin{enumerate}
+    \item \href{https://core-electronics.com.au/169inch-lcd-display-module-spi-240x280.html}{1.69 LCD Display}
+    \item \href{https://www.digikey.com.au/en/products/detail/newhaven-display-intl/NHD-2-4-240320DB-CTXP/26743730?s=N4IgTCBcDaIHIAkAiBaMA6ALGzAGAzGLkgEIoDCAKgBoAKIAugL5A}{NHD-2.4-240320DB-CTXP}
+\end{enumerate}
+
+\subsection{MCU}
+\begin{enumerate}
+    \item \href{https://www.digikey.com.au/en/products/detail/stmicroelectronics/STM32G474CBT6/12337551}{STM32G474CBT6}:
+        \begin{itemize}
+            \item 1x SAI
+            \item 4x SPI
+            \item 4x I2C
+            \item 512 Kb Flash
+            \item 92 Kb SRAM
+        \end{itemize}
+    \item \href{https://www.digikey.com.au/en/products/detail/stmicroelectronics/STM32U535CBU6/22106512}{STM32U535CBU6}
+\end{enumerate}
+
+\subsection{Batteries}
+\begin{enumerate}
+    \item \href{https://www.auselectronicsdirect.com.au/3.7v-2000mah-li-po-rechargeable-battery-with-jst-p}{3V7 2000mAh}
+\end{enumerate}
+
+\end{document}
