@@ -1,0 +1,9 @@
+[submodule "study/PHYS2113"]
+	path = study/PHYS2113
+	url = https://github.com/mvx-dev/PHYS2113.git
+[submodule "study/PHYS2114"]
+	path = study/PHYS2114
+	url = https://github.com/mvx-dev/PHYS2114.git
+[submodule "study/MATH2099"]
+	path = study/MATH2099
+	url = https://github.com/mvx-dev/MATH2099.git
