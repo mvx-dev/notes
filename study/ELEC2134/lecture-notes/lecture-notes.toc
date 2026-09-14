@@ -14,5 +14,7 @@
 \contentsline {subsection}{\numberline {1.6}Half-Wave Symmetry}{5}{subsection.1.6}%
 \contentsline {subsubsection}{\numberline {1.6.1}Odd Half-Wave Symmetry}{5}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Even Half-Wave Symmetry}{6}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Examples}{6}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Waveforms}{6}{subsubsection.1.7.1}%
 \contentsline {section}{\numberline {A}Filters}{7}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Types of Filters}{7}{subsection.A.1}%
