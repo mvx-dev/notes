@@ -2,12 +2,164 @@
 
 \usepackage{preamble}
 
-\title{LaTeX template}
+\title{ELEC3705 Lecture Notes}
 \author{Oskar Meszaros (z5636164)}
-\date{}
+\date{September 2026}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+
+\newpage
+\section{Week 1}
+\subsection{Photoelectric Effect}
+The photoelectric effect allows us to extract electrons from a piece of metal using light/high-powered lasers.
+\begin{enumerate}
+    \item Below a certain frequency (colour) of light, no electrons are extracted from the metal. This is completely independent of the light intensity.
+    \item Above a cutoff frequency $\omega _c$, the electrons are extracted from the metal, even at very small light intensities.
+    \item The energy $E$ of the extracted electrons is proportional to $\omega -\omega _c$.
+    \item The momentum $p=mv=\sqrt{2mE}$ of the extracted electrons is inversely proportional to the wavelength of light.
+\end{enumerate}
+
+\subsection{Planck-Einstein Relations}
+This effect can be explained is we assume that light in quantised in packets of energy, called photons, where
+\begin{align*}
+    E &= \bar{h}\omega =hv \\
+    \vec{p}&=\bar{h}\vec{k} = h/\lambda ,
+\end{align*}
+where $h=6.626\times 10^{-34}$J s is the Planck constant, and $\bar{h}=h/2\pi =1.054\times 10^{-34}$J s/rad is the "reduced" Planck constant. These are the Planck Einstein relations. They describe light as composed of "particles" of energy, determined by the frequency.
+
+\subsection{Double-Slit Experiment}
+The double-slit experiment demonstrated that light is also an electromagnetic-wave, and can be understood by using the linearity of Maxwell's equations.
+
+The light intensity is proportional to $|E|^2$, and if $\vec{E}(\vec{r})=\vec{E}_1(\vec{r})+\vec{E}_2(\vec{r})$ from the two sources, then
+\[
+    I \propto \left| \vec{E}_1(\vec{r})+\vec{E}_2(\vec{r}) \right|^2\neq \left| \vec{E}_1(\vec{r}) \right|^2+ \left| \vec{E}_2(\vec{r}) \right|^2,
+\]
+shows the wave nature of light.
+
+This experiment still holds at extremely low intensities. It is still individual photons that show up on the screen, however when averaged over time it still results in the interference pattern.
+
+\subsection{Double-Slit with Particles}
+This experiment can be repeated using things that are normally thought of as particles, such as electron or neutrons. To find the required wavelength, we can use the de Broglie hypothesis
+\begin{callout}{definition}[Definition]
+\label{definition:s1-d1}
+The de Broglie hypothesis states:
+
+\indent "to every particle is associated a wave, which obeys the same Planck-Einstein relations as applicable for photons."
+
+From the relation above, we can derive
+\[
+    \boxed{\lambda =\frac{2\pi }{k}=\frac{h}{p}}
+\]
+\end{callout}
+
+This is only significant for extremely small objects. The distance between intensity peaks is given by
+\[
+    \delta x=\lambda \frac{D}{d},
+\]
+with $\lambda =h/p$, $D$ is the distance between the slits and the screen, and $d$ is the separation of the slits. This means that larger particles have smaller distances between intensity peaks, with all else being the same. To make a meaningful observation, we can
+\begin{itemize}
+    \item Increase the wavelength by decreasing the momentum (smaller velocity for constant mass),
+    \item Decrease the distance between the slits,
+    \item Or increase the distance to the screen.
+\end{itemize}
+
+\subsection{Wave Function}
+These two experiments force us to recognise the idea that particles are simultaneously particles and waves, and in fact that waves and particles are not different things. Instead, each wave is made of packets of energy, with is associated with wavelength $\lambda =h/p$ and frequency $v=E/h$.
+
+Instead of trying to describe the trajectory of a particle with position $\vec{r}$ and momentum $\vec{p}$, we use a wave function $\psi (\vec{r},t)$, which contains all the information we can gather on the particle. This wave function is a probability amplitude, such that 
+\[
+C \iiint_V |\psi(\vec{r},t)|^2d^3\vec{r}=P_V(t),
+\]
+where $P_V(t)$ is the probability of finding the particle in the volume $V$ at time $t$, and $C$ is a normalisation constant to ensure the value is between 0 and 1, i.e.
+\[
+    C \iiint_{-\infty}^\infty|\psi (\vec{r},t)|^2d^3\vec{r}=1,
+\]
+i.e. the particle has to be somewhere. Now instead of calculating the trajectory of a particle, we instead calculate the probability of finding the particle in a certain region in space, and how that evolves over time.
+
+We know that Maxwell's equations allow solutions in the form of propagating waves, e.g.
+\[
+    \vec{E}(\vec{r},t)=Ae^{i(k\vec{r}-\omega t)}
+\]
+is a plane wave that solve the wave equation of the form
+\[
+    \nabla^2\vec{E}=\frac{1}{v^2}\frac{\partial^2\vec{E}}{\partial t^2},
+\]
+where $v=\omega /k$. This wave equation contains the partial second derivative of the electric field with respect to both time and space. Taking the second derivative of the plane wave results in the coefficients $k^2$ and $\omega^2$ which give rise to the $1/v^2$ term in the equation. Note that $v$ is constant.
+
+Consider a free particle. The energy is purely kinetic, so
+\[
+    E=\frac{1}{2}mv^2=\frac{p^2}{2m}=\frac{\bar{h}^2k^2}{2m},
+\]
+which we can impose Planck-Einstein to get
+\[
+    \bar{h}\omega=\frac{\bar{h}^2k^2}{2m}.
+\]
+An important thing to note is that the energy depends quadratically on $k$, but linearly on $\omega $. This means that an appropriate wave equation should contain a first derivative with respect to time, and the second derivative with respect to space. Here, $v$ is no longer constant.
+
+\subsection{Schr\"odinger Equation}
+Schr\"odinger postulated an equation that describes the time evolution of the wavefunction of quantum object to be
+\[
+    \boxed{i\bar{h}\frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t)+V(\vec{r})\psi (\vec{r},t)}
+\]
+$V(\vec{r})$ is a (position-dependent) potential energy. It is similar to a wave equation, containing the first derivative w.r.t. time, and the second w.r.t. space. The coefficients are chosen to impose the Planck-Einstein relations. Because of the first derivative w.r.t. time, the equation explicitly contains $i$.
+
+\begin{proof}
+    Consider a free particle not subjected to any potentials or forces ($V(\vec{r})=0$):
+    \[
+        i\bar{h}\frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t).
+    \]
+    This has a solution of the form
+    \[
+        \psi (\vec{r},t)=Ae^{i(\vec{k}\cdot\vec{r}-\omega t)}
+    \]
+    with the condition
+    \[
+        \bar{h}\omega =\frac{\bar{h}^2k^2}{2m}.
+    \]
+    Inserting the Planck-Einstein relations, the above conditions means
+    \[
+        E=\frac{p^2}{2m}=\frac{1}{2}mv^2.
+    \]
+\end{proof}
+
+\subsection{Wave Packets}
+These wavefunctions can be combined into a single wave packet by simply summing them together (and hence with 3 wave numbers $k$). The interference between the different wave components causes the wave components to no longer be spread out equally in space, however it still have recurrences.
+
+These recurrences get more spread out the more wave components are added, up to a limit of infinitely many components, each with a different wave number $k$ and with a coefficient $g(k)$. For simplicity, take the 1D case ($\vec{r}\equiv x$):
+\[
+    \psi (x,t)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty g(k)e^{i(kx-\omega t)}dk.
+\]
+We can find $g(k)$ by setting $t=0$ (i.e. initial conditions)
+\[
+    \psi (x,0)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty g(k)e^{ikx}dk,
+\]
+therefore
+\[
+    g(k)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty\psi (x,0)e^{-ikx}dx.
+\]
+This means that $g(k)$ is the Fourier transform (in space) of the shape of the wave packet at $t=0$, i.e. of the probability amplitude of finding the object at point $x$ at $t=0$.
+
+\subsection{Heisenbery Uncertainty Principle}
+Consider a Gaussian wave packet
+\[
+    \psi (x,0)=\frac{1}{\sqrt{2\pi }\sigma _x}\exp \left( -\frac{x^2}{2\sigma _x^2} \right). 
+\]
+It's Fourier transform is also a Gaussian
+\begin{align*}
+    g(k) &= \frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty\psi (x,0)e^{-ikx}dx \\
+         &=\frac{1}{\sqrt{2\pi }\sigma _x}\exp \left( -\frac{k^2}{2\omega _k^2} \right).
+\end{align*}
+From the properties of Fourier transforms, we know that
+\[
+    \sigma _k=1/\sigma _x\quad\Rightarrow\quad\sigma _k\sigma _x=1.
+\]
+Imposing the Planck-Einstein relation $p=\bar{h}k\Rightarrow\sigma _p=\bar{h}\sigma _k$, we get
+\[
+    \boxed{\sigma _p\sigma _x=\bar{h}}
+\]
+This relation is a simple mathematical property of Fourier transform. This appears as soon as you assume the Planck-Einstein relations, i.e. wave-particle duality. This also holds if you assume the uncertainty principle as a postulate, then wave-particle duality is a consequence of the mathematical properties of Fourier transforms.
 
 \end{document}
