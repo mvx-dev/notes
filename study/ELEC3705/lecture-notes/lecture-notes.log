@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  14 SEP 2026 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  14 SEP 2026 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -838,8 +838,8 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4] [5] [6]
-runsystem(latexminted cleantemp  --timestamp 20260914161046 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4] [5] [6] [7] [8]
+runsystem(latexminted cleantemp  --timestamp 20260914165531 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
  (./lecture-notes.aux)
  ***********
@@ -847,21 +847,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 271BC335CFBE3360B4984C8F0C8D048C;2797.
+(rerunfilecheck)             Checksum: 223747DF1015C607A581B083385C9072;3700.
  ) 
 Here is how much of TeX's memory you used:
- 33674 strings out of 469515
- 698942 string characters out of 5470807
- 1248272 words of memory out of 5000000
- 61750 multiletter control sequences out of 15000+600000
+ 33688 strings out of 469515
+ 699136 string characters out of 5470807
+ 1249277 words of memory out of 5000000
+ 61756 multiletter control sequences out of 15000+600000
  638946 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  109i,9n,122p,550b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on lecture-notes.pdf (6 pages, 187977 bytes).
+Output written on lecture-notes.pdf (8 pages, 196129 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 293 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 

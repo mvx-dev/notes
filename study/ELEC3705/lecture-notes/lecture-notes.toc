@@ -15,3 +15,9 @@
 \contentsline {subsubsection}{\numberline {2.2.3}Hermitian Operators}{6}{subsubsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.3}Basis of a Hilbert Space}{6}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Observables}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Spin and The Postulates of Quantum Mechanics}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Postulate 1}{7}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Applications}{7}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Postulate 2}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Applications}{7}{subsubsection.3.2.1}%
+\contentsline {section}{\numberline {A}Fourier Transform}{8}{appendix.A}%

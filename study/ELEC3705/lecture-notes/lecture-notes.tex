@@ -247,4 +247,66 @@ A Hermitian operator is called observable if its eigenvectors form a basis of th
 \]
 The eigenvalues of unitary operators are complex number of modulus 1.
 
+\section{Spin and The Postulates of Quantum Mechanics}
+\subsection{Postulate 1}
+The first postulate of quantum mechanics:
+\indent\textbf{At an initial time, the state of a quantum system is specified by a ket that belongs to a suitable vector space.}
+
+This means that any ket
+\[
+    \ket{\psi '}=\lambda_{1}\ket{\psi_1 }+\lambda_2 \ket{\psi_2},
+\]
+is also a legitimate state of the system. This is known as the superposition principle.
+
+Note that we normally assume that the state vectors are normalised
+\[
+    \braket{\psi }{\psi }=1.
+\]
+\subsubsection{Applications}
+Assuming a 2D vector space (spin-up and spin-down). We have a basis in this space to be
+\[
+    \ket{\uparrow},\ket{\downarrow}.
+\]
+They must satisfy the following conditions
+\begin{itemize}
+    \item Normalisation: $\braket{\downarrow}{\downarrow}=\braket{\uparrow}{\uparrow}=1$
+    \item Orthogonality: $\braket{\uparrow}{\downarrow}=0$
+    \item Closure: $\ket{\downarrow}\bra{\downarrow}+\ket{\uparrow}\bra{\uparrow}=\mathbb{I}$
+\end{itemize}
+
+There are an infinite number of options for this, but the simplest is
+\[
+    \ket{\uparrow}=\ket{1}=\begin{pmatrix}
+        1 & 0
+    \end{pmatrix},\quad \ket{\downarrow}=\ket{2}=\begin{pmatrix}
+        0 & 1
+    \end{pmatrix}.
+\]
+
+Then, any ket of the form $\alpha \ket{1}+\beta \ket{2}$, with $\alpha^2+\beta^2=1$ is a legitimate state of the system
+\[
+    \ket{\psi }=\begin{pmatrix}
+        \alpha & \beta 
+    \end{pmatrix}.
+\]
+
+\subsection{Postulate 2}
+The second postulate of quantum mechanics: \textbf{Every measurable physical quantity is described by an operator, which must be an observable}.
+
+This means you can construct operators in your space $\epsilon $ that not observable, i.e. they cannot correspond to measurable physical quantities.
+
+\subsubsection{Applications}
+
+
+\newpage
+\appendix
+\section{Fourier Transform}
+A Fourier transform decomposes a function into another function that describes the number of occurrences of frequencies within the original function.
+\[
+    F(\omega )=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty f(t)e^{-i\omega t}dt.
+\]
+Fundamentally it is an inner product between $f(t)$ and $e^{-i\omega t}$, with the second vector being characterised by the parameter $\omega $. It tells you how similar the two vectors are to each other, thereby defining the number of occurrences of each frequency.
+
+The Fourier series of a sinusoid is a delta function, indicating that it is infinitely similar at that frequency, and not at all at the others.
+
 \end{document}
