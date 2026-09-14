@@ -12,7 +12,7 @@
 \tableofcontents
 
 \newpage
-\section{Week 1}
+\section{Why Quantum Mechanics?}
 \subsection{Photoelectric Effect}
 The photoelectric effect allows us to extract electrons from a piece of metal using light/high-powered lasers.
 \begin{enumerate}
@@ -161,5 +161,90 @@ Imposing the Planck-Einstein relation $p=\bar{h}k\Rightarrow\sigma _p=\bar{h}\si
     \boxed{\sigma _p\sigma _x=\bar{h}}
 \]
 This relation is a simple mathematical property of Fourier transform. This appears as soon as you assume the Planck-Einstein relations, i.e. wave-particle duality. This also holds if you assume the uncertainty principle as a postulate, then wave-particle duality is a consequence of the mathematical properties of Fourier transforms.
+
+\section{The Mathematical Formalism of Quantum Mechanics}
+\subsection{Hilbert Space}
+A function is a vector in an infinite-dimensioned vector space. It is sometimes convenient to represent the function using a finite number of "basis functions", so that the vector space necessary to describe the function has finite dimension. This is known as a Hilbert Space.
+
+A vector space requires a suitable basis.
+\begin{callout}{example}[Example]
+\label{example:s1-e1}
+3D vector space $\mathbb{R}^3$.
+
+Let $\left\{ \vec{u}_x,\vec{u}_y,\vec{u}_z \right\}$ be an orthonormal basis in $\mathbb{R}^3$. We can then describe a vector in terms of this basis as
+\[
+    \vec{v}=x\vec{u}_x+y\vec{u}_y+z\vec{u}_z,
+\]
+where $x$, $y$, and $z$ are coefficients. We then have
+\[
+    |\vec{u}_\alpha |=1,\quad \text{and}\quad\vec{u}_\alpha \cdot\vec{u}_\beta =\delta _{\alpha\beta }.
+\]
+\end{callout}
+
+Once we have the basis, we can represent any vector in that basis as a vector of its coefficients in the chosen basis
+\[
+    \vec{v}=\begin{pmatrix}
+        x \\ y \\ z
+    \end{pmatrix}.
+\]
+We can denote this vector as $\ket{v}$, indicating it is a normal vector. Similarly, we can define the transpose of this vector as $\bra{v}$. Note that we also have to take the complex conjugate of the elements in this vector as we are dealing with complex numbers. We then define the dot product of this to be
+\[
+    \vec{a}\cdot\vec{b}\to \vec{a}^T\vec{b}\braket{a}{b}=\sum_{i=1}^{3} a_i^*b_i
+\]
+This is known as Dirac notation.
+
+\subsection{Operators}
+\subsubsection{Linear Operators}
+In a vector space, we can define linear operators (usually matrices) that transform a vector into another
+\[
+    \ket{\psi '}=A \ket{\psi }.
+\]
+Note that $\braket{\phi }{\psi }$ is a number, and $\ket{\phi }\bra{\psi }$ is a matrix.
+
+\subsubsection{Adjoint Operators}
+Adjoint operators provide the correspondence between bras and kets
+\[
+    \ket{\psi '}=A \ket{\psi }\to \bra{\psi '}=\bra{\psi }A^\dag.
+\]
+Here, $A^\dag$ is the adjoint of $A$. It is obtained by transposing and taking the complex conjugate of each element.
+
+\subsubsection{Hermitian Operators}
+If an operator is it's own adjoint (i.e. $A=A^\dag$), then they are called Hermitian operators. The are simple to recognise
+\begin{itemize}
+    \item The elements on opposite side of the diagonal are the complex conjugate of each
+    \item The elements on the diagonal are purely real.
+\end{itemize}
+
+\subsection{Basis of a Hilbert Space}
+A set of kets $\left\{ \ket{\nu _i} \right\}$ is called orthonormal if
+\[
+    \braket{\nu _i}{\nu _j}=\delta _{ij}.
+\]
+The set $\left\{ \ket{\nu _i} \right\}$ forms a basis of the Hilbert space $\epsilon $ if every $\ket{\psi }$ can be written as
+\[
+    \ket{\psi }=\sum_{j}c_j \ket{\nu _j}.
+\]
+An important property is the closure relation
+\[
+    \ket{\psi }=\sum_{j}c_j \ket{\nu _j}=\sum_{j}\braket{\nu _i}{\psi }\ket{\nu _j}=\sum_{j}\ket{\nu _j}\braket{\nu _k}{\psi }.
+\]
+For this to be true, it requires
+\[
+    \sum_{j}\ket{\nu _j}\bra{\nu _j}=\mathbb{I}.
+\]
+This is called the closure relation. The operators $\ket{\nu _j}\bra{\nu _j}$ projects a vector onto the basis state $\ket{\nu _j}$.
+
+\subsection{Observables}
+General linear algebra theorems
+\begin{itemize}
+    \item The eigenvalues of a Hermitian operator are real
+    \item The eigenvectors corresponding to different eigenvalues are orthogonal
+\end{itemize}
+
+A Hermitian operator is called observable if its eigenvectors form a basis of the vector space. We call a unitary an operator for which holds
+\[
+    U^{-1}=U^\dag.
+\]
+The eigenvalues of unitary operators are complex number of modulus 1.
 
 \end{document}
