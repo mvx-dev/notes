@@ -310,4 +310,101 @@ Rejects frequencies between $\omega _L$ and $\omega _H$.
 \]
 \indent Passbands: $\omega <\omega _L$ and $\omega >\omega _H$, stopband: $\omega _L<\omega <\omega _H$.
 
+\section{Useful Integrals}
+\subsection{Integrals}
+For integer $n\neq0$
+\begin{align*}
+    \int\sin(ax) dx&= -\frac{1}{a}\cos(ax) \\
+    \int\cos(ax)dx&= \frac{1}{a}\sin(ax) \\
+    \int_0^T\sin(n\omega _0t)dt&=0 \\
+    \int_0^T\cos(n\omega _0t)dt&=0
+\end{align*}
+
+\subsection{Integration by Parts}
+\subsubsection{Key Formula}
+Key formula:
+\[
+    \int u dv=uv-\int vdu.
+\]
+\begin{align*}
+    \int x e^{ax}dx &= \frac{e^{ax}}{a^2}(ax-1) \\
+    \int x^2e^{ax}dx&=\frac{e^{ax}}{a^3}(a^2x^2-2ax+2)
+\end{align*}
+
+\subsubsection{Cosine}
+Key formula:
+\[
+    \int t\cos(n\omega _0t)dt.
+\]
+Let $u=t\Rightarrow dt$, $dv=\cos(n\omega _0t)dt\Rightarrow v=\frac{1}{n\omega _0}\sin(n\omega _0t)$
+\[
+    \boxed{\int t\cos(n\omega _0t)dt=\frac{1}{n\omega _0}\sin(n\omega _0t)-\frac{1}{\left( n\omega _0 \right)^2}\cos(n\omega _0t)+G}
+\]
+
+\subsubsection{Sine}
+Key formula:
+\[
+    \int t\sin(n\omega _0t)dt.
+\]
+Let $u=t\Rightarrow du=dt$, $dv=\sin(n\omega _0t)dt\Rightarrow v=-\frac{1}{n\omega _0}\cos(n\omega _0t)$
+\[
+    \boxed{\int t\sin(n\omega _0t)dt=-\frac{t}{n\omega _0}\cos(n\omega _0t)+\frac{1}{\left( n\omega _0 \right)^2}\sin(n\omega _0t)+G}
+\]
+
+\subsubsection{Definite Integration by Parts}
+For $0\leq t\leq T$ and integer $n$
+\[
+    \int_0^Tt\sin(n\omega _0t)dt=\boxed{\frac{T}{n\omega _0}}\quad \text{and}\quad \int_0^Tt\cos(n\omega_0t)dt=\boxed{0}.
+\]
+
+\subsection{Definite Integrals}
+$x^2$ and trigonometric function:
+\begin{align*}
+    \int_0^T x^2\cos(nx)dx&=\left[ \frac{x^2}{n}\sin(nx)+\frac{2x}{n^2}\cos(nx)-\frac{2}{n^3}\sin(nx) \right]_0^T \\
+    \int_0^Tx^2\sin(nx)dx&= \left[ -\frac{x^2}{n}\cos(nx)+\frac{2x}{n^2}\sin(nx)+\frac{2}{n^3}\cos(nx) \right]_0^T.
+\end{align*}
+
+$x$ and trigonometric function:
+\begin{align*}
+    \int_0^Tx\cos(nx)dx &= \left[ \frac{x}{n}\sin(nx)+\frac{1}{n^2}\cos(nx) \right]_0^T \\
+    \int_0^Tx\sin(nx)dx&=\left[ -\frac{x}{n}\cos(nx)+\frac{1}{n^2}\sin(nx) \right]_0^T.
+\end{align*}
+
+Miscellaneous:
+\begin{align*}
+    \int_0^T\cos(m\omega _0t)\sin(n\omega _0t)dt&=0\quad \text{for all m and n} \\
+    \int_0^T\sin(m\omega _0t)\sin(n\omega _0t)dt&=\begin{cases}
+        0 & \text{for all }m\neq n \\
+        \frac{T}{2} & \text{for } m=n
+    \end{cases} \\
+    \int_0^T\cos(m\omega _0t)\cos(n\omega _0t)dt&= \begin{cases}
+        0 & \text{for all }m \neq n \\
+        \frac{T}{2} & \text{for } m=n
+    \end{cases}.
+\end{align*}
+
+\section{Trigonometric Identities}
+\begin{align*}
+    \sin(\alpha \pm\beta ) &= \sin\alpha \cos\beta \pm\cos\alpha \sin\beta  \\
+    \cos(\alpha \pm\beta ) &=\cos\alpha \cos\beta \mp\sin\alpha \sin\beta \\
+    \cos(\alpha \pm 90\degree)&= \mp\sin\alpha \\
+    \sin(\alpha \pm90\degree)&= \pm\cos\alpha \\
+    \cos\alpha \cos\beta &= \frac{1}{2}\cos(\alpha +\beta )+\frac{1}{2}\cos(\alpha -\beta )\\
+    \sin\alpha \sin\beta &= \frac{1}{2}\cos(\alpha -\beta )-\frac{1}{2}\cos(\alpha +\beta ) \\
+    \sin\alpha \cos\beta &=\frac{1}{2}\sin(\alpha +\beta)+\frac{1}{2}\sin(\alpha -\beta )\\
+    \sin 2\alpha &=2\sin\alpha \cos\alpha .
+\end{align*}
+
+\begin{align*}
+    \cos 2\alpha  &= 2\cos^2\alpha -1 \\
+                  &=1-2\sin^2\alpha \\
+                  &=\cos^2\alpha -\sin^2\alpha \\
+    \sin^2\alpha &=\frac{1}{2}(1-\cos 2\alpha )\\
+    \cos^2\alpha &=\frac{1}{2}(1+\cos 2\alpha ) \\
+    \sin\alpha&= \frac{e^{j\alpha }-e^{-j\alpha }}{2j}\\
+    \cos\alpha =\frac{e^{j\alpha }+e^{-j\alpha }}{2} \\
+    e^{\pm j\alpha }&=\cos\alpha \pm j\sin\alpha  \\
+    A\cos\alpha +B\sin\alpha &=\sqrt{A^2+B^2}\cos \left( \alpha +\tan^{-1}\left( \frac{B}{A} \right) \right).
+\end{align*}
+
 \end{document}

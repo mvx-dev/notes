@@ -18,3 +18,12 @@
 \contentsline {subsubsection}{\numberline {1.7.1}Waveforms}{6}{subsubsection.1.7.1}%
 \contentsline {section}{\numberline {A}Filters}{7}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Types of Filters}{7}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{7}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{7}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{7}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{7}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{8}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{8}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{8}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{8}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{9}{appendix.C}%
