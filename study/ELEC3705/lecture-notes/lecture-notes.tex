@@ -1,0 +1,854 @@
+\documentclass{article}
+
+\usepackage{preamble}
+
+\title{ELEC3705 Lecture Notes}
+\author{Oskar Meszaros (z5636164)}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Why Quantum Mechanics?}
+\subsection{Photoelectric Effect}
+The photoelectric effect allows us to extract electrons from a piece of metal using light/high-powered lasers.
+\begin{enumerate}
+    \item Below a certain frequency (colour) of light, no electrons are extracted from the metal. This is completely independent of the light intensity.
+    \item Above a cutoff frequency $\omega _c$, the electrons are extracted from the metal, even at very small light intensities.
+    \item The energy $E$ of the extracted electrons is proportional to $\omega -\omega _c$.
+    \item The momentum $p=mv=\sqrt{2mE}$ of the extracted electrons is inversely proportional to the wavelength of light.
+\end{enumerate}
+
+\subsection{Planck-Einstein Relations}
+This effect can be explained is we assume that light in quantised in packets of energy, called photons, where
+\begin{align*}
+    E &= \hbar \omega =hv \\
+    \vec{p}&=\hbar \vec{k} = h/\lambda ,
+\end{align*}
+where $h=6.626\times 10^{-34}$J s is the Planck constant, and $\hbar =h/2\pi =1.054\times 10^{-34}$J s/rad is the "reduced" Planck constant. These are the Planck Einstein relations. They describe light as composed of "particles" of energy, determined by the frequency.
+
+\subsection{Double-Slit Experiment}
+The double-slit experiment demonstrated that light is also an electromagnetic-wave, and can be understood by using the linearity of Maxwell's equations.
+
+The light intensity is proportional to $|E|^2$, and if $\vec{E}(\vec{r})=\vec{E}_1(\vec{r})+\vec{E}_2(\vec{r})$ from the two sources, then
+\[
+    I \propto \left| \vec{E}_1(\vec{r})+\vec{E}_2(\vec{r}) \right|^2\neq \left| \vec{E}_1(\vec{r}) \right|^2+ \left| \vec{E}_2(\vec{r}) \right|^2,
+\]
+shows the wave nature of light.
+
+This experiment still holds at extremely low intensities. It is still individual photons that show up on the screen, however when averaged over time it still results in the interference pattern.
+
+\subsection{Double-Slit with Particles}
+This experiment can be repeated using things that are normally thought of as particles, such as electron or neutrons. To find the required wavelength, we can use the de Broglie hypothesis
+\begin{callout}{definition}[Definition]
+\label{definition:s1-d1}
+The de Broglie hypothesis states:
+
+\indent "to every particle is associated a wave, which obeys the same Planck-Einstein relations as applicable for photons."
+
+From the relation above, we can derive
+\[
+    \boxed{\lambda =\frac{2\pi }{k}=\frac{h}{p}}
+\]
+\end{callout}
+
+This is only significant for extremely small objects. The distance between intensity peaks is given by
+\[
+    \delta x=\lambda \frac{D}{d},
+\]
+with $\lambda =h/p$, $D$ is the distance between the slits and the screen, and $d$ is the separation of the slits. This means that larger particles have smaller distances between intensity peaks, with all else being the same. To make a meaningful observation, we can
+\begin{itemize}
+    \item Increase the wavelength by decreasing the momentum (smaller velocity for constant mass),
+    \item Decrease the distance between the slits,
+    \item Or increase the distance to the screen.
+\end{itemize}
+
+\subsection{Wave Function}
+These two experiments force us to recognise the idea that particles are simultaneously particles and waves, and in fact that waves and particles are not different things. Instead, each wave is made of packets of energy, with is associated with wavelength $\lambda =h/p$ and frequency $v=E/h$.
+
+Instead of trying to describe the trajectory of a particle with position $\vec{r}$ and momentum $\vec{p}$, we use a wave function $\psi (\vec{r},t)$, which contains all the information we can gather on the particle. This wave function is a probability amplitude, such that 
+\[
+C \iiint_V |\psi(\vec{r},t)|^2d^3\vec{r}=P_V(t),
+\]
+where $P_V(t)$ is the probability of finding the particle in the volume $V$ at time $t$, and $C$ is a normalisation constant to ensure the value is between 0 and 1, i.e.
+\[
+    C \iiint_{-\infty}^\infty|\psi (\vec{r},t)|^2d^3\vec{r}=1,
+\]
+i.e. the particle has to be somewhere. Now instead of calculating the trajectory of a particle, we instead calculate the probability of finding the particle in a certain region in space, and how that evolves over time.
+
+We know that Maxwell's equations allow solutions in the form of propagating waves, e.g.
+\[
+    \vec{E}(\vec{r},t)=Ae^{i(k\vec{r}-\omega t)}
+\]
+is a plane wave that solve the wave equation of the form
+\[
+    \nabla^2\vec{E}=\frac{1}{v^2}\frac{\partial^2\vec{E}}{\partial t^2},
+\]
+where $v=\omega /k$. This wave equation contains the partial second derivative of the electric field with respect to both time and space. Taking the second derivative of the plane wave results in the coefficients $k^2$ and $\omega^2$ which give rise to the $1/v^2$ term in the equation. Note that $v$ is constant.
+
+Consider a free particle. The energy is purely kinetic, so
+\[
+    E=\frac{1}{2}mv^2=\frac{p^2}{2m}=\frac{\hbar ^2k^2}{2m},
+\]
+which we can impose Planck-Einstein to get
+\[
+    \hbar \omega=\frac{\bar{h}^2k^2}{2m}.
+\]
+An important thing to note is that the energy depends quadratically on $k$, but linearly on $\omega $. This means that an appropriate wave equation should contain a first derivative with respect to time, and the second derivative with respect to space. Here, $v$ is no longer constant.
+
+\subsection{Schr\"odinger Equation}
+Schr\"odinger postulated an equation that describes the time evolution of the wavefunction of quantum object to be
+\[
+    \boxed{i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t)+V(\vec{r})\psi (\vec{r},t)}
+\]
+$V(\vec{r})$ is a (position-dependent) potential energy. It is similar to a wave equation, containing the first derivative w.r.t. time, and the second w.r.t. space. The coefficients are chosen to impose the Planck-Einstein relations. Because of the first derivative w.r.t. time, the equation explicitly contains $i$.
+
+\begin{proof}
+    Consider a free particle not subjected to any potentials or forces ($V(\vec{r})=0$):
+    \[
+        i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t).
+    \]
+    This has a solution of the form
+    \[
+        \psi (\vec{r},t)=Ae^{i(\vec{k}\cdot\vec{r}-\omega t)}
+    \]
+    with the condition
+    \[
+        \hbar \omega =\frac{\bar{h}^2k^2}{2m}.
+    \]
+    Inserting the Planck-Einstein relations, the above conditions means
+    \[
+        E=\frac{p^2}{2m}=\frac{1}{2}mv^2.
+    \]
+\end{proof}
+
+\subsection{Wave Packets}
+These wavefunctions can be combined into a single wave packet by simply summing them together (and hence with 3 wave numbers $k$). The interference between the different wave components causes the wave components to no longer be spread out equally in space, however it still have recurrences.
+
+These recurrences get more spread out the more wave components are added, up to a limit of infinitely many components, each with a different wave number $k$ and with a coefficient $g(k)$. For simplicity, take the 1D case ($\vec{r}\equiv x$):
+\[
+    \psi (x,t)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty g(k)e^{i(kx-\omega t)}dk.
+\]
+We can find $g(k)$ by setting $t=0$ (i.e. initial conditions)
+\[
+    \psi (x,0)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty g(k)e^{ikx}dk,
+\]
+therefore
+\[
+    g(k)=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty\psi (x,0)e^{-ikx}dx.
+\]
+This means that $g(k)$ is the Fourier transform (in space) of the shape of the wave packet at $t=0$, i.e. of the probability amplitude of finding the object at point $x$ at $t=0$.
+
+\subsection{Heisenbery Uncertainty Principle}
+Consider a Gaussian wave packet
+\[
+    \psi (x,0)=\frac{1}{\sqrt{2\pi }\sigma _x}\exp \left( -\frac{x^2}{2\sigma _x^2} \right). 
+\]
+It's Fourier transform is also a Gaussian
+\begin{align*}
+    g(k) &= \frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty\psi (x,0)e^{-ikx}dx \\
+         &=\frac{1}{\sqrt{2\pi }\sigma _x}\exp \left( -\frac{k^2}{2\omega _k^2} \right).
+\end{align*}
+From the properties of Fourier transforms, we know that
+\[
+    \sigma _k=1/\sigma _x\quad\Rightarrow\quad\sigma _k\sigma _x=1.
+\]
+Imposing the Planck-Einstein relation $p=\hbar k\Rightarrow\sigma _p=\bar{h}\sigma _k$, we get
+\[
+    \boxed{\sigma _p\sigma _x=\hbar }
+\]
+This relation is a simple mathematical property of Fourier transform. This appears as soon as you assume the Planck-Einstein relations, i.e. wave-particle duality. This also holds if you assume the uncertainty principle as a postulate, then wave-particle duality is a consequence of the mathematical properties of Fourier transforms.
+
+\section{The Mathematical Formalism of Quantum Mechanics}
+\subsection{Hilbert Space}
+A function is a vector in an infinite-dimensioned vector space. It is sometimes convenient to represent the function using a finite number of "basis functions", so that the vector space necessary to describe the function has finite dimension. This is known as a Hilbert Space.
+
+A vector space requires a suitable basis.
+\begin{callout}{example}[Example]
+\label{example:s1-e1}
+3D vector space $\mathbb{R}^3$.
+
+Let $\left\{ \vec{u}_x,\vec{u}_y,\vec{u}_z \right\}$ be an orthonormal basis in $\mathbb{R}^3$. We can then describe a vector in terms of this basis as
+\[
+    \vec{v}=x\vec{u}_x+y\vec{u}_y+z\vec{u}_z,
+\]
+where $x$, $y$, and $z$ are coefficients. We then have
+\[
+    |\vec{u}_\alpha |=1,\quad \text{and}\quad\vec{u}_\alpha \cdot\vec{u}_\beta =\delta _{\alpha\beta }.
+\]
+\end{callout}
+
+Once we have the basis, we can represent any vector in that basis as a vector of its coefficients in the chosen basis
+\[
+    \vec{v}=\begin{pmatrix}
+        x \\ y \\ z
+    \end{pmatrix}.
+\]
+We can denote this vector as $\ket{v}$, indicating it is a normal vector. Similarly, we can define the transpose of this vector as $\bra{v}$. Note that we also have to take the complex conjugate of the elements in this vector as we are dealing with complex numbers. We then define the dot product of this to be
+\[
+    \vec{a}\cdot\vec{b}\to \vec{a}^T\vec{b}\braket{a}{b}=\sum_{i=1}^{3} a_i^*b_i
+\]
+This is known as Dirac notation.
+
+\subsection{Operators}
+\subsubsection{Linear Operators}
+In a vector space, we can define linear operators (usually matrices) that transform a vector into another
+\[
+    \ket{\psi '}=A \ket{\psi }.
+\]
+Note that $\braket{\phi }{\psi }$ is a number, and $\ket{\phi }\bra{\psi }$ is a matrix.
+
+\subsubsection{Adjoint Operators}
+Adjoint operators provide the correspondence between bras and kets
+\[
+    \ket{\psi '}=A \ket{\psi }\to \bra{\psi '}=\bra{\psi }A^\dag.
+\]
+Here, $A^\dag$ is the adjoint of $A$. It is obtained by transposing and taking the complex conjugate of each element.
+
+\subsubsection{Hermitian Operators}
+If an operator is it's own adjoint (i.e. $A=A^\dag$), then they are called Hermitian operators. The are simple to recognise
+\begin{itemize}
+    \item The elements on opposite side of the diagonal are the complex conjugate of each
+    \item The elements on the diagonal are purely real.
+\end{itemize}
+
+\subsection{Basis of a Hilbert Space}
+A set of kets $\left\{ \ket{\nu _i} \right\}$ is called orthonormal if
+\[
+    \braket{\nu _i}{\nu _j}=\delta _{ij}.
+\]
+The set $\left\{ \ket{\nu _i} \right\}$ forms a basis of the Hilbert space $\epsilon $ if every $\ket{\psi }$ can be written as
+\[
+    \ket{\psi }=\sum_{j}c_j \ket{\nu _j}.
+\]
+An important property is the closure relation
+\[
+    \ket{\psi }=\sum_{j}c_j \ket{\nu _j}=\sum_{j}\braket{\nu _i}{\psi }\ket{\nu _j}=\sum_{j}\ket{\nu _j}\braket{\nu _k}{\psi }.
+\]
+For this to be true, it requires
+\[
+    \sum_{j}\ket{\nu _j}\bra{\nu _j}=\mathbb{I}.
+\]
+This is called the closure relation. The operators $\ket{\nu _j}\bra{\nu _j}$ projects a vector onto the basis state $\ket{\nu _j}$.
+
+\subsection{Observables}
+General linear algebra theorems
+\begin{itemize}
+    \item The eigenvalues of a Hermitian operator are real
+    \item The eigenvectors corresponding to different eigenvalues are orthogonal
+\end{itemize}
+
+A Hermitian operator is called observable if its eigenvectors form a basis of the vector space. We call a unitary an operator for which holds
+\[
+    U^{-1}=U^\dag.
+\]
+The eigenvalues of unitary operators are complex number of modulus 1.
+
+\section{Spin and The Postulates of Quantum Mechanics}
+\subsection{Postulate 1}
+The first postulate of quantum mechanics:
+\begin{callout}{important}[First Postulate of Quantum Mechanics]
+\label{important:s3-p1}
+At an initial time $t_0$, the state of a quantum system is specified by a ket $\ket{\psi (t_0)}$ that belongs to a suitable vector space $\epsilon $.
+\end{callout}
+
+This means that any ket
+\[
+    \ket{\psi '}=\lambda_{1}\ket{\psi_1 }+\lambda_2 \ket{\psi_2},
+\]
+is also a legitimate state of the system. This is known as the superposition principle.
+
+Note that we normally assume that the state vectors are normalised
+\[
+    \braket{\psi }{\psi }=1.
+\]
+\subsubsection{Application}
+Assuming a 2D vector space (spin-up and spin-down). We have a basis in this space to be
+\[
+    \ket{\uparrow},\ket{\downarrow}.
+\]
+They must satisfy the following conditions
+\begin{itemize}
+    \item Normalisation: $\braket{\downarrow}{\downarrow}=\braket{\uparrow}{\uparrow}=1$
+    \item Orthogonality: $\braket{\uparrow}{\downarrow}=0$
+    \item Closure: $\ket{\downarrow}\bra{\downarrow}+\ket{\uparrow}\bra{\uparrow}=\mathbb{I}$
+\end{itemize}
+
+There are an infinite number of options for this, but the simplest is
+\[
+    \ket{\uparrow}=\ket{1}=\begin{pmatrix}
+        1 & 0
+    \end{pmatrix},\quad \ket{\downarrow}=\ket{2}=\begin{pmatrix}
+        0 & 1
+    \end{pmatrix}.
+\]
+
+Then, any ket of the form $\alpha \ket{1}+\beta \ket{2}$, with $\alpha^2+\beta^2=1$ is a legitimate state of the system
+\[
+    \ket{\psi }=\begin{pmatrix}
+        \alpha & \beta 
+    \end{pmatrix}.
+\]
+
+\subsection{Postulate 2}
+The second postulate of quantum mechanics:
+\begin{callout}{important}[Second Postulate of Quantum Mechanics]
+\label{important:s3-p2}
+Every measurable physical quantity $\mathcal{A}$ is described by an operator $A$, which must be an observable.
+\end{callout}
+
+This means you can construct operators in your space $\epsilon $ that not observable, i.e. they cannot correspond to measurable physical quantities.
+
+\subsubsection{Application}
+The physical quantity measured in the Stern-Gerlach experiment is the $z$-component of the angular momentum $\mathcal{S}_z$. Since it is found to provide only two discrete results, the operator $\mathcal{S}_z$ must be an observable in a 2-dimensional Hilbert space, i.e. a $2\times 2$ matrix.
+
+\subsection{Postulate 3}
+The third postulate of quantum mechanics:
+\begin{callout*}{important}[Third Postulate of Quantum Mechanics]
+\label{important:s3-p3}
+When measuring the value of the quantity $\mathcal{A}$, we can only obtain as a result one of the eigenvalues $a_n$ of the observable $A$.
+\end{callout*}
+For an observable $\mathcal{A}$ with a discrete set of eigenvalues $a_n$, the corresponding physical quantity must be within that set of eigenvalues, not any arbitrary value. This is called quantization.
+
+\subsubsection{Application}
+Using the first two postulates, and the observed values of $\mathcal{S}_z$ of the Stern-Gerlach experiment, we can deduce that $S_z$ must be a $2\times 2$ observable with eigenvalues $\pm\hbar /2$. We can choose to define $S_z$ as the matrix
+\[
+    S_z=\frac{\hbar }{2}\begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}.
+\]
+\begin{proof}
+    We can prove that this is the correct matrix by multiplying them by the observed values
+    \begin{align*}
+        S_z \ket{\uparrow} &= \frac{\hbar }{2}\begin{pmatrix}
+            1 & 0 \\ 0 & -1
+        \end{pmatrix}\begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}=\frac{\hbar }{2}\begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}=\frac{\hbar }{2}\ket{\uparrow} \\
+        S_z \ket{\downarrow}&=\frac{\hbar }{2}\begin{pmatrix}
+            1 & 0 \\ 0 & -1
+        \end{pmatrix}\begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}=-\frac{\hbar }{2}\begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}=-\frac{\hbar }{2}\ket{\downarrow},
+    \end{align*}
+    i.e. $\ket{\uparrow}$ and $\ket{\downarrow}$ are eigenvectors of $S_z$ with eigenvalues $\pm\hbar /2$.
+\end{proof}
+
+\subsection{Spin Matrices}
+In the previous section we had the $S_z$ matrix which described the spin of a particle. We also have the spin projection along $x$ and $y$ to be
+\[
+    S_x=\frac{\hbar }{2}\begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix},\quad S_y=\frac{\hbar }{2}\begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}.
+\]
+(Note that these are the Pauli matrices $\sigma _x$, $\sigma _y$, $\sigma _z$ with a prefactor of $\hbar /2$). These matrices have the eigenvectors
+\begin{align*}
+    \ket{X} &= \frac{1}{\sqrt{2}} \left( \ket{\uparrow}+\ket{\downarrow} \right)&\quad \ket{-X}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-\ket{\downarrow} \right) \\
+    \ket{Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+i \ket{\downarrow} \right)&\quad \ket{-Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-i \ket{\downarrow} \right).
+\end{align*}
+
+Consider an arbitrary unit vector $\vec{u}$ in 3-dimensional space. The observable corresponding to the spin projection along $\vec{u}$ is given by
+\begin{align*}
+    S_u &= S_x\sin\theta \cos\phi +S_y\sin\theta \sin\phi +S_z\cos\theta  \\
+        &=\frac{\hbar }{2}\begin{pmatrix}
+            \cos\theta &\sin\theta \cdot e^{i\phi } \\
+            \sin\theta \cdot e^{i\phi} &-\cos\theta
+        \end{pmatrix}.
+\end{align*}
+The eigenvectors of this spin projection are then
+\begin{align*}
+    \ket{U} &= \cos \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\sin \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow} \\
+    \ket{-U} &=-\sin \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\cos \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow}.
+\end{align*}
+
+\subsection{Postulate 4}
+\begin{callout*}{important}[Fourth Postulate of Quantum Mechanics]
+\label{important:s3-p4}
+When measuring the quantity $\mathcal{A}$ on a system described by the state $\ket{\psi }$, the probability of obtaining as a result the eigenvalue $a_n$ is given by
+\[
+    \boxed{\mathcal{P}(a_n)=\left| \braket{u_n}{\psi } \right|^2}
+\]
+where $\ket{u_n}$ is the eigenvector of $A$ with eigenvalue $a_n$.
+\end{callout*}
+
+This means the result of the measurement of a quantum system is (generally) probabilistic.
+
+\subsubsection{Application}
+Consider an atom with spin oriented along $\vec{u}$, entering the Stern-Gerlach apparatus. The state of the atom just before the measurement is
+\[
+    \ket{\psi (t^-)}=\cos \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\downarrow}+\sin \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow}=\begin{pmatrix}
+        \cos \frac{\theta }{2}e^{-\frac{i\phi }{2}} \\
+        \sin \frac{\theta }{2}e^{\frac{i\phi }{2}}
+    \end{pmatrix}.
+\]
+
+According to the Born's rule (see Def. \ref{definition:borns-rule}),the probability to find the eigenvalue $+\hbar/2$ corresponding to the eigenvector $\ket{\uparrow}$ is
+\begin{align*}
+    \mathcal{P}_{\uparrow} &= \left| \braket{\uparrow}{\psi (t^-)} \right|^2 \\
+                           &= \left| (1\quad 0)\begin{pmatrix}
+        \cos \frac{\theta }{2}e^{-\frac{i\phi }{2}} \\
+        \sin \frac{\theta }{2}e^{\frac{i\phi }{2}}
+    \end{pmatrix}\right|^2 \\
+                           &=\cos^2 \frac{\theta }{2}.
+\end{align*}
+This result is independent of $\phi $, since the apparatus only measures the projection along $z$.
+
+\begin{callout}{definition}[Definition]
+\label{definition:borns-rule}
+\textbf{Born's Rule}
+\blockquote[\href{https://en.wikipedia.org/wiki/Born_rule}{Wikipedia}][]{The Born rule is a postulate of quantum mechanics that gives the probability that a measurement of a quantum system will yield a given result. It states that the probability density for finding a particle at a given position is proportional to the square of the amplitude of the system's wavefunction at that position.}
+
+It states that an observable that was measured within a quantum system with normalised wavefunction $\ket{\psi }$ corresponds to a self-adjoint operator $A$ whose spectrum is discrete if the measured result will be one of the eigenvalues $\lambda $ of $A$, and the probability of measuring a given eigenvalue $\lambda $ will equal $\bra{\psi }P_i \ket{\psi }$, where $P_i$ is the projection onto the eigenspace of $A$ corresponding to $\lambda _i$.
+
+For example, a single structureless particle that can be respresented by a wavefunction $\psi $ that depends on position $(x,y,z)$ and time $t$ has the probability density function $p$ for the result of a measurement of the particle at any particular time $t_0$ to be
+\[
+    p(x,y,z,t_0)=\left| \psi (x,y,z,t_0) \right|^2.
+\]
+\end{callout}
+
+\begin{callout}{example}[Example]
+\label{example:s3-e1}
+     Take the spin of a particle $\theta =\frac{\pi }{2}$ (spin in the $xy$-plane). The chance of finding the particle pointing "up" is
+     \[
+         \mathcal{P}_{\uparrow}=\cos^2 \frac{pi}{4}=\frac{1}{2}.
+     \] 
+\end{callout}
+
+\subsection{Postulate 5}
+\begin{callout*}{important}[Fifth Postulate of Quantum Mechanics]
+\label{important:s3-p5}
+    If the measurement of $\mathcal{A}$ at time $t$ has given the result $a_n$, immediately after the measurement the system is found in the normalised projection of the state $\ket{\psi (t^{-})}$ before the measurement onto the eigenvector $\ket{u_n}$ corresponding to the measured eigenvalue $a_n$.
+    \[
+        \ket{\psi (t^-)}\to \ket{\psi (t^+)}=\frac{P_n \ket{\psi (t^-)}}{\sqrt{\bra{\psi (t^-)}P_n \bra{\psi (t^-)}}},
+    \]
+    where $P_n=\ket{u_n}\bra{u_n}$ is the projection operator onto the eigenstate $\ket{u_n}$. The denominator normalises the wavefunction.
+\end{callout*}
+
+This is known as the collapse of the wavefunction, and is where taking the measurement of a system "collapses" it into one it's possible states, with the probability of collapsing into this state being defined by the previous Postulate. In general, measuring some property of the system changes its state.
+
+\subsubsection{Application}
+The Stern-Gerlach apparatus can be used to prepare a known quantum state. If we pierce a hole in the screen where the "up" atoms would collide, then we know that those atoms are in the state $\ket{\psi (t^+)}=\ket{\uparrow}$. This new "up" only beam can then be fed into another apparatus to verify this.
+
+Now consider the second apparatus being rotated along $\vec{u}$ instead of purely vertical. Even though we are certain that all the particles are in the state $\ket{\uparrow}$, the outcome of the measurement is not certain. This is because the second apparatus is now measuring $\mathcal{S}_u$ instead of $\mathcal{S}_z$.
+
+We know from Born's rule the probability that each of the eigenvalues may appear as the outcome of the measurement, because we know the quantum state $\ket{\psi }$. Therefore, the average value (called the expectation value) of an observable $A$ given the state $\ket{\psi }$ is
+\[
+    \left\langle A \right\rangle _\psi =\sum_{n}a_n \mathcal{P}(a_n)=\sum_{n}a_n \left| \braket{u_n}{\psi } \right|^2. 
+\]
+Note: given two vectors $\ket{\psi }$ and $\ket{\phi }$, $\braket{\phi }{\psi }=\braket{\psi }{\phi }^*$. Factorising further we get
+\begin{align*}
+     &= \sum_{n}a_n \left| \braket{u_n}{\psi } \right|^2 \\
+     &=\sum_{n}a_n \braket{\psi }{u_n}\braket{u_n}{\psi } \\
+     &=\sum_{n}\bra{\psi }A \ket{u_n}\braket{u_n}{\psi } \quad \text{note: }a_n \ket{u_n}=A \ket{u_n} \\
+     &= \bra{\psi }A \left[ \sum_{n}\ket{u_n}\bra{u_n} \right]\ket{\psi } \quad \text{closure relation}\\
+     &=\bra{\psi }A \ket{\psi }.
+\end{align*}
+
+In the example from before:
+\begin{align*}
+    \left\langle S_u \right\rangle _{\ket{\uparrow}} &= \bra{\uparrow}S_u \ket{\uparrow} \\
+                                                     &= (1\quad 0)\frac{\hbar}{2}\begin{pmatrix}
+                                                         \cos\theta & \sin\theta \cdot e^{-i\phi } \\
+                                                         \sin\theta & -\cos\theta 
+                                                     \end{pmatrix}\begin{pmatrix}
+                                                         1 \\ 0
+                                                     \end{pmatrix} \\
+                                                     &= \frac{\hbar}{2}\cos\theta .
+\end{align*}
+
+\subsection{Postulate 6}
+\begin{callout*}{important}[Sixth Postulate of Quantum Mechanics]
+\label{important:s3-p6}
+    If a system is in a state $\ket{\psi (t)}$ at time $t$, its subsequent time evolution is governed by the Schr\"odinger equation
+    \[
+        i \hbar \frac{\partial \ket{\psi (t)}}{\partial t}=\mathcal{H}(t) \ket{\psi (t)}
+    \]
+    where $\mathcal{H}(t)$ is the Hamiltonian of the system, i.e. the operator that describes its total energy.
+\end{callout*}
+
+Quantum mechanics is for the most part deterministic. Given an initial state, the system evolves in a predictable way, according to a linear differential equation called the Schr\"odinger equation. The probabilistic aspects enter when you try to measure the state.
+
+\subsubsection{Application}
+We have Schr\"odinger's equation to be (as above)
+\[
+    i \hbar \frac{\partial \ket{\psi (t)}}{\partial t} = \mathcal{H}(t)\ket{\psi (t)},
+\]
+where $\mathcal{H}(t)$ is a matrix, $\ket{\psi }$ is a vector, so the Schr\"odinger equation is a system of linear differential equations. We can write the formal solution as
+\[
+    \ket{\psi (t)}=U(t,t_0)\ket{\psi (t_0)},
+\]
+with the condition
+\[
+    U(t_0,t_0)=\mathbb{I}.
+\]
+Substituting $\ket{\psi (t)}=U(t,t_0)\ket{\psi (t_0)}$ into the Schr\"odinger equation gives
+\[
+    i \hbar \frac{d }{d t}U(t,t_0)=\mathcal{H}(t)U(t,t_0).
+\]
+Assuming for simplicity that the Hamiltonian is constant, i.e. $\mathcal{H}(t)\to \mathcal{H}$. The differential equation can then be formally integrated to yield
+\begin{align*}
+    U(t,t_0) &= \int_{t_0}^t-i \frac{\mathcal{H}}{\hbar}U(t',t_0) \\
+             &=\exp \left[ -i \frac{\mathcal{H}}{\hbar}(t-t_0) \right].
+\end{align*}
+Thus, knowing $\ket{\psi (t_0)}$, the quantum state at later times is given by
+\[
+    \ket{\psi (t)}=e^{-i \frac{\mathcal{H}}{\hbar}(t-t_0)}\ket{\psi (t_0)},
+\]
+where
+\[
+    \boxed{U(t,t_0)=e^{-i \frac{\mathcal{H}}{\hbar}(t-t_0)}}
+\]
+is the time-evolution operator.
+
+\subsection{Exponential of a Matrix}
+We can use Taylor Expansion to calculate some arbitrary function of a matrix, such as $e^A$.
+\[
+    e^x=\sum_{n=0}^{\infty} \frac{x^n}{n!}=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots.
+\]
+By analogy
+\[
+    e^A=\sum_{n=0}^{\infty} \frac{A^n}{n!}=\mathbb{I}+A+\frac{A^2}{2}+\frac{A^3}{6}+\cdots.
+\]
+Note: if $A$ is diagonal, $A^n$ is also diagonal, and every function of $A$ is diagonal also
+\[
+    A=\begin{pmatrix}
+        a_1 & 0 & 0 \\ 0 \cdots & 0 \\ 0 & 0 & a_N
+    \end{pmatrix}\to\quad e^A=\begin{pmatrix}
+        e^{a_1} & 0 & 0 \\ 0 & \cdots & 0 \\ 0 & 0 & e^{a_N}
+    \end{pmatrix}.
+\]
+In general, if $\ket{\phi }$ is an eigenvector of $A$ with eigenvalue $a$, then $\ket{\phi }$ is also an eigenvector of $F(A)$ with eigenvalue $F(a)$.
+
+\subsection{Hamiltonian Eigenbasis}
+The Hamiltonian is an observable physical quantity, so it must be described by a matrix whose eigenvectors form a basis of the vector space. If we choose to use the eigenvectors of the Hamiltonian as our basis, it means the Hamiltonian appears as a diagonal matrix
+\[
+    \mathcal{H}=\begin{pmatrix}
+        E_1 & 0 & 0 \\ 0 & \cdots & 0 \\ 0 & 0 & E_N
+    \end{pmatrix},
+\]
+where $E_1,\cdots,E_N$ are the eigenvalues (in this case they are "eigenenergies"). Therefore, in the Hamiltonian eigenbasis, the time evolution operator is simply
+\[
+    U(t,t_0)=\begin{pmatrix}
+        e^{-i \frac{E_1}{\hbar}(t-t_0)} & 0 & 0 \\
+        0 & \cdots & 0 \\
+        0 & 0 & e^{-i \frac{E_N}{\hbar}(t-t_0)}
+    \end{pmatrix}.
+\]
+If you can describe the system in the Hamiltonian eigenbasis, the time evolution operator can calculated by hand.
+
+\begin{callout}{example}[Example]
+\label{example:s3-e2}
+\textbf{Spin Precession}
+
+\textit{Classical description:} Consider a magnetic moment $\vec{M}=\gamma \vec{S}$ placed in a uniform magnetic field $\vec{B}$. If $\vec{S}$ and $\vec{B}$ are not parallel, there is a torque $\vec{T}$ acting on the angular momentum
+\[
+    \vec{T}=\gamma \vec{S}\times \vec{B}.
+\]
+The derivative of the angular momentum is equal to the torque
+\[
+    \frac{d \vec{S}}{d t}=\vec{T}=\gamma \vec{S}\times\vec{B}.
+\]
+We can then define the quantity of angular momentum
+\[
+    \omega =-\gamma B.
+\]
+
+\textit{Quantum Description:} The energy of a magnetic moment $\vec{M}=\gamma \vec{S}$ placed in a uniform magnetic field $\vec{B}$ is
+\[
+    W=-\gamma \vec{S}\cdot\vec{B}.
+\]
+Assume that $\vec{B}\parallel\hat{z}$. Since there are no other relevant contribution to the energy of the system, the Hamiltonian is
+\begin{align*}
+    \mathcal{H} &= -\gamma S_zB \\
+                &= -\gamma B \frac{\hbar}{2}\begin{pmatrix}
+                    1 & 0 \\ 0 & -1
+                \end{pmatrix} \\
+                &= \omega \frac{\hbar}{2}\begin{pmatrix}
+                    1 & 0 \\ 0 & -1
+                \end{pmatrix} \\
+                &=\begin{pmatrix}
+                    \frac{\hbar\omega }{2} & 0 \\
+                    0 & -\frac{\hbar\omega }{2}
+                \end{pmatrix}.
+\end{align*}
+Note that this Hamiltonian is time-independent if the magnetic field is constant (which we are assuming).
+
+This Hamiltonian then has the two eigenenergies
+\[
+    E_1=\frac{\hbar\omega }{2},\quad E_2=-\frac{\hbar\omega }{2}.
+\]
+We can then plug these into the time evolution operator
+\[
+    U(t,t_0)=e^{-i \frac{\mathcal{H}}{\hbar}(t-t_0)}=\begin{pmatrix}
+        e^{-i \frac{E_1}{\hbar}(t-t_0)} & 0 \\
+        0 & e^{-i \frac{E_2}{\hbar}(t-t_0)} =\begin{pmatrix}
+            e^{-i \frac{\omega }{2}(t-t_0)} & 0 \\
+            0 & e^{i \frac{\omega }{2}(t-t_0)}
+        \end{pmatrix}
+    \end{pmatrix}.
+\]
+
+This was simple because we used the eigenstates of the Hamiltonian as our basis. We can then prepare the spin in the symmetric eigenstate of $S_x$
+\[
+    \ket{\psi (0)}=\ket{X}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+\ket{\downarrow} \right)=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix}.
+\]
+At a later time $t$, the state will be
+\[
+    \ket{\psi (t)}=U(t,0)\ket{\psi (0)}=\begin{pmatrix}
+        e^{-i \frac{\omega }{2}t} & 0 \\
+        0 & e^{i \frac{\omega }{2}t}
+    \end{pmatrix}\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+        e^{-i \frac{\omega }{2}t} \\ e^{i \frac{\omega }{2}t}
+    \end{pmatrix}.
+\]
+\end{callout}
+
+To make sense of the results of a wavefunction, we use the expectation value of the wavefunction, i.e. the wavefunction averaged over time. From the previous example, we want to calculate the state along the three spatial axes to see how it evolves over time.
+
+\begin{callout}{example}[Example]
+\label{example:s3-e3}
+Calculate the expectation value of the wavefunction in the previous problem.
+
+Starting with the $z$ axis, we have
+\begin{align}
+    \left\langle S_z \right\rangle _{\psi (t)} &= \bra{\psi (t)}S_z \ket{\psi (t)} \nonumber\\
+                                               &= \frac{\hbar}{4}\left(e^{i \frac{\omega }{2}t}\quad e^{-i \frac{\omega }{2}t}\right)\begin{pmatrix}
+                                                   1 & 0 \\ 0 & -1
+                                               \end{pmatrix}\begin{pmatrix}
+                                                   e^{-i \frac{\omega }{2}t} \\
+                                                   e^{i \frac{\omega }{2}t}
+                                               \end{pmatrix} \nonumber\\
+                                               &= 0. \label{eq:s3-e1}
+\end{align}
+Then the $x$ axis,
+\begin{align}
+    \left\langle S_x \right\rangle _{\psi (t)} &= \bra{\psi (t)}S_x \ket{\psi (t)} \nonumber\\
+                                               &= \frac{\hbar}{4}\left( e^{i \frac{\omega }{2}t}\quad e^{-i \frac{\omega }{2}t} \right)\begin{pmatrix}
+                                                   0 & 1 \\ 1 & 0
+                                               \end{pmatrix}\begin{pmatrix}
+                                                   e^{-i \frac{\omega }{2}t} \\
+                                                   e^{i \frac{\omega }{2}t}
+                                               \end{pmatrix} \nonumber\\
+                                               &= \frac{\hbar}{4}(e^{i\omega t}+e^{-i\omega t})=\frac{\hbar}{2}\cos\omega t. \label{eq:s3-e2}
+\end{align}
+And finally for the $y$ axis
+\begin{align}
+    \left\langle S_y \right\rangle _{\psi (t)} &= \bra{\psi (t)}S_y \ket{\psi (t)} \nonumber\\
+                                               &=\frac{\hbar}{4}\left( e^{i \frac{\omega }{2}t}\quad e^{-i \frac{\omega }{2}t} \right)\begin{pmatrix}
+                                                   0 & -i \\ i & 0
+                                               \end{pmatrix}\begin{pmatrix}
+                                                   e^{-i \frac{\omega }{2}t} \\
+                                                   e^{i \frac{\omega }{2}t}
+                                               \end{pmatrix} \nonumber\\
+                                               &=\frac{\hbar}{4}(-ie^{i\omega t}+ie^{-i\omega t})=\frac{\hbar}{2}\sin(\omega t). \label{eq:s3-e3}
+\end{align}
+
+From \ref{eq:s3-e1}, we can see that there is no projection along the vertical ($z$) axis, meaning it remains within the equatorial ($xy$) plane. From \ref{eq:s3-e2} and \ref{eq:s3-e3}, we see that the $x$ and $y$ projections oscillate $90\textdegree$ out of phase with frequency $\omega $. This is known as Larmor precession.
+\end{callout}
+
+\subsection{Properties of the Time Evolution Operator}
+The time evolution operator $U(t,t_0)$ has some important properties:
+\begin{itemize}
+    \item It is a unitary operator
+    \item Its eigenvalues are complex numbers with modulus 1, and it conserves the modulus of any vector it operates on (modulus is the magnitude of the complex number)
+    \item It is time reversible.
+\end{itemize}
+
+\subsubsection{Unitary Operators}
+A unitary operator is a bounded linear operator (a linear transformation between vector spaces that maps bounded sets to bounded sets) on a Hilbert space that satisfies $U^\dagger U=UU^\dagger=\mathbb{I}$, where $U^\dagger$ is the adjoint of $U$.
+
+\begin{callout}{example}[Example]
+\label{example:s3-e4}
+\textbf{Common Unitary Operators}
+
+\begin{itemize}
+    \item The identity function (identity matrix) is trivially a unitary operator
+    \item Rotations in $\mathbb{R}^2$ are the simplest nontrivial example of unitary operators. 
+    \item The Fourier operator is a unitary operator (i.e. the operator that performs the Fourier transform with proper normalisation).
+    \item Quantum logic gates are unitary operators, however they are not all Hermitian.
+\end{itemize}
+\end{callout}
+
+\subsubsection{Time Reversibility}
+For simplicity, take $t_0=0$. If we know $U(t,0)=e^{-i \frac{\mathcal{H}}{\hbar}t}$, then
+\[
+    U(-t,0)=e^{i \frac{\mathcal{H}}{\hbar}t}=U^{-1}(t,0).
+\]
+This means we can track the system back in time by inverting the time evolution operator. This is especially important for quantum computers as (along with being unitary) this imposes that no information can be lost.
+
+\subsection{Commutation}
+In general, the product of matrices is not commutative. However, we can define the commutator of two operators $\Lambda$ and $\Omega $ as
+\[
+    \left[ \Lambda ,\Omega  \right]=\Lambda \Omega -\Omega \Lambda .
+\]
+Note that the commutator is itself an operator. When this commutator is $0$, we say that the operators commute, so they can be multiplied in any order.
+
+In quantum mechanics, commutation relations have an important meaning. When two observables do not commute, it means the order in which the observables are measured changes the outcomes.
+
+\begin{callout}{example}[Example]
+\label{example:s3-e5}
+What is the commutation of $S_x$ and $S_z$?
+
+Calculating the commutation, we have
+\begin{align*}
+    S_zS_x &= \frac{\hbar^2}{4}\begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}\begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix} =\frac{\hbar^2}{4}\begin{pmatrix}
+        0 & 1 \\ -1 & 0
+    \end{pmatrix} \\
+        S_xS_z &= \frac{\hbar^2}{4}\begin{pmatrix}
+            0 & 1 \\ 1 & 0
+        \end{pmatrix}\begin{pmatrix}
+            1 & 0 \\ 0 & -1
+        \end{pmatrix}=\frac{\hbar^2}{4}\begin{pmatrix}
+            0 & -1 \\ 1 & 0
+        \end{pmatrix}.
+\end{align*}
+The commutator is then
+\[
+    \left[ S_z, S_x \right]=S_zS_x-S_xS_z=\frac{\hbar^2}{4}\begin{pmatrix}
+        0 & 2 \\ -2 & 0
+    \end{pmatrix} = i \hbar \frac{\hbar}{2}\begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}=i \hbar S_y.
+\]
+Similarly,
+\begin{align*}
+    \left[ S_x,S_y \right] &= i \hbar S_z \\
+    \left[ S_y,S_z \right] &= i \hbar S_x.
+\end{align*}
+This means that in the example where there was two Stern-Gerlach machines, the order in which measurements are made matters.
+\end{callout}
+
+\subsubsection{Ehrenfest Theorem}
+The expectation value of an observable $A$ at time $t$ is given by
+\[
+    \left\langle A \right\rangle (t)=\bra{\psi (t)}A \ket{\psi (t)}.
+\]
+To see how to evolves with time, we can assume $A$ is time-independent, and differentiate with respect to $t$ to get
+\[
+    \frac{d }{d t}\bra{\psi (t)}A \ket{\psi (t)}=\left[ \frac{d }{d t}\bra{\psi (t)} \right]A \ket{\psi (t)}+ \bra{\psi (t)}A \left[ \frac{d }{d t} \ket{\psi (t)} \right].
+\]
+And from the Schr\"odinger equation, we have
+\begin{align*}
+    \frac{d }{d t}\ket{\psi (t)} = \frac{1}{i \hbar}\mathcal{H}\ket{\psi (t)}
+    \Rightarrow \frac{d }{d t}\bra{\psi (t)}&= -\frac{1}{i \hbar}\bra{\psi (t)}\mathcal{H} \\
+    \frac{d }{d t}\bra{\psi (t)}A \ket{\psi (t)} &=\frac{1}{i \hbar}\bra{\psi (t)}A \mathcal{H}-\mathcal{H}A \ket{\psi (t)}
+    \Rightarrow i \hbar \frac{d }{d t}\left\langle A \right\rangle &=\left\langle \left[ A,\mathcal{H} \right] \right\rangle .
+\end{align*}
+An observable that commutes with the Hamiltonian is a constant of the motion. 
+
+\subsection{Pauli Matrices}
+Let us define the following matrices
+\[
+    \sigma _x=\begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix},\quad\sigma _y=\begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix},\quad\sigma _z=\begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}.
+\]
+These are called the Pauli matrices, and together with the identity matrix $\mathbb{I}$, they form a basis of the vector space of $2\times 2$ matrices. This means that any $2\times 2$ matrix with complex coefficients can be written as
+\[
+    A=a_1 \mathbb{I}+a_x\sigma _x+a_y\sigma _y+a_z\sigma _z.
+\]
+Any 2-level system can be "mapped" onto a spin, or equivalently, all quantum mechanics 2-level systems are equivalent. For a "true" spin, the Pauli matrices are proportional to the operators that describe the spin orientation along the 3 axes in real space. There are other 2-level systems for which there is no such meaning.
+
+The three matrices $\sigma _x$, $\sigma _y$, and $\sigma _z$ can be grouped into a "vector matrices"
+\[
+    \vec{\sigma }=\begin{pmatrix}
+        \sigma _x \\ \sigma _y\\\sigma _z
+    \end{pmatrix}.
+\]
+This is called vector Pauli matrix. It is useful when calculating the inner product of a real vector in 3 dimensions, with the 3 spin operators.
+
+\begin{callout}{example}[Example]
+\label{example:s3-e5}
+The Hamiltonian of a spin in a magnetic field $\vec{B}$ is
+\[
+    \mathcal{H}=-\gamma \vec{B}\cdot\vec{S}=-\gamma \frac{\hbar}{2}\vec{B}\cdot \vec{\sigma }=-\gamma \frac{\hbar}{2}\left( B_x\sigma _x+B_y\sigma _y+B_z\sigma _z \right).
+\]
+\end{callout}
+
+\subsection{Non-Hermitian Operators}
+All the operators so far have been Hermitian (except the time evolution operator), and described with physical observables. Now consider the following operators
+\[
+    \sigma _+=\begin{pmatrix}
+        0 & 1 \\ 0 & 0
+    \end{pmatrix},\quad\sigma _-=\begin{pmatrix}
+        0 & 0 \\ 0 &1
+    \end{pmatrix}.
+\]
+These are clearly non-Hermitian. Therefore, they cannot represent physical observables. But, they are useful tools. For example
+\[
+    \sigma _+\ket{\downarrow}=\begin{pmatrix}
+        0 & 1 \\ 0 & 0
+    \end{pmatrix}\begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} =\begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}=\ket{\uparrow}.
+\]
+$\sigma _+$ is a "flip up" operator. However,
+\[
+    \sigma _+\ket{\uparrow}=\begin{pmatrix}
+        0 & 1 \\ 0 & 0
+    \end{pmatrix}\begin{pmatrix}
+         1 \\ 0
+    \end{pmatrix} =\begin{pmatrix}
+        0 \\ 0
+    \end{pmatrix},
+\]
+applying $\sigma _+$ to the spin-up results in the zero-vector, with is not a legitimate state vector as it is not normalised.
+
+\newpage
+\appendix
+\section{Fourier Transform}
+A Fourier transform decomposes a function into another function that describes the number of occurrences of frequencies within the original function.
+\[
+    F(\omega )=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty f(t)e^{-i\omega t}dt.
+\]
+Fundamentally it is an inner product between $f(t)$ and $e^{-i\omega t}$, with the second vector being characterised by the parameter $\omega $. It tells you how similar the two vectors are to each other, thereby defining the number of occurrences of each frequency.
+
+The Fourier series of a sinusoid is a delta function, indicating that it is infinitely similar at that frequency, and not at all at the others.
+
+\section{Matlab/Python Commands}
+\subsection{Matrix Operations}
+\subsubsection{Exponential}
+\textbf{Command:} The exponential of a matrix can be calculated using
+\begin{minted}{matlab}
+expm(A)
+\end{minted}
+Python has a similar command
+\begin{minted}{python}
+scipy.linalg.expm(A)
+\end{minted}
+\textbf{Example:} Given an initial state \texttt{psi\_0} at time $t=0$, the quantum state \texttt{psi\_t} at a later time $t$ can be found with
+
+(MATLAB):
+\begin{minted}{matlab}
+psi_t = expm(-1i*H*t/hbar) * psi_0
+\end{minted}
+
+(Python):
+\begin{minted}{python}
+psi_t=scipy.linalg.expm(-1j * H * t / hbar) @ psi_0
+\end{minted}
+
+\end{document}
