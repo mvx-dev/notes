@@ -12,7 +12,8 @@
 \tableofcontents
 \newpage
 
-\section{Topic 1: Transform Methods}
+\part{Transform Methods}
+\section{Topic 1: Periodic Signals and Fourier Series}
 \subsection{Waveforms and Periodic Functions}
 \subsubsection{Waveform Fundamentals}
 \begin{callout}{definition}[Definition]
@@ -260,6 +261,106 @@ Sum these two sine waves
 These sine waves have the same period $2\pi f=200$, $f=\frac{200}{2\pi }Hz=31.83Hz$.
 \end{callout}
 
+\section{Topic 2: Aperiodic Signals and Fourier Transforms}
+\subsection{Periodic and Aperiodic Signals}
+A periodic signal repeats itself after some period $T$, and can be represented by
+\[
+    x(t)=x(t+nT),\quad \forall n \in \mathbb{Z}.
+\]
+The frequency components of a periodic signal are analysed using a Fourier series. An aperiodic signal has no repeating pattern, and we assume it's period is infinite. Most practical signals are aperiodic. Since the fundamental frequency is inversely proportionate to the period, so as the period increases indefinitely the individual spectral components merge into a continuous spectrum and the fundamental frequency becomes vanishingly small.
+
+As a consequence,the frequency $n\omega _0$ of each harmonic component becomes the continuous frequency variable $\omega $, the line spacing $\omega _0$ becomes the infinitesimal $d\omega $, and the operation of summation becomes the operation of integration.
+
+Consider the exponential Fourier series. We have 
+\[
+    x(t)=\sum_{n=-\infty}^{\infty} C_n e^{jn\omega _0t},\quad C_n=\frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{-jn\omega _0t}dt.
+\]
+This then gives the full expression for $x(t)$ to be
+\[
+    x(t)=\sum_{n=-\infty}^{\infty} \left\{ \frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{-j\omega _0t}dt \right\}e^{jn\omega _0t},
+\]
+and the inverse to be
+\[
+    f(t)=\sum_{n=-\infty}^{\infty} \left\{ \frac{1}{2\pi }\int_{-T/2}^{T/2}x(t)e^{-jn\omega _0t}dt \right\}e^{jn\omega _0t}\omega _0.
+\]
+We can turn this Fourier series into a Fourier transform by taking the limit of $T\to \infty$, replacing the frequency with the continuous frequency, the line spacing with $d\omega $, and integrating instead of summing. This gives the Fourier transform (FT) of $x(t)$ (denote $X(\omega )$ or $X(j\omega )$) to be
+\[
+    X(\omega )=\int_{-\infty}^{\infty}x(t)e^{-j\omega t}dt,
+\]
+and the inverse Fourier transform (IFT) to be
+\[
+    x(t)=\frac{1}{2\pi }\int_{-\infty}^\infty X(\omega )e^{j\omega t}d\omega .
+\]
+Note that $X(\omega )$ is a complex-valued function, and $x(t)$ is normally a real valued signal.
+
+\subsubsection{Fourier Series to Fourier Transform}
+\begin{itemize}
+    \item For small $T$, the signal repeats frequently in time and its frequency spectrum consists of discrete spectral lines that are widely spread. As $T$ increases and approaches $\infty$, the pulses move further apart in time, the fundamental frequency decreases, and the spacing between spectral lines becomes smaller
+    \item As a consequence, more frequency components appear within a given frequency range, and the discrete spectrum begins to resemble a continuous one
+    \item In the limit, the periodic signal becomes an aperiodic single pulse, the spectral lines merge into a continuous spectrum, and the Fourier series representation naturally transitions to the Fourier transform.
+\end{itemize}
+
+\subsection{Fourier Transform Properties}
+Let $f(x)$ and $h(x)$ represent integrable functions satisfying
+\[
+    \int_{-\infty}^\infty \left| f(x) \right|dx <\infty.
+\]
+We denote the Fourier transforms of these functions as $F(\xi )$ and $H(\xi )$, respectively.
+
+\subsubsection{Basic Properties}
+The Fourier transform has the following basic properties
+\begin{itemize}
+    \item \textbf{Linearity:} $af(x)+bh(x) \xLeftrightarrow{\mathcal{F}}aF(\xi )+b H(\xi),\quad a,b \in \mathbb{C}$
+    \item \textbf{Time shifting:} $f(x-x_0) \xLeftrightarrow{\mathcal{F}} e^{-i 2\pi x_0\xi }F(\xi ),\quad x _0\in \mathbb{R}$.
+    \item \textbf{Frequency shifting:} $e^{i2\pi \xi _0x}f(x) \xLeftrightarrow{\mathcal{F}}F(\xi -\xi _0),\quad \xi _0\in \mathbb{R}$
+    \item \textbf{Time scaling:} $f(ax) \xLeftrightarrow{\mathcal{F}}\frac{1}{|a|}F \left( \frac{\xi }{a} \right),\quad a\neq 0$. Note: the case $a=-1$ leads to the time-reversal property: $f(-x) \xLeftrightarrow{\mathcal{F}}F(-\xi )$
+\end{itemize}
+
+\subsubsection{Differentiation}
+Suppose $f(x)$ is differentiable almost everywhere, and both $f$ and its derivative $f'$ are integrable. The Fourier transform is then given by
+\[
+    F'(\xi )=\mathcal{F}\left\{ \frac{d }{d x}f(x) \right\}=i 2\pi \xi F(\xi ).
+\]
+We also have differentiation in time to be
+\[
+    \frac{d }{d t}f(x) \xLeftrightarrow{\mathcal{F}} j\xi F(\xi ),
+\]
+which is multiplying the frequency by $j\xi $. Similarly, taking the integrate w.r.t time gives
+\[
+    \int_{-\infty}^tf(x)dx \xLeftrightarrow{\mathcal{F}}\frac{F(\xi )}{j\xi }.
+\]
+
+And for frequency we have
+\[
+    -jtf(x) \xLeftrightarrow{\mathcal{F}}\frac{d }{d \xi }F(\xi ),
+\]
+which is effectively multiplication in time by $jt$.
+
+\subsubsection{Convolution}
+Convolution describes how the output of a system depends on the input signal and the system's impulse response. Taking the same functions $f(x)$, $g(x)$ from before (along with their transforms), we get an output signal $y(x)$ given by
+\[
+    y(x)=f(x)*g(x)=\int_{-\infty}^\infty f(\tau )g(x-\tau )d\tau ,
+\]
+where $*$ denotes the convolution operation, then
+\[
+    Y(\xi )=F(\xi )G(\xi ).
+\]
+Convolution in the time domain corresponds to multiplication in the frequency domain. Note that when the input is an impulse $f(x)=\delta (x)$, then
+\[
+    Y(\xi )=G(\xi ),
+\]
+since $X(\xi )=1$.
+
+\subsubsection{Modulation}
+Amplitude modulation is the process of varying the amplitude of a sinusoidal carrier. If the modulating signal is denoted $x(t)$, the modulated carrier becomes
+\[
+    y(t)=x(T)\cos(\omega _0t).
+\]
+The amplitude spectrum of this carrier is one-half the amplitude spectrum of $x(t)$ shifted to be centred at $\pm\omega _0$
+\[
+    \mathcal{F}\left\{ x(t)\cos(\omega _0t) \right\}=\frac{1}{2}X(\omega -\omega _0)+\frac{1}{2}X(\omega +\omega _0).
+\]
+
 \newpage
 \appendix
 \section{Filters}
@@ -402,9 +503,53 @@ Miscellaneous:
     \sin^2\alpha &=\frac{1}{2}(1-\cos 2\alpha )\\
     \cos^2\alpha &=\frac{1}{2}(1+\cos 2\alpha ) \\
     \sin\alpha&= \frac{e^{j\alpha }-e^{-j\alpha }}{2j}\\
-    \cos\alpha =\frac{e^{j\alpha }+e^{-j\alpha }}{2} \\
+    \cos\alpha&=\frac{e^{j\alpha }+e^{-j\alpha }}{2} \\
     e^{\pm j\alpha }&=\cos\alpha \pm j\sin\alpha  \\
     A\cos\alpha +B\sin\alpha &=\sqrt{A^2+B^2}\cos \left( \alpha +\tan^{-1}\left( \frac{B}{A} \right) \right).
 \end{align*}
+
+\section{Common Fourier Transform Pairs and Properties}
+\begin{table}[H]
+    \centering
+    \caption{Common Signals and Their Fourier Transforms}
+    \label{tab:a3-t1}
+    \begin{tabular}{l|c|c}
+        Type & $f(t)$ & $F(\omega )$ \\ 
+        \hline
+        \hline
+        Impulse & $\delta (t)$ & 1 \\
+        Constant & $A$ & $2\pi A\delta (\omega )$ \\
+        Signum & $\text{sgn}(t)$ & $\frac{2}{j\omega }$ \\
+        Step & $u(t)$ & $\pi \delta (\omega )+\frac{1}{j\omega }$ \\
+        Positive-time exponential & $e^{-at}u(t),\ a>0$ & $\frac{1}{a+j\omega },\ a>0$ \\
+        Negative-time exponential & $e^{at}u(-t),\ a>0$ & $\frac{1}{a-j\omega },\ a>0$ \\
+        Positive \& negative exponential & $e^{-a}$ & $t$ \\
+        Complex exponential & $e^{j\omega _0t}$ & $2\pi \delta (\omega -\omega _0)$ \\
+        Cosine & $\cos\omega _t$ & $\pi \left[ \delta (\omega -\omega _0) +\delta (\omega +\omega _0)\right]$ \\
+        Sine & $\sin\omega _0t$ & $j\pi \left[ \delta (\omega +\omega _0) -\delta (\omega -\omega _0)\right]$
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Fourier Transform Properties}
+    \label{tab:a3-t2}
+    \begin{tabular}{l|c|c}
+        Name of Property & Function of Time & Fourier Transform \\
+        \hline
+        \hline
+        Definition & $f(t)$ & $\mathcal{F}(\omega )$ \\
+        Multiplication by constant & $Af(t)$ & $A \mathcal{F}(\omega )$ \\ 
+        Linearity & $af_{1}(t)+b f_2(t)$ & $a \mathcal{F}_1(\omega )+b \mathcal{F}_2(\omega )$ \\
+        Time shift & $f(t-t_0)$ & $e^{-j\omega t_0}\mathcal{F}(\omega )$ \\
+        Time scaling ($a>0$) & $f(at)$ & $\frac{1}{a}\mathcal{F}\left( \frac{\omega }{a} \right)$ \\
+        Modulation (frequency shift) & $e^{j\omega _0t}f(t)$ & $\mathcal{F}(\omega -\omega _0)$ \\
+        Differentiation (time) & $\frac{d ^nf(t)}{d dt^n}$ & $(j\omega )^n \mathcal{F}(\omega )$ \\
+        Convolution (time) & $\int_{-\infty}^\infty f_{1}(t)f_2(t-x)dx$ & $\mathcal{F}_1(\omega )\mathcal{F}_2(\omega )$ \\
+        Time multiplication & $t^nf(t)$ & $(j)^n \frac{d^n \mathcal{F}(\omega )}{d \omega^n}$ \\
+        Time reversal & $f(-t)$ & $F(-\omega )$ \\
+        Integration & $\int_{-\infty}^tf(\tau )d\tau$ & $\frac{\mathcal{F}(\omega )}{j\omega }+\pi \mathcal{F}(0)\delta (\omega )$
+    \end{tabular}
+\end{table}
 
 \end{document}

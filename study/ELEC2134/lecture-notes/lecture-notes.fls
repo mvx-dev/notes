@@ -120,6 +120,10 @@ INPUT /usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -374,6 +378,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./lecture-notes.toc
 INPUT ./lecture-notes.toc
 INPUT lecture-notes.toc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
@@ -389,8 +394,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0500.tfm
-OUTPUT lecture-notes.toc
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT lecture-notes.toc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT lecture-notes.aux
@@ -400,6 +405,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
