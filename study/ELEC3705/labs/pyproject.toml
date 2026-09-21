@@ -7,7 +7,9 @@ authors = [
     { name = "Oskar Meszaros", email = "oskardmeszaros@protonmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "jupyter>=1.1.1",
+]
 
 [project.scripts]
 labs = "labs:main"
