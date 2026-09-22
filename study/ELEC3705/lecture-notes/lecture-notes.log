@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  20 SEP 2026 14:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  22 SEP 2026 10:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -737,7 +737,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip62
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 196.
+Package hyperref Info: Option `colorlinks' set `true' on input line 198.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -871,24 +871,24 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write6
 \openout6 = `lecture-notes.toc'.
 
- [2] [3] [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] [6] [7] [8] [9] [10] [11] [12] [13]
+ [2] [3] [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 659.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 750.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 659.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 750.
 
 Missing character: There is no ° in font cmr10!
-[14] [15] [16]
+[16] [17] [18]
 \pydata@fh@0=\write7
 \openout7 = `_5D4CA94D12F41E4E12DA004896F7D0AA.data.minted'.
 
-runsystem(latexminted config  --timestamp 20260920144837 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20260922101617 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
  (./_5D4CA94D12F41E4E12DA004896F7D0AA.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20260920144837 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20260922101617 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
- (./_minted/default.style.minted) (./_minted/4829247A76D0B1F9CD89E024CB522100.highlight.minted) (./_minted/F099CA0A83068C9F1F44AAB35C4EE89D.highlight.minted) (./_minted/968506B60CB868DFCC5C1D6D9D34DA89.highlight.minted) (./_minted/EAB7AA449CD5423E96E5A5D5D9B3BFF4.highlight.minted) [17] (./lecture-notes.aux)
+ (./_minted/default.style.minted) (./_minted/4829247A76D0B1F9CD89E024CB522100.highlight.minted) (./_minted/F099CA0A83068C9F1F44AAB35C4EE89D.highlight.minted) (./_minted/968506B60CB868DFCC5C1D6D9D34DA89.highlight.minted) (./_minted/EAB7AA449CD5423E96E5A5D5D9B3BFF4.highlight.minted) [19] (./lecture-notes.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -898,21 +898,21 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
-(rerunfilecheck)             Checksum: EA0FC8635E2BCA346A8C5D22B9CE7F5E;6734.
+(rerunfilecheck)             Checksum: 8B8310125D8B67E011F269715B7E5CDA;6930.
  ) 
 Here is how much of TeX's memory you used:
- 34703 strings out of 469515
- 718333 string characters out of 5470807
- 1280783 words of memory out of 5000000
- 62708 multiletter control sequences out of 15000+600000
+ 34738 strings out of 469515
+ 718850 string characters out of 5470807
+ 1282978 words of memory out of 5000000
+ 62723 multiletter control sequences out of 15000+600000
  639114 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 109i,16n,122p,550b,1140s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on lecture-notes.pdf (17 pages, 290476 bytes).
+ 109i,16n,122p,550b,1154s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on lecture-notes.pdf (19 pages, 308652 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 509 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 518 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 525 words of extra memory for PDF output out of 10000 (max. 10000000)
 

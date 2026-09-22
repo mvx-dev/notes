@@ -95,29 +95,29 @@ Consider a free particle. The energy is purely kinetic, so
 \]
 which we can impose Planck-Einstein to get
 \[
-    \hbar \omega=\frac{\bar{h}^2k^2}{2m}.
+    \hbar \omega=\frac{\hbar^2k^2}{2m}.
 \]
 An important thing to note is that the energy depends quadratically on $k$, but linearly on $\omega $. This means that an appropriate wave equation should contain a first derivative with respect to time, and the second derivative with respect to space. Here, $v$ is no longer constant.
 
 \subsection{Schr\"odinger Equation}
 Schr\"odinger postulated an equation that describes the time evolution of the wavefunction of quantum object to be
 \[
-    \boxed{i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t)+V(\vec{r})\psi (\vec{r},t)}
+    \boxed{i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\hbar^2}{2m}\nabla^2\psi (\vec{r},t)+V(\vec{r})\psi (\vec{r},t)}
 \]
 $V(\vec{r})$ is a (position-dependent) potential energy. It is similar to a wave equation, containing the first derivative w.r.t. time, and the second w.r.t. space. The coefficients are chosen to impose the Planck-Einstein relations. Because of the first derivative w.r.t. time, the equation explicitly contains $i$.
 
 \begin{proof}
     Consider a free particle not subjected to any potentials or forces ($V(\vec{r})=0$):
     \[
-        i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\bar{h}^2}{2m}\nabla^2\psi (\vec{r},t).
+        i\hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\hbar^2}{2m}\nabla^2\psi (\vec{r},t).
     \]
     This has a solution of the form
     \[
         \psi (\vec{r},t)=Ae^{i(\vec{k}\cdot\vec{r}-\omega t)}
     \]
-    with the condition
+    with the condition (see Problem \ref{problem:s1-p4} for a proof of this condition)
     \[
-        \hbar \omega =\frac{\bar{h}^2k^2}{2m}.
+        \hbar \omega =\frac{\hbar^2k^2}{2m}.
     \]
     Inserting the Planck-Einstein relations, the above conditions means
     \[
@@ -156,11 +156,100 @@ From the properties of Fourier transforms, we know that
 \[
     \sigma _k=1/\sigma _x\quad\Rightarrow\quad\sigma _k\sigma _x=1.
 \]
-Imposing the Planck-Einstein relation $p=\hbar k\Rightarrow\sigma _p=\bar{h}\sigma _k$, we get
+Imposing the Planck-Einstein relation $p=\hbar k\Rightarrow\sigma _p=\hbar\sigma _k$, we get
 \[
     \boxed{\sigma _p\sigma _x=\hbar }
 \]
 This relation is a simple mathematical property of Fourier transform. This appears as soon as you assume the Planck-Einstein relations, i.e. wave-particle duality. This also holds if you assume the uncertainty principle as a postulate, then wave-particle duality is a consequence of the mathematical properties of Fourier transforms.
+
+\subsection{Problems}
+\begin{callout}{problem}[Problem]
+\label{problem:s1-p1}
+A particle of mass $1 ng$ moves at $1 mm/s$. Estimate its de Broglie wavelength and compare it to atomic dimensions
+
+\noindent\textbf{Answer:}
+
+The de Broglie hypothesis states that the wavelength of an object is given by
+\[
+    \lambda =\frac{2\pi }{k}=\frac{h}{p},
+\]
+where $\lambda $ is the wavelength, $k$ is the wave vector, $h$ is the Planck constant, and $p$ is the classical momentum. Plugging in our values we get
+\begin{align*}
+    p &= 1\times 10^{-9} \times 1\times 10^{-3}\\
+        &=1\times 10^{-12} \\
+    \Rightarrow \lambda &= \frac{h}{p} \\
+                        &= \frac{6.626\times 10^{-34}}{1\times 10^{-12}}\\
+                        &= 6.626\times 10^{-22}m.
+\end{align*}
+The diameter of a proton is $1.68\times 10^{-15}$, which is several orders of magnitude larger than the wavelength of the particle.
+\end{callout}
+
+\begin{callout}{problem}[Problem]
+\label{problem:s1-p2}
+Using Heisenberg's uncertainty principle, estimate the minimum spread in velocity of an electron confined to a region of size $0.1 nm$.
+
+\noindent \textbf{Answer:}
+
+Heisenberg's uncertainty principle states that
+\[
+    \sigma _x\sigma _p\geq \frac{\hbar}{2}.
+\]
+Rearranging, we find the deviation of the momentum to be
+\[
+    \sigma _p\geq \frac{\sigma _x \hbar}{2}.
+\]
+Plugging in our value for $\sigma _x$, we get
+\begin{align*}
+    \sigma _p &\geq \frac{\sigma _x \hbar}{2}  \\
+              &= \frac{1\times 10^{-10}\times 1.054\times 10^{-34}}{2} \\
+              &=5.27\times 10^{-45}.
+\end{align*}
+We can then solve for the velocity to get
+\begin{align*}
+    \sigma _p &= \Delta (mv) \\
+    \Rightarrow \sigma _v &\geq \frac{5.27\times 10^{-45}}{1\times 10^{-10}} \\
+                          &\geq 5.27\times 10^{-35}.
+\end{align*}
+\end{callout}
+
+\begin{callout}{problem}[Problem]
+\label{problem:s1-p3}
+Show that for a Gaussian wave packet, the Fourier transform is also Gaussian, and derive $\sigma _k\sigma _x=1$.
+\end{callout}
+\begin{callout}{problem}[Problem]
+\label{problem:s1-p4}
+Verify that $\psi (\vec{r},t)=Ae^{i(\vec{k}\cdot \vec{r}-\omega t)}$ solves the free particle Schr\"odinger equation only if $\hbar\omega =\frac{\hbar^2k^2}{2m}$.
+
+\noindent\textbf{Answer:}
+
+We have the Schr\"odinger equation to be
+\[
+    i \hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=-\frac{\hbar^2}{2m}\nabla^2\psi (\vec{r},t)+V(\vec{r})\psi (\vec{r},t).
+\]
+For the free particle case, there are no external interactions with the system, i.e. $V(\vec{r})=0$. This gives Schr\"odinger to be
+\[
+    i \hbar \frac{\partial \psi (\vec{r},t)}{\partial t}=- \frac{\hbar^2}{2m}\nabla^2\psi (\vec{r},t).
+\]
+Plugging in our solution (and assuming a one-dimensioned case), we get
+\begin{equation}
+    i \hbar \frac{\partial }{\partial t}\left[ Ae^{i(\vec{k}r-\omega t)} \right]=- \frac{\hbar^2}{2m}\nabla^2 \left[ Ae^{i(\vec{k}r-\omega t)} \right]. \label{problem:s1-p4:eq1}
+\end{equation}
+Since we are only considering the 1D case, we have the Laplacian to be $\nabla^2=\frac{\partial^2}{\partial r^2}$, which gives
+\begin{align*}
+    \nabla^2 \left[ Ae^{i(\vec{k}r-\omega t)} \right] &= \frac{\partial^2}{\partial r^2} \left[ Ae^{i(\vec{k}r-\omega t)} \right] \\
+                                                      &= -k^2Ae^{i(\vec{k}r-\omega t)} .
+\end{align*}
+Now solving the LHS we get
+\[
+    \frac{\partial }{\partial t}\left[ Ae^{i(\vec{k}r-\omega t)} \right]=-i\omega Ae^{i(\vec{k}r-\omega t)}.
+\]
+Plugging both of these back into \ref{problem:s1-p4:eq1}, we get
+\begin{align*}
+    i \hbar \left[ -i\omega Ae^{i(\vec{k}r-\omega t)} \right] &= \frac{\hbar^2 }{2m}\left[ -k^2Ae^{i(\vec{k}r-\omega t)} \right] \\
+    \hbar\omega Ae^{i(\vec{k}r-\omega t)}&= \frac{\hbar^2k^2}{2m}Ae^{i(\vec{k}r-\omega t)} \\
+    \therefore\hbar\omega &= \frac{\hbar^2k^2}{2m}.
+\end{align*}
+\end{callout}
 
 \section{The Mathematical Formalism of Quantum Mechanics}
 \subsection{Hilbert Space}
@@ -246,6 +335,8 @@ A Hermitian operator is called observable if its eigenvectors form a basis of th
     U^{-1}=U^\dag.
 \]
 The eigenvalues of unitary operators are complex number of modulus 1.
+
+\subsection{Problems}
 
 \section{Spin and The Postulates of Quantum Mechanics}
 \subsection{Postulate 1}
