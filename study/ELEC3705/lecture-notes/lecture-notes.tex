@@ -432,35 +432,6 @@ Using the first two postulates, and the observed values of $\mathcal{S}_z$ of th
     i.e. $\ket{\uparrow}$ and $\ket{\downarrow}$ are eigenvectors of $S_z$ with eigenvalues $\pm\hbar /2$.
 \end{proof}
 
-\subsection{Spin Matrices}
-In the previous section we had the $S_z$ matrix which described the spin of a particle. We also have the spin projection along $x$ and $y$ to be
-\[
-    S_x=\frac{\hbar }{2}\begin{pmatrix}
-        0 & 1 \\ 1 & 0
-    \end{pmatrix},\quad S_y=\frac{\hbar }{2}\begin{pmatrix}
-        0 & -i \\ i & 0
-    \end{pmatrix}.
-\]
-(Note that these are the Pauli matrices $\sigma _x$, $\sigma _y$, $\sigma _z$ with a prefactor of $\hbar /2$). These matrices have the eigenvectors
-\begin{align*}
-    \ket{X} &= \frac{1}{\sqrt{2}} \left( \ket{\uparrow}+\ket{\downarrow} \right)&\quad \ket{-X}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-\ket{\downarrow} \right) \\
-    \ket{Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+i \ket{\downarrow} \right)&\quad \ket{-Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-i \ket{\downarrow} \right).
-\end{align*}
-
-Consider an arbitrary unit vector $\vec{u}$ in 3-dimensional space. The observable corresponding to the spin projection along $\vec{u}$ is given by
-\begin{align*}
-    S_u &= S_x\sin\theta \cos\phi +S_y\sin\theta \sin\phi +S_z\cos\theta  \\
-        &=\frac{\hbar }{2}\begin{pmatrix}
-            \cos\theta &\sin\theta \cdot e^{i\phi } \\
-            \sin\theta \cdot e^{i\phi} &-\cos\theta
-        \end{pmatrix}.
-\end{align*}
-The eigenvectors of this spin projection are then
-\begin{align*}
-    \ket{U} &= \cos \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\sin \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow} \\
-    \ket{-U} &=-\sin \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\cos \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow}.
-\end{align*}
-
 \subsection{Postulate 4}
 \begin{callout*}{important}[Fourth Postulate of Quantum Mechanics]
 \label{important:s3-p4}
@@ -521,7 +492,7 @@ For example, a single structureless particle that can be respresented by a wavef
     \[
         \ket{\psi (t^-)}\to \ket{\psi (t^+)}=\frac{P_n \ket{\psi (t^-)}}{\sqrt{\bra{\psi (t^-)}P_n \bra{\psi (t^-)}}},
     \]
-    where $P_n=\ket{u_n}\bra{u_n}$ is the projection operator onto the eigenstate $\ket{u_n}$. The denominator normalises the wavefunction.
+    where $P_n=\ket{u_n}\bra{u_n}$ (Section \ref{section:projection-operator}) is the projection operator onto the eigenstate $\ket{u_n}$. The denominator normalises the wavefunction.
 \end{callout*}
 
 This is known as the collapse of the wavefunction, and is where taking the measurement of a system "collapses" it into one it's possible states, with the probability of collapsing into this state being defined by the previous Postulate. In general, measuring some property of the system changes its state.
@@ -599,6 +570,40 @@ where
     \boxed{U(t,t_0)=e^{-i \frac{\mathcal{H}}{\hbar}(t-t_0)}}
 \]
 is the time-evolution operator.
+
+\subsection{Spin Matrices}
+In Section \ref{important:s3-p3}, we had the $S_z$ matrix which described the spin of a particle. We also have the spin projection along $x$ and $y$ to be
+\[
+    S_x=\frac{\hbar }{2}\begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix},\quad S_y=\frac{\hbar }{2}\begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}.
+\]
+(Note that these are the Pauli matrices $\sigma _x$, $\sigma _y$, $\sigma _z$ with a prefactor of $\hbar /2$). These matrices have the eigenvectors
+\begin{align*}
+    \ket{X} &= \frac{1}{\sqrt{2}} \left( \ket{\uparrow}+\ket{\downarrow} \right)&\quad \ket{-X}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-\ket{\downarrow} \right) \\
+    \ket{Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+i \ket{\downarrow} \right)&\quad \ket{-Y}&=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}-i \ket{\downarrow} \right).
+\end{align*}
+
+Consider an arbitrary unit vector $\vec{u}$ in 3-dimensional space. The observable corresponding to the spin projection along $\vec{u}$ is given by
+\begin{align*}
+    S_u &= S_x\sin\theta \cos\phi +S_y\sin\theta \sin\phi +S_z\cos\theta  \\
+        &=\frac{\hbar }{2}\begin{pmatrix}
+            \cos\theta &\sin\theta \cdot e^{i\phi } \\
+            \sin\theta \cdot e^{i\phi} &-\cos\theta
+        \end{pmatrix}.
+\end{align*}
+The eigenvectors of this spin projection are then
+\begin{align*}
+    \ket{U} &= \cos \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\sin \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow} \\
+    \ket{-U} &=-\sin \frac{\theta }{2}e^{-\frac{i\phi }{2}}\ket{\uparrow}+\cos \frac{\theta }{2}e^{\frac{i\phi }{2}}\ket{\downarrow}.
+\end{align*}
+
+\subsection{Projection Operator} \label{section:projection-operator}
+A projection operator extracts the component of a quantum state lying in a chosen direction or subspace. It is used in Born's rule (Def. \ref{definition:borns-rule}) to define the probability of making a specific measurement, or to transform a vector from one basis to another.
+
+In order for a matrix to be a projection matrix, it must be idempotent ($\hat{P}^2=\hat{P}$), and if it is also Hermitian is called an orthogonal projection matrix (otherwise it is an oblique projection matrix).
 
 \subsection{Exponential of a Matrix}
 We can use Taylor Expansion to calculate some arbitrary function of a matrix, such as $e^A$.

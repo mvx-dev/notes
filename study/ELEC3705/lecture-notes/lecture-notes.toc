@@ -24,22 +24,23 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Application}{10}{subsubsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.3}Postulate 3}{10}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Application}{10}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Spin Matrices}{11}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Postulate 4}{11}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Application}{11}{subsubsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.6}Postulate 5}{12}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Application}{12}{subsubsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.7}Postulate 6}{13}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}Application}{13}{subsubsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.8}Exponential of a Matrix}{14}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Hamiltonian Eigenbasis}{14}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Properties of the Time Evolution Operator}{16}{subsection.3.10}%
-\contentsline {subsubsection}{\numberline {3.10.1}Unitary Operators}{16}{subsubsection.3.10.1}%
-\contentsline {subsubsection}{\numberline {3.10.2}Time Reversibility}{17}{subsubsection.3.10.2}%
-\contentsline {subsection}{\numberline {3.11}Commutation}{17}{subsection.3.11}%
-\contentsline {subsubsection}{\numberline {3.11.1}Ehrenfest Theorem}{17}{subsubsection.3.11.1}%
-\contentsline {subsection}{\numberline {3.12}Pauli Matrices}{18}{subsection.3.12}%
-\contentsline {subsection}{\numberline {3.13}Non-Hermitian Operators}{18}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.4}Postulate 4}{11}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Application}{11}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Postulate 5}{12}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Application}{12}{subsubsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.6}Postulate 6}{13}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Application}{13}{subsubsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.7}Spin Matrices}{13}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Projection Operator}{14}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Exponential of a Matrix}{14}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{14}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Properties of the Time Evolution Operator}{16}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{16}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.2}Time Reversibility}{17}{subsubsection.3.11.2}%
+\contentsline {subsection}{\numberline {3.12}Commutation}{17}{subsection.3.12}%
+\contentsline {subsubsection}{\numberline {3.12.1}Ehrenfest Theorem}{17}{subsubsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.13}Pauli Matrices}{18}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.14}Non-Hermitian Operators}{18}{subsection.3.14}%
 \contentsline {section}{\numberline {A}Fourier Transform}{19}{appendix.A}%
 \contentsline {section}{\numberline {B}Matlab/Python Commands}{19}{appendix.B}%
 \contentsline {subsection}{\numberline {B.1}Matrix Operations}{19}{subsection.B.1}%

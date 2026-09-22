@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1790036177.57101 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1790036178.71569 0
+["pdflatex"] 1790048815.11926 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1790048816.51335 0
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0500.tfm" 1775415801 1536 b3387106d9afecbfe14bde2de6eadf47 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1775415801 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -243,10 +243,10 @@
   "_minted/F099CA0A83068C9F1F44AAB35C4EE89D.highlight.minted" 1789869206.51462 158 c11ccb46b63ba791d96107a155c6eea1 ""
   "_minted/_5D4CA94D12F41E4E12DA004896F7D0AA.index.minted" 1789869227.93759 442 1733d5b06103db4e0bfeb1dae37559bb ""
   "_minted/default.style.minted" 1789869109.38915 6426 e1fb43a91491f41b33310478eee48cdb ""
-  "lecture-notes.aux" 1790036178.65475 8010 355e68da7b6581f65ca231ae8528db9c "pdflatex"
-  "lecture-notes.out" 1790036178.65585 6930 8b8310125d8b67e011f269715b7e5cda "pdflatex"
-  "lecture-notes.tex" 1790036175.76783 46258 aec5b30acca6692a504b3981829bae92 ""
-  "lecture-notes.toc" 1790036178.65589 3965 2acf0041e90cb5233c939cdfd42c7244 "pdflatex"
+  "lecture-notes.aux" 1790048816.44581 8230 5bfb98de2a5c666d250ab3bcbdbd0a39 "pdflatex"
+  "lecture-notes.out" 1790048816.44795 7087 6aa11a7982ae7fed60e6baf4f4925f84 "pdflatex"
+  "lecture-notes.tex" 1790048809.17059 46873 d08d70532bb53354a27997b64777c301 ""
+  "lecture-notes.toc" 1790048816.44795 4053 3caf97dee49aa92c0cdfce36ce204c78 "pdflatex"
   "preamble.sty" 1790035840.6337 5838 14a704980fc668a3c338081fa55b14ce ""
   (generated)
   "lecture-notes.aux"
