@@ -15,6 +15,8 @@
 \RequirePackage{textcomp}
 \RequirePackage{pdfpages}
 \RequirePackage{minted}
+\RequirePackage{mathtools}
+\RequirePackage[autostyle,english=british]{csquotes}
 \RequirePackage[margin=1in]{geometry}
 
 % \RequirePackage[backend=biber]{biblatex}
@@ -64,7 +66,7 @@
 \newcounter{callout}[subsection]
 \renewcommand{\thecallout}{\thesection.\arabic{callout}}
 
-% NOTE: type keys are matched case-sensitively — pass lowercase, e.g.
+% NOTE: type keys are matched case-sensitively - pass lowercase, e.g.
 % \begin{callout}{info}
 
 \newcommand{\setcallouttitlefromtype}[1]{%
@@ -93,6 +95,7 @@
         {example}{\def\callouttitle{Example}}%
         {quote}{\def\callouttitle{Quote}}%
         {cite}{\def\callouttitle{Quote}}%
+        {problem}{\def\callouttitle{Problem}}%
     }[\edef\callouttitle{\MakeUppercase{#1}}]%
 }
 
@@ -122,6 +125,7 @@
     {example}{\def\calloutaccent{ctpMauve}}%
     {quote}{\def\calloutaccent{ctpOverlay0}}%
     {cite}{\def\calloutaccent{ctpOverlay0}}%
+    {problem}{\def\calloutaccent{ctpPeach}}%
   }[\def\calloutaccent{ctpBlue}]%
 }
 
@@ -129,7 +133,7 @@
 {%
   \def\callouttype{#1}%
   \setcalloutaccent{#1}%
-  \stepcounter{callout}
+  \refstepcounter{callout}
   \IfNoValueTF{#2}
     {\setcallouttitlefromtype{#1}}
     {\def\callouttitle{#2}}%
@@ -156,5 +160,40 @@
   \end{tcolorbox}
 }
 
+\NewDocumentEnvironment{callout*}{m o}
+{%
+  \def\callouttype{#1}%
+  \setcalloutaccent{#1}%
+  \IfNoValueTF{#2}
+    {\setcallouttitlefromtype{#1}}
+    {\def\callouttitle{#2}}%
+  \begin{tcolorbox}[
+    breakable,
+    sharp corners,
+    skin=enhancedmiddle jigsaw,
+    parbox=false,
+    boxrule=0mm,
+    leftrule=2mm,
+    boxsep=0mm,
+    arc=0mm,
+    outer arc=0mm,
+    attach title to upper,
+    after title={.\ },
+    coltitle=black,
+    colback=\calloutaccent!10,
+    colframe=\calloutaccent,
+    title={\callouttitle},
+    fonttitle=\bfseries
+  ]
+}
+{%
+  \end{tcolorbox}
+}
+
 % Must be imported last
 \RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
