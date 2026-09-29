@@ -33,15 +33,21 @@
 \contentsline {subsection}{\numberline {3.7}Spin Matrices}{13}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Projection Operator}{14}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Exponential of a Matrix}{14}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{14}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{15}{subsection.3.10}%
 \contentsline {subsection}{\numberline {3.11}Properties of the Time Evolution Operator}{16}{subsection.3.11}%
-\contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{16}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{17}{subsubsection.3.11.1}%
 \contentsline {subsubsection}{\numberline {3.11.2}Time Reversibility}{17}{subsubsection.3.11.2}%
 \contentsline {subsection}{\numberline {3.12}Commutation}{17}{subsection.3.12}%
-\contentsline {subsubsection}{\numberline {3.12.1}Ehrenfest Theorem}{17}{subsubsection.3.12.1}%
+\contentsline {subsubsection}{\numberline {3.12.1}Ehrenfest Theorem}{18}{subsubsection.3.12.1}%
 \contentsline {subsection}{\numberline {3.13}Pauli Matrices}{18}{subsection.3.13}%
-\contentsline {subsection}{\numberline {3.14}Non-Hermitian Operators}{18}{subsection.3.14}%
-\contentsline {section}{\numberline {A}Fourier Transform}{19}{appendix.A}%
-\contentsline {section}{\numberline {B}Matlab/Python Commands}{19}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Matrix Operations}{19}{subsection.B.1}%
-\contentsline {subsubsection}{\numberline {B.1.1}Exponential}{19}{subsubsection.B.1.1}%
+\contentsline {subsection}{\numberline {3.14}Non-Hermitian Operators}{19}{subsection.3.14}%
+\contentsline {subsection}{\numberline {3.15}Problems}{19}{subsection.3.15}%
+\contentsline {section}{\numberline {4}Quantum Mechanics in Real Space}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Schr\"odinger Equations in Real Space}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Stationary States}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Low-Energy Truncation}{22}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Non-Stationary States}{22}{subsection.4.4}%
+\contentsline {section}{\numberline {A}Fourier Transform}{24}{appendix.A}%
+\contentsline {section}{\numberline {B}Matlab/Python Commands}{24}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Matrix Operations}{24}{subsection.B.1}%
+\contentsline {subsubsection}{\numberline {B.1.1}Exponential}{24}{subsubsection.B.1.1}%

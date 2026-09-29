@@ -590,7 +590,7 @@ Consider an arbitrary unit vector $\vec{u}$ in 3-dimensional space. The observab
 \begin{align*}
     S_u &= S_x\sin\theta \cos\phi +S_y\sin\theta \sin\phi +S_z\cos\theta  \\
         &=\frac{\hbar }{2}\begin{pmatrix}
-            \cos\theta &\sin\theta \cdot e^{i\phi } \\
+            \cos\theta &\sin\theta \cdot e^{-i\phi } \\
             \sin\theta \cdot e^{i\phi} &-\cos\theta
         \end{pmatrix}.
 \end{align*}
@@ -604,6 +604,16 @@ The eigenvectors of this spin projection are then
 A projection operator extracts the component of a quantum state lying in a chosen direction or subspace. It is used in Born's rule (Def. \ref{definition:borns-rule}) to define the probability of making a specific measurement, or to transform a vector from one basis to another.
 
 In order for a matrix to be a projection matrix, it must be idempotent ($\hat{P}^2=\hat{P}$), and if it is also Hermitian is called an orthogonal projection matrix (otherwise it is an oblique projection matrix).
+
+Let $\ket{u_n}$ be an eigenstate in some basis. The projection operator is then given by
+\[
+    P_n=\ket{u_n}\bra{u_n}.
+\]
+To projection a ket $\ket{\chi }$ onto this eigenstate is given by
+\[
+    \ket{\chi }_n=P_n \ket{\chi }=\ket{u_n}\braket{u_n}{\chi },
+\]
+which gives the probability of finding $\ket{\chi }$ in the eigenstate $\ket{u_n}$. See Problem \ref{problem:} for a proof that $\ket{u_n}\bra{u_n}$ acts a projection operator.
 
 \subsection{Exponential of a Matrix}
 We can use Taylor Expansion to calculate some arbitrary function of a matrix, such as $e^A$.
@@ -911,7 +921,230 @@ $\sigma _+$ is a "flip up" operator. However,
         0 \\ 0
     \end{pmatrix},
 \]
-applying $\sigma _+$ to the spin-up results in the zero-vector, with is not a legitimate state vector as it is not normalised.
+applying $\sigma _+$ to the spin-up results in the zero-vector, with is not a legitimate state vector as it is not normalised. One thing to note is that these matrices can be created by outer product of the spin-up and spin-down eigenstates with themselves, and act as a projection operator.
+
+\subsection{Problems}
+\begin{callout}{problem}[Problem]
+\label{problem:s3-p1}
+Show that $\ket{\psi }\bra{\psi }$ acts as a projection operator, and verify the closure relation
+\[
+    \sum \ket{\psi }\bra{\psi }=1
+\]
+for an orthonormal basis.
+
+\noindent\textbf{Answer}
+
+Let $\hat{P}_{\psi }\equiv \ket{\psi }\bra{\psi }$. When applied to a ket, the bra must bind to the ket, giving
+\[
+    \hat{P}_\psi =\ket{\psi }\braket{\psi }{\chi }=\braket{\psi }{\chi }\ket{\psi }.
+\]
+Thus it extracts the component of $\ket{\chi }$ along $\ket{\psi }$. If $\ket{\psi }\perp \ket{\chi }$, then $\braket{\psi }{\chi }=0$, so $\hat{P}_\psi \ket{\chi }=0$.
+
+In order for $\hat{P}_\psi$ to be a projection operator, it must satisfy
+\[
+    \hat{P}_\psi ^2=\hat{P}_\psi ,
+\]
+i.e. applying the operator to the same ket twice is the same as applying only once. If we assume $\ket{\psi }$ is normalised ($\braket{\psi }{\psi }=1$), then
+\begin{align*}
+    \hat{P}_\psi^2 &= \left( \ket{\psi }\bra{\psi } \right) \left( \ket{\psi }\bra{\psi } \right) \\
+                   &= \ket{\psi }\braket{\psi }{\psi }\bra{\psi } \\
+                   &= \ket{\psi }(1)\bra{\psi }\\
+                   &= \hat{P}_\psi .
+\end{align*}
+Now checking for Hermiticity, using $(AB)^\dagger=B^\dagger A^\dagger$, $\ket{\psi }^\dagger=\bra{\psi }$, and $\bra{\psi }^\dagger=\ket{\psi }$ we get
+\begin{align*}
+    \hat{P}_\psi^\dagger &= \left( \ket{\psi }\bra{\psi } \right)^\dagger \\
+                         &= \left( \bra{\psi }^\dagger \right) \left( \ket{\psi }^\dagger \right) \\
+                         &= \ket{\psi }\bra{\psi } \\
+                         &= \hat{P}_\psi.
+\end{align*}
+Finally, we can check for orthogonality of basis projectors. Let $\left\{ \ket{i} \right\}$ be an orthonormal basis, $\braket{i}{j}=\delta _{ij}$. Define $\hat{P}_i=\ket{i}\bra{i}$. Then,
+\begin{align*}
+    \hat{P}_i \hat{P}_j&= \ket{i}\braket{i}{j}\ket{j} \\
+                       &=\delta _{ij}\ket{i}\bra{j}.
+\end{align*}
+Hence,
+\[
+    \hat{P}_i\hat{P}_j=\begin{cases}
+        \hat{P}_i & i=j \\
+        0 & i\neq j
+    \end{cases}.
+\]
+This means projections onto different basis directions do not interfere with each other. We can now use these results to verify the closure relation by having the operator act on an arbitrary ket $\ket{\chi }$
+\begin{align*}
+    \left( \sum_{i} \ket{i}\bra{j}\right)\ket{\chi } &= \sum_{i}\ket{i}\braket{i}{\chi } \\
+                                                     &=\sum_{i}c_i \ket{i},\quad c_i=\braket{i}{\chi }.
+\end{align*}
+This is the same as the expansion of $\ket{\chi }$ on the complete orthonormal basis $\left\{ \ket{i} \right\}$
+\[
+    \ket{\chi }=\sum_{i}c_i \ket{i}.
+\]
+Since the two operators act the same on every ket,
+\[
+    \sum_{i}\ket{i}\bra{i}=\mathbb{I}.
+\]
+\end{callout}
+
+\section{Quantum Mechanics in Real Space}
+\subsection{Schr\"odinger Equations in Real Space}
+When we are solving the Schr\"odinger equation, we generally want to solve it in the form
+\[
+    \psi (x,t)=\phi (x)\cdot\chi (t),
+\]
+i.e. we want to separate the spatial and temporal components. This gives the S.E. to be
+\[
+    i \hbar\phi (x)\frac{\partial \chi (t)}{\partial t}=-\frac{\hbar^2}{2m}\chi (t)\frac{\partial^2}{\partial x^2}\phi (x)+\chi (t)V(x)\phi (x),
+\]
+and dividing both sides by $\phi (x)\cdot\chi (t)$
+\[
+    \frac{i \hbar}{\chi (t)}\frac{\partial \chi (t)}{\partial t}=\frac{1}{\phi (x)}\left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\phi (x) \right]+V(x).
+\]
+This gives the S.E. to have the temporal-related components on the LHS, and the spatial related components on the RHS. This can only hold if both sides of the equation are a constant, which we set equal to $\hbar\omega $.
+
+We can define the forms of the wavefunctions as below. Starting with the LHS
+\[
+    i \hbar \frac{\partial \chi (t)}{\partial t}=\hbar\omega \cdot\chi (t)\Rightarrow\chi (t)=A\cdot \exp(-i\omega t).
+\]
+
+And with the RHS
+\[
+    -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\phi (x)+V(x)\phi (x)=\hbar\omega \cdot\phi (x).
+\]
+This is just the "real space" version of the TISE
+\[
+    \mathcal{H}\phi (x)=E\phi (x)\quad \to\quad \left[ \frac{-\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x) \right]\phi (x)=E\phi (x),
+\]
+and therefore the function
+\[
+    \psi (x,t)=\phi (x)\exp(-i\omega t)
+\]
+is a solution of the Schr\"odinger equation, if $\phi (x)$ is a solution of the time-independent part. The function $\psi (x,t)$ written above is a stationary state.
+
+\subsection{Stationary States}
+Whilst the function does contain $t$ in the exponent, it isn't time-dependent as this is just a phase-factor which does not matter in isolation.
+\begin{proof}
+    Consider an arbitrary ket $\ket{\psi (t)}=\ket{\psi_0}e^{-i\omega t}$ and an observable $\mathcal{A}$. The expectation value of the observable is given by
+    \begin{align*}
+        \left\langle A \right\rangle _\psi  &= \bra{\psi (t)}\mathcal{A} \ket{\psi (t)} \\
+                                            &= \bra{\psi _0}e^{i\omega t}\mathcal{A}e^{-i\omega t}\ket{\psi _0} \\
+                                            &= \bra{\psi _0}A \ket{\psi _0},
+    \end{align*}
+    which is strictly time-independent.
+\end{proof}
+
+Quantum systems can be described using density matrices, which are simply the ket and bra multiplied together, $\rho =\ket{\psi }\bra{\psi }$. In this case, the density matrix for $\ket{\psi (t)}$ is
+\[
+    \rho =\ket{\psi (t)}\bra{\psi (t)}=\ket{\psi _0}e^{-i\omega t}e^{i\omega t}\bra{\psi _0}=\ket{\psi _0}\bra{\psi _0},
+\]
+so the phase factor disappears.
+
+As the S.E. is linear, this means a linear equation of its solutions is also a solution
+\[
+    \psi (x,t)=\sum_{n}c_n\psi _n(x)e^{-i\omega _nt}.
+\]
+This means if we know the stationary states $\psi _n(t)$ and their energies $E_n=\hbar\omega _n$, the problem can be easily solved if the initial state is written as a linear combination of stationary states
+\[
+    \psi (x,0)=\sum_{n}c_n\psi _n(x).
+\]
+When considering the wavefunctions as vectors in an infinite-dimensioned space, this is essentially using a diagonal time-evolution operator.
+
+\begin{callout}{example}[Example]
+\label{example:s4-e1}
+Consider a system with potential energy being given by
+\[
+    V(x)=\begin{cases}
+        0 & 0 < x < a \\
+        \infty & \text{otherwise}
+    \end{cases}.
+\]
+The particles cannot access this region outside ($0,a$) due to the infinite potential required to exceed it. This imposes $\psi =0$ at and beyond the walls. Note that $\frac{\partial \phi }{\partial x}$ does not need to be continuous. Our general solution (Ansatz) is
+\[
+    \psi (x)=Ae^{ikx}+Be^{-ikx}.
+\]
+With our boundary condition at $x=a$, we have
+\[
+    \psi (a)=0\Rightarrow k_n=\frac{n\pi }{a}, n \in \mathbb{Z}.
+\]
+Therefore, the energy eigenvalues $E_n=\frac{\hbar^2k_n^2}{2m}$ are
+\[
+    E_n=\frac{n^2\pi^2 \hbar^2}{2ma^2}.
+\]
+Imposing the normalisation of the wavefunction, $\int \left| \psi (x) \right|^2dx=1$, we get
+\[
+    \boxed{\psi _n(x)=\sqrt{\frac{2}{a}}\sin \left( \frac{n\pi x}{a} \right)}
+\]
+The boundary conditions have the effect of selecting a discrete set of possible momenta, and therefore possible energies, for the particle in the well. The stationary states are standing waves in the well.
+\end{callout}
+
+\subsection{Low-Energy Truncation}
+Since $\mathcal{H}$ is an observable, its eigenvalues $\psi _n(x)$ form a basis of the Hilbert space. In principle, $n \to \infty$, however in practice this can be truncated to a finite set of $N$ low-energy state, for example becayse the temperature is finite, so the very high-energy states are always unoccupied. Therefore, if the Hilbert space is truncated to a finite dimensioned $N$, we can write a finite set of basis kets as
+\[
+    \ket{\psi _1}=\begin{pmatrix}
+        1 \\ 0 \\ \vdots \\ 0
+    \end{pmatrix}\quad \ket{\psi _2}=\begin{pmatrix}
+        0 \\ 1 \\ \vdots \\ 0
+    \end{pmatrix}\quad \ket{\psi _3}=\begin{pmatrix}
+        0 \\ 0 \\ \vdots \\ 1
+    \end{pmatrix},
+\]
+where the Hamiltionian is simply
+\[
+    \mathcal{H}=\begin{pmatrix}
+        E_1 & 0 & \cdots & 0 \\
+        0 & E_2 & \cdots & \vdots \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & \cdots & \cdots & E_N
+    \end{pmatrix}.
+\]
+Each ket $\ket{\psi _n}$ corresponds to the function of space $\psi _n(x)=\sqrt{\frac{2}{a}}\sin \left( \frac{n\pi x}{a} \right)$.
+
+\subsection{Non-Stationary States}
+A linear superposition of states is also a legitimate state
+\[
+    \ket{\psi (t)}=\sum_{n}c_n(t)\ket{\phi_n}.
+\]
+
+\begin{callout}{example}[Example]
+\label{example:s4-e2}
+Evaluate
+\[
+    \ket{\psi (0)}=\frac{1}{\sqrt{2}}\left( \ket{\phi _1}+\ket{\phi _2} \right).
+\]
+
+Since we are using the basis of the eigenstates of the Hamiltonian, the time-evolution operator is diagonal
+\[
+    U(t,0)=\begin{pmatrix}
+        e^{-iE_1t/\hbar} & 0 & \cdots & 0 \\
+        0 & e^{iE_2t/\hbar} & \cdots & \vdots \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & \cdots & \cdots & e^{-iE_Nt/\hbar}
+    \end{pmatrix}.
+\]
+The time-evolved state is then given by
+\[
+    \ket{\psi (t)}=U(t,0)\ket{\psi (0)}=\frac{1}{\sqrt{2}}\left( e^{-iE_1t/\hbar}\ket{\phi _1}+e^{-iE_2t/\hbar}\ket{\phi _2} \right).
+\]
+Multiplying by $e^{iE_1t/\hbar}$, we obtain
+\begin{equation}
+    \ket{\psi (t)}e^{iE_1t/\hbar}=\frac{1}{\sqrt{2}}\left( \ket{\phi _1}+e^{-i(E_2-E_1)t/\hbar}\ket{\phi _2} \right). \label{eq:s4-e2}
+\end{equation}
+Note that the global phase factor on the LHS is completely irrelevant, however the relative phase factor on the RHS is what matters. We can call this $\omega _{12}$, and define it as
+\[
+    \omega _{12}=\frac{E_2-E_1}{\hbar},
+\]
+which we can use in Eq. \ref{eq:s4-e2} to get
+\[
+    \ket{\psi (t)}=\frac{1}{\sqrt{2}}\left( \ket{\phi _1}+e^{-i\omega _{12}t}\ket{\phi _2} \right).
+\]
+The corresponding function of real space is then
+\[
+    \psi (x,t)=\frac{1}{\sqrt{2}}\left( \phi _1(x)+e^{-i\omega _{12}t}\phi_2(x) \right),
+\]
+which gives the probability to find the particle at point $x$ at time $t$ to be
+\[
+    \left| \psi (x,t) \right|^2=\frac{1}{2}\phi _1^2(x)+\frac{1}{2}\phi _2^2(x)+\phi _1(x)\phi _2(x)\cos(\omega _{12}t).
+\]
+\end{callout}
 
 \newpage
 \appendix
