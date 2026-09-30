@@ -525,7 +525,7 @@ Miscellaneous:
         Negative-time exponential & $e^{at}u(-t),\ a>0$ & $\frac{1}{a-j\omega },\ a>0$ \\
         Positive \& negative exponential & $e^{-a}$ & $t$ \\
         Complex exponential & $e^{j\omega _0t}$ & $2\pi \delta (\omega -\omega _0)$ \\
-        Cosine & $\cos\omega _t$ & $\pi \left[ \delta (\omega -\omega _0) +\delta (\omega +\omega _0)\right]$ \\
+        Cosine & $\cos\omega _0t$ & $\pi \left[ \delta (\omega -\omega _0) +\delta (\omega +\omega _0)\right]$ \\
         Sine & $\sin\omega _0t$ & $j\pi \left[ \delta (\omega +\omega _0) -\delta (\omega -\omega _0)\right]$
     \end{tabular}
 \end{table}
@@ -547,7 +547,7 @@ Miscellaneous:
         Differentiation (time) & $\frac{d ^nf(t)}{d dt^n}$ & $(j\omega )^n \mathcal{F}(\omega )$ \\
         Convolution (time) & $\int_{-\infty}^\infty f_{1}(t)f_2(t-x)dx$ & $\mathcal{F}_1(\omega )\mathcal{F}_2(\omega )$ \\
         Time multiplication & $t^nf(t)$ & $(j)^n \frac{d^n \mathcal{F}(\omega )}{d \omega^n}$ \\
-        Time reversal & $f(-t)$ & $F(-\omega )$ \\
+        Time reversal & $f(-t)$ & $\mathcal{F}(-\omega )$ \\
         Integration & $\int_{-\infty}^tf(\tau )d\tau$ & $\frac{\mathcal{F}(\omega )}{j\omega }+\pi \mathcal{F}(0)\delta (\omega )$
     \end{tabular}
 \end{table}
