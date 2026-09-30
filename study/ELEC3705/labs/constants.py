@@ -1,6 +1,8 @@
 from numpy import linalg as LA
 import numpy as np
 
+hbar = (6.626*10**(-34))/(2*np.pi)
+
 u_ket = np.array([[1], [0]])
 d_ket = np.array([[0], [1]])
 u_bra = u_ket.T
@@ -27,15 +29,17 @@ def sigma_u(theta, phi):
 
 
 def get_eigenvector(matrix, eigenvalue):
-    val, vec = LA.eig(matrix)
-    i, = np.where(np.isclose(val, eigenvalue))
-    return vec[i]
+    val, vec = LA.eigh(matrix)
+    i = np.where(np.isclose(val, eigenvalue))[0][0]
+    return vec[:, [i]]
 
 
 def get_eigenvalue(matrix, eigenvector):
-    val, vec = LA.eig(matrix)
-    i, = np.where(np.isclose(vec, eigenvector))
-    return val[i]
+    lam = np.vdot(eigenvector, matrix @ eigenvector) / \
+        np.vdot(eigenvector, eigenvector)
+    if not np.allclose(matrix @ eigenvector, lam * eigenvector):
+        raise ValueError("vector is not an eigenvector of this matrix")
+    return lam.real
 
 
 def bra(ket):
@@ -44,3 +48,11 @@ def bra(ket):
 
 def ket(bra):
     return bra.conj().T
+
+
+def normalise(vector):
+    return vector / LA.norm(vector)
+
+
+def probability(ket1, ket2):
+    return abs((bra(ket1) @ ket2).item())**2
