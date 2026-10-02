@@ -1146,6 +1146,56 @@ which gives the probability to find the particle at point $x$ at time $t$ to be
 \]
 \end{callout}
 
+\section{Quantum Tunnelling}
+\subsection{Particle in a Step-Like Potential}
+Consider a piecewise constant potential
+\[
+    V(x)=\begin{cases}
+        0 & x<0 \\
+        V_0 & x\geq 0
+    \end{cases},
+\]
+and a particle with total energy $E$ and momentum $p=\hbar k$, moving from left to right ($x\to \infty$). We have our TISE as
+\begin{align*}
+    \left[ -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}+(V(x)-E) \right]\phi (x)&=0 \\
+    \left[ \frac{\partial^2}{\partial x^2}+\frac{2m}{\hbar^2}(E-V(x)) \right]\phi (x)&=0
+\end{align*}
+In order to properly construct this problem, we have to consider each region separately. Starting with the first region $x<0$ where $E>V$, we have the particle's total energy greater than the potential energy, meaning there is a kinetic component
+\[
+    E-V=\frac{1}{2}mv^2=\frac{p^2}{2m}=\frac{\hbar^2k^2}{2m}.
+\]
+Taking our Ansatz to be
+\[
+    \phi (x)=Ae^{ikx}+Be^{-ikx},
+\]
+we know that the particle is going in the $+x$ direction, which means $B=0$. Now considering the second region $x\geq 0$, this case is forbidden as the kinetic energy component cannot be negative, i.e. the particle would just bounce and reflect against the step in potential. Quantum mechanically, however, we can write
+\[
+    V-E=\frac{\hbar^2\alpha^2}{2m},\quad \alpha =\frac{\sqrt{2m(V_0-E)}}{\hbar},
+\]
+with $\alpha $ taking the place of $-ik$. This then gives our Ansatz to be
+\[
+    \phi (x)=Ce^{-\alpha x}+De^{\alpha x}.
+\]
+The first term $Ce^{-\alpha x}$ describes a wavefunction that decays exponentially as the particle tries to go under the step, called an evanescent wave.
+
+In order to construct the full wavefunction, we must have $A$, $B$, $C$, and $D$ chosen such that $\phi (x)$ and $\frac{\partial \phi }{\partial x}$ are continuous (unless the step is infinitely high). The overall problem can then be solved by writing the appropriate solution in each constant potential region, then matching them at the boundary.
+
+Let's consider, as an example, $E>V$ in both regions
+\begin{align*}
+    \phi_1(x) &= A_1e^{ik_1x}+A_1'e^{-ik_1x} \\
+    \phi_2(x) &= A_2e^{ik_2z}+A_2'e^{-ik_2x}
+\end{align*}
+with
+\[
+    k_1=\frac{\sqrt{2mE}}{\hbar},\quad k_2=\frac{\sqrt{2m(E-V_0)}}{\hbar},
+\]
+and $A_2'=0$ since the particle comes from the left. We haven't done the same with $A_1'$ as it may reflect at the step. Matching the conditions at $x=0$ (the boundary), we get
+\begin{align*}
+    A_1+A_1'&=A_2& &\Rightarrow\phi (x) \text{ is continuous at the boundary} \\
+    ik_1A_1-ik_1A_1'&=ik_2A_2& &\Rightarrow \frac{\partial \phi }{\partial x}\text{ is continuous at the boundary}
+\end{align*}
+
+
 \newpage
 \appendix
 \section{Fourier Transform}
