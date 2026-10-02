@@ -1,0 +1,70 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{ouViolationBellsInequality1988}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=OZY}{%
+         family={Ou},
+         familyi={O\bibinitperiod},
+         given={Z.\bibnamedelima Y.},
+         giveni={Z\bibinitperiod\bibinitdelim Y\bibinitperiod},
+      }}%
+      {{hash=ML}{%
+         family={Mandel},
+         familyi={M\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{OZYML1}
+    \strng{fullhash}{OZYML1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1988}
+    \field{labeldatesource}{}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{abstract}{%
+    Correlation measurements of mixed signal and idler photons produced in the process of parametric down-conversion have been performed as a function of two linear polarizer settings. It is found that the Bell inequality for two separated particles is violated by about 6 standard deviations, and that classical probability for light waves is violated substantially also.%
+    }
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.61.50
+    \endverb
+    \field{number}{1}
+    \field{pages}{50\bibrangedash 53}
+    \field{title}{Violation of {{Bell}}'s {{Inequality}} and {{Classical Probability}} in a {{Two-Photon Correlation Experiment}}}
+    \field{volume}{61}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/6387VUDF/Ou and Mandel - 1988 - Violati
+    \verb on of Bell's Inequality and Classical Probability in a Two-Photon Cor
+    \verb relation Experiment.pdf;/home/cheshire/Zotero/storage/B8WT5UJ7/PhysRe
+    \verb vLett.61.html
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+    \field{month}{07}
+    \field{year}{1988}
+    \field{urlday}{27}
+    \field{urlmonth}{09}
+    \field{urlyear}{2026}
+  \endentry
+\enddatalist
+\endinput
