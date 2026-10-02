@@ -361,8 +361,293 @@ The amplitude spectrum of this carrier is one-half the amplitude spectrum of $x(
     \mathcal{F}\left\{ x(t)\cos(\omega _0t) \right\}=\frac{1}{2}X(\omega -\omega _0)+\frac{1}{2}X(\omega +\omega _0).
 \]
 
+\section{Topic 3: Laplace Transforms of Signals and Circuits}
+\subsection{Introduction to Laplace Transform}
+A Laplace transform can be thought of as a generalisation of Fourier transforms that transforms differential equations into algebraic equations. It is also able to handle initial conditions, transients, and steady-states responses.
+
+It is an integral transformation that maps a function $f(t)$ from the time domain to the $s$-domain. It is defined as
+\[
+    \mathcal{L}\left\{ f(t) \right\}=F(s)=\int_0^{\infty}f(t)e^{-st}dt,
+\]
+where $s$ is a complex variable and is given by $s=\sigma +j\omega $, $\sigma $ is the exponential damping factor, and $\omega $ is the frequency. Note that the Fourier transform is a special case when $\sigma =0$,
+\begin{itemize}
+    \item $s=j\omega $ - sinusoidal AC signals (Fourier/frequency axis)
+    \item $s=\sigma $ - for exponential signals
+    \item $s=\sigma +j\omega $ - for exponential sinusoidal signals.
+\end{itemize}
+
+\subsection{Laplace Transform Properties}
+Let $f(t)$ and $g(t)$ be two functions with respective Laplace transforms $F(s)$ and $G(s)$
+\[
+    f(t)=\mathcal{L}^{-1}\left\{ F(s) \right\},\quad g(t)=\mathcal{L}^{-1}\left\{ G(s) \right\}.
+\]
+\subsubsection{Basic Properties}
+The Laplace transform has the following basic properties (note: the $u(t-a)$ function is present to ensure the function doesn't include negative time):
+\begin{itemize}
+    \item \textbf{Linearity}: $af(t)+bg(t)\xLeftrightarrow{\mathcal{L}}aF(s)+bG(s)$
+    \item \textbf{Time scaling}: $f(at)\xLeftrightarrow{\mathcal{L}}\frac{1}{a}F \left( \frac{s}{a} \right)$
+    \item \textbf{Time shifting}: $f(t-a)u(t-a)\xLeftrightarrow{\mathcal{L}}e^{-as}F(s)$
+    \item \textbf{Frequency shifting}: $e^{-as}f(t)u(t)\xLeftrightarrow{\mathcal{L}}F(s+a)$
+    \item \textbf{First time derivative}: $\frac{d f(t)}{d t}\xLeftrightarrow{\mathcal{L}}sF(s)-f(^-)$
+    \item \textbf{Second time derivative}: $\frac{d^2f(t)}{d t^2}\xLeftrightarrow{\mathcal{L}}s^2F(s)-sf(0^-)-f'(0^-)$
+    \item \textbf{General time derivative}: $\frac{d ^nf(t)}{d t^n}\xLeftrightarrow{\mathcal{L}}s^nF(s)-\sum_{k=1}^{n} f^(k-1)(0^-)$
+    \item \textbf{Time integration}: $\int_0^tf(\tau )d\tau \xLeftrightarrow{\mathcal{L}}\frac{1}{s}F(s)$
+    \item \textbf{Differentiation in s-domain}: $tf(t)\xLeftrightarrow{\mathcal{L}}-\frac{d F(s)}{d s}$
+    \item \textbf{Differentiation in s-domain (general)}: $t^nf(t)\xLeftrightarrow{\mathcal{L}}(-1)^nF^{(n)}(s)$
+    \item \textbf{Frequency Integration}: $\frac{f(t)}{t}\xLeftrightarrow{\mathcal{L}}\int_s^\infty F(s)ds$
+\end{itemize}
+
+\subsubsection{Initial and Final Value Theorem}
+The initial and final values of a function can be directly found from its Laplace transform. We have the initial value to be
+\[
+    f(0)=\lim_{s\to\infty} sF(s),
+\]
+and final value as
+\[
+    f(\infty)=\lim_{s\to0} sF(s).
+\]
+Note that the final value theorem is only applicable when the system has a definite final value. For rational $F(s)$, the poles of $sF(s)$ must lie in the open left-half place (aside from the simple origin case).
+
+\begin{callout}{example}[Example]
+\label{example:s4-e1}
+Find the final value of the function
+\[
+    f(t)=e^{-2t}\sin(5t)u(t).
+\]
+
+\textbf{Answer}: First, we find the Laplace transform of this function to be
+\[
+    F(s)=\mathcal{L}\left\{ f(t) \right\}=\frac{5}{(s+2)^2+4s^29}.
+\]
+Taking the limit gives
+\begin{align*}
+    f(\infty) &= \lim_{s\to 0} sF(s) \\
+              &= \lim_{s\to 0}\frac{5s}{s^2+4s+29} \\
+              &= 0.
+\end{align*}
+\end{callout}
+
+\subsection{Inverse Laplace Transform}
+The inverse Laplace transform is very similar to the formula for the inverse Fourier transform. We have
+\[
+    f(t)=\mathcal{L}^{-1}\left\{ F(s) \right\}(t)=\frac{1}{2\pi i}\lim_{T\to \infty} \int_{\gamma -i T}^{\gamma +i T}e^{st}F(s)ds,
+\]
+where $\gamma =\mathfrak{Re}(s)$, such that $\gamma $ is greater than the real part of all singularities (discontinuities) of $F$ and $F$ is bounded on the line. In the special case where all singularities lie in the open left half-place, or $F$ is an entire function (such as a polynomial, exponential, finite sum, etc), then $\gamma $ can be set to 0 and the above integral is identical to the inverse Fourier transform.
+
+The typical way to find the inverse Laplace transform is to simply using the properties from above, along with a table of basic/common Laplace transform pairs, to find the inverse. This usually also requires decomposing $F(s)$ into partial fractions
+
+\subsubsection{Partial Fraction Decomposition}
+The partial fraction decomposition of a rational fraction of the form
+\[
+    \frac{f(x)}{g(x)},
+\]
+where $f(x)$, $g(x)$ are polynomials and $g(x)\neq 0$, is the expression of the rational fractions as
+\[
+    \frac{f(x)}{g(x)}=p(x)+\sum_{k} \frac{f_j(x)}{g_j(x)},
+\]
+where $p(x)$ is a polynomial, and for each $j$, the denominator $g_j(x)$ is a power of an irreducible polynomial (i.e. not factorisable into polynomials of positive degrees), and the numerator $f_j(x)$ is a polynomial of a smaller degree than the degree of the irreducible polynomial. Note that when doing this by hand, we just consider "square-free" polynomials rather than irreducible polynomials.
+
+There are two methods for finding partial fractions:
+\begin{itemize}
+    \item \textbf{Residue Method}: "Cover" the factor $(x-p)$, then evaluate the rest at $x=p$. See Example \ref{example:s4-e2} for an example of this.
+    \item \textbf{Algebraic Method}: Equate $f(x)$ to a coefficient corresponding to one of the factors multiplied by the rest of $g(x)$. Then, the coefficients can be found by solving for each of them. See Example \ref{example:s4-e2} for an example of this.
+\end{itemize}
+
+\subsection{Laplace-Domain Circuit Models}
+Laplace transform is particularly useful for circuit analysis by converting to the $s$-domain of circuit elements. Circuit elements can be transformed into impedances, which is similar to phasor impedances from ELEC1111.
+
+\subsubsection{Resistor}
+For resistors, all values remain the same in both the time domain and the $s$-domain.
+\[
+    v(t)=Ri(t)\xLeftrightarrow{\mathcal{L}}V(s)=RI(s).
+\]
+
+\subsubsection{Inductors}
+In the time-domain, we have voltage to be inductances multiplied by the change in current, and the current to be the total change in voltage divided by the inductance,
+\[
+    v(t)=L \frac{d i(t)}{d t},\quad i(t)=\frac{1}{L}\int_0^tv(\tau )d\tau +i(0),
+\]
+where $i(0)$ is the current at $t=0$. Taking the Laplace transform of this, we get
+\begin{align*}
+    v(t)=L \frac{d i(t)}{d t} &\xLeftrightarrow{\mathcal{L}} V(s)= sLI(s)-Li(0) \\
+    i(t)=\frac{1}{L} \int_0^tv(\tau )d\tau +i(0) &\xLeftrightarrow{\mathcal{L}} I(s)=\frac{V(s)}{sL}+\frac{i(0)}{s}.
+\end{align*}
+
+\subsubsection{Capacitors}
+In the time-domain, the voltage is given by the total change in current divided by the capacitance, and the current to be the capacitance multiplied by the change in voltage.
+\[
+    v(t)=\frac{1}{C}\int_0^ti(\tau )d\tau +v(0),\quad i(t)=C \frac{d v(t)}{d t}.
+\]
+Taking the Laplace transform of this, we get
+\begin{align*}
+    v(t)=\frac{1}{C}\int_0^ti(\tau )d\tau +v(0) &\xLeftrightarrow{\mathcal{L}}V(s)=\frac{I(s)}{sC}+\frac{v(0)}{s}  \\
+    i(t)=c \frac{d v(t)}{d t} &\xLeftrightarrow{\mathcal{L}}I(s)=sCV(s)-Cv(0).
+\end{align*}
+
+\subsubsection{Initial Conditions}
+In the above equations, the initial conditions represented a voltage or current source on the circuit, indicating the circuit started with a certain current/voltage. If we assume no initial conditions, we get
+\begin{table}[H]
+    \centering
+    \caption{Zero initial conditions in Laplace-domain circuit models}
+    \label{tab:s4-t1}
+    \begin{tabular}{c|c|c}
+        Voltage/Current Relation & Impedance & Admittance \\
+        \hline
+        \hline
+        $V(s)=RI(s)$ & $Z(s)=\frac{V(s)}{I(s)}=R$ & $Y(s)=\frac{I(s)}{V(s)}=\frac{1}{R}$ \\
+        $V(s)=sLI(s)$ & $Z(s)=\frac{V(s)}{I(s)}=sL$ & $Y(s)=\frac{I(s)}{V(s)}=\frac{1}{sL}$ \\
+        $V(s)=\frac{I(s)}{sC}$ & $Z(s)=\frac{V(s)}{I(s)}=\frac{1}{sC}$ & $Y(s)=\frac{I(s)}{V(s)}=sC$
+    \end{tabular}
+\end{table}
+
+\subsection{Transfer Functions}
+A transfer function describes how a signal is changed whilst passing through a system. The transfer function $H(s)$ is defined as the ratio of the output response $Y(s)$ to input excitation $X(s)$, assuming all initial conditions are zero
+\[
+    H(s)=\frac{Y(s)}{X(s)},\quad Y(s)=H(s)\cdot X(s),
+\]
+where $H(s)$ is the transfer function, and $X(s)$ and $Y(s)$ are the input and output, respectively. If both $X(s)$ and $Y(s)$ are voltages, then it represents a voltage gain. If both variables are currents, it represents a current gain. This gives four common types of transfer function
+\begin{itemize}
+    \item \textbf{Voltage Gain}: $H(s)=\frac{V_o(s)}{V_i(s)}$
+    \item \textbf{Current Gain}: $H(s)=\frac{I_o(s)}{I_i(s)}$
+    \item \textbf{Impedance}: $H(s)=\frac{V(s)}{I(s)}$
+    \item \textbf{Admittance}: $H(s)=\frac{I(s)}{V(s)}$
+\end{itemize}
+A single circuit may have several possible transfer function, depending on the chosen input and output variables. Note that gain is dimensionless, whereas impedance and admittance have units.
+
+\subsubsection{Unit Impulse Response}
+To determine the transfer function $H(s)$ of a system, both in the input and output functions must be known. If the input $X(s)$ and the transfer function are known, the output is obtained as
+\[
+    Y(s)=H(s)\cdot X(s).
+\]
+Taking the inverse Laplace transform,
+\[
+    y(t)=\mathcal{L}^{-1}\left\{ Y(s) \right\}.
+\]
+If the input is a unit response, $x(t)=\delta (t)$, then
+\[
+    X(s)=1,
+\]
+and therefore $Y(s)=H(s)$, which also means
+\[
+    y(t)=h(t),
+\]
+where
+\[
+    h(t)=\mathcal{L}^{-1}\left\{ H(s) \right\}.
+\]
+The function $h(t)$ is called the unit impulse response. It represents the time-domain response of the system to a unit impulse input. Therefore, the transfer function $H(s)$ is the Laplace transform of the unit impulse response of the system.
+
+\subsection{Examples}
+\begin{callout}{example}[Example]
+\label{example:s4-e2}
+Find the inverse Laplace transform of
+\[
+    F(s)=\frac{s^2+12}{s(s+2)(s+3)}
+\]
+using both the Residue method and the algebraic method for partial fraction decomposition.
+
+\textbf{Answer}: First, we need to find the partial fractions
+\[
+    \frac{s^2+12}{s(s+2)(s+3)}=\frac{A}{s}+\frac{B}{s+2}+\frac{C}{s+3}.
+\]
+
+\textbf{Algebraic Method}:
+Multiplying both sides by the denominator, we get
+\[
+    s^2+12=A(s^2+5s+6)+B(s^2+3s)+C(s^2+2s).
+\]
+Equating the coefficients of like powers, we get
+\begin{align*}
+    \text{Constant}&:& 12&=6A& &\Rightarrow A=2 \\
+    s&:             & 0&=5A+3B+2C& &\Rightarrow 3B+2C=-10 \\
+    s^2&:           & 1&=A+B+C& &\Rightarrow B+C=-1 \\
+       & & \therefore A&=2,B=-8,C=7.
+\end{align*}
+
+\textbf{Residual Method}:
+To find each coefficient, we just multiply the denominator of the respective fraction by $F(s)$. This gives the following set of equations
+\begin{align}
+    A &= sF(s)\bigg\rvert_{s=0}\label{eq:s4-e2-e1}
+ \\
+    B&= (s+2)F(s)\bigg\rvert_{s=-2}\label{eq:s4-e2-e2}
+ \\
+C&= (s+3)F(s)\bigg\rvert_{s=-3}. \label{eq:s4-e2-e3}
+\end{align}
+Evaluating these gives
+\begin{align*}
+    \eqref{eq:s4-e2-e1}\quad A &= \frac{s^2+12}{(s+2)(s+3)}\bigg\rvert_{s=0} \\
+                               &= \frac{12}{2\times 3} =2\\
+    \eqref{eq:s4-e2-e2}\quad B&= \frac{s^2+12}{s(s+3)}\bigg\rvert_{s=-2}\\
+                              &= \frac{12}{-2\times 1} = -8 \\
+    \eqref{eq:s4-e2-e3}\quad C&= \frac{s^2+12}{s(s+2)} \\
+                              &= \frac{12}{-3\times -1} = 7.
+\end{align*}
+We can see that these give the same result, however the second method was easier. We now have our function to be in the form
+\[
+    F(s)=\frac{2}{s}-\frac{8}{s+2}+\frac{7}{s+3},
+\]
+which we can find the inverse of using linearity and a table of common pairs to get
+\begin{align*}
+    f(t)&=\mathcal{L}^{-1}\left( \frac{2}{s} \right)-\mathcal{L}^{-1}\left( \frac{8}{s+2} \right)+\mathcal{L}^{-1}\left( \frac{7}{s+3} \right) \\
+        &= 2u(t)-8e^{-2t}+7e^{-3t},\quad t\geq 0
+\end{align*}
+\end{callout}
+
+\begin{callout}{example}[Example]
+\label{example:s4-e3}
+Use the Laplace transform to solve the following differential equation
+\[
+    \frac{d^2v(t)}{d t^2}+6 \frac{d v(t)}{d t}+8v(t)=2u(t),
+\]
+given $v(0)=1$, $v'(0)=-2$.
+
+\textbf{Answer}:
+
+Taking the Laplace transform of each term gives
+\[
+    \left[ s^2V(s)-sv(0)-v'(0) \right]+6 \left[ sV(s)-v(0) \right]+8V(s)=\frac{2}{s}.
+\]
+Substituting $v(0)=1$ and $v'(0)=-2$, we obtain
+\begin{align*}
+    (s^2+6s+8)V(s) &= s+4+\frac{2}{s} \\
+                   &= \frac{s^2+4s+2}{s}
+    \Rightarrow V(s) &= \frac{1/4}{s}+\frac{1/2}{s+2}+\frac{1/4}{s+4}.
+\end{align*}
+Taking the inverse Laplace transform, we obtain
+\[
+    v(t)=\frac{1}{4}(1+2e^{-2t}+e^{-4t})u(t).
+\]
+\end{callout}
+
+\begin{callout}{example}[Example]
+\label{example:s4-e4}
+Use the Laplace transform to solve the following differential equation
+\[
+    \frac{d y}{d t}+5y(t)+6 \int_0^ty(\tau )d\tau =u(t),
+\]
+given $y(0)=2$.
+
+\textbf{Answer}:
+
+Taking the Laplace transform of each term in the given differential equation yields
+\[
+    \left[ sY(s)-y(0) \right]+5Y(s)+\frac{6}{s}Y(s)=\frac{1}{s}.
+\]
+Substituting $y(0)=2$, we obtain
+\begin{align*}
+    Y(s)(s^2+5s+6) &= 1+2s \\
+    Y(s) &= \frac{2s+1}{(s+2)(s+3)} \\
+    &= -\frac{3}{s+2}+\frac{5}{s+3}.
+\end{align*}
+Taking the inverse Laplace transform, we get
+\[
+    y(t)=(-3e^{-2t}+5e^{-3t})u(t).
+\]
+\end{callout}
+
 \newpage
 \appendix
+\part{Appendix}
 \section{Filters}
 \subsection{Types of Filters}
 The following are idealised specifications for the most common filter functions

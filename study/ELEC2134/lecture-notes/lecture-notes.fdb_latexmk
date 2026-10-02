@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1790559502.01202 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1790559502.90874 0
+["pdflatex"] 1790910911.90365 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1790910912.86123 0
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0500.tfm" 1775415801 1536 b3387106d9afecbfe14bde2de6eadf47 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1775415801 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -9,6 +9,9 @@
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1775415801 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1775415801 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1775415801 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1775415801 1040 b84415f97d114011685943ade933dc71 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm" 1775415801 1040 a9d2074f3fa062d4d9046b92e2334d8c ""
+  "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm" 1775415801 1040 82eb6630b094bff824fccca83ff507f9 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1775415801 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1775415801 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1775415801 928 2dc8d444221b7a635bb58038579b861a ""
@@ -44,6 +47,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1775415801 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1775415801 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1775415801 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1775415801 21098 d4aee7c0aac232caac5688b586b9363c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1775415801 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1775415801 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1775415801 138258 6525c253f16cededa14c7fd0da7f67b2 ""
@@ -122,6 +126,7 @@
   "/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty" 1775415801 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1775415801 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1775415801 13829 94730e64147574077f8ecfea9bb69af4 ""
+  "/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd" 1775415801 1047 4252767c0fde12e3ce9f914ef4bb1ea1 ""
   "/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd" 1775415801 961 6518c6525a34feb5e8250ffa91731cff ""
   "/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd" 1775415801 961 d02606146ba5601b5645f987c92e6193 ""
   "/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1775415801 2222 27db7d52163edae53881b71ff62e754e ""
@@ -229,10 +234,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1783905551 5381098 9f966685d344a3d34adbc94f52661a01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1783907781 2328188 590491b91264867e8a6aa54863554b52 ""
-  "lecture-notes.aux" 1790559502.85316 6527 18a94a9645d2a0bb6a87103c311218aa "pdflatex"
-  "lecture-notes.out" 1790559502.85526 6703 63a40eb7296df2c0f7f8af1bbe226852 "pdflatex"
-  "lecture-notes.tex" 1790559500.22821 24669 87cc0c3109ef1d43f653bbfaaa1293ec ""
-  "lecture-notes.toc" 1790559502.85526 3523 e4e071b75e3b2cedb257df7bba964e6b "pdflatex"
+  "lecture-notes.aux" 1790910912.79681 9476 8ed5c45b0fdc86c00ae86b97fbe7655a "pdflatex"
+  "lecture-notes.out" 1790910912.79881 9500 3ac34ee926fc25fce303762a52801ba0 "pdflatex"
+  "lecture-notes.tex" 1790910909.23171 38134 f49b3b82da2291755c3d5ea48ba9cd5b ""
+  "lecture-notes.toc" 1790910912.79881 4990 268e9cfa4bd73046f2b764de15a9aa5c "pdflatex"
   "preamble.sty" 1789955346.66217 5071 833826467d5b129f5a75101cab2726e6 ""
   (generated)
   "lecture-notes.aux"
