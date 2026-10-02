@@ -837,4 +837,31 @@ Miscellaneous:
     \end{tabular}
 \end{table}
 
+\section{Common Laplace Transform Pairs and Properties}
+\begin{table}[H]
+    \centering
+    \caption{Basic Laplace Transforms}
+    \label{tab:a4-t1}
+    \begin{tabular}{l|c|c|c}
+        Type & Time-Domain & $s$-domain & Region of Convergence \\
+        \hline
+        \hline
+        Unit impulse & $\delta (t)$ & $1$ & all $s$ \\
+        Delayed impulse & $\delta (t-\tau )$ & $e^{-\tau s}$ & all $s$ \\
+        Unit step (Heaviside) & $u(t)$ & $\frac{1}{s}$ & $\mathfrak{Re}(s)>0$ \\
+        Delayed unit step & $u(t-\tau )$ & $\frac{1}{s}e^{-\tau s}$ & $\mathfrak{Re}(s)>0$ \\
+        Delayed function and step & $f(t-\tau )u(t-\tau )$ & $e^{s-\tau }\mathcal{L}\left\{ f(t) \right\}$ & \\
+        Rectangular impulse & $u(t)-u(t-\tau )$ & $\frac{1}{s}\left( 1-e^{-\tau s} \right)$ & $\mathfrak{Re}(s)>0$ \\
+        Ramp & $tu(t)$ & $\frac{1}{s^2}$ & $\mathfrak{Re}(s)>0$ \\
+        $n$th power ($n\in \mathbb{R}$) & $t^nu(t)$ & $\frac{n!}{s^{n+1}}$ & $\mathfrak{Re}(s)>0, n>-1$ \\
+        $n$th polynomial & $\frac{t^{n-1}}{(n-1)!}u(t)$ & $\frac{1}{s^n}$ & $\mathfrak{Re}(s)>0, n>1$ \\
+        Exponential decay & $e^{-\alpha t}u(t)$ & $\frac{1}{s+\alpha }$ & $\mathfrak{Re}(s)>-\alpha $ \\
+        $n$th power using frequency shift & $t^ne^{-\alpha t}$ & $\frac{n!}{(s+\alpha )^{n+1}}$ \\
+        Sine & $\sin(\omega t)u(t)$ & $\frac{\omega }{s^2+\omega^2}$ & $\mathfrak{Re}(s)>0$ \\
+        Cosine & $\cos(\omega t)u(t)$ & $\frac{s}{s^2+\omega^2}$ & $\mathfrak{Re}(s)>0$\\
+        Exponentially decaying sine wave & $e^{-\alpha t}\sin(\omega t)u(t)$ & $\frac{\omega }{(s+\alpha )^2+\omega^2}$ & $\mathfrak{Re}(s)>-\alpha $\\
+        Exponentially decaying cosine wave & $e^{-\alpha t}\cos(\omega t)u(t)$ & $\frac{s+\alpha }{(s+\alpha )^2+\omega^2}$ & $\mathfrak{Re}(s)>-\alpha $ 
+    \end{tabular}
+\end{table}
+
 \end{document}
