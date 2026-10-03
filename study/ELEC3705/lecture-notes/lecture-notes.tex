@@ -1195,6 +1195,149 @@ and $A_2'=0$ since the particle comes from the left. We haven't done the same wi
     ik_1A_1-ik_1A_1'&=ik_2A_2& &\Rightarrow \frac{\partial \phi }{\partial x}\text{ is continuous at the boundary}
 \end{align*}
 
+From this, we can calculate the transmission coefficient $T$ from the amplitude in region II travelling right over the amplitude in region I also travelling right. This gives
+\[
+    T\equiv \frac{k_2}{k_1}\left| \frac{A_2}{A_1}\right|^2=\frac{4k_1k_2}{(k_1+k_2)^2}.
+\]
+If we instead take the amplitude travelling left in region I, we get the reflection coefficient $R$
+\[
+    R\equiv \left| \frac{A_1'}{A_1} \right|^2=1-T=1-\frac{1k_1k_2}{(k_1+k_2)^2}.
+\]
+Note that the condition
+\[
+    T+R=1
+\]
+must always hold, as it enforces the particle existing somewhere in the system. In the classical case, you would expect $R=0$ because the particle has enough energy to overcome the step, it would just slow down. Instead, it has a non-zero probability of still reflecting back.
+
+\subsection{Quantum Tunnelling}
+Now consider a potential system defined as
+\[
+    V(x)=\begin{cases}
+        0 & x<0 \\
+        V_0 & 0\leq x\leq l \\
+        0 & x>l
+    \end{cases}.
+\]
+This gives the system of equations
+\begin{align*}
+    \phi _1(x) &= A_1e^{ik_1x}+A_1'e^{-ik_1x} \\
+    \phi _2(x) &= A_2e^{-\alpha x}+A_2'e^{\alpha x} \\
+    \phi _3(x) &= A_3e^{ik_1x}+A_3'e^{-ik_1x},
+\end{align*}
+with $A_3'=0$. This can be solved by breaking the problem into two steps, matching the boundary conditions in region I and II at $x=0$, then regions II and III at $x=l$. This gives
+\begin{align*}
+    T &= \frac{16E(V_0-E)}{V_0^2}e^{-\alpha l} \\
+      &= \frac{16E(V_0-E)}{V_0^2}e^{-l \frac{\sqrt{2m(V_0-E)}}{\hbar}}.
+\end{align*}
+We know that the transmission coefficient $T\neq 0$ because the wavefunction under the barrier is an evanescent wave, so it has an exponentially decaying tail that leaks to the other side of the barrier. This coefficient is proportional to
+\[
+    e^{-\alpha l}=e^{-l \frac{\sqrt{2m(V_0-E)}}{\hbar}},
+\]
+i.e. the probability of tunnelling through the barrier depends exponentially on the width $l$ and on the height of the barrier $V_0$, measuring from the energy of the incoming particle $V_0-E$. Also note that the particle can be reflected back with probability $1-T$, but if it tunnels through the barrier, it comes out with the same energy and momentum as when it arrived. This is called elastic tunnelling.
+
+\subsection{Double-Well}
+An ammonia molecule ($N H_3$) has an umbrella-like structure
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.55\linewidth}
+        \centering
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \node[draw, circle, fill=black, label=\text{N}] (N) at ($(0,0)$) {};
+            \node[draw, circle, fill=black, label=\text{H}] (H1) at ($(N)+(1.5,-1.5)$) {};
+            \node[draw, circle, fill=black, label=\text{H}] (H2) at ($(N)+(0.4,-2.5)$) {};
+            \node[draw, circle, fill=black, label=\text{H}] (H3) at ($(N)+(-1.5,-1.5)$) {};
+
+            \draw[-] (N) to (H1);
+            \draw[-] (N) to (H2);
+            \draw[-] (N) to (H3);
+            \draw[dashed] (H1) to (H3);
+            \draw[-] (H1) to (H2);
+            \draw[-] (H2) to (H3);
+
+            \node (x0) at ($(N)+(-2.5,0)$) {\text{0}};
+            \node (xb) at ($(H2)+(-2.9,0)$) {\text{b}};
+            \node (axis0) at ($(xb.east)+(0.125,-1)$) {};
+            \node[label=\text{x}] (axis1) at ($(x0.east)+(0.125, 1)$) {};
+
+            \draw ($(x0.east)$) -- ($(x0.east)+(0.25,0)$);
+            \draw ($(xb.east)$) -- ($(xb.east)+(0.25,0)$);
+            \draw[-stealth] (axis0) -- (axis1);
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}[c]{0.45\linewidth}
+        Since the nitrogen is much heavier than the hydrogens, we can think of the nitrogen atom as being fixed at $x=0$, i.e. the center of mass is effectively where the nitrogen atom is. We will be considering the movement of the three hydrogen atoms. They have two stable positions at $x=\pm b$.
+    \end{minipage}
+\end{figure}
+
+If we want to flip the umbrella upside down, the hydrogen atoms have to overcome the electrostatic repulsion of the nitrogen atom. Thus, there is a potential barrier against flipping the umbrella, but its height is finite. For simplicity, we will approximate the potential as two rectangular wells, with a finite barrier in the middle and infinite walls outside.
+
+\subsubsection{Approximation 1: Infinite Barrier}
+If we approximate the wells as being separated by an infinite potential barrier in the middle, this becomes two independent infinite wells, and each eigenvalue is doubly degenerate. This means that are two orthogonal eigenvectors (one for each well) with the same eigenvalue.
+
+For simplicity we can truncate the Hamiltonian, and assume that $k_Bt\ll E_2-E_1$, so only the 2 lowest energy states $\ket{\phi _{1L}}$, $\ket{\phi _{1R}}$ are populated, which means we have truncated the Hamiltonian to a 2-dimensional space. We can define our basis as either completely in one well or completely in the other. The two basis states have the same energy $E_1$, so the Hamiltonian is given by
+\[
+    \mathcal{H}=\begin{pmatrix}
+        E_1 & 0 \\ 0 & E_1
+    \end{pmatrix}=E_1 \mathbb{I}.
+\]
+Since the potential energy is defined with respect to an arbitrary constant, we can set $E_1=0$, i.e. measure the energies starting from $E_1$ upwards. We can also define a different basis, this time with the first ket being positive in both wells, and the second being negative in the first well and positive in the second. We can call these the symmetric and anti-symmetric states, respectively.
+\[
+    \ket{\phi _{1S}}=\frac{1}{\sqrt{2}}\left( \ket{\phi _{1R}+\ket{\phi _{1L}}} \right),\quad \ket{\phi _{1A}}=\frac{1}{\sqrt{2}}\left( \ket{\phi _{1R}}-\ket{\phi _{1L}} \right).
+\]
+The states are orthogonal and normalised.
+
+\subsubsection{Approximation 2: Finite Wells}
+Now considering the realistic case, where the barrier between the two wells is not infinite. We know that, in this case, the wavefunction does not go to 0 at the edge, but instead decays exponentially, so it has a finite probability to "leak" to the other side. This is the tunnelling effect. In our symmetric/anti-symmetric basis, both eigenstates now have some leakage under the barrier, but in different amounts, meaning $\ket{\phi _{1S}}$ and $\ket{\phi _{1A}}$ now have different energies. We define $E_A-E_S$ as tunnelling splitting.
+
+\subsubsection{Tunnelling Splitting}
+When the barrier was infinitely high, we had pairs of degenerate states (left/right). With the finite barrier, each pair splits in energy by an amount that depends on how each symmetric/anti-symmetric eigenstate leaks under the barrier, which is tunnelling splitting. This is a measure of the difference in total energy between the two eigenstates for each energy doublet, which increases with higher-energy doublets because they "see" a lower barrier.
+
+\subsubsection{Tunnelling Oscillations}
+We can prepare the system in the initial state
+\[
+    \ket{\psi (0)}=\frac{1}{\sqrt{2}}\left( \ket{\phi _{1S}}+\ket{\phi _{1A}} \right)=\ket{\phi _{1R}}.
+\]
+Note that this is the umbrella on the right state, written in the basis of symmetric/anti-symmetric eigenstates of the Hamiltonian. At subsequent times, we'll have
+\[
+    \ket{\psi (t)}=\frac{1}{\sqrt{2}}\left( \ket{\phi _{1S}}+e^{-i(E_{1A}-E_{1S})t/\hbar}\ket{\phi _{1A}} \right).
+\]
+This gives the tunnelling oscillations to have the frequency
+\[
+    \omega _T=\frac{E_{1A}-E_{1S}}{\hbar}.
+\]
+For ammonia, this is a well defined frequency
+\[
+    \omega _T=\frac{E_{1A-E_{1S}}}{\hbar}\approx 2\pi \times^24 \text{GHz}.
+\]
+
+\subsection{Relation to Spin}
+In the presence of tunnel coupling, the Hamiltonian of the ammonia molecule (truncated to the lowest-energy doublet) becomes
+\[
+   \mathcal{H}=\begin{pmatrix}
+        0 & -\Delta \\ -\Delta & 0
+    \end{pmatrix},
+\]
+where
+\[
+    2\Delta =E_{1A}-E_{1S}.
+\]
+Tunnel coupling plays the same roles as a magnetic field parallel to $x$ on a spin, which can be seen as the eigenstates $\ket{\phi _{1S}}$ and $\ket{\phi _{1A}}$ look exactly like $\ket{X}$ and $\ket{-X}$ for a spin. The tunnelling oscillations have the same form as the precession in the $yz$-plane of a spin placed in a magnetic field parallel to $x$.
+
+Due to the distribution of charge between the atoms, the ammonia molecule as an electric dipole $\mu $, so an electric field applied along the axis of the molecule pulls the umbrella on one side. Therefore, an electric field plays the same role as a magnetic field perpendicular to $z$, which splits the energy of the natural basis states. Overall, we can write the Hamiltonian as
+\[
+    \mathcal{H}=\begin{pmatrix}
+        \epsilon & -\Delta \\ -\Delta & \epsilon 
+    \end{pmatrix}=-\Delta \sigma _x+\epsilon \sigma _z,
+\]
+where
+\[
+    \begin{cases}
+        2\Delta =E_{1A}-E_{1S} & \epsilon =0 \Rightarrow \text{ Tunnel coupling}\\
+        2\epsilon =E_{1R}-E_{1L} & \Delta =0 \Rightarrow \text{ Detuning by electric field}
+    \end{cases}.
+\]
+This means under suitable circumstances (low temperature), a complex system, like an ammonia molecule, is very well described by the same Hamiltonian as that of a spin in a magnetic field that has $x$ and $z$ components.
 
 \newpage
 \appendix

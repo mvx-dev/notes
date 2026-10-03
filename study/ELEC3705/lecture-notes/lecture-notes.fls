@@ -132,11 +132,6 @@ INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
-INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
-INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
-INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
-INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -226,6 +221,13 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.cod
 INPUT /usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/share/texmf-dist/tex/latex/environ/environ.sty
