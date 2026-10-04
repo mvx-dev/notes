@@ -390,7 +390,7 @@ The Laplace transform has the following basic properties (note: the $u(t-a)$ fun
     \item \textbf{Frequency shifting}: $e^{-as}f(t)u(t)\xLeftrightarrow{\mathcal{L}}F(s+a)$
     \item \textbf{First time derivative}: $\frac{d f(t)}{d t}\xLeftrightarrow{\mathcal{L}}sF(s)-f(^-)$
     \item \textbf{Second time derivative}: $\frac{d^2f(t)}{d t^2}\xLeftrightarrow{\mathcal{L}}s^2F(s)-sf(0^-)-f'(0^-)$
-    \item \textbf{General time derivative}: $\frac{d ^nf(t)}{d t^n}\xLeftrightarrow{\mathcal{L}}s^nF(s)-\sum_{k=1}^{n} f^(k-1)(0^-)$
+    \item \textbf{General time derivative}: $\frac{d ^n}{d t^n}f(t)\xLeftrightarrow{\mathcal{L}}s^nF(s)+\sum_{i=1}^{n} \left[ -s^{n-k}f^{k-1}(0^-) \right]$
     \item \textbf{Time integration}: $\int_0^tf(\tau )d\tau \xLeftrightarrow{\mathcal{L}}\frac{1}{s}F(s)$
     \item \textbf{Differentiation in s-domain}: $tf(t)\xLeftrightarrow{\mathcal{L}}-\frac{d F(s)}{d s}$
     \item \textbf{Differentiation in s-domain (general)}: $t^nf(t)\xLeftrightarrow{\mathcal{L}}(-1)^nF^{(n)}(s)$
