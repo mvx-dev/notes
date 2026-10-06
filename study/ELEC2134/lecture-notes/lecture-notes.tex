@@ -707,7 +707,79 @@ Taking the inverse transform of $Y(s)$, the step response is given by
 \[
     y(t)=1-e^{-at}.
 \]
+We can define a time constant $T$ to be
+\[
+    T=\frac{1}{a},
+\]
+which we can plug into this step response
+\[
+    y(t)\bigg\rvert_{t=\frac{1}{a}}=1-e^{-a \left( \frac{1}{a} \right)}=0.63,
+\]
+which means $T$ define the amount of time it takes for the step response to rise to $63\%$ of its final value, and has the unit seconds. The reciprocal of the time constant has the units $\frac{1}{\text{sec}}$, or frequency. We can then call $a$ the cutoff frequency.
 
+The time constant is related to the transient response, which is the speed at which the system responds to a step input. Since the pole of the transfer function is at $s=-a$, we can say the pole is located at the negative of the reciprocal of the time constant, and the further the pole from the imaginary axis the faster the transient response.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[x=2.2cm,y=6cm,>=stealth,font=\small]
+ 
+  % colours
+  \definecolor{axblue}{RGB}{40,70,150}
+  \definecolor{curve}{RGB}{160,32,240}
+ 
+  % ---- guide lines (drawn first so the curve sits on top) ----
+  \draw[axblue,dashed] (0,1) -- (5.2,1);                 % steady state
+  \draw[axblue] (0,0.632) -- (1,0.632);                  % 63% level
+  \draw[gray!70,thick] (0,0) -- (1,1);                   % initial slope
+  \draw[axblue,<->,thick] (1,0) -- (1,1);                % T
+  \draw[axblue,<->,thick] (2,0) -- (2,{1-exp(-2)});      % 2T
+  \draw[axblue,<->,thick] (4,0) -- (4,{1-exp(-4)});      % 4/a
+ 
+  % ---- axes ----
+  \draw[axblue,thick] (0,0) -- (0,1.12);
+  \draw[axblue,thick,-{stealth[length=2.5mm]}] (0,0) -- (5.5,0) node[right] {$t$};
+  \node[anchor=south east,font=\normalsize] at (0.02,1.1) {$y(t)$};
+ 
+  % y ticks
+  \foreach \y in {0,0.1,...,1.0}{
+    \draw[axblue] (0,\y) -- (-0.04,\y);
+    \node[left,inner sep=2pt] at (-0.04,\y) {\pgfmathprintnumber[fixed,precision=1]{\y}};
+  }
+ 
+  % ---- response curve: y = 1 - e^{-at}, a = 1 ----
+  \draw[curve,thick,smooth,samples=100,domain=0:5.1] plot (\x,{1-exp(-\x)});
+ 
+  % ---- x labels ----
+  \node[below] at (1,-0.01) {$T=\dfrac{1}{a}$};
+  \node[below] at (2,-0.01) {$2T=\dfrac{2}{a}$};
+  \node[below] at (3,-0.01) {$3T=\dfrac{3}{a}$};
+  \node[below] at (4,-0.01) {$\dfrac{4}{a}$};
+  \node[below] at (5,-0.01) {$\dfrac{5}{a}$};
+ 
+  % ---- annotations ----
+  \node[anchor=west] at (0.1,1.12)
+    {Initial slope $=\dfrac{1}{\text{time constant}}=a$};
+  \draw[->,black,thick] (1.15,1.06) -- (0.55,0.56);
+ 
+  \node[anchor=west,align=left,font=\footnotesize] at (1.1,0.5)
+    {63\% of final value at\\ $t=$ one time constant\\ $\bigl(T=\tfrac{1}{a}\bigr)$};
+  \draw[->,red!70!black,thick] (1.12,0.6) -- (1.01,0.635);
+ 
+  \node[align=center] at (4.55,1.14) {steady state\\(final value)};
+  \draw[->,black,thick] (4.9,1.1) -- (4.97,1.01);
+ 
+  \node[fill=gray!12,inner sep=5pt,font=\Large] at (4.6,0.65) {$s=-\dfrac{1}{\tau}$};
+ 
+\end{tikzpicture}
+
+\end{figure}
+
+\subsubsection{Second-Order System}
+In comparison to a first-order system, a second-order system exhibits a wide range of responses. The general case for a second-order transfer function is
+\[
+    H(s)=\frac{Y(s)}{X(s)}=\frac{a}{s^2+bs+a}.
+\]
+By assigning appropriate values to $a$ and $b$, we can see the different transient responses. The term $a$ is simply a multiplier that can take any value. 
 
 \newpage
 \appendix
