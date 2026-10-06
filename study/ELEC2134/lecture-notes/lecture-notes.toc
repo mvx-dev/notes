@@ -40,17 +40,24 @@
 \contentsline {subsection}{\numberline {3.5}Transfer Functions}{13}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Unit Impulse Response}{13}{subsubsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.6}Examples}{13}{subsection.3.6}%
-\contentsline {part}{II\hspace {1em}Appendix}{16}{part.2}%
-\contentsline {section}{\numberline {A}Filters}{16}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Types of Filters}{16}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Useful Integrals}{16}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Integrals}{16}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Integration by Parts}{17}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{17}{subsubsection.B.2.1}%
-\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{17}{subsubsection.B.2.2}%
-\contentsline {subsubsection}{\numberline {B.2.3}Sine}{17}{subsubsection.B.2.3}%
-\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{17}{subsubsection.B.2.4}%
-\contentsline {subsection}{\numberline {B.3}Definite Integrals}{17}{subsection.B.3}%
-\contentsline {section}{\numberline {C}Trigonometric Identities}{18}{appendix.C}%
-\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{19}{appendix.D}%
-\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{20}{appendix.E}%
+\contentsline {part}{II\hspace {1em}System Analysis}{15}{part.2}%
+\contentsline {section}{\numberline {4}Topic 4: System Analysis}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}$s$-Plane}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Poles and Zeros}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}System Stability}{16}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Real Pole(s)}{16}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Complex Conjugate Poles}{16}{subsubsection.4.3.2}%
+\contentsline {part}{III\hspace {1em}Appendix}{18}{part.3}%
+\contentsline {section}{\numberline {A}Filters}{18}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{18}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{18}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{18}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{19}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{19}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{19}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{19}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{19}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{19}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{20}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{21}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{22}{appendix.E}%

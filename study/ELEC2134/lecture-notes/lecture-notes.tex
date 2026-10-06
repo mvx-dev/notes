@@ -645,6 +645,70 @@ Taking the inverse Laplace transform, we get
 \]
 \end{callout}
 
+\part{System Analysis}
+\section{Topic 4: System Analysis}
+An analogue system is a device that operates on a continuous time signal $x(t)$, called the input, and produces another continuous time signal $y(t)$, called the output (or response), according to a well-defined rule.
+
+\subsection{$s$-Plane}
+Usually, it is best to represent the complex frequency $s=\sigma +j\omega $ graphically in the complex plane, called the $s-plane$. The horizontal axis $\sigma $ represents the real part of $s$, i.e. the exponential damping factor, and the vertical axis $j\omega $ represents the imaginary part of $s$, i.e. the sinusoidal frequency $\omega $.
+
+The Fourier transform can be obtained from the Laplace transform by setting $\sigma =0$. Thus, if the region of convergence for the Laplace transform includes the imaginary axis, then,
+\[
+    \text{FT}: H(j\omega )=H(s)\rvert_{s=j\omega }.
+\]In this plane, $\sigma =0$ corresponds to the imaginary axis. Therefore, the Fourier transform is obtained by evaluating the Laplace transform along the imaginary axis.
+
+\subsection{Poles and Zeros}
+\textbf{Poles}: When the denominator $X(s)$ of a rational transfer function $H(s)=\frac{Y(s)}{X(s)}$ of a system is set equal to zero, it is known as the characteristic equation. The roots of this equation determine the character of the time response of the system. These roots are called the poles of the system, and they are where the transfer function becomes infinite.
+
+\noindent\textbf{Zeros}: Similarly, the roots of the numerator polynomial $Y(s)$ of a transfer function are called the zeros of the system, and correspond to where the transfer function is zero.
+
+We denote the location of zeros in the $s$-plane with the symbol $0$, and the location of poles with the symbol $\times$.
+
+\subsection{System Stability}
+\subsubsection{Real Pole(s)}
+If all of a systems pole lie in the left-half of the $s-plane$, then that system is said to be stable. They correspond to exponentially decaying impulse responses. For a causal continuous-time linear-time-invariant (LTI) system, Bounded-Input Bounded-Output (BIBO) stability requires all poles of $H(s)$ to lie strictly in the open left-half plane. 
+
+If the poles instead lie in the right half-plane, then they correspond to systems with exponentially growing impulse responses, and are called unstable as they do not converge.
+
+\subsubsection{Complex Conjugate Poles}
+Consider a transfer function with a pair of complex conjugate poles at
+\begin{align*}
+    H(s) &= \frac{1}{(s-p_1)(s-p_3)} \\
+         &= \frac{1}{(s-(\sigma _a+j\omega _a))(s-(\sigma _a-j\omega _a))}
+         &= \frac{A}{s-\sigma _a-j\omega _a}+\frac{B}{s-\sigma _a+j\omega _a}.
+\end{align*}
+By evaluating the constants $A$ and $B$, we obtain
+\begin{align*}
+    H(s) &= \frac{\frac{1}{2j\omega _a}}{s-\sigma _a-j\omega _a}+\frac{-\frac{1}{2j\omega _a}}{s-\sigma _a+j\omega _a} \\
+    \Rightarrow h(t) &= \mathcal{L}^{-1}\left\{ H(s) \right\} \\
+                     &= \frac{1}{2j\omega _a}\left[ e^{(\sigma _a+j\omega _a)t}-e^{(\sigma _a-j\omega _a)t} \right] \\
+                     &= \frac{1}{\omega _a}\cdot e^{\sigma _at}\left[ \frac{e^{j\omega _at}-e^{-j\omega _at}}{2j} \right] \\
+                     &= \frac{1}{\omega _a}e^{\sigma _at}\sin(\omega _at).
+\end{align*}
+This is a impulse response $h(t)$ of a second-order system with complex conjugate poles. The real part $\sigma _a$ determines the decay rate, while the imaginary part $\omega _a$ determines the oscillation frequency. Thus, the impulse response depends strongly on the pole locations.
+
+If the real part of a pole is kept constant and the imaginary part increases from $\omega _a$ to $\omega _p$, the envelope of the impulse response $h(t)$ remains the same, while the oscillation frequency increases.
+
+If the imaginary part is held constant and the real part becomes more negative (move further into the left-half plane), the oscillation frequency remains unchanged while the decay rate increases. Notice also that if the pole lies on the real axis (i.e. $\omega _a=0$), then there is no oscillation in the impulse response. If the poles lies on the imaginary axis ($\sigma =0$), there is no growth or decay in the impulse response, it is a pure oscillation. If a system has a pole with a positive real part ($\sigma >0$), its impulse response grows exponentially. Such a system is unstable.
+
+A stable and causal system is a system that has all its poles in the left half-plane. A persistent undamped oscillation is not BIBO stable.
+
+\subsection{Analysis of a System Without Zeros}
+\subsubsection{First-Order System}
+A first-order system without zeros can be described by the transfer function
+\[
+    H(s)=\frac{a}{s+a},
+\]
+with the pole at $-a$. If the input is a unit step function, where $X(s)=\frac{1}{s}$, the Laplace transform of the step response is
+\[
+    Y(s)=X(s)\cdot H(s)=\frac{1}{s}\frac{a}{s+a}=\frac{1}{s}-\frac{1}{s+a}.
+\]
+Taking the inverse transform of $Y(s)$, the step response is given by
+\[
+    y(t)=1-e^{-at}.
+\]
+
+
 \newpage
 \appendix
 \part{Appendix}
