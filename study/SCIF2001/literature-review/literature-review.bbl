@@ -17,53 +17,25 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
-  \entry{ouViolationBellsInequality1988}{article}{}{}
-    \name{author}{2}{}{%
-      {{hash=OZY}{%
-         family={Ou},
-         familyi={O\bibinitperiod},
-         given={Z.\bibnamedelima Y.},
-         giveni={Z\bibinitperiod\bibinitdelim Y\bibinitperiod},
-      }}%
-      {{hash=ML}{%
-         family={Mandel},
-         familyi={M\bibinitperiod},
-         given={L.},
-         giveni={L\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {American Physical Society}%
-    }
-    \strng{namehash}{OZYML1}
-    \strng{fullhash}{OZYML1}
-    \field{labelnamesource}{author}
+  \entry{NumericalAperture2026}{article}{}{}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1988}
+    \field{labelyear}{2026}
     \field{labeldatesource}{}
-    \field{sortinit}{O}
-    \field{sortinithash}{O}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
     \field{abstract}{%
-    Correlation measurements of mixed signal and idler photons produced in the process of parametric down-conversion have been performed as a function of two linear polarizer settings. It is found that the Bell inequality for two separated particles is violated by about 6 standard deviations, and that classical probability for light waves is violated substantially also.%
+    In optics, the numerical aperture (NA) of an optical system is a dimensionless number that characterizes the range of angles over which the system can accept or emit light. By incorporating index of refraction in its definition, NA has the property that it is constant for a beam as it goes from one material to another, provided there is no refractive power at the interface (e.g., a flat interface). The exact definition of the term varies slightly between different areas of optics. Numerical aperture is commonly used in microscopy to describe the acceptance cone of an objective (and hence its light-gathering ability and resolution), and in fiber optics, in which it describes the range of angles within which light that is incident on the fiber will be transmitted along it.%
     }
-    \verb{doi}
-    \verb 10.1103/PhysRevLett.61.50
-    \endverb
-    \field{number}{1}
-    \field{pages}{50\bibrangedash 53}
-    \field{title}{Violation of {{Bell}}'s {{Inequality}} and {{Classical Probability}} in a {{Two-Photon Correlation Experiment}}}
-    \field{volume}{61}
+    \field{title}{Numerical Aperture}
+    \field{langid}{english}
     \verb{file}
-    \verb /home/cheshire/Zotero/storage/6387VUDF/Ou and Mandel - 1988 - Violati
-    \verb on of Bell's Inequality and Classical Probability in a Two-Photon Cor
-    \verb relation Experiment.pdf;/home/cheshire/Zotero/storage/B8WT5UJ7/PhysRe
-    \verb vLett.61.html
+    \verb /home/cheshire/Zotero/storage/79V26X8S/index.html
     \endverb
-    \field{journaltitle}{Physical Review Letters}
-    \field{month}{07}
-    \field{year}{1988}
-    \field{urlday}{27}
-    \field{urlmonth}{09}
+    \field{journaltitle}{Wikipedia}
+    \field{month}{03}
+    \field{year}{2026}
+    \field{urlday}{07}
+    \field{urlmonth}{10}
     \field{urlyear}{2026}
   \endentry
 \enddatalist
