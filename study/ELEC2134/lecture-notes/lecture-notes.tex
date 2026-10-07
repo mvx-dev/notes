@@ -779,7 +779,98 @@ In comparison to a first-order system, a second-order system exhibits a wide ran
 \[
     H(s)=\frac{Y(s)}{X(s)}=\frac{a}{s^2+bs+a}.
 \]
-By assigning appropriate values to $a$ and $b$, we can see the different transient responses. The term $a$ is simply a multiplier that can take any value. 
+By assigning appropriate values to $a$ and $b$, we can see the different transient responses. The term $a$ is simply a multiplier that can take any value. If the input $X(s)$ is a unit step input $X(s)=\frac{1}{s}$, then the output $Y(s)=X(S)\cdot H(s)=\frac{1}{s}\frac{a}{s^2+bs+a}$, 
+\[
+    \therefore y(t)=\mathcal{L}^{-1}\left[ \frac{1}{s}\frac{a}{s^2+bs+a} \right].
+\]
+We can rewrite the transfer function as 
+\[
+    H(s)=\frac{\omega _n^2}{s^2+2\zeta \omega _ns+\omega _n^2},
+\]
+which we can use to describe different types of systems
+\begin{table}[H]
+    \centering
+    \label{tab:s5-t1}
+    \begin{tabular}{l|l|l|c}
+        Case & Damping & $s$-plane & Unit step response \\
+        \hline
+        \hline
+        $a=b$, $\zeta >1$ & Overdamped & Two real poles & \\
+        $a>b$, $0<\zeta <1$ & Underdamped & Two complex poles & \\
+        $b=0$, $\zeta =0$ & Undamped & Two imaginary poles & \\
+        $b=\frac{1}{2}\sqrt{a}$, $\zeta =1$ & Critically damped & Two repeated real poles & \\
+    \end{tabular}
+\end{table}
+
+\subsection{Cascade and Parallel Structures}
+A linear system can be characterised by its transfer function $H(s)$, where its input $X(s)$ and output $Y(s)$. When the transfer function of the overall system $H(s)$ is the product of two transfer functions, then it is called cascade form (can be thought of as in series)
+\[
+    H(s)=H_1(s)\cdot H_2(s).
+\]
+When two transfer functions $H_3(s)$ and $H_4(s)$ appear in parallel, then the overall transfer function is given by
+\[
+    H(s)=H_3(s)+H_4(s).
+\]
+
+\subsection{Frequency Response}
+The steady-state response $\sigma =0$ of a linear system to a sinusoidal input is obtained from the expression for $H(s)$ by replacing $s$ with $j\omega $. The function $H(j\omega )=H(\omega )$ is called the frequency response function. The modulus of $H(j\omega )$ gives the magnitude of the sinusoidal response $|H(j\omega )|=|H(\omega )$. The angle of $H(j\omega )$ gives the phase of the response $\theta (\omega )$, relative to the input sinusoid.
+
+\subsubsection{Decibels}
+The decibel is a logarithmic measurement unit for sound levels, but also is important in electronics and signal processing. It represents ratios such as power, sound pressure, voltage, intensity, etc. using a logarithmic scale
+\[
+    \text{decibels } dB=20 \log_{10} \frac{v_{out}}{v_{in}}=10 \log_{10}\left( \frac{v_{out}}{v_{in}} \right)^2=10 \log_{10}\frac{P_{out}}{P_{in}}.
+\]
+A difference of 3 dB in a reading represents a doubling in power, and -3 dB represents half power. Each successive multiple of ten increases the order of magnitude by 10.
+
+\subsection{Bandwidth}
+The bandwidth is the frequency at which the magnitude spectrum falls to $\frac{1}{\sqrt{2}}$ of its maximum value (i.e. peak value).
+\subsubsection{Low-Pass Filter}
+For a low-pass filter or system, we have
+\[
+    H(s)=\frac{a}{s+a},
+\]
+with the magnitude
+\[
+    \left| H(j\omega ) \right|=\frac{a}{\sqrt{a^2+\omega^2}}.
+\]
+The cutoff occurs when
+\[
+    \left| H(j\omega ) \right|=\frac{1}{\sqrt{2}},
+\]
+which gives
+\[
+    \omega =a=\omega _c,
+\]
+where $\omega _c$ is called the cutoff frequency. The total bandwidth of the system is then
+\[
+    \text{BW}=a.
+\]
+
+A first-order low-pass filter has the form
+\[
+    H(s)=\frac{\omega _c}{s+\omega _c},\quad H(j\omega )=\frac{\omega _c}{j\omega +\omega _c}
+\]
+The cutoff frequency can also be defined by when the magnitude drops off by 3 dB. For a second-order low-pass filter, this is just two low-pass filters cascaded together. Both first- and second-order low-pass filters have the same cutoff frequency, and each pole contributes approximately -20 dB/decade to the high-frequency asymptotic slope. A first-order filter rolls off at 20 dB/decade beyond the cutoff frequency, and a second-order filter rolls at at 40 dB/decade asymptotically for low-pass systems with two more poles than zeros, meaning it attenuates unwanted frequencies sharper than a first-order system.
+
+\subsubsection{Band-Pass Filter}
+A band-pass filter has two cutoff frequencies $\omega _u$ and $\omega _l$ which identify the pass-band (i.e. the region in which frequencies are minimally attenuated). The cutoff frequencies are defined as the frequencies for which the magnitude of the transfer function is $\frac{1}{\sqrt{2}}$ times the original magnitude. There are three important parameters in a band-pass filter.
+
+The first important parameter in a band-pass filter is the centre frequency $\omega _o$, which is defined as the frequency for which a circuit's transfer function is purely real. This is also known as the resonant frequency, and can be found as
+\[
+    \omega _o=\sqrt{\omega _u\omega _l}.
+\]
+For band-pass filters, the magnitude of the transfer function is maximum at the centre frequency. 
+
+The second parameter is the bandwidth (BW), which is the width of the pass-band
+\[
+    BW=\omega _u-\omega _l.
+\]
+
+The final parameter is the quality factor $Q$, which is the ratio of the centre frequency to the bandwidth
+\[
+    Q=\frac{\omega _o}{BW}.
+\]
+This is a measure of the width of the pass-band, independent of its location on the frequency axis. It also describes the shape of the magnitude plot, independent of frequency.
 
 \newpage
 \appendix

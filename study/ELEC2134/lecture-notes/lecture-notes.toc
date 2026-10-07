@@ -50,17 +50,23 @@
 \contentsline {subsection}{\numberline {4.4}Analysis of a System Without Zeros}{17}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}First-Order System}{17}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Second-Order System}{18}{subsubsection.4.4.2}%
-\contentsline {part}{III\hspace {1em}Appendix}{19}{part.3}%
-\contentsline {section}{\numberline {A}Filters}{19}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Types of Filters}{19}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Useful Integrals}{19}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Integrals}{19}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Integration by Parts}{20}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{20}{subsubsection.B.2.1}%
-\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{20}{subsubsection.B.2.2}%
-\contentsline {subsubsection}{\numberline {B.2.3}Sine}{20}{subsubsection.B.2.3}%
-\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{20}{subsubsection.B.2.4}%
-\contentsline {subsection}{\numberline {B.3}Definite Integrals}{20}{subsection.B.3}%
-\contentsline {section}{\numberline {C}Trigonometric Identities}{21}{appendix.C}%
-\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{22}{appendix.D}%
-\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{23}{appendix.E}%
+\contentsline {subsection}{\numberline {4.5}Cascade and Parallel Structures}{18}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Frequency Response}{19}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Decibels}{19}{subsubsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.7}Bandwidth}{19}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Low-Pass Filter}{19}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Band-Pass Filter}{20}{subsubsection.4.7.2}%
+\contentsline {part}{III\hspace {1em}Appendix}{21}{part.3}%
+\contentsline {section}{\numberline {A}Filters}{21}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{21}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{21}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{21}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{22}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{22}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{22}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{22}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{22}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{22}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{23}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{24}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{25}{appendix.E}%
