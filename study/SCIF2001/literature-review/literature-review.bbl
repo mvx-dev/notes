@@ -17,40 +17,158 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
-  \entry{einsteinUberErzeugungUnd1905}{article}{}{}
+  \entry{bellEinsteinPodolskyRosen1964}{article}{}{}
     \name{author}{1}{}{%
+      {{hash=BJS}{%
+         family={Bell},
+         familyi={B\bibinitperiod},
+         given={J.\bibnamedelima S.},
+         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{BJS1}
+    \strng{fullhash}{BJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1964}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysicsPhysiqueFizika.1.195
+    \endverb
+    \field{number}{3}
+    \field{pages}{195\bibrangedash 200}
+    \field{title}{On the {{Einstein Podolsky Rosen}} Paradox}
+    \field{volume}{1}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/9P4WS9P4/Bell - 1964 - On the Einstein
+    \verb Podolsky Rosen paradox.pdf;/home/cheshire/Zotero/storage/93PGCRRM/Phy
+    \verb sicsPhysiqueFizika.1.html
+    \endverb
+    \field{journaltitle}{Physics Physique Fizika}
+    \field{month}{11}
+    \field{year}{1964}
+    \field{urlday}{08}
+    \field{urlmonth}{10}
+    \field{urlyear}{2026}
+  \endentry
+
+  \entry{clauserProposedExperimentTest1969}{article}{}{}
+    \name{author}{4}{}{%
+      {{hash=CJF}{%
+         family={Clauser},
+         familyi={C\bibinitperiod},
+         given={John\bibnamedelima F.},
+         giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=HMA}{%
+         family={Horne},
+         familyi={H\bibinitperiod},
+         given={Michael\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Shimony},
+         familyi={S\bibinitperiod},
+         given={Abner},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HRA}{%
+         family={Holt},
+         familyi={H\bibinitperiod},
+         given={Richard\bibnamedelima A.},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{CJF+1}
+    \strng{fullhash}{CJFHMASAHRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1969}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    A theorem of Bell, proving that certain predictions of quantum mechanics are inconsistent with the entire family of local hidden-variable theories, is generalized so as to apply to realizable experiments. A proposed extension of the experiment of Kocher and Commins, on the polarization correlation of a pair of optical photons, will provide a decisive test between quantum mechanics and local hidden-variable theories.%
+    }
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.23.880
+    \endverb
+    \field{number}{15}
+    \field{pages}{880\bibrangedash 884}
+    \field{title}{Proposed {{Experiment}} to {{Test Local Hidden-Variable Theories}}}
+    \field{volume}{23}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/FCVRF78V/Clauser et al. - 1969 - Propos
+    \verb ed Experiment to Test Local Hidden-Variable Theories.pdf;/home/cheshi
+    \verb re/Zotero/storage/WT7PF9DN/PhysRevLett.23.html
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+    \field{month}{10}
+    \field{year}{1969}
+    \field{urlday}{08}
+    \field{urlmonth}{10}
+    \field{urlyear}{2026}
+  \endentry
+
+  \entry{einsteinCanQuantumMechanicalDescription1935}{article}{}{}
+    \name{author}{3}{}{%
       {{hash=EA}{%
          family={Einstein},
          familyi={E\bibinitperiod},
          given={A.},
          giveni={A\bibinitperiod},
       }}%
+      {{hash=PB}{%
+         family={Podolsky},
+         familyi={P\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Rosen},
+         familyi={R\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
     }
-    \strng{namehash}{EA1}
-    \strng{fullhash}{EA1}
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{EA+1}
+    \strng{fullhash}{EAPBRN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1905}
+    \field{labelyear}{1935}
     \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
+    \field{abstract}{%
+    In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.%
+    }
     \verb{doi}
-    \verb 10.1002/andp.19053220607
+    \verb 10.1103/PhysRev.47.777
     \endverb
-    \field{issn}{1521-3889}
-    \field{number}{6}
-    \field{pages}{132\bibrangedash 148}
-    \field{title}{\"Uber Einen Die {{Erzeugung}} Und {{Verwandlung}} Des {{Lichtes}} Betreffenden Heuristischen {{Gesichtspunkt}}}
-    \field{volume}{322}
-    \field{langid}{english}
+    \field{number}{10}
+    \field{pages}{777\bibrangedash 780}
+    \field{title}{Can {{Quantum-Mechanical Description}} of {{Physical Reality Be Considered Complete}}?}
+    \field{volume}{47}
     \verb{file}
-    \verb /home/cheshire/Zotero/storage/CQKKDGBT/Einstein - 1905 - Über einen
-    \verb die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen
-    \verb Gesichtspunkt.pdf;/home/cheshire/Zotero/storage/ZVAY2H7C/andp.html
+    \verb /home/cheshire/Zotero/storage/5Y77YGF9/Einstein et al. - 1935 - Can Q
+    \verb uantum-Mechanical Description of Physical Reality Be Considered Compl
+    \verb ete.pdf;/home/cheshire/Zotero/storage/CEHG5QRY/PhysRev.47.html
     \endverb
-    \field{journaltitle}{Annalen der Physik}
-    \field{year}{1905}
-    \field{urlday}{08}
+    \field{journaltitle}{Physical Review}
+    \field{month}{05}
+    \field{year}{1935}
+    \field{urlday}{06}
     \field{urlmonth}{10}
     \field{urlyear}{2026}
   \endentry
@@ -119,7 +237,7 @@
          giveni={A\bibinitperiod},
       }}%
     }
-    \strng{namehash}{GPRGAA1}
+    \strng{namehash}{GP+1}
     \strng{fullhash}{GPRGAA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{shorttitle}
@@ -177,7 +295,7 @@
     \list{publisher}{1}{%
       {American Physical Society}%
     }
-    \strng{namehash}{KHJDMML1}
+    \strng{namehash}{KHJ+1}
     \strng{fullhash}{KHJDMML1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}

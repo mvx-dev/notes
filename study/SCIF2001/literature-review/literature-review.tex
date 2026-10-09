@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{preamble}
+\renewcommand{\baselinestretch}{1.5}
 
 \title{SCIF2001 Research Roadmap}
 \author{Oskar Meszaros (z5636164)}
@@ -10,27 +11,71 @@
 
 \maketitle
 \section{Literature Review}
-Classical electromagnetism is able to successfully describe the wave phenomena of light, such as interference and diffraction, however it does not fully account for the statistics of photodetection. Einstein's paper introduced the idea of the quantisation of light, where light exchanges energy in discrete amounts, described by $E=hv$ \parencite{einsteinUberErzeugungUnd1905}, while \textcite{glauberQuantumTheoryOptical1963} developed a quantum theory of optical coherence based on the correlation functions. This provided a framework for distinguishing optical fields through their detection statistics rather than only their average intensity.
+Quantum mechanics predicts correlations between measurements on entangled systems that cannot be reproduced by assigning independent, pre-existing properties to each particle. This issue was notably highlighted by the Einstein-Podolsky-Rosen argument (also know as the EPR paradox) \parencite{einsteinCanQuantumMechanicalDescription1935}, and converted into an experimentally testable prediction by Bell. Bell showed that any theory satisfying local realism must obey an upper bound on measurable correlations, whereas quantum mechanics predicts violations for suitable entangled states \parencite{bellEinsteinPodolskyRosen1964}.
 
-The second-order correlation function $g^{(a)}(\tau)$ measures the relative probability of detecting two photons separated by a time delay $\tau $. Thermal light exhibits bunching behaviour, whereas coherent light has approximately Poissonian statistics with $g^{(2)}(0)=1$. A particularly strong indication of non-classical light is antibunching behaviour, $g^{(2)}(0)<1$, because simultaneous detections are supressed. This was observed in resonance fluorescence and argued that this result cannot be explained by a fully classical field model \parencite{kimblePhotonAntibunchingResonance1977}.
+The Clauser-Horne-Shimony-Holt (CHSH) formulation made Bell's theorem practical for laboratory experiments. In a polarization experiment, two measurement settings are selected on each photon path in a entangled photon-pair setup, $a$ and $a'$ for one photon, and $b$ and $b'$ for the other. Each polarisation measurement has two possible outcomes. For each pair of settings, the correlation can be calculated from the coincidence counts
+\[
+    E(a,b)=\frac{N_{++}+N_{--}-N_{+-}-N_{-+}}{N_{++}+N_{--}+N_{+-}+N_{-+}}.
+\]
+The CHSH parameter is then
+\[
+    S=\left| E(a,b)-E(a,b')+E(a',b)+E(a'+b') \right|.
+\]
+Local hidden-variable theories require $S\leq 2$, while quantum mechanics predicts values as large as $2\sqrt{2}$ for an ideal maximally entangled state \parencite{clauserProposedExperimentTest1969}. Therefore, a measured value significantly greater than 2 would provide evidence that the observed correlations cannot be explain by a local hidden-variable model.
 
-In a related demonstration, it was shown that using a beam splitter and a triggered single-photon source produced strong anticorrelation between the two output detectors \parencite{grangierExperimentalEvidencePhoton1986}. This is consistent with a single photon only being detected at only output. This particular experiment provides a practical measurement for demonstrating the quantum nature of light.
+Optical experiments provide a direct way to test this prediction. An entangled photon-pair source sends on photon into each measurement arm, with the measurements defined by polarisers. Any correlation events within the same coincidence window are detected by a correlation device, however this detects classically correlated photons as they may produce similar measurement outcomes. This is not an issue as only sufficiently strong correlations that violate the CHSH bound demonstrate Bell nonlocality under the assumption of the experiment.
 
-operational signatures of nonclassical light
+Another demonstration of the quantum nature of light is photon antibunching. The quantum theory of optical coherence describes multi-photon detection using correlation functions (functions describing the statistically correlation between random variables), most notably the second-order correlation function $g^{(2)}(\tau )$ \parencite{glauberQuantumTheoryOptical1963}. At zero delay, $g^{(2)}(0)$ measures the relative probability of detecting two photons close together in time.
 
-experiments that verify those signatures
+For ideal coherent light $g^{(2)}(0)=1$, corresponding to Poissonian detection statistics. Thermal light commonly produces $g^{(2)}>1$, known as photon bunching. In contrast, antibunched light satisfies
+\[
+    g^{(2)}(0)<1,
+\]
+indicating a suppression of near-simultaneous detections. The observation of anti bunching in resonance fluorescence was a significant demonstration of nonclassical light because the measured statistics could not be explained by a simple classical fluctuating-intensity model \parencite{kimblePhotonAntibunchingResonance1977}.
 
-entanglement and bell tests maybe
+A related experiment used a triggered photon source and a beam splitter to observe strong anticorrelation between the two output detectors. Their result was consistent with a single-photon state and inconsistent with the prediction of a classical wave model for the relevant experiment conditions \parencite{grangierExperimentalEvidencePhoton1986}. These experiments establish that time-correlated detection measurements can provide a practical test nonclassical optical behaviour.
 
 \section{Skills Developed}
 \subsection{Laboratory Skills}
 During the couple of weeks leading up to this literature review, I, along with another student, developed the skills necessary to work with optical fibres in a laboratory environment. This included fibre preparation, laser alignment, and characterising both the quality of the alignment, as well as some properties of the fibre itself.
 
-The first stage of preparing a length of fibre is stripping off the outer-most protective layer, as well as the cladding. After cleaning the remaining cladding off of the fibre using acetone, we utilised a microscope connected to a computer in order to verify that all material was removed from around the core of the fibre. After this, we used a cleaver to make a clean, controlled break in the fibre, which we also checked under the microscope (see Figs. \ref{figure:cleaved-good}, \ref{figure:cleaved-bad}). If we learnt one thing during our time working with fibres, it is that any sort of defect or nick or chip in the end of the fibre would significantly degrade the quality of the laser entering the fibre, which would in turn impact any experiment we may undertake. Whilst in this setup the light in even a bad cleave would be sufficient to do an experiment with, in the more advanced setups in the future, this loss would correspond to a significant proportion of the usable photons.
+The first stage of preparing a length of fibre is stripping off the outer-most protective layer, as well as the cladding. After cleaning the remaining cladding off of the fibre using acetone, we utilised a microscope connected to a computer in order to verify that all material was removed from around the core of the fibre. After this, we used a cleaver to make a clean, controlled break in the fibre, which we also checked under the microscope (see Figs. \ref{fig:cleaved-good}, \ref{fig:cleaved-bad}). If we learnt one thing during our time working with fibres, it is that any sort of defect or nick or chip in the end of the fibre would significantly degrade the quality of the laser entering the fibre, which would in turn impact any experiment we may undertake. Whilst in this setup the light in even a bad cleave would be sufficient to do an experiment with, in the more advanced setups in the future, this loss would correspond to a significant proportion of the usable photons.
+
+\begin{figure}[h]
+    \begin{subfigure}[t]{0.5\linewidth}
+        \centering
+    \includegraphics[width=0.9\linewidth, height=6cm]{figures/cleaved-good.jpg}
+    \caption[width=0.8\linewidth]{The laser-side of the final fibre we used to get 0.8 mW.}
+    \label{fig:cleaved-good}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth, height=6cm]{figures/cleaved-bad.jpg}
+    \caption[width=0.8\linewidth]{An example of our cleaves in the beginning. Notice the rough surface at the tip of the fibre, that is the actual fibre itself not any sort of dirt.}
+    \label{fig:cleaved-bad}
+\end{subfigure}
+\caption{Two examples of cleaved optical fibre}
+\end{figure}
 
 Once we had a good length of fibre, we were able to align the tip of the fibre to laser light going through a microscope objective. This stage was by far both the most important part, and the most tedious. This involved using adjustment screws in all of the $x$, $y$, and $z$ axes, which allowed the tip of the laser to be placed as close as possible to both the brightest region of laser light, as well as the correct distance from the microscope objective to ensure the light is focused. Initially, we ran into issues with the tip of the fibre being slightly bent due to storage on a reel. We were able to correct for this by having a shorter length of the fibre protruding from the holder, and moving the objective closer to account for this loss of range in the $z$-axis.
 
-This laser alignment was aided by the use of light power meter. The end of the optical fibre not aligned with the laser was directed at a photosensor, which was read by the power meter to quantify exactly how much light, in terms of Watts, was being carried through the fibre. From this, we were able to see the difference in power whilst aligning, as can be seen in Figs. \ref{figure:power-good} and \ref{power:not-so-good}.
+This laser alignment was aided by the use of light power meter. The end of the optical fibre not aligned with the laser was directed at a photosensor, which was read by the power meter to quantify exactly how much light, in terms of Watts, was being carried through the fibre. From this, we were able to see the difference in power whilst aligning, as can be seen in Figs. \ref{fig:power-good} and \ref{fig:power-not-so-good}.
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/power-not-so-good.jpg}
+        \caption[width=0.8\linewidth]{The maximum amount of power achieved on the first day ($8.03\mu W$).}
+        \label{fig:power-not-so-good}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[angle=90, width=0.8\linewidth]{figures/power-good.png}
+        \caption[width=0.8\linewidth]{The maximum amount of power achieved on the second day ($887.4\mu W$)}
+        \label{fig:power-good}
+    \end{subfigure}
+    \label{fig:power-figures}
+\end{figure}
 
 We were also able to utilise this power meter to characterise the numerical aperture (NA) of the fibre. This describes the range of the angles that the optical fibre can accept, and it depends on the refractive index of the fibre and the so-called "acceptance cone", the range of angles where laser is accepted into the fibre \parencite{NumericalAperture2026}.
 
@@ -39,17 +84,43 @@ These skills developed in the Higher-Year Lab will allow us to design, setup, an
 \subsection{Soft Skills}
 In addition to the skills learnt in the Higher-Year Lab, I was also able to develop more "soft skills" through the provided workshops. Specifically, I was able to improve my record-keeping, time management, and risk assessment and prevention.
 
+The record-keeping skill in particular was useful, as it not only helped me keep a better record of the experiment I was doing, but it also meant that I was paying closer attention during the experiment as I wanted to keep an accurate and detailed log of everything I did. Because of this, we were able to improve our methodology the second time we attempted to cleave the fibre and align the laser.
+
 \section{Proposed Methodology}
-fucked if i know
+This experiment is broken down into two stages. The first is a proof-of-concept experiment, where we can verify the optical alignment and timing system, and the second is the actual Bell's inequality violation.
+
+\subsection{Correlation Measurement}
+The proof-of-concept measurement will measure photon antibunching, which will allow us to verify the optical alignment of the setup, as well as test the timing system. The photon source will be configured to produce a herald signal and a corresponding photon in the measurement arm. Detector dark counts and background counts will first be measured with the source blocked to provide a baselines measurement, then the source will be operated for repeated acquisition intervals while the correlation device records the distribution of detection delays.
+
+The primary output will be a histogram of detection-delay events. The coincidence peak will be identified and compared with the surrounding accidental-coincidence background recorded previously. This measured coincidence rate can then be used to estimate the correlation function $g^{(2)}(\tau )$, and evidence of antibunching would be indicated by a statistically significant reduction in the zero-delay coincidence rate relative to the long-delay baseline.
+
+This provides three checks for the setup:
+\begin{enumerate}
+    \item Whether the detectors produce stable count rate
+    \item Whether the correlation device resolve the relevant timing structure
+    \item Whether the chosen coincidence window is narrow enough to distinguish actual events from accidental coincidences.
+\end{enumerate}
+If a direct antibunching measurement is not possible with the available source, the fallback milestone will be a reproducible heralded-pair coincidence peak. This does not demonstrate antibunching, however it validates the timing, alignment, and detector-correlation pipeline needed for the Bell experiment.
+
+\subsection{Polarisation-Correlation and CHSH Experiment}
+After the timing system has been validated, the two photons from the entangled source will be directed into separate measurement arms. Polarisers will be installed in both arms, with their angular positions recorded relative to a common reference. Initial measurements will be performed at several analyser angles to verify high-visibility polarisation correlations and to identify the orientation convention of the generated entangled state.
+
+At each setting, the experiment will record detector count rate, coincidence counts, and the acquisition time. Background and accidental coincidences will be estimated either from off-peak timing windows or from measurements with one arm blocked, depending on the capabilities of the correlation device. The source alignment will be adjusted before collecting the final CHSH data.
+
+For the CHSH data, the four analyser-setting combinations
+\[
+    (a,b),\quad(a,b'),\quad(a',b),\quad(a',b')
+\]
+will be measured. For each combination, the coincidence counts for the available outcome channels will be collected over a fixed integration time. A common ideal choice of relative
 
 \section{Project Plan}
 In order to maintain a schedule that aligns with the outcomes and due dates of the course, I am attempting to adhere to the following plan to meet these outcomes and dates. This timeline takes into account personal events, study load for other courses, and a small amount of built-in leniency in the (likely) event of not meeting these targets.
 
-\textbf{Week 5}: fuck around
+\textbf{Week 5}: Read over the experimental setup, and prepare a plan for when we do it.
 
-\textbf{Week 6}: find out
+\textbf{Week 6}:
 
-\textbf{Week 7}: its so over
+\textbf{Week 7}: waht do i :(
 
 \textbf{Week 8}: were so back
 
@@ -59,7 +130,6 @@ In order to maintain a schedule that aligns with the outcomes and due dates of t
 
 \textbf{Week 11}: early graduation with 100000 degrees because im so smart (:
 
-\section{References}
 \printbibliography
 
 \end{document}
