@@ -11,19 +11,19 @@
 
 \maketitle
 \section{Literature Review}
-Quantum mechanics predicts correlations between measurements on entangled systems that cannot be reproduced by assigning independent, pre-existing properties to each particle. This issue was notably highlighted by the Einstein-Podolsky-Rosen argument (also know as the EPR paradox) \parencite{einsteinCanQuantumMechanicalDescription1935}, and converted into an experimentally testable prediction by Bell. Bell showed that any theory satisfying local realism must obey an upper bound on measurable correlations, whereas quantum mechanics predicts violations for suitable entangled states \parencite{bellEinsteinPodolskyRosen1964}.
+Quantum mechanics predicts correlations between measurements on entangled systems that cannot be reproduced by assigning independent, pre-existing properties to each particle. This issue was notably highlighted by the Einstein-Podolsky-Rosen argument, which questioned whether quantum mechanics provides a complete description of physical reality \parencite{einsteinCanQuantumMechanicalDescription1935}. Bell later converted this into an experimentally testable problem by showing that any theory satisfying local realism must obey an upper bound on measurable correlations, whereas quantum mechanics predicts violations for suitable entangled states \parencite{bellEinsteinPodolskyRosen1964}.
 
-The Clauser-Horne-Shimony-Holt (CHSH) formulation made Bell's theorem practical for laboratory experiments. In a polarization experiment, two measurement settings are selected on each photon path in a entangled photon-pair setup, $a$ and $a'$ for one photon, and $b$ and $b'$ for the other. For each pair of settings, the correlation can be calculated from the coincidence counts
+The Clauser-Horne-Shimony-Holt (CHSH) formulation made Bell's theorem practical for laboratory experiments. In a polarization experiment, two measurement settings are selected on each photon path in a entangled photon-pair setup, $a$ and $a'$ for one photon, and $b$ and $b'$ for the other. Each polarisation measurement has two possible outcomes, conventionally labelled $+$ and $-$. For a pair of settings, the correlation is calculated from the coincidence counts as
 \[
     E(a,b)=\frac{N_{++}+N_{--}-N_{+-}-N_{-+}}{N_{++}+N_{--}+N_{+-}+N_{-+}}.
 \]
 The CHSH parameter is then
 \[
-    S=\left| E(a,b)-E(a,b')+E(a',b)+E(a'+b') \right|.
+    S=\left| E(a,b)-E(a,b')+E(a',b)+E(a',b') \right|.
 \]
-Local hidden-variable theories require $S\leq 2$, while quantum mechanics predicts values as large as $2\sqrt{2}$ for an ideal maximally entangled state \parencite{clauserProposedExperimentTest1969}. Therefore, a measured value significantly greater than 2 would provide evidence that the observed correlations cannot be explained by a local hidden-variable model.
+Local hidden-variable theories require $S\leq 2$, while quantum mechanics predicts values as large as $2\sqrt{2}$ for an ideal maximally entangled state \parencite{clauserProposedExperimentTest1969}. Therefore, a measured value significantly greater than 2 would provide evidence that the observed correlations cannot be explained by a local hidden-variable model. Correlation alone is not enough, since classically correlated sources can also produce similar outcomes. The relevant criteria is the violation of the CHSH bound.
 
-Optical experiments provide a direct way to test this prediction. An entangled photon-pair source sends one photon into each measurement arm, with the measurements defined by polarisers. Any correlation events within the same coincidence window are detected by a correlation device, however this could detect classically correlated photons also. This is not an issue, as only strong correlations that violate the CHSH bound demonstrate Bell nonlocality,.
+Optical experiments provide a direct way to test this prediction. An entangled photon-pair source sends one photon into each measurement arm, with the measurement settings are defined by polarisers. A correlation device identifies detections occurring within a selected coincidence window, allowing the coincidence counts for each outcome to be measured. Early optical experiments established the feasibility of this approach. Freedman and Clauser measured linear-polarisation correlations from photons emitted in an atomic cascade and found results consistent with quantum mechanics, but inconsistent with local hidden-variable restrictions 
 
 Another demonstration of the quantum nature of light is photon antibunching. The quantum theory of optical coherence describes multi-photon detection using correlation functions, most notably the second-order correlation function $g^{(2)}(\tau )$ \parencite{glauberQuantumTheoryOptical1963}. At zero delay, $g^{(2)}(0)$ measures the relative probability of detecting two photons close temporally.
 
@@ -73,7 +73,14 @@ This laser alignment was aided by the use of light power meter. The opposite end
     \label{fig:power-figures}
 \end{figure}
 
-We were also able to utilise this power meter to characterise the numerical aperture of the fibre. This describes the range of the angles that the optical fibre can accept, and it depends on the refractive index of the fibre and the acceptance cone, the range of angles where laser is accepted into the fibre \parencite{NumericalAperture2026}.
+We were also able to utilise this power meter to characterise the numerical aperture of the fibre. This describes the range of the angles that the optical fibre can accept, and it depends on the refractive index of the fibre and the acceptance cone, the range of angles where laser is accepted into the fibre \parencite{NumericalAperture2026}. From this, we were able fit a curve (Fig. \ref{fig:na-curve}), which give a numerical aperture to be $0.364\pm 0.007$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/na-curve.png}
+    \caption{The Gaussian fit for the NA angle sweep. The likeliest cause of the poor fit is a combination of light leaking into the setup and incorrect placement of the tip of the fibre in the path of the laser.}
+    \label{fig:na-curve}
+\end{figure}
 
 These skills developed in the Higher-Year Lab will allow us to design, setup, and maintain a optical setup that utilises optical fibre for the control of the laser used in our experiments. This will be of particular use, as the equipment we will be using will involve using laser contained in fibre for a large portion of the experiment.
 
@@ -83,8 +90,6 @@ In addition to the skills learnt in the Higher-Year Lab, I was also able to deve
 The record-keeping skill in particular was useful, as it not only helped me keep a better record of the experiment I was doing, but it also meant that I was paying closer attention during the experiment as I wanted to keep an accurate and detailed log of everything I did. Because of this, we were able to improve our methodology the second time we attempted to cleave the fibre and align the laser.
 
 \section{Proposed Methodology}
-This experiment is broken down into two stages. The first is a proof-of-concept experiment, where we can verify the optical alignment and timing system, and the second is the actual Bell's inequality violation.
-
 \subsection{Correlation Measurement}
 The proof-of-concept measurement will measure photon antibunching, which will allow us to verify the optical alignment of the setup, as well as test the timing system. The photon source will be configured to produce a herald signal and a corresponding photon in the measurement arm. Detector dark counts and background counts will first be measured with the source blocked to provide a baselines measurement, then the source will be operated for repeated acquisition intervals while the correlation device records the distribution of detection delays.
 
