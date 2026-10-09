@@ -13,29 +13,29 @@
 \section{Literature Review}
 Quantum mechanics predicts correlations between measurements on entangled systems that cannot be reproduced by assigning independent, pre-existing properties to each particle. This issue was notably highlighted by the Einstein-Podolsky-Rosen argument, which questioned whether quantum mechanics provides a complete description of physical reality \parencite{einsteinCanQuantumMechanicalDescription1935}. Bell later converted this into an experimentally testable problem by showing that any theory satisfying local realism must obey an upper bound on measurable correlations, whereas quantum mechanics predicts violations for suitable entangled states \parencite{bellEinsteinPodolskyRosen1964}.
 
-The Clauser-Horne-Shimony-Holt (CHSH) formulation made Bell's theorem practical for laboratory experiments. In a polarization experiment, two measurement settings are selected on each photon path in a entangled photon-pair setup, $a$ and $a'$ for one photon, and $b$ and $b'$ for the other. Each polarisation measurement has two possible outcomes, conventionally labelled $+$ and $-$. For a pair of settings, the correlation is calculated from the coincidence counts as
-\[
-    E(a,b)=\frac{N_{++}+N_{--}-N_{+-}-N_{-+}}{N_{++}+N_{--}+N_{+-}+N_{-+}}.
-\]
+The Clauser-Horne-Shimony-Holt (CHSH) formulation made Bell's theorem practical for laboratory experiments. In a polarisation experiment, two measurement settings are selected on each photon path in a entangled photon-pair setup, $a$ and $a'$ for one photon, and $b$ and $b'$ for the other. Each polarisation measurement has two possible outcomes, conventionally labelled $+$ and $-$. For a pair of settings, the correlation is calculated from the coincidence counts as
+\begin{equation}
+    E(a,b)=\frac{N_{++}+N_{--}-N_{+-}-N_{-+}}{N_{++}+N_{--}+N_{+-}+N_{-+}}. \label{eq:1}
+\end{equation}
 The CHSH parameter is then
-\[
-    S=\left| E(a,b)-E(a,b')+E(a',b)+E(a',b') \right|.
-\]
+\begin{equation}
+    S=\left| E(a,b)-E(a,b')+E(a',b)+E(a',b') \right|.\label{eq:2}
+\end{equation}
 Local hidden-variable theories require $S\leq 2$, while quantum mechanics predicts values as large as $2\sqrt{2}$ for an ideal maximally entangled state \parencite{clauserProposedExperimentTest1969}. Therefore, a measured value significantly greater than 2 would provide evidence that the observed correlations cannot be explained by a local hidden-variable model. Correlation alone is not enough, since classically correlated sources can also produce similar outcomes. The relevant criteria is the violation of the CHSH bound.
 
-Optical experiments provide a direct way to test this prediction. An entangled photon-pair source sends one photon into each measurement arm, with the measurement settings are defined by polarisers. A correlation device identifies detections occurring within a selected coincidence window, allowing the coincidence counts for each outcome to be measured. Early optical experiments established the feasibility of this approach. Freedman and Clauser measured linear-polarisation correlations from photons emitted in an atomic cascade and found results consistent with quantum mechanics, but inconsistent with local hidden-variable restrictions 
+Optical experiments provide a direct way to test this prediction. An entangled photon-pair source sends one photon into each measurement arm, with the measurement settings are defined by polarisers. A correlation device identifies detections occurring within a selected coincidence window, allowing the coincidence counts for each outcome to be measured. Early optical experiments established the feasibility of this approach. Freedman and Clauser measured linear-polarisation correlations from photons emitted in an atomic cascade and found results consistent with quantum mechanics, but inconsistent with local hidden-variable restrictions \parencite{freedmanExperimentalTestLocal1972}. Aspect, Dalibard, and Roger later measured photon-polarisation correlations using time-varying analysers and reported a violation of Bell's inequality \parencite{aspectExperimentalTestBells1982}. These experiments provide the experimental precedent for the proposed use of an entangled source, polarisers, and coincidence detectors.
 
-Another demonstration of the quantum nature of light is photon antibunching. The quantum theory of optical coherence describes multi-photon detection using correlation functions, most notably the second-order correlation function $g^{(2)}(\tau )$ \parencite{glauberQuantumTheoryOptical1963}. At zero delay, $g^{(2)}(0)$ measures the relative probability of detecting two photons close temporally.
+A separate demonstration of the quantum nature of light is photon antibunching. The quantum theory of optical coherence describes multi-photon detection using correlation functions, including the second-order correlation function $g^{(2)}(\tau )$ \parencite{glauberQuantumTheoryOptical1963}. At zero delay, $g^{(2)}(0)$ measures the relative probability of detecting two photons close temporally. Ideal coherent light $g^{(2)}(0)=1$, corresponding to Poissonian detection statistics, while thermal light generally exhibits bunching with $g^{(2)}(0)>1$. Antibunched light satisfies $g^{(2)}(0)<1$, indicating a suppression of near-simultaneous detections. The observation of antibunching in resonance fluorescence by Kimble, Dagenais, and Mandel was an important demonstration of nonclassical light because the measured photon statistics could not be explained by the relevant classical fluctuating-intensity models \parencite{kimblePhotonAntibunchingResonance1977}.
 
-For ideal coherent light $g^{(2)}(0)=1$, corresponding to Poissonian detection statistics. Thermal light commonly produces $g^{(2)}>1$, known as photon bunching. In contrast, antibunched light satisfies $g^{(2)}(0)<1$, indicating a suppression of near-simultaneous detections. The observation of anti bunching in resonance fluorescence was a significant demonstration of nonclassical light as measured statistics could not be explained by a simple classical fluctuating-intensity model \parencite{kimblePhotonAntibunchingResonance1977}.
+Grangier, Roger, and Aspect demonstrated a related effect using a triggered photon source and a beam splitter. They observed strong anticorrelation between the two output detectors, consistent with a single-photon description and inconsistent with a classical wave model under the conditions of their experiment \parencite{grangierExperimentalEvidencePhoton1986}. These results show that photon-timing measurements can provide practical evidence of nonclassical optical behaviour. However, there is an important distinction between actual photon antibunching measurements and a simple photon-pair correlation measurement. A reproducible coincidence peak from a heralded source demonstrates temporal correlation between the photons, but does not by itself establish $g^{(2)}(0)<1$.
 
-A related experiment used a triggered photon source and a beam splitter to observe strong anticorrelation between the two output detectors. Their result was consistent with a single-photon state and inconsistent with the prediction of a classical wave model for the relevant experiment conditions \parencite{grangierExperimentalEvidencePhoton1986}. These experiments establish that time-correlated detection measurements can provide a practical test nonclassical optical behaviour.
+Modern loophole-free photon experiments require significant detector efficiency, independently selected measurement settings and additional control of locality and coincidence loopholes \parencite{giustinaSignificantLoopholeFreeTestBells2015a}. This means that due to the limitations of the equipment available, this experiment will be interpreted as a CHSH test under the equipment's detection, coincidence selection, and fair sampling assumptions.
 
 \section{Skills Developed}
 \subsection{Laboratory Skills}
-During the weeks leading up to this literature review, I, along with another student, developed the skills necessary to work with optical fibres in a laboratory environment. This included fibre preparation, laser alignment, and characterising both the quality of the alignment, as well as some properties of the fibre itself.
+During the weeks leading up to this literature review, I developed the skills necessary to work with optical fibres in a laboratory environment. This included fibre preparation, laser alignment, and characterising both the quality of the alignment, as well as some properties of the fibre itself.
 
-The first stage of preparing a length of fibre is stripping off the outer-most protective layer, as well as the cladding. After cleaning the remaining cladding off of the fibre using acetone, we utilised a microscope to verify that all material was removed from the core of the fibre. After this, we used a cleaver to make a clean, controlled break in the fibre (Fig. \ref{fig:cleaved-good}, \ref{fig:cleaved-bad}). The most important thing we learnt during our time working with fibres, it is that any sort of defect in the end of the fibre would significantly degrade the amount of light entering, which would in turn impact any experiment we may undertake. Whilst in this setup the light in even a bad cleave would be sufficient to do an experiment with, in the more advanced setups in the future, this loss would correspond to a significant portion of the usable photons.
+The fibre preparation process involved removing the protective coating and cladding, cleaning the exposed fibre with acetone, and cleaving the end of the fibre. Microscope inspection showed that defects at the cleaved surface can significantly reduce the amount of light coupled into the fibre (Fig. \ref{fig:cleave}). This is relevant to the proposed photon experiment because coupling losses reduce the detected count rate and can make coincidence measurements more difficult.
 
 \begin{figure}[h]
     \begin{subfigure}[t]{0.5\linewidth}
@@ -51,11 +51,10 @@ The first stage of preparing a length of fibre is stripping off the outer-most p
     \label{fig:cleaved-bad}
 \end{subfigure}
 \caption{Two examples of cleaved optical fibre}
+\label{fig:cleave}
 \end{figure}
 
-With a good length of fibre, we were able to align the tip of the fibre to a laser going through a microscope objective. This stage was by far both the most important part, and the most tedious. This involved using adjustment screws in all of the $x$, $y$, and $z$ axes, which allowed the tip of the laser to be placed as close as possible to both the brightest region of laser light, as well as the correct distance from the microscope objective to ensure focus. Initially, we ran into issues with the tip of the fibre being slightly bent due to storage on a reel. We were able to correct for this by having a shorter length of the fibre protruding from the holder, and moving the objective closer to account for this loss of range.
-
-This laser alignment was aided by the use of light power meter. The opposite end of the optical fibre was directed at a photosensor, which was read by the power meter to quantify exactly how much light, in Watts, was being carried through the fibre. From this, we were able to see the difference in power whilst aligning, as can be seen in Figs. \ref{fig:power-good} and \ref{fig:power-not-so-good}.
+After preparing the fibre, we aligned it to a laser using a microscope objective and three-axis position. The quality of the alignment was determined by maximising the optical power measured at the output of the fibre. An initial alignment produced a maximum power of $8.03\mu W$, while a later alignment produced $887.4\mu W$ (Fig. \ref{fig:power-figures}). This improvement demonstrated the sensitivity of fibre coupling to the cleave quality, fibre position, and objective focal length.
 
 \begin{figure}[H]
     \begin{subfigure}[t]{0.5\linewidth}
@@ -73,16 +72,16 @@ This laser alignment was aided by the use of light power meter. The opposite end
     \label{fig:power-figures}
 \end{figure}
 
-We were also able to utilise this power meter to characterise the numerical aperture of the fibre. This describes the range of the angles that the optical fibre can accept, and it depends on the refractive index of the fibre and the acceptance cone, the range of angles where laser is accepted into the fibre \parencite{NumericalAperture2026}. From this, we were able fit a curve (Fig. \ref{fig:na-curve}), which give a numerical aperture to be $0.364\pm 0.007$.
+As a demonstration of a setup using optical fibre, we measured the angular acceptance of the fibre by sweeping the input angle and recording the transmitted power. A Gaussian fit (Fig. \ref{fig:na-curve}) to these measurements gave a numerical aperture of $0.364 \pm 0.007$.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/na-curve.png}
     \caption{The Gaussian fit for the NA angle sweep. The likeliest cause of the poor fit is a combination of light leaking into the setup and incorrect placement of the tip of the fibre in the path of the laser.}
     \label{fig:na-curve}
 \end{figure}
 
-These skills developed in the Higher-Year Lab will allow us to design, setup, and maintain a optical setup that utilises optical fibre for the control of the laser used in our experiments. This will be of particular use, as the equipment we will be using will involve using laser contained in fibre for a large portion of the experiment.
+These skills will be useful when aligning the photon-pair source, coupling light into fibres and maintaining stable optical paths. Efficient and stable coupling is particularly important because the proposed experiment relies on detecting a relatively small number of single-photon events and distinguishing actual coincidences from accidental detections.
 
 \subsection{Soft Skills}
 In addition to the skills learnt in the Higher-Year Lab, I was also able to develop more "soft skills" through the provided workshops. Specifically, I was able to improve my record-keeping, time management, and risk assessment and prevention.
@@ -90,10 +89,57 @@ In addition to the skills learnt in the Higher-Year Lab, I was also able to deve
 The record-keeping skill in particular was useful, as it not only helped me keep a better record of the experiment I was doing, but it also meant that I was paying closer attention during the experiment as I wanted to keep an accurate and detailed log of everything I did. Because of this, we were able to improve our methodology the second time we attempted to cleave the fibre and align the laser.
 
 \section{Proposed Methodology}
-\subsection{Correlation Measurement}
-The proof-of-concept measurement will measure photon antibunching, which will allow us to verify the optical alignment of the setup, as well as test the timing system. The photon source will be configured to produce a herald signal and a corresponding photon in the measurement arm. Detector dark counts and background counts will first be measured with the source blocked to provide a baselines measurement, then the source will be operated for repeated acquisition intervals while the correlation device records the distribution of detection delays.
 
-The primary output will be a histogram of detection-delay events. The coincidence peak will be identified and compared with the surrounding accidental-coincidence background recorded previously. This measured coincidence rate can then be used to estimate the correlation function $g^{(2)}(\tau )$, and evidence of antibunching would be indicated by a statistically significant reduction in the zero-delay coincidence rate relative to the long-delay baseline.
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[element/.style={
+            draw,
+            align=center,
+            minimum height=7mm,
+            minimum width=14mm,
+            inner sep=1.5pt
+        }]
+  \node[element, draw] at (1,2) (source) {Entangled Photon\\Pair Source};
+  \node[element, draw, anchor=west] at ($(source.east)+(2,1)$) (pA) {Polariser A};
+\node[element, draw, anchor=west] at ($(source.east)+(2,-1)$) (pB) {Polariser B};
+\node[element, draw, anchor=west] at ($(pA.east)+(0.5,0)$) (hwpA) {HWP};
+\node[element, draw, anchor=west] at ($(pB.east)+(0.5,0)$) (hwpB) {HWP};
+
+\node[element, draw,anchor=west] at ($(hwpA.east)+(0.5,0)$) (pbsA) {PBS};
+\node[element, draw,anchor=west] at ($(hwpB.east)+(0.5,0)$) (pbsB) {PBS};
+
+\node[element, draw, anchor=west] at ($(pbsA.east)+(1,0.5)$) (det1) {Detector};
+\node[element, draw, anchor=west] at ($(pbsA.east)+(1,-0.5)$) (det2) {Detector};
+\node[element, draw, anchor=west] at ($(pbsB.east)+(0.25,0)$) (pol) {Polariser};
+\node[element, draw, anchor=west] at ($(pol.east)+(0.25,0)$) (det3) {Detector};
+
+\node[element, draw, anchor=west] at ($(det1.east)+(0.5,0)$) (coin) {Coincidence Detector};
+\node[element, draw, anchor=west] at ($(det1.east)+(0.5,0)$) (coin) {Coincidence Detector};
+
+\draw[-stealth] (source.east) to (pA.west);
+\draw[-stealth] (source.east) to (pB.west);
+  \draw[-stealth] (pA.east) -- (hwpA.west);
+  \draw[-stealth] (pB.east) -- (hwpB.west);
+  \draw[-stealth] (hwpB.east) -- (pbsB.west);
+  \draw[-stealth] (hwpA.east) -- (pbsA.west);
+  \draw[-stealth] (pbsA.east) -- (det1.west);
+  \draw[-stealth] (pbsA.east) -- (det2.west);
+  \draw[-stealth] (pbsB.east) -- (pol.west);
+  \draw[-stealth] (pol.east) -- (det3.west);
+  \draw[-stealth] (det1.east) -- (coin.west);
+  \draw[-stealth] (det2.east) -| ($(coin.south)+(-0.5,0)$);
+  \draw[-stealth] (det3.east) -| (coin.south);
+\end{tikzpicture}
+\caption{The proposed apparatus for the Bell experiment.}
+\label{fig:apparatus}
+\end{figure}
+
+\subsection{Proof of Concept}
+The first stage of the experiment will test the performance of the source, detectors, and correlation device. The entangled photon-pair source will be configured so that one detected photon provides a herald and the corresponding photon is sent to a second detector. The optical paths will initially be aligned using the available general optical equipment.
+
+Before collecting the source data, detector dark counts and background counts will be measured with the source blocked. This will provide a baseline for estimating accidental coincidences. The source will then be operated for repeated acquisition intervals while the correlation device records the time difference between detection events.
+
+The primary output will be histogram of detection delays. An actual heralded-pair signal should produce a coincidence peak above the surrounding accidental coincidence background. The peak position and width will be used to selecct an appropriate coincidence window. Repeated measurements will test whether the count rates and coincidence peak remains stable.
 
 This provides three checks for the setup:
 \begin{enumerate}
@@ -101,31 +147,45 @@ This provides three checks for the setup:
     \item Whether the correlation device resolve the relevant timing structure
     \item Whether the chosen coincidence window is narrow enough to distinguish actual events from accidental coincidences.
 \end{enumerate}
-If a direct antibunching measurement is not possible with the available source, the fallback milestone will be a reproducible heralded-pair coincidence peak. This does not demonstrate antibunching, however it validates the timing, alignment, and detector-correlation pipeline needed for the Bell experiment.
+
+If the optical arrangement allows for a $g^{(2)}(\tau )$ measurement, the normalised second-order correlation function will also be estimated. If the measured zero-delay value satisfies $g^{(2)}(0)<1$, then we can say the photons are antibunched.
 
 \subsection{Polarisation-Correlation and CHSH Experiment}
-After the timing system has been validated, the two photons from the entangled source will be directed into separate measurement arms. Polarisers will be installed in both arms, with their angular positions recorded relative to a common reference. Initial measurements will be performed at several analyser angles to verify high-visibility polarisation correlations and to identify the orientation convention of the generated entangled state.
+After the timing system has been validated, the two photons from the entangled source will be directed into separate measurement arms. Polarisers will be installed in both arms, with their angular positions recorded relative to a common reference, then split with a PBS.
+
+Initial measurements will be performed at several analyser angles to verify the presence and orientation of the expected polarisation correlations. This step will also identify whether the source produces correlations described by $E(\alpha ,\beta )$ or by the corresponding sign-reversed convention for the particular entangled state.
 
 At each setting, the experiment will record detector count rate, coincidence counts, and the acquisition time. Background and accidental coincidences will be estimated either from off-peak timing windows or from measurements with one arm blocked, depending on the capabilities of the correlation device. The source alignment will be adjusted before collecting the final CHSH data.
 
-For the CHSH data, the four analyser-setting combinations
+The CHSH experiment will use two analyser settings on each measurement arm
+\[
+    (a,a'),\quad(b,b').
+\]
+
+The four analyser-setting combinations
 \[
     (a,b),\quad(a,b'),\quad(a',b),\quad(a',b')
 \]
-will be measured. For each combination, the coincidence counts for the available outcome channels will be collected over a fixed integration time. A common ideal choice of relative analyser angles gives a quantum prediction near the maximum CHSH expression to obtain $S$. Repeated acquisitions will be used to estimate the variation in $S$, and the uncertainty will be calculated from counting statistics. For independent Poissonian counts, a first estimate of the uncertainty can be obtained by propagating the count uncertainties, with each count approximated by
+will be measured. For each pair, the coincidence counts for the available $+$ and $-$ outcome channels will be collected over a fixed integration time. The correlation will then be calculated using Equation \ref{eq:1}, which the four correlations will be substituted into Equation \ref{eq:2}.
+
+Because only three single-photon detectors are available, all four outcomes channels may not be recorded simultaneously. To combat this, a polariser will be placed in the $B$ arm, and measurements will be inferred. This will introduce additional assumptions about detector stability and fair sampling, which is why this experiment is not claiming to be loophole-free.
+
+Repeated acquisitions will be performed for each analyser setting. For approximately independent Poissonian counts, the uncertainty in an individual count will initially be estimated as
 \[
-    \sigma _N\approx \sqrt{N}.
+    \sigma _N\approx\sqrt{N}.
 \]
-The final result will be of the form
+These uncertainties will be propagated through the correlation and CHSH expressions to obtain
 \[
-    S=S_{\text{meas}}\pm\sigma _S.
+    S=S_{\text{meas}}+\sigma _S.
 \]
-For a violation measurement to be valid would require $S_{\text{meas}}>2$ by an uncertainty margin that is statistically meaningful. The analysis will also report the coincidence window, integration time, detector count rate, accidental-coincidence treatment and any postselection or fair-sampling assumpting.
+A violation will be considered meaningful only if $S_{\text{meas}}>2$ by a statistically significant margin and the result is reasonably consistent across repeated acquisitions.
 
 \subsection{Limitations and Contingency}
-The main technical risks to this experiment are detector efficiency at the photon-pair wavelength, unstable optical alignment, accidental coincidences, low pair-production rates, and incomplete access to the four required polarisation outcomes. If the measured correlations are too weak for statistically significant violation, the project will first repeat the visibility and timing measurement, then optimise alignment and coincidence-window selection.
+The main experimental risks are low photon-pair rates, detector inefficiency, accidental coincidences, unstable optical alignment, and incomplete access to the four required outcome channels.
 
-If the three detector arrangement prevents simultaneous measurement of all four outcome combinations, the measurement will be performed sequentially or with the complementary outcome inferred from the available count information. If a complete CHSH analysis remains impractical, we will report the polarisation-correlation visibility and compare the measured angular dependence with the quantum prediction. The photon antibunching milestone will remain a successful proof of concept for the detection and timing system.
+If the coincidence peak is weak, the alignment will be checked and the integration time increased. If accidental coincidences are significant, the coincidence window will be reduced where this does not exclude actual photon pairs. If the result varies between repeated measurements, the source alignment, fibre coupling, and detector count rates will be monitored before additional data are collected.
+
+If the apparatus cannot provide all outcome channels required for a complete CHSH analysis, the project will report the available polarisation-correlation visibility and compare its angular dependence with the quantum prediction. If the CHSH parameter cannot be estimated reliably, the heralded-correlation proof of concept will remain the primary experimental outcome.
 
 \section{Project Plan}
 In order to maintain a schedule that aligns with the outcomes and due dates of the course, I am attempting to adhere to the following plan to meet these outcomes and dates. This timeline takes into account personal events, study load for other courses, and a small amount of built-in leniency in the (likely) event of not meeting these targets.

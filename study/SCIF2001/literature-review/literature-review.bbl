@@ -17,6 +17,61 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
+  \entry{aspectExperimentalTestBells1982}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Aspect},
+         familyi={A\bibinitperiod},
+         given={Alain},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Dalibard},
+         familyi={D\bibinitperiod},
+         given={Jean},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Roger},
+         familyi={R\bibinitperiod},
+         given={G{\'e}rard},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{AA+1}
+    \strng{fullhash}{AADJRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1982}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{abstract}{%
+    Correlations of linear polarizations of pairs of photons have been measured with time-varying analyzers. The analyzer in each leg of the apparatus is an acousto-optical switch followed by two linear polarizers. The switches operate at incommensurate frequencies near 50 MHz. Each analyzer amounts to a polarizer which jumps between two orientations in a time short compared with the photon transit time. The results are in good agreement with quantum mechanical predictions but violate Bell's inequalities by 5 standard deviations.%
+    }
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.49.1804
+    \endverb
+    \field{number}{25}
+    \field{pages}{1804\bibrangedash 1807}
+    \field{title}{Experimental {{Test}} of {{Bell}}'s {{Inequalities Using Time-Varying Analyzers}}}
+    \field{volume}{49}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/6JQ6WG3F/Aspect et al. - 1982 - Experim
+    \verb ental Test of Bell's Inequalities Using Time-Varying Analyzers.pdf;/h
+    \verb ome/cheshire/Zotero/storage/PFHGEW68/PhysRevLett.49.html
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+    \field{month}{12}
+    \field{year}{1982}
+    \field{urlday}{08}
+    \field{urlmonth}{10}
+    \field{urlyear}{2026}
+  \endentry
+
   \entry{bellEinsteinPodolskyRosen1964}{article}{}{}
     \name{author}{1}{}{%
       {{hash=BJS}{%
@@ -173,6 +228,224 @@
     \field{urlyear}{2026}
   \endentry
 
+  \entry{freedmanExperimentalTestLocal1972}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=FSJ}{%
+         family={Freedman},
+         familyi={F\bibinitperiod},
+         given={Stuart\bibnamedelima J.},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=CJF}{%
+         family={Clauser},
+         familyi={C\bibinitperiod},
+         given={John\bibnamedelima F.},
+         giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{FSJCJF1}
+    \strng{fullhash}{FSJCJF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1972}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    We have measured the linear polarization correlation of the photons emitted in an atomic cascade of calcium. It has been shown by a generalization of Bell's inequality that the existence of local hidden variables imposes restrictions on this correlation in conflict with the predictions of quantum mechanics. Our data, in agreement with quantum mechanics, violate these restrictions to high statistical accuracy, thus providing strong evidence against local hidden-variable theories.%
+    }
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.28.938
+    \endverb
+    \field{number}{14}
+    \field{pages}{938\bibrangedash 941}
+    \field{title}{Experimental {{Test}} of {{Local Hidden-Variable Theories}}}
+    \field{volume}{28}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/79TNUPME/Freedman and Clauser - 1972 -
+    \verb Experimental Test of Local Hidden-Variable Theories.pdf;/home/cheshir
+    \verb e/Zotero/storage/V88A9S96/PhysRevLett.28.html
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+    \field{month}{04}
+    \field{year}{1972}
+    \field{urlday}{08}
+    \field{urlmonth}{10}
+    \field{urlyear}{2026}
+  \endentry
+
+  \entry{giustinaSignificantLoopholeFreeTestBells2015a}{article}{}{}
+    \name{author}{22}{}{%
+      {{hash=GM}{%
+         family={Giustina},
+         familyi={G\bibinitperiod},
+         given={Marissa},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=VMAM}{%
+         family={Versteegh},
+         familyi={V\bibinitperiod},
+         given={Marijn A.\bibnamedelima M.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=WS}{%
+         family={Wengerowsky},
+         familyi={W\bibinitperiod},
+         given={S{\"o}ren},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Handsteiner},
+         familyi={H\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Hochrainer},
+         familyi={H\bibinitperiod},
+         given={Armin},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PK}{%
+         family={Phelan},
+         familyi={P\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Steinlechner},
+         familyi={S\bibinitperiod},
+         given={Fabian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kofler},
+         familyi={K\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LJA}{%
+         family={Larsson},
+         familyi={L\bibinitperiod},
+         given={Jan-{\AA}ke},
+         giveni={J\bibinithyphendelim {\AA}\bibinitperiod},
+      }}%
+      {{hash=AC}{%
+         family={Abell{\'a}n},
+         familyi={A\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AW}{%
+         family={Amaya},
+         familyi={A\bibinitperiod},
+         given={Waldimar},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=PV}{%
+         family={Pruneri},
+         familyi={P\bibinitperiod},
+         given={Valerio},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=MMW}{%
+         family={Mitchell},
+         familyi={M\bibinitperiod},
+         given={Morgan\bibnamedelima W.},
+         giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Beyer},
+         familyi={B\bibinitperiod},
+         given={J{\"o}rn},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=GT}{%
+         family={Gerrits},
+         familyi={G\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LAE}{%
+         family={Lita},
+         familyi={L\bibinitperiod},
+         given={Adriana\bibnamedelima E.},
+         giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SLK}{%
+         family={Shalm},
+         familyi={S\bibinitperiod},
+         given={Lynden\bibnamedelima K.},
+         giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=NSW}{%
+         family={Nam},
+         familyi={N\bibinitperiod},
+         given={Sae\bibnamedelima Woo},
+         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Scheidl},
+         familyi={S\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=UR}{%
+         family={Ursin},
+         familyi={U\bibinitperiod},
+         given={Rupert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WB}{%
+         family={Wittmann},
+         familyi={W\bibinitperiod},
+         given={Bernhard},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=ZA}{%
+         family={Zeilinger},
+         familyi={Z\bibinitperiod},
+         given={Anton},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{GM+1}
+    \strng{fullhash}{GMVMAMWSHJHAPKSFKJLJAACAWPVMMWBJGTLAESLKNSWSTURWBZA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    Local realism is the worldview in which physical properties of objects exist independently of measurement and where physical influences cannot travel faster than the speed of light. Bell's theorem states that this worldview is incompatible with the predictions of quantum mechanics, as is expressed in Bell's inequalities. Previous experiments convincingly supported the quantum predictions. Yet, every experiment requires assumptions that provide loopholes for a local realist explanation. Here, we report a Bell test that closes the most significant of these loopholes simultaneously. Using a well-optimized source of entangled photons, rapid setting generation, and highly efficient superconducting detectors, we observe a violation of a Bell inequality with high statistical significance. The purely statistical probability of our results to occur under local realism does not exceed 3.74\texttimes 10-31, corresponding to an 11.5 standard deviation effect.%
+    }
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.115.250401
+    \endverb
+    \field{number}{25}
+    \field{pages}{250401}
+    \field{title}{Significant-{{Loophole-Free Test}} of {{Bell}}'s {{Theorem}} with {{Entangled Photons}}}
+    \field{volume}{115}
+    \verb{file}
+    \verb /home/cheshire/Zotero/storage/ADNMZPJZ/Giustina et al. - 2015 - Signi
+    \verb ficant-Loophole-Free Test of Bell's Theorem with Entangled Photons.pd
+    \verb f;/home/cheshire/Zotero/storage/YIYRMZWZ/PhysRevLett.115.html
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+    \field{month}{12}
+    \field{year}{2015}
+    \field{urlday}{09}
+    \field{urlmonth}{10}
+    \field{urlyear}{2026}
+  \endentry
+
   \entry{glauberQuantumTheoryOptical1963}{article}{}{}
     \name{author}{1}{}{%
       {{hash=GRJ}{%
@@ -322,28 +595,6 @@
     \field{month}{09}
     \field{year}{1977}
     \field{urlday}{08}
-    \field{urlmonth}{10}
-    \field{urlyear}{2026}
-  \endentry
-
-  \entry{NumericalAperture2026}{article}{}{}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2026}
-    \field{labeldatesource}{}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{abstract}{%
-    In optics, the numerical aperture (NA) of an optical system is a dimensionless number that characterizes the range of angles over which the system can accept or emit light. By incorporating index of refraction in its definition, NA has the property that it is constant for a beam as it goes from one material to another, provided there is no refractive power at the interface (e.g., a flat interface). The exact definition of the term varies slightly between different areas of optics. Numerical aperture is commonly used in microscopy to describe the acceptance cone of an objective (and hence its light-gathering ability and resolution), and in fiber optics, in which it describes the range of angles within which light that is incident on the fiber will be transmitted along it.%
-    }
-    \field{title}{Numerical Aperture}
-    \field{langid}{english}
-    \verb{file}
-    \verb /home/cheshire/Zotero/storage/79V26X8S/index.html
-    \endverb
-    \field{journaltitle}{Wikipedia}
-    \field{month}{03}
-    \field{year}{2026}
-    \field{urlday}{07}
     \field{urlmonth}{10}
     \field{urlyear}{2026}
   \endentry

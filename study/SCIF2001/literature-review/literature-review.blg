@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99e (TeX Live 2026/Artix Linux)
+This is BibTeX, Version 0.99e (TeX Live 2026/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: literature-review.aux
 The style file: biblatex.bst
@@ -22,44 +22,44 @@ Database file #2: SCIF2001.bib
 Biblatex version: 3.21
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 8 entries,
+You've used 10 entries,
             6402 wiz_defined-function locations,
-            1279 strings with 16054 characters,
-and the built_in function-call counts, 68252 in all, are:
-= -- 4590
-> -- 2767
-< -- 437
-+ -- 3203
-- -- 1962
-* -- 4461
-:= -- 8002
+            1303 strings with 18848 characters,
+and the built_in function-call counts, 139101 in all, are:
+= -- 11242
+> -- 3878
+< -- 616
++ -- 6019
+- -- 2678
+* -- 9686
+:= -- 17440
 add.period$ -- 0
-call.type$ -- 8
-change.case$ -- 202
-chr.to.int$ -- 252
-cite$ -- 14
-duplicate$ -- 6413
-empty$ -- 5526
-format.name$ -- 410
-if$ -- 12643
+call.type$ -- 10
+change.case$ -- 307
+chr.to.int$ -- 312
+cite$ -- 18
+duplicate$ -- 13180
+empty$ -- 10939
+format.name$ -- 835
+if$ -- 25900
 int.to.chr$ -- 0
-int.to.str$ -- 18
+int.to.str$ -- 26
 missing$ -- 0
-newline$ -- 351
-num.names$ -- 386
-pop$ -- 2466
+newline$ -- 602
+num.names$ -- 593
+pop$ -- 3597
 preamble$ -- 1
-purify$ -- 231
+purify$ -- 392
 quote$ -- 0
-skip$ -- 1715
+skip$ -- 2534
 stack$ -- 0
-substring$ -- 8706
-swap$ -- 1694
-text.length$ -- 290
-text.prefix$ -- 7
+substring$ -- 22395
+swap$ -- 2596
+text.length$ -- 405
+text.prefix$ -- 9
 top$ -- 1
-type$ -- 260
+type$ -- 328
 warning$ -- 0
-while$ -- 892
+while$ -- 1969
 width$ -- 0
-write$ -- 344
+write$ -- 593
