@@ -1,0 +1,40 @@
+Quantum entanglement describes joint states of two systems that cannot be represented as independent local states. Its conceptual significance arose from the Einstein\u2013Podolsky\u2013Rosen argument, which questioned whether quantum mechanics was complete. Bell showed that any local hidden-variable theory must satisfy an inequality involving correlations between measurements performed on separated systems, whereas quantum mechanics predicts violations for suitable entangled states [Bell, 1964].
+
+The CHSH formulation made Bell\u2019s theorem experimentally accessible by assigning two possible analyser settings to each measurement arm. For settings 
+a,a\u2032
+a,a
+\u2032
+ on one photon and 
+b,b\u2032
+b,b
+\u2032
+ on the other, the CHSH parameter is
+
+S=\u2223E(a,b)\u2212E(a,b\u2032)+E(a\u2032,b)+E(a\u2032,b\u2032)\u2223.
+S=\u2223E(a,b)\u2212E(a,b
+\u2032
+)+E(a
+\u2032
+,b)+E(a
+\u2032
+,b
+\u2032
+)\u2223.
+
+Local hidden-variable theories require 
+S\u22642
+S\u22642, while quantum mechanics predicts values as large as 
+22
+2
+2
+	\u200b
+
+. Each correlation 
+E
+E can be obtained from the four coincidence counts corresponding to the two possible polarisation outcomes.
+
+In an optical implementation, an entangled photon-pair source sends one photon to each measurement arm. Polarisers define the measurement settings, and coincidence detection identifies events originating from the same pair. The experiment therefore tests more than ordinary polarisation correlation: classical correlated sources may produce correlated outcomes, but only correlations exceeding the CHSH bound demonstrate incompatibility with local hidden-variable models.
+
+Optical Bell tests have been demonstrated experimentally. Freedman and Clauser measured correlations from photon pairs, while Aspect, Dalibard and Roger later used time-varying analysers and observed a violation of Bell\u2019s inequality by five standard deviations [Freedman & Clauser, 1972; Aspect et al., 1982]. These experiments establish the feasibility of using photon polarisation and coincidence counting to test Bell inequalities.
+
+However, the interpretation of a measured violation depends on experimental limitations. Detector losses create a detection loophole, finite timing resolution affects coincidence assignment, and manually selected analyser settings do not close the locality or freedom-of-choice loopholes. The proposed experiment will therefore test whether the available entangled source produces a statistically significant CHSH violation under the apparatus\u2019s sampling assumptions, rather than claim a loophole-free Bell test. This provides a feasible operational test of nonclassical correlations using the available source, polarisers, detectors and correlation electronics.
