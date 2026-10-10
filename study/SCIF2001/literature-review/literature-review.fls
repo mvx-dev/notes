@@ -469,7 +469,6 @@ INPUT ./figures/cleaved-bad.jpg
 INPUT ./figures/cleaved-bad.jpg
 INPUT ./figures/cleaved-bad.jpg
 INPUT ./figures/cleaved-bad.jpg
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT ./figures/power-not-so-good.jpg
 INPUT ./figures/power-not-so-good.jpg
 INPUT ./figures/power-not-so-good.jpg
@@ -492,6 +491,7 @@ INPUT ./figures/na-curve.png
 INPUT ./figures/na-curve.png
 INPUT ./figures/na-curve.png
 INPUT ./figures/na-curve.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
