@@ -666,7 +666,16 @@ We denote the location of zeros in the $s$-plane with the symbol $0$, and the lo
 
 \subsection{System Stability}
 \subsubsection{Real Pole(s)}
-If all of a systems pole lie in the left-half of the $s-plane$, then that system is said to be stable. They correspond to exponentially decaying impulse responses. For a causal continuous-time linear-time-invariant (LTI) system, Bounded-Input Bounded-Output (BIBO) stability requires all poles of $H(s)$ to lie strictly in the open left-half plane. 
+If all of a systems pole lie in the left-half of the $s-plane$, then that system is said to be stable. They correspond to exponentially decaying impulse responses. For a causal continuous-time linear-time-invariant (LTI) system, Bounded-Input Bounded-Output (BIBO) stability requires all poles of $H(s)$ to lie strictly in the open left-half plane, i.e. $\mathfrak{Re}(p)<0$.
+
+\begin{callout}{note}[Note]
+\label{note:causality}
+A system is causal if its output at time $t$ only depends on present and past inputs, not future inputs. For an LTI system, this means its impulse satisfies
+\[
+    H(t)=0,\quad \forall t<0.
+\]
+This means that if a unit impulse response contains $u(t)$, it is inherently causal.
+\end{callout}
 
 If the poles instead lie in the right half-plane, then they correspond to systems with exponentially growing impulse responses, and are called unstable as they do not converge.
 
@@ -822,9 +831,7 @@ The decibel is a logarithmic measurement unit for sound levels, but also is impo
 \]
 A difference of 3 dB in a reading represents a doubling in power, and -3 dB represents half power. Each successive multiple of ten increases the order of magnitude by 10.
 
-\subsection{Bandwidth}
-The bandwidth is the frequency at which the magnitude spectrum falls to $\frac{1}{\sqrt{2}}$ of its maximum value (i.e. peak value).
-\subsubsection{Low-Pass Filter}
+\subsection{Low-Pass Filter}
 For a low-pass filter or system, we have
 \[
     H(s)=\frac{a}{s+a},
@@ -852,7 +859,20 @@ A first-order low-pass filter has the form
 \]
 The cutoff frequency can also be defined by when the magnitude drops off by 3 dB. For a second-order low-pass filter, this is just two low-pass filters cascaded together. Both first- and second-order low-pass filters have the same cutoff frequency, and each pole contributes approximately -20 dB/decade to the high-frequency asymptotic slope. A first-order filter rolls off at 20 dB/decade beyond the cutoff frequency, and a second-order filter rolls at at 40 dB/decade asymptotically for low-pass systems with two more poles than zeros, meaning it attenuates unwanted frequencies sharper than a first-order system.
 
-\subsubsection{Band-Pass Filter}
+\subsection{Second-Order Low Pass Filter}
+A second-order low pass filter has the form
+\[
+    H(s)=\frac{\omega _0^2}{s^2+b_0s+\omega _0^2},
+\]
+with bandwidth and cutoff frequency being given by
+\[
+    b_0=\frac{\omega _0}{Q},\quad \omega _0,
+\]
+where $Q$ is the quality factor. In the case were the real poles are distinct, the cut-off frequency $\omega _1$ is determined by the dominate pole $\alpha _1$.
+
+When the poles are complex conjugates, it becomes a resonant low-pass filter. It has the same form as the above second-order low-pass filters.
+
+\subsection{Band-Pass Filter}
 A band-pass filter has two cutoff frequencies $\omega _u$ and $\omega _l$ which identify the pass-band (i.e. the region in which frequencies are minimally attenuated). The cutoff frequencies are defined as the frequencies for which the magnitude of the transfer function is $\frac{1}{\sqrt{2}}$ times the original magnitude. There are three important parameters in a band-pass filter.
 
 The first important parameter in a band-pass filter is the centre frequency $\omega _o$, which is defined as the frequency for which a circuit's transfer function is purely real. This is also known as the resonant frequency, and can be found as
@@ -871,6 +891,38 @@ The final parameter is the quality factor $Q$, which is the ratio of the centre 
     Q=\frac{\omega _o}{BW}.
 \]
 This is a measure of the width of the pass-band, independent of its location on the frequency axis. It also describes the shape of the magnitude plot, independent of frequency.
+
+\subsubsection{Second-Order Band-Pass Filter}
+A second-order band-pass filter has the form
+\[
+    H(s)=\frac{b_0s}{s^2+b_0s+\omega _0^2},
+\]
+with $b_0$ is again the bandwidth $b_0=\frac{\omega _2}{Q}$, and $Q$ is the quality factor. Note the $s$ in the numerator, this is not present in the resonant low-pass filters.
+
+\subsection{Notch and Band-Stop Filters}
+A notch filter suppresses a specific frequency (known as the notch frequency), ideally reducing its magnitude to zero. It has the form
+\[
+    H(s)=\frac{s^2+\omega _z^2}{\omega _z^2},
+\]
+where $\omega _z$ is the notch frequency. When complex poles are introduced to a notch filter, it becomes a band-stop filter
+\[
+    H(s)=\frac{s^2+\omega _z^2}{s^2+b_ps+\omega _p^2}
+\]
+with $b_p$ the bandwidth of the resonant pole, $\omega _p$ the resonant frequency of the pole, $Q_p$ the quality factor of the pole, and $\omega _z$ the notch frequency. When the pole frequency $\omega _p=\omega _z$, we get a standard notch filter, depending on $b_p=\frac{\omega _p}{Q_p}$, the notch will be narrower or wider.
+
+\subsection{High-Pass Filter}
+A high-pass filter passes high frequency signals and attenuates low frequency signals
+\[
+    H(s)=\frac{s}{s+\omega _c},\quad H(j\omega )=\frac{j\omega }{j\omega +\omega _c}.
+\]
+This also blocks DC components, because $\left| H(j0) \right|=0$. A second-order high-pass filter with real poles has the form
+\[
+    H(s)=\frac{s^2}{s^2+b_1s+\omega _1^2},
+\]
+and similarly with complex poles it has the form
+\[
+    H(s)=\frac{s^2}{s^2+b_2s+\omega _2^2}.
+\]
 
 \newpage
 \appendix

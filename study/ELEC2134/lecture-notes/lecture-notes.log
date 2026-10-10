@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  7 OCT 2026 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  10 OCT 2026 12:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -877,8 +877,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 652.
 
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-runsystem(latexminted cleantemp  --timestamp 20261007212522 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+runsystem(latexminted cleantemp  --timestamp 20261010122850 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
  (./lecture-notes.aux)
  ***********
@@ -886,21 +886,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 6B37C48DEF0F85F08596A9A7E0B2944A;12262.
+(rerunfilecheck)             Checksum: B4C3AB00F1CEA837857BB6D8A9578585;12910.
  ) 
 Here is how much of TeX's memory you used:
- 34968 strings out of 469515
- 725589 string characters out of 5470807
- 1292731 words of memory out of 5000000
- 62945 multiletter control sequences out of 15000+600000
+ 34977 strings out of 469515
+ 725712 string characters out of 5470807
+ 1290684 words of memory out of 5000000
+ 62950 multiletter control sequences out of 15000+600000
  644595 words of font info for 107 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,16n,110p,635b,1092s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on lecture-notes.pdf (25 pages, 374573 bytes).
+Output written on lecture-notes.pdf (26 pages, 380044 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 575 compressed objects within 6 object streams
- 106 named destinations out of 1000 (max. 500000)
- 733 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 726 PDF objects out of 1000 (max. 8388607)
+ 595 compressed objects within 6 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 757 words of extra memory for PDF output out of 10000 (max. 10000000)
 
