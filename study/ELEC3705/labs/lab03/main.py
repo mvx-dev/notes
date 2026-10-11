@@ -1,3 +1,4 @@
+from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
 from numpy import linalg as LA
@@ -103,4 +104,46 @@ for ax, exp, title in zip(
     ax.legend(loc="upper right")
 axes[-1].set_xlabel("t (µs)")
 plt.savefig("output.svg")
+# plt.show()
+plt.clf()
+
+print()
+print("=", "Extended Task", "=")
+
+theta = np.linspace(0, np.pi, 100)
+phi = np.linspace(0, 2 * np.pi, 200)
+th, ph = np.meshgrid(theta, phi, indexing="ij")
+
+coherent = np.stack([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)], axis=-1)
+
+x = np.sin(th) * np.cos(ph)
+y = np.sin(th) * np.sin(ph)
+z = np.cos(th)
+
+
+def husimi(psi):
+    amplitude = np.einsum("abi,i->ab", coherent.conj(), psi.ravel())
+    return np.abs(amplitude) ** 2
+
+
+def plot_bloch_q(psi, ax):
+    Q = husimi(psi)
+    ax.plot_surface(
+        x,
+        y,
+        z,
+        facecolors=cm.viridis(Q),
+        rstride=1,
+        cstride=1,
+        linewidth=0,
+        antialiased=False,
+        shade=False,
+    )
+    ax.set_box_aspect((1, 1, 1))
+    ax.set_axis_off()
+
+
+fig = plt.figure()
+ax = fig.add_subplot(projection="3d")
+plot_bloch_q(states_c[0], ax)
 plt.show()
