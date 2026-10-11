@@ -1339,6 +1339,80 @@ where
 \]
 This means under suitable circumstances (low temperature), a complex system, like an ammonia molecule, is very well described by the same Hamiltonian as that of a spin in a magnetic field that has $x$ and $z$ components.
 
+\section{Position and Momentum Operators}
+\subsection{Position Eigenbasis}
+From Postulate 2 (See Callout \ref{important:s3-p2}), every physical quantity is described by a Hermitian operator. To do this with position, you would discretise space, for example have a 51-dimensional vector to represent the probability of a particle being in one of 51 positions between $x=0$ and $x=1$. We can define a position eigenbasis with orthonormal vectors in this space as
+\[
+    \ket{\phi _1}=\begin{pmatrix}
+        1 \\ 0 \\ \vdots \\ 0
+    \end{pmatrix},\quad \ket{\phi _2}=\begin{pmatrix}
+        0 \\ 1 \\ \vdots \\ 0
+    \end{pmatrix},\quad \cdots\quad \ket{\phi _{51}}=\begin{pmatrix}
+        0 \\ 0 \\ \vdots \\ 1
+    \end{pmatrix}.
+\]
+Each ket represents a particle that is maximally concentrated on the $i$-th point along the $x$-axis (in the limit where the discretization step is infinitesimal, it represents a $\delta $- function at the position $x_i$).
+
+From Postulate 3 (See Callout \ref{important:s3-p3}), when measuring the value of the quantity $\mathcal{A}$, we can only obtain as a result one of the eigenvalues $a_n$ of the observable $\mathcal{A}$. For example, if we measure $X$ while the state of the system is $\ket{\phi _2}$, we will get $x=0.02$. So the $X$ operator should look like
+\[
+    X=\begin{pmatrix}
+        x_1 & 0 & \cdots & 0 \\
+        0 & x_2 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & \cdots & \cdots & x_N
+    \end{pmatrix} =\begin{pmatrix}
+        0 & 0 & \cdots & 0\\
+        0 & 0.02 & \cdots & 0\\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & \cdots & \cdots & 1
+    \end{pmatrix}.
+\]
+Unlike with spin and particle in a box, the operator that's diagonal in the chosen basis is not the Hamiltonian of the system.
+
+\subsection{Momentum Operator}
+We have the TISE, which is the eigenvalue problem for the Hamiltonian
+\[
+    \left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x) \right]\phi (x)=E\phi (x).
+\]
+Since the kinetic energy is also given by $\frac{p^2}{2m}$, we can interpret this as meaning that the momentum operator must be
+\[
+    P=-i \hbar \frac{\partial }{\partial x}.
+\]
+The derivative is a linear operator, so it must be writable as a matrix. As before, we discretise the space, but now we have to calculate the derivative numerically. We can define $\Delta x$ to be
+\[
+    \Delta x=x_{i+1}-x_i,
+\]
+which gives
+\[
+    \frac{\partial \phi (x_i)}{\partial x}\approx \frac{1}{2}\left( \frac{\phi (x_{i+1})-\phi (x_i)}{\Delta x}+\frac{\phi (x_i)-\phi (x_{i-1})}{\Delta x} \right)=\frac{\phi (x_{i+1})-\phi (x_{i-1})}{2\Delta x}.
+\]
+This is essentially taking the average of the slope immediately before and immediately after the point $x_i$. This then gives the matrix representation of the momentum operator to be
+\[
+    P=-\frac{i \hbar}{2\Delta x}\begin{pmatrix}
+        0 & 1 & \cdots & 0\\
+        -1 & 0 & \cdots & 0\\
+        \vdots & \vdots & \ddots & 1 \\
+        0 & \cdots & -1 & 1
+    \end{pmatrix}.
+\]
+With this, we can write explicitly the Hamiltonian of a particle as
+\[
+    \mathcal{H} = \frac{P^2}{2m}+V(x),
+\]
+where $P$ is given by the (non-diagonal) matrix above, and $V(x)$ is easy to write because it's just a diagonal matrix with numerical value of the potential at each point $x_i$. With this, we can calculate the other operators.
+
+\subsection{Commutation Relations}
+One important thing to note is that $X$ and $P$ do not commute. If we calculate brute-force the commutator using the matrices as above, we get
+\[
+    \left[ X,P \right]=XP-PX=\frac{i \hbar}{2}\begin{pmatrix}
+        0 & 1 & \cdots & 0\\
+        1 & 0 & \cdots & 0\\
+        \vdots & \vdots & \ddots & 1 \\
+        0 & \cdots & 1 & 1
+    \end{pmatrix}\approx i \hbar \mathbb{I}.
+\]
+This represents, in matrix form, the Heisenberg uncertainty principle.
+
 \newpage
 \appendix
 \section{Fourier Transform}
