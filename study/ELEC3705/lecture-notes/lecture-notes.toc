@@ -72,7 +72,3 @@
 \contentsline {subsubsection}{\numberline {7.7.2}Density Operator for Mixed States}{34}{subsubsection.7.7.2}%
 \contentsline {subsubsection}{\numberline {7.7.3}Populations and Coherences}{34}{subsubsection.7.7.3}%
 \contentsline {subsubsection}{\numberline {7.7.4}State Purity}{35}{subsubsection.7.7.4}%
-\contentsline {section}{\numberline {A}Fourier Transform}{36}{appendix.A}%
-\contentsline {section}{\numberline {B}Matlab/Python Commands}{36}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Matrix Operations}{36}{subsection.B.1}%
-\contentsline {subsubsection}{\numberline {B.1.1}Exponential}{36}{subsubsection.B.1.1}%

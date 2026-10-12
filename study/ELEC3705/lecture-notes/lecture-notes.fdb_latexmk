@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1791784244.21578 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1791784245.6693 0
+["pdflatex"] 1791784415.34147 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1791784416.57476 0
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0500.tfm" 1775415801 1536 b3387106d9afecbfe14bde2de6eadf47 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1775415801 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -29,7 +29,6 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1775415801 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1775415801 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1775415801 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
-  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1775415801 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1775415801 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1775415801 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1775415801 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -48,7 +47,6 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1775415801 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1775415801 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1775415801 37944 359e864bd06cde3b1cf57bb20757fb06 ""
-  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1775415801 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1775415801 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1775415801 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb" 1775415801 35457 884c5a936fbb3fae6a4c18058662d654 ""
@@ -238,16 +236,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1783905551 5381098 9f966685d344a3d34adbc94f52661a01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1783907781 2328188 590491b91264867e8a6aa54863554b52 ""
-  "_minted/4829247A76D0B1F9CD89E024CB522100.highlight.minted" 1789869206.25863 112 04b38d3969c72e42c28a2342dbade05f ""
-  "_minted/968506B60CB868DFCC5C1D6D9D34DA89.highlight.minted" 1789869227.73065 305 98db624b8223eed13250bc4269c7549b ""
-  "_minted/EAB7AA449CD5423E96E5A5D5D9B3BFF4.highlight.minted" 1789869207.07162 326 2d1f98a0009f4b1e500a510f06e06b87 ""
-  "_minted/F099CA0A83068C9F1F44AAB35C4EE89D.highlight.minted" 1789869206.51462 158 c11ccb46b63ba791d96107a155c6eea1 ""
-  "_minted/_5D4CA94D12F41E4E12DA004896F7D0AA.index.minted" 1789869227.93759 442 1733d5b06103db4e0bfeb1dae37559bb ""
-  "_minted/default.style.minted" 1789869109.38915 6426 e1fb43a91491f41b33310478eee48cdb ""
-  "lecture-notes.aux" 1791784245.60774 13050 3f4d3d3403e370b785a453cae6f8c07b "pdflatex"
-  "lecture-notes.out" 1791784245.60874 12469 eae430288c14d7f64c7fc3d38d61abaa "pdflatex"
-  "lecture-notes.tex" 1791784241.8127 94994 b1b2afe89ae1bdf75f0e29262c4e4572 ""
-  "lecture-notes.toc" 1791784245.60874 6851 0fb2072463eae0a5155c39dc381ae435 "pdflatex"
+  "lecture-notes.aux" 1791784416.50773 12528 79db93c27ca6c8a3ed5bdec3def3db59 "pdflatex"
+  "lecture-notes.out" 1791784416.50972 11908 90d2466f9f0486f2cded770e449997ea "pdflatex"
+  "lecture-notes.tex" 1791784413.80769 93679 3b76a8ab8d13e60f6ccb3e85a9d9e552 ""
+  "lecture-notes.toc" 1791784416.50972 6524 4494cc6292213d4e7cb07d44dc191e68 "pdflatex"
   "preamble.sty" 1790996341.59265 5883 ea09892a8bddaa217cb9fc5c6c4cf2a9 ""
   (generated)
   "lecture-notes.aux"

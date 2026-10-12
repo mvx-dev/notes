@@ -1802,38 +1802,4 @@ which shows that $\rho _{\psi }$ does not describe a pure state. However, it sti
 \]
 which is less than $\text{Tr}\left( \rho _{\psi }^2 \right)$. $\text{Tr}(\rho ^2)$ is called state purity.
 
-\newpage
-\appendix
-\section{Fourier Transform}
-A Fourier transform decomposes a function into another function that describes the number of occurrences of frequencies within the original function.
-\[
-    F(\omega )=\frac{1}{\sqrt{2\pi }}\int_{-\infty}^\infty f(t)e^{-i\omega t}dt.
-\]
-Fundamentally it is an inner product between $f(t)$ and $e^{-i\omega t}$, with the second vector being characterised by the parameter $\omega $. It tells you how similar the two vectors are to each other, thereby defining the number of occurrences of each frequency.
-
-The Fourier series of a sinusoid is a delta function, indicating that it is infinitely similar at that frequency, and not at all at the others.
-
-\section{Matlab/Python Commands}
-\subsection{Matrix Operations}
-\subsubsection{Exponential}
-\textbf{Command:} The exponential of a matrix can be calculated using
-\begin{minted}{matlab}
-expm(A)
-\end{minted}
-Python has a similar command
-\begin{minted}{python}
-scipy.linalg.expm(A)
-\end{minted}
-\textbf{Example:} Given an initial state \texttt{psi\_0} at time $t=0$, the quantum state \texttt{psi\_t} at a later time $t$ can be found with
-
-(MATLAB):
-\begin{minted}{matlab}
-psi_t = expm(-1i*H*t/hbar) * psi_0
-\end{minted}
-
-(Python):
-\begin{minted}{python}
-psi_t=scipy.linalg.expm(-1j * H * t / hbar) @ psi_0
-\end{minted}
-
 \end{document}
