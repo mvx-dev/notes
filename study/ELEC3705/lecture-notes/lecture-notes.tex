@@ -765,7 +765,7 @@ And finally for the $y$ axis
 From \ref{eq:s3-e1}, we can see that there is no projection along the vertical ($z$) axis, meaning it remains within the equatorial ($xy$) plane. From \ref{eq:s3-e2} and \ref{eq:s3-e3}, we see that the $x$ and $y$ projections oscillate $90\textdegree$ out of phase with frequency $\omega $. This is known as Larmor precession.
 \end{callout}
 
-\subsection{Properties of the Time Evolution Operator}
+\subsection{Time Evolution Operator}
 The time evolution operator $U(t,t_0)$ has some important properties:
 \begin{itemize}
     \item It is a unitary operator
@@ -1412,6 +1412,395 @@ One important thing to note is that $X$ and $P$ do not commute. If we calculate 
     \end{pmatrix}\approx i \hbar \mathbb{I}.
 \]
 This represents, in matrix form, the Heisenberg uncertainty principle.
+
+\section{Dynamics and Control of a Quantum Bit}
+For systems under suitable conditions, i.e. minimal outside interference (this is usually low temperature), the system can be described by a Hamiltonian of the form
+\[
+    \mathcal{H}=\epsilon \sigma _z+\Delta \sigma _x.
+\]
+This is known as a qubit Hamiltonian. This is a two-level quantum system, and can be used to encode quantum digital information
+\begin{itemize}
+    \item Unperturbed case: $\mathcal{H}_0=\epsilon \sigma _z$, with eigenstates $\ket{\uparrow},\ket{\downarrow}$, and eigenvalues $\pm\epsilon $
+    \item Coupled case: $\mathcal{H}=\epsilon \sigma _z+\Delta \sigma _x$, with eigenvalues $\lambda _{1,2}=E_{h,l}=\pm\sqrt{\epsilon^2+\Delta^2}$.
+\end{itemize}
+
+\begin{proof}
+    We can find the eigenstates of a coupled Hamiltonian as
+    \begin{align*}
+        \det(\mathcal{H}-\lambda \mathbb{I}) &= 0 \\
+        \Rightarrow (\epsilon -\lambda )(-\epsilon -\lambda )-\Delta ^2&=\lambda^2-\epsilon^2-\Delta^2 =0\\
+        \Rightarrow \lambda _{1,2}=E_{h,l}&=\pm\sqrt{\epsilon^2+\Delta^2}.
+    \end{align*}
+\end{proof}
+
+Consider a qubit Hamiltonian where $\Delta $ is constant and $\epsilon =-\infty \to+\infty$. The eigenvectors will be
+\[
+    \ket{\phi _h}=\sin \frac{\theta }{2}\ket{\downarrow}+\cos \frac{\theta }{2}\ket{\uparrow},\quad \ket{\phi _l}=\cos \frac{\theta }{2}\ket{\downarrow}-\sin \frac{\theta }{2}\ket{\uparrow},
+\]
+where $\tan\theta =\frac{\Delta }{\epsilon }$ for $0\leq \theta \leq\pi $. This is known as energy anticrossing.
+
+We can map this onto a spin that is being subjected to a time-variable magnetic field along $z$, and a constant magnetic field along $x$, so that the total field makes an angle $\theta $ with the $z$ axis. The energy anticrossing occurs because, since $\Delta \neq 0$, the eigenvalues never degenerate.
+
+\subsection{Time Evolution}
+From above, we know that we can write the time evolution operator as $U(t,t_0)=e^{-i \frac{\mathcal{H}}{\hbar}(t-t_0)}$ and that it is diagonal if we use the eigenvectors of the Hamiltonian as basis of the Hilbert space, i.e.
+\[
+    U(t,t_0)=\begin{pmatrix}
+        e^{-i \frac{E_1}{\hbar}(t-t_0)} & 0 & 0 \\
+        0 & \ddots & 0 \\
+        0 & 0 & e^{-i \frac{E_N}{\hbar}(t-t_0)}
+    \end{pmatrix}.
+\]
+To calculate the time evolution analytically, we must therefore
+\begin{enumerate}
+    \item Express the initial state $\ket{\psi (0)}$ in the eigenbasis of the Hamiltonian
+    \[
+        \ket{\psi (0)}=\sum_{n}c_n(0)\ket{\phi _n} =\begin{pmatrix}
+            c_1(0) \\
+            \vdots \\
+            c_N(0)
+        \end{pmatrix}.
+    \]
+\item Apply the time evolution operator and obtain the time-evolved state as
+\[
+    \ket{\psi (t)}=\sum_{n}c_n(0)e^{-i \frac{E_n}{\hbar}t}\ket{\phi _n}=\begin{pmatrix}
+        e^{-i \frac{E_1}{\hbar}t}c_1(0) \\
+        \vdots \\
+        e^{-i \frac{E_N}{\hbar}t}c_N(0)
+    \end{pmatrix}
+\]
+\end{enumerate}
+
+\begin{callout}{example}[Example]
+\label{example:s7-e1}
+Consider a qubit initially described by the Hamiltonian $\mathcal{H}_0=\epsilon \sigma _z$ and prepared in its eigenstate $\ket{\uparrow}=\ket{\psi (0^-)}$. At time $t=0$, switch on the term $\Delta \sigma _x$. Now, $\ket{\psi (0^-)}$ is no longer an eigenstate.
+
+\textbf{Answer:}
+\begin{enumerate}
+    \item Express $\ket{\psi (0^-)}=\ket{\uparrow}$ in the new eigenbasis $\ket{\phi _h},\ket{\phi _l}$:
+        \begin{align*}
+            \ket{\psi (0^-)} &= \cos \frac{\theta }{2}\ket{\phi _h}-\sin \frac{\theta }{2}\ket{\phi _l} \\
+                             &=\begin{pmatrix}
+                                 \cos \frac{\theta }{2} \\
+                                 -\sin \frac{\theta }{2}
+                             \end{pmatrix}.
+        \end{align*}
+    \item Time-evolve the coefficients:
+        \begin{align*}
+            \ket{\psi (t)} &= e^{-i \frac{E_h}{\hbar}t}\cos \frac{\theta }{2}\ket{\phi _h}-e^{-i \frac{E_l}{\hbar}t}\sin \frac{\theta }{2}\ket{\phi _l} \\
+                           &=\begin{pmatrix}
+                               e^{-i \frac{E_h}{\hbar}t}\cos \frac{\theta }{2}\\
+                               -e^{-i \frac{E_l}{\hbar}t}\sin \frac{\theta }{2}
+                           \end{pmatrix}.
+        \end{align*}
+\end{enumerate}
+We started in the state $\ket{\uparrow}$. The probability to find the spin in $\ket{\downarrow}$ at time $t$ is $\left|  \braket{\downarrow}{\psi (t)} \right|^2$. Express $\ket{\downarrow}$ in the new eigenbasis $\ket{\phi _h},\ket{\phi _l}$.
+\begin{align*}
+    \ket{\downarrow} &= \sin \frac{\theta }{2}\ket{\phi _h}+\cos \frac{\theta }{2}\ket{\phi _l} \\
+                     &=\begin{pmatrix}
+                         \sin \frac{\theta }{2} \\
+                         \cos \frac{\theta }{2}
+                     \end{pmatrix} \\
+    \braket{\downarrow }{\psi (t)} &= \left( \sin \frac{\theta }{2}\quad \cos \frac{\theta }{2} \right)\begin{pmatrix}
+        e^{-i \frac{E_h}{\hbar}t}\cos \frac{\theta }{2}\\
+        -e^{-i \frac{E_l}{\hbar}t} \sin \frac{\theta }{2} 
+    \end{pmatrix} \\
+                                   &= \sin \frac{\theta }{2} \cos \frac{\theta }{2} e^{-i \frac{E_h}{\hbar}}-\sin \frac{\theta }{2}\cos \frac{\theta }{2}e^{-i \frac{E_l}{\hbar}t} \\
+                                   &= \frac{1}{2}\sin \theta \left[ e^{-i \frac{E_h}{\hbar}t}-e^{-i \frac{E_l}{\hbar}t} \right].
+\end{align*}
+Note $\sin \theta =\frac{\Delta }{\sqrt{\epsilon ^2+\Delta ^2}}$.
+\[
+    E_h=-E_l=\sqrt{\epsilon^2+\Delta^2}\Rightarrow e^{-i \frac{E_h}{\hbar}t}-e^{-i \frac{E_l}{\hbar}t}=2i \sin \left( \frac{\sqrt{\epsilon^2+\delta^2}}{\hbar}t \right).
+\]
+
+\[
+    \boxed{\left| \braket{\downarrow}{\psi (t)} \right|^2=i\frac{\Delta^2}{\sqrt{\epsilon^2+\Delta^2}}\sin \left( \frac{\sqrt{\epsilon^2+\Delta^2}}{\hbar}t \right).}
+\]
+\end{callout}
+
+\subsection{Rabi Formula and Oscillation}
+In Example \ref{example:s7-e1}, we found the probability of finding a particle in a certain state after applying an external field. Simplifying a bit further, we found
+\[
+    \mathcal{P}_{\downarrow}=\left| \braket{\downarrow}{\psi (t)} \right|^2=\frac{\Delta^2}{\epsilon^2+\Delta^2}\sin^2 \left( \frac{\sqrt{\epsilon^2+\Delta^2}}{\hbar}t \right).
+\]
+This is known as Rabi Formula. The probability oscillates at frequency
+\[
+    \omega _R=2 \frac{\sqrt{\epsilon^2+\Delta^2}}{\hbar},
+\]
+which is equal to the energy difference $E_h-E_l$ divided by $\hbar$. This oscillation is known as Rabi Oscillation.
+
+It can be interpreted as a spin starting along $z$, then precesses around the new total field when $B_x$ is switched on. This also means that we can never get $\mathcal{P}_{\downarrow}=1$, as this would require $B_x\to \infty$.
+
+\subsection{Time-Dependent Hamiltonian}
+In certain systems, the Hamiltonian can be explicitly time-dependent (e.g. a spin in a time-varying magnetic field). The time-evolution operator is given by
+\[
+    U(t,t_0)=\int_{t_0}^t e^{-i \frac{\mathcal{H}(t')}{\hbar}}dt',
+\]
+but the integral is impossible to analytically solve. Instead, we discretise the time in small intervals $\delta t$, during which the Hamiltonian is approximated as a constant. Calling $t_n=t_0+n\delta t$, we get
+\begin{align*}
+    U(t_{n+1},t_n) &= e^{-i \frac{\mathcal{H}(t_n)}{\hbar}\Delta t} \\
+    \ket{\psi (t_{n+1})}&= U(t_{n+1},t_n)\ket{\psi (t_n)}\\
+    \ket{\psi (t_N)} &= \left( \prod_{n=0}^{N-1} U(t_{n+1},t_n) \right)\ket{\psi (t_0)}.
+\end{align*}
+This is easy to program, however with small time steps it is very computationally expensive.
+
+Consider a Hamiltonian with a periodic time dependence
+\[
+    \mathcal{H}(t)=\mathcal{H}_0+\mathcal{H}_1\cos(\omega t),
+\]
+with period $T=\frac{2\pi }{\omega }$. Since $\mathcal{H}(t+T)=\mathcal{H}(t)$, we just need to calculate the time evolution operator that takes us from the start to the end of the period, splitting the period $T$ into $N$ small intervals $T=N\Delta t$
+\[
+    U(t+T,t) = \prod_{n=0}^{N-1} U(t_{n+1},t_n).
+\]
+$U(t+T,t)$ is called the Floquet operator. We can use this to calculate the state after each period as
+\[
+    \ket{\psi (t+k T)}=U^k(t+T,t)\ket{\psi (t)}.
+\]
+This means we can calculate $U(t+T,t)$ once, then keep multiplying by the same time evolution operator.
+
+\subsection{Rotating Frame}
+As with classical mechanics, a time-dependent Hamiltonian can be transformed into a time-independent one (but not always) by performing a change of basis.
+
+Consider a magnetic dipole $\vec{M}$ placed in a static vertical magnetic field $\vec{B}_0=B_0\hat{z}$, plus a rotating magnetic field in the $xy$-plane, $\vec{B}_1=B_1(\cos\omega t \hat{x}+\sin\omega t\hat{y})$, giving a Hamiltonian of
+\[
+    \mathcal{H}(t)=-\vec{M}\cdot\vec{B}(t)=-M_zB_z-M_xB_1\cos\omega t-M_yB_1\sin\omega t.
+\]
+The trick is to define a rotating reference frame $OXYZ$ that rotates at frequency $\omega $ around the $z$-axis. The vector $\vec{B}_1$ appears static in this rotating frame. This is similar to frame of reference in SR.
+
+We can define
+\begin{itemize}
+    \item $\omega _0=\gamma B_0$: Larmor precession frequency of the spin in the static field $\vec{B}_0$.
+    \item $\omega _1=\gamma B_1$: Larmor frequency the spin would have if it were placed in a static field $\vec{B}_1$.
+    \item $\Delta \omega =\omega -\omega _0$: The "detuning" between precession frequency and rotating field.
+\end{itemize}
+This gives our Hamiltonian to be
+\begin{align*}
+    \mathcal{H}(t) &= \gamma B_0S_z+\gamma B_1(S_x\cos\omega t-S_y\sin\omega t) \\
+                   &= \omega _0S_z+\omega _1 \left( \frac{e^{i\omega t}+e^{-i\omega t}}{2}S_x+\frac{e^{i\omega t}-e^{-i\omega t}}{2i}S_y \right) \\
+                   &= \frac{\hbar}{2}\begin{pmatrix}
+                       \omega _0 & \omega _1e^{-i\omega t} \\
+                       \omega _1e^{i\omega t} & -\omega _0
+                   \end{pmatrix}.
+\end{align*}
+The generic state at time $t$ in the $\sigma _z$ basis ($\ket{\uparrow},\ket{\downarrow}$),
+\[
+    \ket{\psi (t)}=c_{\uparrow}(t)\ket{\uparrow}+c_{\downarrow}(t)\ket{\downarrow}=\begin{pmatrix}
+        c_{\uparrow}(t) \\
+        c_{\downarrow}(t)
+    \end{pmatrix}.
+\]
+Our time evolution is then given by
+\begin{align*}
+    i \hbar \frac{d \ket{\psi (t)}}{d t} &= \mathcal{H}(t)\ket{\psi (t)} \\
+    \Rightarrow i \hbar \frac{d }{d t}\begin{pmatrix}
+        c_{\uparrow}(t) \\
+        c_{\downarrow}(t)
+    \end{pmatrix} &= \frac{\hbar}{2}\begin{pmatrix}
+    \omega _0 & \omega _1e^{-i\omega t} \\
+    \omega _1e^{i\omega t} & -\omega _0
+    \end{pmatrix}\begin{pmatrix}
+        c_{\uparrow}(t) \\
+        c_{\downarrow}(t)
+    \end{pmatrix}\\
+                                         & \begin{cases}
+                                             i \frac{d }{d t}c_{\uparrow}(t)=\frac{\omega _0}{2}c_{\uparrow}(t)+\frac{\omega _1}{2}e^{-i\omega t}c_{\downarrow}(t) \\
+                                            i \frac{d }{d t}c_{\downarrow}(t)=\frac{\omega _1}{2}e^{i\omega t}c_{\uparrow}(t)-\frac{\omega _0}{2}c_{\downarrow}(t)
+                                         \end{cases}
+\end{align*}
+
+\subsection{Change of Basis}
+A rotation by an angle $\phi $ around an axis $\vec{u}=u_x \hat{x}+u_y \hat{y}+u_z\hat{z}$, with $\left| \vec{u} \right|^2=1$ is expressed in the 2D Hilbert space by the operator
+\[
+    R_{\vec{u},\phi }=e^{i \frac{\phi}{2}\sigma _{\vec{u}}},
+\]
+where $\sigma _{\vec{u}}=\vec{u}\cdot \vec{\sigma }$ is the Pauli matrix along the unit vector $\vec{u}$. Note that $R_{\vec{u},\phi }$ is unitary. We change our basis by rotating by $\omega t$ around $\hat{z}$, so we need
+\[
+    R_{\hat{z},\omega t}=e^{i \frac{\omega t}{2}\sigma _z}=\begin{pmatrix}
+        e^{i\omega t/2} & 0 \\
+        0 & e^{-i\omega t/2}
+    \end{pmatrix}.
+\]
+We can define $\ket{\tilde{\psi }(t)}=R_{\vec{z},\omega t}\ket{\psi (t)}=\begin{pmatrix}
+    \tilde{c}_{\uparrow}(t) \\
+    \tilde{c}_{\downarrow}(t)
+\end{pmatrix},$ which gives
+\[
+    \Rightarrow \ket{\psi (t)}=R_{\vec{z},\omega t}^{-1}\ket{\tilde{\psi }(t)}=\begin{pmatrix}
+        e^{-i\omega t/2} & 0 \\
+        0 & e^{i\omega t/2}
+    \end{pmatrix}\begin{pmatrix}
+        \tilde{c}_{\uparrow}(t) \\
+        \tilde{c}_{\downarrow}(t)
+    \end{pmatrix}.
+\]
+Therefore,
+\begin{align*}
+    c_{\uparrow}(t)=e^{-i\omega t/2}\tilde{c}_{\uparrow}(t) &\Rightarrow \frac{d }{d t}c_{\uparrow}(t)=-\frac{i\omega }{2}\tilde{c}(t)e^{-i \frac{\omega t}{2}}+e^{-i \frac{\omega t}{2}}\tilde{c}_{\uparrow}(t) \\
+    c_{\downarrow}(t)=e^{i\omega t/2}\tilde{c}_{\downarrow}(t) &\Rightarrow \frac{d }{d t}c_{\downarrow}(t)=\frac{i\omega }{2}\tilde{c}_{\downarrow}(t)e^{i \frac{\omega t}{2}}+e^{i \frac{\omega t}{2}}\frac{d }{d t}\tilde{c}_{\downarrow}(t).
+\end{align*}
+
+We can substitute these expressions for $c_{\uparrow\downarrow}(t)$ and $\frac{d c_{\uparrow\downarrow}(t)}{d t}$ into the Schr\"odinger equation to get
+\begin{align*}
+    i \frac{d }{d t}\tilde{c}_{\uparrow}(t) &= -\frac{\Delta \omega }{2}\tilde{c}_{\uparrow}(t)+\frac{\omega _1}{2}\tilde{c}_{\downarrow}(t) \\
+    i \frac{d }{d t}\tilde{c}_{\downarrow}(t) &= \frac{\omega _1}{2}\tilde{c}_{\uparrow}(t)+\frac{\Delta \omega }{2}\tilde{c}_{\downarrow}(t).
+\end{align*}
+This is the same as writing
+\[
+    i \hbar \frac{d \ket{\tilde{\psi} (t)}}{d t}=\tilde{\mathcal{H}}\ket{\tilde{{\psi (t)}}},
+\]
+where
+\[
+    \tilde{\mathcal{H}}=\frac{\hbar}{2}\begin{pmatrix}
+        -\Delta \omega & \omega _1 \\
+        \omega _1 &\Delta \omega 
+    \end{pmatrix}=-\frac{\hbar}{2}\Delta \omega \sigma _z+\frac{\hbar}{2}\omega _1\sigma _x.
+\]
+In this frame, the Hamiltonian appears time-independent, and all the time-dependence has been moved to the reference frame.
+
+\subsection{Magnetic Resonance}
+The Hamiltonian in the rotating frame looks very similar to a qubit Hamiltonian with
+\[
+    \epsilon =-\frac{\hbar}{2}\Delta \omega ,\quad\Delta =\frac{\hbar}{2}\omega _1.
+\]
+Assuming the initial state $\ket{\psi (0)}\equiv \ket{\tilde{\psi }(t)}=\ket{\uparrow}$. The probability to flip the state to $\ket{\downarrow}$ is obtained from the Rabi formula as
+\[
+    \mathcal{P}_{\downarrow}=\left| \braket{\downarrow}{\psi (t)} \right|^2=\frac{\omega _1^2}{(\Delta \omega )^2+\omega _1^2}\sin^2 \left( \frac{\sqrt{(\Delta \omega )^2+\omega _1^2}}{2}t \right).
+\]
+In the case $\Delta \omega =0$, i.e. $B_1$ rotates at the same frequency as the Larmor precession of the spin in the field $B_0$, then $\mathcal{P}_{\downarrow}$ can reach 1, which is called magnetic resonance. In the case $\Delta \omega \gg\omega _1,\mathcal{P}_{\downarrow}\approx 0$, which is called off-resonance, where the spin state is left untouched. At resonances, the Rabi frequency is equal to $\omega _1$, which means the $B_0$ field is cancelled out in the rotating frame, so the spin precesses at frequency $\omega _1$ around the field $B_1$.
+
+\subsection{Density Operator}
+A well-defined quantum state, such as the output of a Stern-Gerlach experimentr, is known as pure state as we know with certainty which state it is in. However, in the case that we haven't prepare the input of a Stern-Gerlach machine as a pure state, the output is completely random. Since we can't assign the input state a well-defined ket, the best we can do is describe it as some mixture of $\ket{\uparrow}$ and $\ket{\downarrow}$ with probabilities $\mathcal{P}_{\uparrow}$ and $\mathcal{P}_{\downarrow}$, which is known as a mixed state.
+
+For pure states, we can define a density operator, or density matrix as
+\[
+    \rho =\ket{\psi }\bra{\psi }.
+\]
+Expanding, we have $\rho $ to be
+\begin{align*}
+    \ket{\psi } &=\begin{pmatrix}
+        c_1 \\ \vdots \\ c_N
+    \end{pmatrix} \\
+        \Rightarrow \rho &=\begin{pmatrix}
+            c_1 \\ \vdots \\ c_N
+        \end{pmatrix}\left( c_1^*\quad \cdots\quad c_N^* \right) \\
+                         &=\begin{pmatrix}
+                             c_1c_1^* & \cdots & c_1c_N^* \\
+                             \vdots & \ddots & \vdots \\
+                             c_Nc_1^* & \cdots & c_Nc_N^*
+                             \end{pmatrix},
+\end{align*}
+or we can call $\ket{u_n}$ the basis vectors of the Hilbert space, we have
+\[
+    \rho _{pn}=\bra{u_p}\rho \ket{u_n}=c_pc_n^*.
+\]
+The density matrix is Hermitian, and a projector onto the normalised state $\ket{\psi }$ and therefore $\rho =\rho^2$, because
+\[
+    \rho^2=\ket{\psi }\braket{\psi }{\psi }\bra{\psi }=\ket{\psi }\bra{\psi }=\rho .
+\]
+See Problem \ref{problem:s3-p1} for a proof.
+
+\subsubsection{Properties of the Density Operator}
+\begin{itemize}
+    \item Since $\ket{\psi }$ is normalised, then $\text{Tr}(\rho )=1$
+    \item Since $\rho =\rho^2$, $\text{Tr}(\rho^2 )=1$
+    \item The expectation value $\left\langle A \right\rangle _{\psi }$ is given by $\left\langle A \right\rangle _{\psi }=\text{Tr}(\rho A)$, since
+        \begin{align*}
+            \left\langle A \right\rangle_{\psi }  &= \bra{\psi }A \ket{\psi } \\
+                                                  &= \sum_{n,p}c_n^*c_pA_{np} \\
+                                                  &= \sum_{n,p}\bra{u_p}\rho \ket{u_n}\bra{u_n}A \ket{u_p} \\
+                                                  &= \sum_{p}\bra{u_p}\rho A \ket{u_p}.
+        \end{align*}
+    \item The time evolution of the density matrix
+        \begin{align*}
+            \frac{d }{d t}\rho (t) &= \left[ \frac{d }{d t}\ket{\psi (t)} \right]\bra{\psi (t)}+\ket{\psi (t)}\left[ \frac{d }{d t}\bra{\psi (t)} \right] \\
+                                   &= \frac{1}{i \hbar}\mathcal{H}(t)\ket{\psi (t)}\bra{\psi (t)}-\frac{1}{i \hbar}\ket{\psi (t)}\bra{\psi (t)}\mathcal{H}(t) \\
+                                   &= \frac{1}{i \hbar}\left[ \mathcal{H}(t), \rho (t) \right].
+        \end{align*}
+    \item For pure states, the density operator contains the same information as the state vector.
+\end{itemize}
+
+\subsubsection{Density Operator for Mixed States}
+Consider a mixed state. The information we know about the system is that if we measure it in the $z$-basis, we get $\mathcal{P}_{\uparrow}=\frac{1}{2}=\mathcal{P}_{\downarrow}$. We can still write $\left\langle S_z \right\rangle =\frac{\hbar}{2}\mathcal{P}_{\uparrow}-\frac{\hbar}{2}\mathcal{P}_{\downarrow}=0$, which would be satisfied if we define
+\[
+    \rho =\begin{pmatrix}
+        \mathcal{P}_{\uparrow} & 0 \\
+        0 & \mathcal{P}_{\downarrow}
+    \end{pmatrix},
+\]
+since, using this, we are able to retain the property
+\[
+    \left\langle S_z \right\rangle =\text{Tr}(\rho S_z).
+\]
+In general, we define the density operator for mixed states as
+\[
+    \phi =\begin{pmatrix}
+        \mathcal{P}_1 & \cdots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \cdots & \mathcal{P}_{N}
+    \end{pmatrix},
+\]
+where $\mathcal{P}_n$ is the probability of obtaining the eigenvalue $a_n$ when measuring $A$. This does not require knowing the precise quantum state at the start of the experiment. Note that it now no longer holds true that $\rho =\rho^2$.
+
+\subsubsection{Populations and Coherences}
+The diagonal elements of $\rho $ are called populations. They describe the probability $\mathcal{P}_n$ of finding the system in the state $\ket{u_n}$ when performing a measurement. This holds for both pure and mixed states.
+
+The off-diagonal elements are called coherences. They describe the phase relationship between different components of a quantum superposition of states.
+
+\begin{callout}{example}[Example]
+\label{example:s7-e2}
+We have the two states in the $\sigma _z$ basis given by
+\[
+    \ket{X}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+\ket{\downarrow} \right)=\frac{1}{\sqrt{ 2}}\begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix},\quad \ket{Y}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow}+i \ket{\downarrow} \right).
+\]
+These correspond to the density matrices
+\begin{align*}
+    \ket{X} &\Rightarrow \rho _X=\frac{1}{2}\begin{pmatrix}
+        1 & 1 \\ 1 & 1
+    \end{pmatrix} \\
+        \ket{Y} &\Rightarrow \rho _Y \frac{1}{2}\begin{pmatrix}
+            1 & -i \\ i & 1
+        \end{pmatrix}.
+\end{align*}
+The populations are the same, however the coherences are different.
+\end{callout}
+
+Consider an NMR (nuclear magnetic resonance) experiment, where a large ensemble of identical spins are initially all prepared in the pure state $\ket{X}$. We can describe this ensemble with
+\[
+    \rho _X=\frac{1}{2}\begin{pmatrix}
+        1 & 1 \\ 1 & 1
+    \end{pmatrix}.
+\]
+After preparation, each spin precesses at the Larmor frequency $\omega _0=\gamma B_0$. In reality, each spin sees a slightly different and unknown $B_0(\vec{r})$ field at its location, so after some time we lose track of what exactly is the phase of each spin, and they end up pointing randomly in the $xy$-plane. We can describe this new ensemble with
+\[
+    \rho =\frac{1}{2}\begin{pmatrix}
+        1 & 0 \\ 0 & 1
+    \end{pmatrix},
+\]
+since we know that each spin is somewhere in the $xy$-plane, and the coherences have decayed to zero. This phenomenon by which randomness and lack of knowledge of the precise details of the environment of quantum systems results in a loss of knowledge of which pure states the system is in is called decoherence, however it can still be described by a density matrix.
+
+\subsubsection{State Purity}
+Consider the following density matrix
+\[
+    \rho _{\psi }=\frac{1}{2}\begin{pmatrix}
+        1 & 0.5 \\ 0.5 & 1
+    \end{pmatrix} =\begin{pmatrix}
+        0.5 & 0.25 \\ 0.25 & 0.5
+    \end{pmatrix},
+\]
+from which we get
+\[
+    \rho _{\psi }^2=\begin{pmatrix}
+        0.3125 & 0.25 \\ 0.25 & 0.3125
+    \end{pmatrix},\quad \text{Tr}\left( \rho _{\psi }^2 \right)=0.625<1,
+\]
+which shows that $\rho _{\psi }$ does not describe a pure state. However, it still has nonzero coherences. It means you know something about the phase, however there is some uncertainty. The fully mixed state $\rho =\frac{1}{2}\begin{pmatrix}
+    1 & 0 \\ 0 & 1
+\end{pmatrix}$ would have
+\[
+    \text{Tr}(\rho^2)=0.5,
+\]
+which is less than $\text{Tr}\left( \rho _{\psi }^2 \right)$. $\text{Tr}(\rho ^2)$ is called state purity.
 
 \newpage
 \appendix

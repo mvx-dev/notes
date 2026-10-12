@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {3.8}Projection Operator}{14}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Exponential of a Matrix}{14}{subsection.3.9}%
 \contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{15}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Properties of the Time Evolution Operator}{16}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.11}Time Evolution Operator}{16}{subsection.3.11}%
 \contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{17}{subsubsection.3.11.1}%
 \contentsline {subsubsection}{\numberline {3.11.2}Time Reversibility}{17}{subsubsection.3.11.2}%
 \contentsline {subsection}{\numberline {3.12}Commutation}{17}{subsection.3.12}%
@@ -60,7 +60,19 @@
 \contentsline {subsection}{\numberline {6.1}Position Eigenbasis}{27}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Momentum Operator}{28}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Commutation Relations}{28}{subsection.6.3}%
-\contentsline {section}{\numberline {A}Fourier Transform}{29}{appendix.A}%
-\contentsline {section}{\numberline {B}Matlab/Python Commands}{29}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Matrix Operations}{29}{subsection.B.1}%
-\contentsline {subsubsection}{\numberline {B.1.1}Exponential}{29}{subsubsection.B.1.1}%
+\contentsline {section}{\numberline {7}Dynamics and Control of a Quantum Bit}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Time Evolution}{29}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Rabi Formula and Oscillation}{30}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Time-Dependent Hamiltonian}{31}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Rotating Frame}{31}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Change of Basis}{32}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Magnetic Resonance}{33}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Density Operator}{33}{subsection.7.7}%
+\contentsline {subsubsection}{\numberline {7.7.1}Properties of the Density Operator}{33}{subsubsection.7.7.1}%
+\contentsline {subsubsection}{\numberline {7.7.2}Density Operator for Mixed States}{34}{subsubsection.7.7.2}%
+\contentsline {subsubsection}{\numberline {7.7.3}Populations and Coherences}{34}{subsubsection.7.7.3}%
+\contentsline {subsubsection}{\numberline {7.7.4}State Purity}{35}{subsubsection.7.7.4}%
+\contentsline {section}{\numberline {A}Fourier Transform}{36}{appendix.A}%
+\contentsline {section}{\numberline {B}Matlab/Python Commands}{36}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Matrix Operations}{36}{subsection.B.1}%
+\contentsline {subsubsection}{\numberline {B.1.1}Exponential}{36}{subsubsection.B.1.1}%
