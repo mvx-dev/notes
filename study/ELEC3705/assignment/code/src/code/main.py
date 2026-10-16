@@ -1,4 +1,5 @@
 from numpy import linalg as LA
+from scipy.linalg import expm
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,11 +11,19 @@ OUT_DIR = "figures"
 gamma_n = 42.48e6
 gaussian_std = 10
 
+d_ket = np.array([0, 1])
+u_ket = np.array([1, 0])
+
 sigma_x = np.array([[0, 1], [1, 0]])
 sigma_y = np.array([[0, -1j], [1j, 0]])
 sigma_z = np.array([[1, 0], [0, -1]])
 
+I_x = sigma_x / 2
+I_y = sigma_y / 2
+I_z = sigma_z / 2
+
 sigma = np.array([sigma_x, sigma_y, sigma_z])
+I_vec = np.array([I_x, I_y, I_z])
 
 # global configuration
 # plt.rcParams["font.size"] = 18
@@ -64,13 +73,12 @@ fig.savefig(f"{OUT_DIR}/zeeman_energies.png", dpi=160)
 # NOTE assuming 64 refers to the centre pixel, however this should be mu=0
 # or c=127, not 64 (image shape = 255x255)
 B_vec = np.stack([np.zeros(ncols), np.zeros(ncols), B_z(c, 0)], axis=1)
-I_vec = 0.5 * sigma
 hamiltonian = gamma_n * np.einsum("ci,ijk->cjk", B_vec, I_vec)
 print(hamiltonian[ncols // 2])
 print(hamiltonian[ncols - 1])
 
 # === Question 1.4 ===
-B_amp = 50e-6
+B_amp = 0.05
 f_drive = gamma_n * 0.5
 omega_R = gamma_n * B_amp / 2
 delta = gamma_n * B1_z - f_drive
@@ -80,11 +88,41 @@ print(H_tilde[ncols - 1])
 
 
 # === Question 1.5 ===
-def expectations(states):
-    return np.array([np.real(np.einsum("ti,ij,tj->t", states.conj(), sigma_z, states))])
+def expectations(states, basis):
+    return np.array([np.real(np.einsum("ti,ij,tj->t", states.conj(), basis, states))])
 
 
-expect = delta**2 / (delta**2 + f_drive**2)
-plt.clf()
-plt.plot(c, expect)
-plt.show()
+# states = H_tilde @ d_ket
+# expect = expectations(states, sigma_z)
+# plt.clf()
+# plt.plot(c, expect)
+# plt.show()
+
+# === Question 6 ===
+T_rabi = 1 / omega_R
+t = np.arange(0, 2 * T_rabi + T_rabi / 200, T_rabi / 100)
+
+cols = [ncols // 2, ncols // 2 + 5, ncols // 2 + 10, ncols - 1]
+
+psi_0 = d_ket
+
+psi = np.array([expm(-1j * 2 * np.pi * H_tilde[c] * tk) @ psi_0 for tk in t])
+
+print(psi.shape)
+print(I_x.shape)
+
+Ix_exp = np.real(np.einsum("...i,ij,...j->...", psi.conj(), I_x, psi))
+Iy_exp = np.real(np.einsum("...i,ij,...j->...", psi.conj(), I_y, psi))
+Iz_exp = np.real(np.einsum("...i,ij,...j->...", psi.conj(), I_z, psi))
+
+fig, axes = plt.subplots(1, 3)
+for ax, col in zip(axes, cols):
+    ax.plot(t, Ix_exp[:, col], label=r"$I_x$ " + f"(col {col})", color="red")
+    ax.plot(t, Iy_exp[:, col], label=r"$I_y$ " + f"(col {col})", color="green")
+    ax.plot(t, Iz_exp[:, col], label=r"$I_z$ " + f"(col {col})", color="blue")
+    ax.set_title(f"Column {col}")
+    ax.legend()
+
+
+fig.suptitle("Question 1.6")
+fig.savefig(f"{OUT_DIR}/q16.png")
