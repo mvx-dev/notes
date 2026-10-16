@@ -924,6 +924,30 @@ and similarly with complex poles it has the form
     H(s)=\frac{s^2}{s^2+b_2s+\omega _2^2}.
 \]
 
+\section{Part 5: Bode Plot}
+\subsection{Decibels}
+The ratio of any two values of the same quantity can be expressed in decibels. It is often useful to express the magnitudes of transfer functions in decibels. To convert a transfer function magnitude to decibels, we multiply the common logarithm (base 10) of the transfer function magnitude by 20.
+\[
+    \left| H(j\omega ) \right|_{dB}=20 \log_{10}\left| \frac{V_{out}(j\omega )}{V_{in}(j\omega )} \right|.
+\]
+Similarly, the ratios of powers are converted to decibels by taking 10 times the logarithm of the ratio
+\[
+    dB=10 \log_{10}\left| \frac{P_{out}}{P_{in}} \right|.
+\]
+Note that the decibels equivalents are positive for magnitudes greater than unity, whereas the decibel equivalents are negative for magnitudes less than unity. An advantage of decibels is when plotting is that very small and very large magnitudes can be displayed clearly on a single plot. For cascaded systems, the product of the transfer functions becomes sums in decibels.
+
+A decade is a range of frequencies for which the ratio of the highest frequency to the lowest is 10 (i.e. 2-20Hz is one decade, 50-5000Hz is two decades). An octave is a two-to-one change in frequency (i.e. 10-20Hz is one octave, 2-16Hz is three octaves). The number of decades between two frequencies is given by
+\[
+    \log_{10}\frac{f_2}{f_1}.
+\]
+Similarly, the number of octaves between two frequencies is
+\[
+    \log_2 \frac{f_2}{f_1}=\frac{\log_{10}\frac{f_2}{f_1}}{\log_{10}2}.
+\]
+
+\subsection{Bode Plot}
+A bode plot is abscissa (logarithmic frequency) vs magnitude (in dB) or degrees. 
+
 \newpage
 \appendix
 \part{Appendix}
