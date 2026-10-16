@@ -22,23 +22,23 @@ def print_row(P_pos, P_neg, expectation, meas_no=None):
     title = ""
     if meas_no is not None:
         title = f"Measurement {meas_no}"
-        print("="*3, title, "="*3)
+        print("=" * 3, title, "=" * 3)
     else:
-        print("="*15)
+        print("=" * 15)
 
     print(f"P(+):   {P_pos:.5f}")
     print(f"P(-):   {P_neg:.5f}")
     print(f"Expect: {expectation:.5f}")
     if meas_no is not None:
-        print("="*(len(title) + 8))
+        print("=" * (len(title) + 8))
     else:
-        print("="*15, end="\n\n")
+        print("=" * 15, end="\n\n")
 
 
 def run_1():
     # X
-    theta = np.pi/2
-    phi = 2*np.pi
+    theta = np.pi / 2
+    phi = 2 * np.pi
 
     measurement_0 = sigma_z
     psi_1 = get_eigenvector(measurement_0, 1)
@@ -46,15 +46,15 @@ def run_1():
     print_row(*row, meas_no=1.1)
 
     # X
-    theta = np.pi/2
-    phi = 2*np.pi
+    theta = np.pi / 2
+    phi = 2 * np.pi
 
     psi_2 = get_eigenvector(measurement_1, 1)
     measurement_2, row = stern_gerlach(psi_2, theta, phi)
     print_row(*row, meas_no=1.2)
 
     # Z
-    theta = 2*np.pi
+    theta = 2 * np.pi
     phi = np.pi
 
     psi_3 = get_eigenvector(measurement_2, 1)
@@ -64,23 +64,23 @@ def run_1():
 
 def run_2():
     # X
-    theta = np.pi/2
-    phi = 2*np.pi
+    theta = np.pi / 2
+    phi = 2 * np.pi
 
-    psi_1 = 1/np.sqrt(2)*u_ket + (1+1j)/2*d_ket
+    psi_1 = 1 / np.sqrt(2) * u_ket + (1 + 1j) / 2 * d_ket
     measurement_1, row = stern_gerlach(psi_1, theta, phi)
     print_row(*row, meas_no=2.1)
 
     # X
-    theta = np.pi/2
-    phi = 2*np.pi
+    theta = np.pi / 2
+    phi = 2 * np.pi
 
     psi_2 = get_eigenvector(measurement_1, 1)
     measurement_2, row = stern_gerlach(psi_2, theta, phi)
     print_row(*row, meas_no=2.2)
 
     # Z
-    theta = 2*np.pi
+    theta = 2 * np.pi
     phi = np.pi
 
     psi_3 = get_eigenvector(measurement_2, 1)
@@ -90,8 +90,8 @@ def run_2():
 
 def run_3():
     # X
-    theta = np.pi/2
-    phi = 2*np.pi
+    theta = np.pi / 2
+    phi = 2 * np.pi
 
     measurement_0 = sigma_z
     psi_1 = get_eigenvector(measurement_0, -1)
@@ -106,7 +106,7 @@ def run_3():
     print_row(*row, meas_no=3.2)
 
     # Z
-    theta = 2*np.pi
+    theta = 2 * np.pi
     phi = np.pi
     psi_3 = get_eigenvector(measurement_2, 1)
     _, row = stern_gerlach(psi_3, theta, phi)
