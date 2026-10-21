@@ -2,12 +2,92 @@
 
 \usepackage{preamble}
 
-\title{LaTeX template}
+\title{ELEC3705 Assignment}
 \author{Oskar Meszaros (z5636164)}
-\date{}
+\date{October 2026}
 
 \begin{document}
 
 \maketitle
+
+\section{Question 1.1}
+After loading the image, the shape of the array is $255 \times 255$.
+
+\section{Question 1.2}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/zeeman-mu00.png}
+        \caption[width=0.8\linewidth]{Zeeman energy centred at column 127 ($\mu =0$)}
+        \label{fig:q2-zeeman-1}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/zeeman-mu20.png}
+        \caption[width=0.8\linewidth]{Zeeman energy centred at column 147 ($\mu =20$)}
+        \label{fig:q2-zeeman-2}
+    \end{subfigure}
+    \caption{The Zeeman energies centred at column 127 and 147.}
+    \label{fig:q2-zeeman}
+\end{figure}
+As seen above in Fig. \ref{fig:q2-zeeman}, the Zeeman energies, given by
+\[
+    E_z=\gamma _nB_z,
+\]
+are inverted Gaussians centred at the respective column number. This means that the potential energy of the hydrogen atoms are affected by the surrounding atoms as defined by the Gaussian. We can also derive this by finding the eigenvalues of the Hamiltonian, given as (for the time-independent only magnetic field),
+\[
+    \mathcal{H}=\gamma _nB_z\vec{I}_z,
+\]
+where $\gamma _n$ is the gyromagnetic ratio for the hydrogen atom, $B_z$ is the time-independent magnetic field given by
+\[
+    B_z(c)=1-\frac{G(c)}{2\cdot \text{max}(G(c))},
+\]
+and $\vec{I}_z$ is the $z$-axis nuclear spin matrix, given by $\frac{1}{2}\sigma _z$.
+
+We can then find the eigenvalues of the Hamiltonian to be
+\begin{align*}
+    \mathcal{H} &= \gamma _nB_z \frac{1}{2}\begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix} \\
+        \left| \mathcal{H}-\lambda \mathbb{I} \right| &= \left|\begin{pmatrix}
+            \frac{\gamma _nB_z}{2}-\lambda & 0 \\
+            0 & -\frac{\gamma _nB_z}{2}-\lambda 
+        \end{pmatrix} \right| \\
+                                                      \lambda &=\pm \frac{\gamma _nB_z}{2}
+\end{align*}
+From this, we see that the splitting between the two eigenvalues is $\gamma _nB_z$, which is the Larmor frequency.
+
+\section{Question 1.3}
+Considering the case where the magnetic field is centred on the centre pixel, we have the Hamiltonian to be
+\[
+    \mathcal{H}(c)=\gamma _n\left( 1-\frac{1}{2}e^{-c^2/200} \right)\vec{I}_z
+\]
+This means that for the centre pixel, we have the Hamiltonian to be
+\[
+    \mathcal{H}(0)=\gamma _n \left( 1-\frac{1}{2}e^{-0} \right)\vec{I}_z=\frac{1}{2}\gamma _n\vec{I}_z,
+\]
+and for the last pixel it is
+\[
+    \mathcal{H}(127)=\gamma _n \left( 1-\frac{1}{2}e^{-127^2/200} \right)\vec{I}_z\approx \gamma _n\vec{I}_z.
+\]
+
+\section{Question 1.4} 
+We now have an additional magnetic field given by
+\[
+    B_x=B_{amp}\cos 2\pi ft,
+\]
+which is a simple linearly oscillating field, so we are able to represent it using two counter-rotating magnetic fields. Using this representation, we get the field to be
+\begin{align*}
+    B_x &= B_{amp}\left[ \frac{e^{i2\pi ft}+e^{-i2\pi ft}}{2} \right]. \\
+\end{align*}
+Here, $e^{i2\pi ft}$ is the on-resonance component driving the spins, and the $e^{-i2\pi ft}$ is the off-resonance component which is detuned by $-2\omega $, and has no effect on the spin. This gives the field to be
+\[
+    B_x=\frac{1}{2}B_{amp}e^{i2\pi ft}.
+\]
+At resonance, the Rabi oscillation frequency is then $\frac{\omega _1}{2}$, where $\omega _1=\gamma _nB_{amp}$ in field, and hence the Rabi frequency is
+\[
+    \omega _R=\frac{\gamma _nB_{amp}}{2}.
+\]
 
 \end{document}
