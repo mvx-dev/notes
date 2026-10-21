@@ -48,17 +48,17 @@ def B_z(c, mu):
     return 1 - G / (2 * G_max)
 
 
-mu_1 = 0  # case a)
-mu_2 = 20  # case b)
+mu_1 = 0
+mu_2 = 20
 c = np.arange(ncols) - ncols // 2
 
-# mu = 0
 B1_z = B_z(c, mu_1)
 E1_z = gamma_n * B1_z
 
-# mu = 20
 B2_z = B_z(c, mu_2)
 E2_z = gamma_n * B2_z
+
+print(f"Columns: 0 -> {ncols//2}, 20 -> {ncols//2 + 20}")
 
 for energies, label, file in zip(
     [E1_z, E2_z], [r"$\mu=0$", r"$\mu=20$"], ["zeeman-mu00.png", "zeeman-mu20.png"]
