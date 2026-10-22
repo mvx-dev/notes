@@ -11,7 +11,10 @@
 \maketitle
 
 \section{Question 1.1}
-After loading the image, the shape of the array is $255 \times 255$.
+After loading the image, the shape of the array is $255 \times 255$. Note that $c=0$ corresponds to the centre pixel of the image, which in this case is $127$. The brightness of each pixel corresponds to the number of hydrogen atoms present at the location, each with a gyromagnetic ratio of $\gamma _n=48.48 MHz/T$, giving the Hamiltonians in this assignment to be in $Hz$ and the time evolution operator to be
+\[
+    U=e^{-i 2\pi \mathcal{H}t}.
+\]
 
 \section{Question 1.2}
 \begin{figure}[h]
@@ -36,14 +39,17 @@ As seen above in Fig. \ref{fig:q2-zeeman}, the Zeeman energies, given by
     E_z=\gamma _nB_z,
 \]
 are inverted Gaussians centred at the respective column number. This means that the potential energy of the hydrogen atoms are affected by the surrounding atoms as defined by the Gaussian. We can also derive this by finding the eigenvalues of the Hamiltonian, given as (for the time-independent only magnetic field),
-\[
-    \mathcal{H}=\gamma _nB_z\vec{I}_z,
-\]
+\begin{equation}
+    \mathcal{H}=\gamma _nB_z\vec{I}_z, \label{eq:2}
+\end{equation}
 where $\gamma _n$ is the gyromagnetic ratio for the hydrogen atom, $B_z$ is the time-independent magnetic field given by
+\begin{equation}
+    B_z(c)=1-\frac{G(c)}{2\cdot \text{max}(G(c))}, \label{eq:1}
+\end{equation}
+$\vec{I}_z$ is the $z$-axis nuclear spin matrix, given by $\frac{1}{2}\sigma _z$, and the Gaussian is given by
 \[
-    B_z(c)=1-\frac{G(c)}{2\cdot \text{max}(G(c))},
+    G(c)=\frac{1}{\sigma \sqrt{2\pi }}e^{-\frac{(c-\mu )^2}{2\sigma^2}}.
 \]
-and $\vec{I}_z$ is the $z$-axis nuclear spin matrix, given by $\frac{1}{2}\sigma _z$.
 
 We can then find the eigenvalues of the Hamiltonian to be
 \begin{align*}
@@ -59,20 +65,26 @@ We can then find the eigenvalues of the Hamiltonian to be
 From this, we see that the splitting between the two eigenvalues is $\gamma _nB_z$, which is the Larmor frequency.
 
 \section{Question 1.3}
-Considering the case where the magnetic field is centred on the centre pixel, we have the Hamiltonian to be
+We can plug in the time-independent magnetic field in Eq. \ref{eq:1} to our Hamiltonian in Eq. \ref{eq:2} to get the full Hamiltonian with just this magnetic field
+\begin{equation}
+    \mathcal{H}(c)=\gamma _n \left( 1-\frac{G(c)}{2 \cdot \max(G(c))}e^{-\frac{(c-\mu )^2}{2\sigma^2}} \right)\vec{I}_z. \label{eq:3}
+\end{equation}
+It is diagonal because we do not yet have any $x$ or $y$ components to the magnetic field. Considering the case where the magnetic field is centred on the centre pixel, we have the Hamiltonian to be
 \[
     \mathcal{H}(c)=\gamma _n\left( 1-\frac{1}{2}e^{-c^2/200} \right)\vec{I}_z
 \]
 This means that for the centre pixel, we have the Hamiltonian to be
 \[
-    \mathcal{H}(0)=\gamma _n \left( 1-\frac{1}{2}e^{-0} \right)\vec{I}_z=\frac{1}{2}\gamma _n\vec{I}_z,
+    \mathcal{H}(0)=\gamma _n \left( 1-\frac{1}{2}e^{-0} \right)\vec{I}_z=\frac{1}{2}\gamma _n\vec{I}_z=10.62 MHz\sigma _z,
 \]
 and for the last pixel it is
 \[
-    \mathcal{H}(127)=\gamma _n \left( 1-\frac{1}{2}e^{-127^2/200} \right)\vec{I}_z\approx \gamma _n\vec{I}_z.
+    \mathcal{H}(127)=\gamma _n \left( 1-\frac{1}{2}e^{-127^2/200} \right)\vec{I}_z\approx \gamma _n\vec{I}_z = 21.24 MHz\sigma _z.
 \]
+Since the magnetic field only depends on the column, each row has an identical Hamiltonian (within one column), so only a single matrix is stored per column.
 
 \section{Question 1.4} 
+% TODO rewrite this
 We now have an additional magnetic field given by
 \[
     B_x=B_{amp}\cos 2\pi ft,
@@ -89,5 +101,59 @@ At resonance, the Rabi oscillation frequency is then $\frac{\omega _1}{2}$, wher
 \[
     \omega _R=\frac{\gamma _nB_{amp}}{2}.
 \]
+
+\section{Question 1.5}
+For this part, all states were initialised to be in the down state ($\ket{\downarrow}$). Since this is an eigenstate of $I_z$ and does not depend on $B_z(c)$, the expectation value should be exactly $-\frac{1}{2}$ for each position, which we can see in Fig. \ref{fig:q5-expectations}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/single-spin-exp.png}
+    \caption{The expectation value when all spins are initially in the down state. Note that since the spin does not depend on anything in the image, this row is representative of all rows in the image, and as such has not been denoted as any particular row.}
+    \label{fig:q5-expectations}
+\end{figure}
+
+\section{Question 1.6}
+Now we "turn on" time, and evolve the initialised states under the influence of the time-independent magnetic field. This was done for two full periods ($2\cdot T_{rabi}$), and in steps of units given by $T_{rabi}/100$, resulting in $201$ points. See Fig. \ref{fig:q6-expectations} for the expectation values of $\left\langle \mathbf{I}_x \right\rangle $, $\left\langle \mathbf{I}_y \right\rangle $, and $\left\langle \mathbf{I}_z \right\rangle $ for each of the middle column, offset by 5 and 10 columns from the middle, and the last column.
+\begin{figure}[h]
+    \centering
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-rabi-000.png}
+        \caption{Rabi oscillation in the centre column ($c=127$). This is the most driven case as the driving frequency is (by definition) the resonance frequency of this column.}
+        \label{fig:q6-exp-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-rabi-005.png}
+        \caption{Rabi oscillation in the column 5 places to the right of the centre column ($c=132$)}
+        \label{fig:q6-exp-2}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-rabi-010.png}
+        \caption{Rabi oscillation in the column 10 places to the right of the centre column ($c=137$)}
+        \label{fig:q6-exp-3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-rabi-127.png}
+        \caption{Rabi oscillation in the last column of the image. Here, the expectation value of $\left\langle \mathbf{I}_z \right\rangle $ is effectively $-\frac{1}{2}$, indicating that this is the least driven state.}
+        \label{fig:q6-exp-4}
+    \end{subfigure}
+
+    \caption{The Rabi oscillations at various column indices in the time-independent magnetic field centred at $c=127$.}
+    \label{fig:q6-expectations}
+\end{figure}
+
+From these plots, we can see that only the near-resonant columns are driven sufficiently for the sign-flipping of the expectation values, which can be seen clearly in part 1.10, as it manifests as a horizontal blurring.
+
+\section{Question 1.7}
+We now have 
 
 \end{document}
