@@ -127,7 +127,7 @@ for col in cols:
     ax.plot(t / T_rabi, Iz_exp, label=r"$I_z$ ", color="blue")
 
     ax.set_title(f"Rabi Oscillation in Static Field")
-    ax.set_xlabel(r"Period ($2T_{rabi}$)")
+    ax.set_xlabel(r"Time ($T_{rabi}$)")
     ax.set_ylabel(r"Expectation value")
     ax.legend()
 
@@ -182,7 +182,7 @@ for col in cols:
     ax.plot(t / T_larmor, Iz_exp, label=r"$I_z$ ", color="blue")
 
     ax.set_title(f"Prepared State with Static Field")
-    ax.set_xlabel(r"Time ($2T_{larmor}$)")
+    ax.set_xlabel(r"Time ($T_{larmor}$)")
     ax.set_ylabel(r"Expectation value")
     ax.legend()
     fig.tight_layout()
@@ -204,7 +204,7 @@ P = Ix_all @ img[r, :]
 fig, ax = plt.subplots()
 ax.plot(t / T_larmor, P, color="blue")
 ax.set_title(f"Aggregated Signal (Row {r})")
-ax.set_xlabel(r"Time ($2T_{larmor}$)")
+ax.set_xlabel(r"Time ($T_{larmor}$)")
 ax.set_ylabel(r"Intensity")
 fig.tight_layout()
 fig.savefig(f"{OUT_DIR}/aggregate-spin-row.png")
@@ -229,7 +229,7 @@ for k, mu in enumerate(c):
     U_lab = expm(-1j * 2 * np.pi * H_lab * t_read)
     psi = np.einsum("cij,cj->ci", U_lab, psi)
 
-    Ix = np.real(np.einsum("ci,ij,ci->c", psi.conj(), I_x, psi))
+    Ix = np.real(np.einsum("ci,ij,cj->c", psi.conj(), I_x, psi))
     # w = np.abs(c - mu) <= 10
     # recon[:, k] = img[:, w] @ Ix[w]
     recon[:, k] = img @ Ix
@@ -241,3 +241,20 @@ axs[1].imshow(recon, cmap="gray")
 axs[1].set_title("Reconstructed")
 fig.tight_layout()
 fig.savefig(f"{OUT_DIR}/reconstruction.png")
+
+print(
+    Ix[0], Ix[ncols // 2]
+)  # far columns: ~1e-3. Last-loop dip is at the last column, so Ix[-1] should be large
+print(np.allclose(recon[r, ncols // 2], P.max()))  # consistency with 1.9 (r = nrows//2)
+print(
+    recon.std(axis=0).mean(), recon.std(axis=1).mean()
+)  # both should now be comparable
+
+# print(Bz.min(), Bz.max())  # expect ~0.5 and ~1.0
+# print(delta[0], delta[ncols // 2], delta[-1])  # expect ~2.124e7, ~2.124e7, ~0
+# print(gaussian_std, omega_R, f_drive)  # expect 10, ~1.062e6, 2.124e7
+# print(c[:3], c[-3:], mu)  # expect -127.. 127, mu = 127
+#
+# print(t_max / T_larmor)  # readout time
+# print(Ix[ncols // 2], Ix[0])
+# print(recon.std(axis=0).mean(), recon.std(axis=1).mean())
