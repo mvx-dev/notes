@@ -2,6 +2,19 @@
 
 \usepackage{preamble}
 
+\newcommand{\MHz}{\,\mathrm{MHz}}
+\newcommand{\Hz}{\,\mathrm{Hz}}
+\newcommand{\us}{\,\mu\mathrm{s}}
+\newcommand{\ns}{\,\mathrm{ns}}
+\newcommand{\av}[1]{\langle #1\rangle}
+\newcommand{\up}{\left|\Uparrow\right\rangle}
+\newcommand{\dn}{\left|\Downarrow\right\rangle}
+\newcommand{\TR}{T_{\mathrm{Rabi}}}
+\newcommand{\TL}{T_{\mathrm{Larmor}}}
+\newcommand{\OmR}{\Omega_R}
+
+\graphicspath{{figures/}}
+
 \title{ELEC3705 Assignment}
 \author{Oskar Meszaros (z5636164)}
 \date{October 2026}
@@ -10,97 +23,96 @@
 
 \maketitle
 
-\section{Question 1.1}
-After loading the image, the shape of the array is $255 \times 255$. Note that $c=0$ corresponds to the centre pixel of the image, which in this case is $127$. The brightness of each pixel corresponds to the number of hydrogen atoms present at the location, each with a gyromagnetic ratio of $\gamma _n=48.48 MHz/T$, giving the Hamiltonians in this assignment to be in $Hz$ and the time evolution operator to be
-\[
-    U=e^{-i 2\pi \mathcal{H}t}.
-\]
+\section{Introduction}
+In this assignment, we simulate Nuclear Magnetic Resonance (NMR) imaging of a two-dimensional grayscale image, where the value of each pixel is the number of hydrogen nuclei at that location. A strong static field $B_z$, whose magnitude depends on the column index, is combined with a uniform oscillating field $B_x(t)$ at a fixed frequency. Only columns whose Larmor frequency is close to the drive frequency are strongly excited. By moving the centre of the field profile across the image and recording the total signal of each row, the image can be reconstructed column by column.
 
-\section{Question 1.2}
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=0.9\linewidth]{figures/zeeman-mu00.png}
-        \caption[width=0.8\linewidth]{Zeeman energy centred at column 127 ($\mu =0$)}
-        \label{fig:q2-zeeman-1}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=0.9\linewidth]{figures/zeeman-mu20.png}
-        \caption[width=0.8\linewidth]{Zeeman energy centred at column 147 ($\mu =20$)}
-        \label{fig:q2-zeeman-2}
-    \end{subfigure}
-    \caption{The Zeeman energies centred at column 127 and 147.}
-    \label{fig:q2-zeeman}
-\end{figure}
-As seen above in Fig. \ref{fig:q2-zeeman}, the Zeeman energies, given by
+The nuclei do not interact with each other, so each pixel is modelled as one isolated spin-$\tfrac12$, with the number of nuclei in the pixel acting as a multiplicative factor. The Hamiltonian is $\mathcal{H}=\gamma _n\mathbf{B}\cdot\mathbf{I}$, with $\mathbf{I}=\mathbf{\sigma }/2$, and $\gamma _n=42.48\MHz/\text{T}$, and it is expressed in Hz. The Schr\"odinger equation is then
 \[
+    i \frac{d \ket{\psi }}{d t}=2\pi \mathcal{H}\ket{\psi },
+\]
+so for a time-independent Hamiltonian the time evolution operator is
+\begin{equation}
+    U(t)=e^{-i2\pi \mathcal{H}t}. \label{eq:1}
+\end{equation}
+The factor of $2\pi $ is the conversion $h/\hbar$.
+
+\section{Question 1.1: Image Size}
+After loading the image, the shape of the array is $255 \times 255$. Note that $c=0$ corresponds to the centre pixel of the image, which in this case is $127$.
+
+\section{Question 1.2: Zeeman Energies}
+The static field is a Gaussian dip in the column coordinate, given by
+\begin{align}
+    B_z(c) &= 1-\frac{G(c)}{2\max G(c)}\ \text{T},\label{eq:Bz} \\
+    G(c) &= \frac{1}{\sigma \sqrt{2\pi }}e^{-(c-\mu )^2/2\sigma ^2},\quad\sigma =10.
+\end{align}
+Since $\max G=G(\mu )=\frac{1}{\sigma \sqrt{2\pi }}$, the ratio is $\frac{G}{2\max G}=\frac{1}{2}e^{-(c-\mu )^2/2\sigma ^2}$, so $B_z=1\ \text{T}$ far from $\mu $, and $B_z=0.5\ \text{T}$ at $c=\mu $. The Hamiltonian in this field is
+\begin{equation}
+    \mathcal{H}=\gamma B_zI_z\quad I_z=\frac{1}{2}\begin{pmatrix}
+        1&0\\0&-1
+    \end{pmatrix},\label{eq:Hz}
+\end{equation}
+which is diagonal with eigenvalues $\lambda =\pm\gamma _nB_z/2$. The two spin levels are therefore split by
+\begin{equation}
     E_z=\gamma _nB_z,
-\]
-are inverted Gaussians centred at the respective column number. This means that the potential energy of the hydrogen atoms are affected by the surrounding atoms as defined by the Gaussian. We can also derive this by finding the eigenvalues of the Hamiltonian, given as (for the time-independent only magnetic field),
-\begin{equation}
-    \mathcal{H}=\gamma _nB_z\vec{I}_z, \label{eq:2}
 \end{equation}
-where $\gamma _n$ is the gyromagnetic ratio for the hydrogen atom, $B_z$ is the time-independent magnetic field given by
+which is the Larmor frequency. Fig. \ref{fig:zeeman} shows $E_z(c)$ for the field centred at the middle pixel and shifted 20 pixels to the right. It is an inverted Gaussian, falling from $42.48\MHz$ far from the centre to $21.24\MHz$ at $c=\mu $. The Gaussian is the profile of the applied field, not an interaction between nuclei.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{zeeman-mu00.png}
+    \caption{Field centred at column 127 ($\mu=0$).}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{zeeman-mu20.png}
+    \caption{Field centred at column 147 ($\mu=20$).}
+  \end{subfigure}
+  \caption{Zeeman energy $E_z=\gamma_n B_z(c)$ (the splitting between the two
+  spin levels) as a function of column offset $c$.}
+  \label{fig:zeeman}
+\end{figure}
+
+\section{Question 1.3: Hamiltonian of Each Pixel}
+With $B_x=B_y=0$, only the $I_z$ term of $\gamma _n\mathbf{B}\cdot\mathbf{I}$ has an effect. Substituting Eq. \eqref{eq:Bz} into Eq. \eqref{eq:Hz} and centring the field on the middle pixel ($\mu =0$),
 \begin{equation}
-    B_z(c)=1-\frac{G(c)}{2\cdot \text{max}(G(c))}, \label{eq:1}
+    \mathcal{H}(c)=\gamma _n \left( 1-\frac{1}{2}e^{-c^2/200} \right)I_z.
 \end{equation}
-$\vec{I}_z$ is the $z$-axis nuclear spin matrix, given by $\frac{1}{2}\sigma _z$, and the Gaussian is given by
-\[
-    G(c)=\frac{1}{\sigma \sqrt{2\pi }}e^{-\frac{(c-\mu )^2}{2\sigma^2}}.
-\]
-
-We can then find the eigenvalues of the Hamiltonian to be
-\begin{align*}
-    \mathcal{H} &= \gamma _nB_z \frac{1}{2}\begin{pmatrix}
-        1 & 0 \\ 0 & -1
-    \end{pmatrix} \\
-        \left| \mathcal{H}-\lambda \mathbb{I} \right| &= \left|\begin{pmatrix}
-            \frac{\gamma _nB_z}{2}-\lambda & 0 \\
-            0 & -\frac{\gamma _nB_z}{2}-\lambda 
-        \end{pmatrix} \right| \\
-                                                      \lambda &=\pm \frac{\gamma _nB_z}{2}
-\end{align*}
-From this, we see that the splitting between the two eigenvalues is $\gamma _nB_z$, which is the Larmor frequency.
-
-\section{Question 1.3}
-We can plug in the time-independent magnetic field in Eq. \ref{eq:1} to our Hamiltonian in Eq. \ref{eq:2} to get the full Hamiltonian with just this magnetic field
+The Hamiltonian is diagonal because there is no transverse field yet. For the central column ($c=0$),
 \begin{equation}
-    \mathcal{H}(c)=\gamma _n \left( 1-\frac{G(c)}{2 \cdot \max(G(c))}e^{-\frac{(c-\mu )^2}{2\sigma^2}} \right)\vec{I}_z. \label{eq:3}
+    \mathcal{H}(0)=\frac{1}{2}\gamma I_z=21.24\MHz \cdot I_z=\begin{pmatrix}
+        10.62&0\\0&-10.62
+    \end{pmatrix}\MHz,
 \end{equation}
-It is diagonal because we do not yet have any $x$ or $y$ components to the magnetic field. Considering the case where the magnetic field is centred on the centre pixel, we have the Hamiltonian to be
-\[
-    \mathcal{H}(c)=\gamma _n\left( 1-\frac{1}{2}e^{-c^2/200} \right)\vec{I}_z
-\]
-This means that for the centre pixel, we have the Hamiltonian to be
-\[
-    \mathcal{H}(0)=\gamma _n \left( 1-\frac{1}{2}e^{-0} \right)\vec{I}_z=\frac{1}{2}\gamma _n\vec{I}_z=10.62 MHz\sigma _z,
-\]
-and for the last pixel it is
-\[
-    \mathcal{H}(127)=\gamma _n \left( 1-\frac{1}{2}e^{-127^2/200} \right)\vec{I}_z\approx \gamma _n\vec{I}_z = 21.24 MHz\sigma _z.
-\]
-Since the magnetic field only depends on the column, each row has an identical Hamiltonian (within one column), so only a single matrix is stored per column.
+and for the last column ($c=127$), where $e^{-127^2/200}\approx 10^{-35}$ is negligible,
+\begin{equation}
+    \mathcal{H}(127)\approx\gamma _nI_z=42.48\MHz \cdot I_z=\begin{pmatrix}
+        21.24&0\\0&-21.24
+    \end{pmatrix}\MHz.
+\end{equation}
+The diagonal entries are half the Larmor frequency because $I_z$ has eigenvalues $\pm \frac{1}{2}$. Every pixel in a column shares the same Hamiltonian, so we store one $2\times  2$ matrix per column.
 
-\section{Question 1.4} 
-% TODO rewrite this
-We now have an additional magnetic field given by
-\[
-    B_x=B_{amp}\cos 2\pi ft,
-\]
-which is a simple linearly oscillating field, so we are able to represent it using two counter-rotating magnetic fields. Using this representation, we get the field to be
-\begin{align*}
-    B_x &= B_{amp}\left[ \frac{e^{i2\pi ft}+e^{-i2\pi ft}}{2} \right]. \\
-\end{align*}
-Here, $e^{i2\pi ft}$ is the on-resonance component driving the spins, and the $e^{-i2\pi ft}$ is the off-resonance component which is detuned by $-2\omega $, and has no effect on the spin. This gives the field to be
-\[
-    B_x=\frac{1}{2}B_{amp}e^{i2\pi ft}.
-\]
-At resonance, the Rabi oscillation frequency is then $\frac{\omega _1}{2}$, where $\omega _1=\gamma _nB_{amp}$ in field, and hence the Rabi frequency is
-\[
-    \omega _R=\frac{\gamma _nB_{amp}}{2}.
-\]
+\section{Question 1.4: Rabi Frequency and the Rotating Frame}
+We now add the oscillating field $B_x(t)=B_{amp}\cos(2\pi ft)$ with $B_{amp}=50 \text{mT}$. The laboratory-frame Hamiltonian of column $c$ is given by
+\begin{equation}
+    \mathcal{H}(t)=f_L(c) I_z+\gamma _nB_{amp}\cos(2\pi ft)I_x,\quad f_L(c)=\gamma _nB_z(c).
+\end{equation}
+A linearly oscillating field is the sum of two fields rotating in opposite directions about $z$,
+\begin{equation}
+    B_x=B_{amp} \frac{e^{i 2\pi ft}+e^{-i 2\pi ft}}{2},
+\end{equation}
+each of amplitude $\frac{B_{amp}}{2}$. The component $e^{i 2\pi ft}$ rotates with the precessing spins and drives them at resonance. The component $e^{-i 2\pi ft}$ is detuned by $2f$, and so has not effect (this is rotating-wave approximation).
+
+The drive frequency was chosen to be equal to the Larmor frequency of the central column,
+\begin{equation}
+    f=f_L(0)=\gamma _n(0.5\ \text{T})=21.24\MHz.
+\end{equation}
+Transforming to the frame rotating about $z$ at frequency $f$, $\ket{\tilde\psi }=R(t)\ket{\psi }$ with $R(t)=e^{i 2\pi ftI_z}$, gives
+\begin{equation}
+    i \frac{d \ket{\tilde\psi }}{d t}=2\pi \tilde{\mathcal{H}}\ket{\psi },
+\end{equation}
+with $\tilde{\mathcal{H}}=R HR^\dagger-f I_z$. Using $RI_x$
 
 \section{Question 1.5}
 For this part, all states were initialised to be in the down state ($\ket{\downarrow}$). Since this is an eigenstate of $I_z$ and does not depend on $B_z(c)$, the expectation value should be exactly $-\frac{1}{2}$ for each position, which we can see in Fig. \ref{fig:q5-expectations}.
@@ -113,8 +125,8 @@ For this part, all states were initialised to be in the down state ($\ket{\downa
 \end{figure}
 
 \section{Question 1.6}
-Now we "turn on" time, and evolve the initialised states under the influence of the time-independent magnetic field. This was done for two full periods ($2\cdot T_{rabi}$), and in steps of units given by $T_{rabi}/100$, resulting in $201$ points. See Fig. \ref{fig:q6-expectations} for the expectation values of $\left\langle \mathbf{I}_x \right\rangle $, $\left\langle \mathbf{I}_y \right\rangle $, and $\left\langle \mathbf{I}_z \right\rangle $ for each of the middle column, offset by 5 and 10 columns from the middle, and the last column.
-\begin{figure}[h]
+Now we "turn on" time, and evolve the initialised states under the rotating frame Hamiltonian, which is now time-independent. This was done for two full periods ($2\cdot T_{rabi}$), and in steps of units given by $T_{rabi}/100$, resulting in $201$ points. See Fig. \ref{fig:q6-expectations} for the expectation values of $\left\langle \mathbf{I}_x \right\rangle $, $\left\langle \mathbf{I}_y \right\rangle $, and $\left\langle \mathbf{I}_z \right\rangle $ for each of the middle column, offset by 5 and 10 columns from the middle, and the last column.
+\begin{figure}[H]
     \centering
 
     \begin{subfigure}[t]{0.48\textwidth}
@@ -147,13 +159,96 @@ Now we "turn on" time, and evolve the initialised states under the influence of 
         \label{fig:q6-exp-4}
     \end{subfigure}
 
-    \caption{The Rabi oscillations at various column indices in the time-independent magnetic field centred at $c=127$.}
+    \caption{The Rabi oscillations at various column indices in the rotating-frame Hamiltonian centred at $c=127$.}
     \label{fig:q6-expectations}
 \end{figure}
 
 From these plots, we can see that only the near-resonant columns are driven sufficiently for the sign-flipping of the expectation values, which can be seen clearly in part 1.10, as it manifests as a horizontal blurring.
 
 \section{Question 1.7}
-We now have 
+We can now examine the effects of applying a short burst to our magnetic field and see how the various spins respond. To do this, the pulse must have a duration of
+\begin{align*}
+    2\pi \omega _Rt_{\pi /2} &= \frac{\pi }{2} \\
+    \Rightarrow \omega _Rt_{\pi /2}&=\frac{1}{4} \\
+    t_{\pi /2}&=\frac{1}{4}\frac{1}{\omega _R}=\frac{T_{rabi}}{4}\\
+              &= 0.235\mu s.
+\end{align*}
+This matches Fig. \ref{fig:q6-exp-1}, which has the first zero of $\left\langle \mathbf{I}_y \right\rangle$ at $\frac{T_{rabi}}{4}$. The resulting expectation values at different positions is shown in Fig. \ref{fig:q7-expectations}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/single-spin-pulse.png}
+    \caption{The resulting expectation values of the different columns after a $pi/2$ pulse. Notice that, as before, the effect of the magnetic field is strongest where it is close to resonance, i.e. the centre column.}
+    \label{fig:q7-expectations}
+\end{figure}
+
+Since we are applying this when the states have no yet be influence by the magnetic field, ($t=0$), the time evolution operator is simply
+\begin{align*}
+    U(t)&=e^{-i 2\pi \tilde{\mathcal{H}}\cdot t}\\
+    U(t_{\pi /2})&=e^{-i 2\pi \tilde{\mathcal{H}}\cdot t_{\pi /2}} \\
+    \Rightarrow \ket{\psi }&=U(t_{\pi /2})\ket{\downarrow}.
+\end{align*}
+
+\section{Question 1.8}
+Once the field has been applied, further time evolution would result in Larmor precession, from the lab frame. This can be examined by continuing the simulation for another 2 periods of the Larmor frequency, which results in the plots in Fig. \ref{fig:q8-expectations}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-larmor-000.png}
+        \caption{The Larmor precession of the centre column. The expectation value of $\mathbf{I}_z$ is constant, whilst the expectation values of $\mathbf{I}_x$ and $\mathbf{I}_y$ both oscillates at the Larmor frequency. This is because the magnetic field applied in part 1.7 was on resonance with this column's spin, and so it perfectly prepared it in this state.}
+        \label{fig:q8-exp-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-larmor-010.png}
+        \caption{The Larmor precession of the column 10 places to the right of the centre column. There is still a small amount of precessing around the $z$-axis, however even so close to the centre column it is still far enough away from resonance to have the expectation value of $\mathbf{I}_z$ to be $-0.5$.}
+        \label{fig:q8-exp-2}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/single-spin-larmor-127.png}
+        \caption{The Larmor precession of the right-most column. This column is the furthest from resonance, so the precession is the weakest. The expectation value of $\mathbf{I}_z$ is still at $-0.5$.}
+        \label{fig:q8-exp-3}
+    \end{subfigure}
+
+    \caption{The Larmor precession different columns. They have all been prepared using the same time-dependent magnetic field from part 1.7, and these plots show the different time evolutions from three different columns.}
+    \label{fig:q8-expectations}
+\end{figure}
+
+From this, we can see that the further the magnetic field was from each columns resonance, the less it precesses. This drop off is quite abrupt, with the column just 10 places to the right having very minimal precessing. This is the basis for NMR, as we are able to (relatively) precisely target a particular position in space by changing the frequency of the time-dependent magnetic field.
+
+\section{Question 1.9}
+Now that we have the basis for the NMR working for single spins, we are able to generalise and determine the aggregated signal using the actual number of spins per pixel. This is simple to do, as to find the total signal we just multiply the number of spins in a particular row by the expectation value for each column
+\[
+    P(r)=\sum_{c}N(r,c)\left\langle \mathbf{I}_x \right\rangle (c).
+\]
+Testing for a single row, we get the plot in Fig. \ref{fig:q9-expectations}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/aggregate-spin-row.png}
+    \caption{The aggregated signal from the centre row. Since there is nothing to differentiate each column within the row from each other, the expectation value is for the whole row evolved over time.}
+    \label{fig:q9-expectations}
+\end{figure}
+
+This is how we are able to measure the density of hydrogen atoms in our image.
+
+\section{Question 1.10}
+Now that we are able to measure the density of hydrogen atoms within a row for a given magnetic field $B_z$, we can "scan" this magnetic field over the whole image to give us an intensity for each pixel, which will allow us to reconstruct the image. This is done by varying the centre of the Gaussian defining the magnetic field. This gives the image in Fig. \ref{fig:q10-reconstruction}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/reconstruction.png}
+    \caption{The reconstructed image compared to the base image. We can see the effects of the spins close to the column being tested as blurring.}
+    \label{fig:q10-reconstruction}
+\end{figure}
+
+An important artefact of the NMR process is the horizontal blurring. This is due to how we are constructing the image. Whilst the time-independent $B_z$ field is tuned for the resonance of a particular column, the columns very close either side still have some amount of resonance, and as such they also contribute the to the brightness of the pixels in the column of interest.
 
 \end{document}
