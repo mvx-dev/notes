@@ -55,7 +55,7 @@ which is diagonal with eigenvalues $\lambda =\pm\gamma _nB_z/2$. The two spin le
 \begin{equation}
     E_z=\gamma _nB_z,
 \end{equation}
-which is the Larmor frequency. Fig. \ref{fig:zeeman} shows $E_z(c)$ for the field centred at the middle pixel and shifted 20 pixels to the right. It is an inverted Gaussian, falling from $42.48\MHz$ far from the centre to $21.24\MHz$ at $c=\mu $. The Gaussian is the profile of the applied field, not an interaction between nuclei.
+which is the Larmor frequency. Fig. \ref{fig:zeeman} shows $E_z(c)$ for the field centred at the middle pixel and shifted 20 pixels to the right. It is an inverted Gaussian, falling from $42.48\MHz$ far from the centre to $21.24\MHz$ at $c=\mu $.
 
 \begin{figure}[htbp]
   \centering
@@ -112,143 +112,195 @@ Transforming to the frame rotating about $z$ at frequency $f$, $\ket{\tilde\psi 
 \begin{equation}
     i \frac{d \ket{\tilde\psi }}{d t}=2\pi \tilde{\mathcal{H}}\ket{\psi },
 \end{equation}
-with $\tilde{\mathcal{H}}=R HR^\dagger-f I_z$. Using $RI_x$
+with $\tilde{\mathcal{H}}=R HR^\dagger-f I_z$. Using $RI_xr^\dagger=I_x\cos(2\pi ft)-I_y \sin(2\pi ft)$,
+\begin{equation}
+    \tilde{\mathcal{H}}=\left( f_L-f \right)I_z+\gamma _nB_{amp}\left[ \frac{1}{2}I_x \left( 1+\cos(4\pi ft) \right)-\frac{1}{2}I_y\sin(2\pi ft) \right].
+\end{equation}
+The terms oscillating at $2f=42.48\MHz$ are much faster than the dynamics we resolve ($\sim_{1}\MHz$) and average out, dropping them is the rotating-wave approximation. The constant $\frac{1}{2}I_x$ term is the co-rotating half of the drive, and it is where the factor of $\frac{1}{2}$ from below comes from. The rotating frame Hamiltonian is then
+\begin{equation}
+    \tilde{\mathcal{H}(c)}=\Delta (c)I_z+\OmR I_x\quad\Delta (c)=f_L(c)-f,\quad\OmR=\frac{\gamma _nB_{amp}}{2}. \label{eq:Hrot}
+\end{equation}
 
-\section{Question 1.5}
-For this part, all states were initialised to be in the down state ($\ket{\downarrow}$). Since this is an eigenstate of $I_z$ and does not depend on $B_z(c)$, the expectation value should be exactly $-\frac{1}{2}$ for each position, which we can see in Fig. \ref{fig:q5-expectations}.
+For the central column $\Delta =0$, so $\tilde{\mathcal{H}}=\OmR I_x$ and the spin rotates about $x$ at angular rate $2\pi \OmR$. The Rabi frequency and period are then
+\begin{equation}
+    \OmR=\frac{(42.48\MHz/\text{T})(0.05 \text{mT})}{2}=1.062\MHz,\quad \TR=\frac{1}{\OmR}\approx_0.94\us.
+\end{equation}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/single-spin-exp.png}
-    \caption{The expectation value when all spins are initially in the down state. Note that since the spin does not depend on anything in the image, this row is representative of all rows in the image, and as such has not been denoted as any particular row.}
-    \label{fig:q5-expectations}
+We can then construct our Hamiltonians. For the central column ($\Delta =0$)
+\begin{equation}
+    \tilde{\mathcal{H}}(0)=\OmR I_x=\begin{pmatrix}
+        0 & 0.531 \\ 0.531 & 0
+    \end{pmatrix} \MHz,
+\end{equation}
+and for the last column ($\Delta =42.48-21.24=21.24\MHz$)
+\begin{equation}
+    \tilde{\mathcal{H}}(127)=21.24\MHz I_z + 1.062 \MHz I_x=\begin{pmatrix}
+        10.62 & 0.531 \\ 0.531&-10.62
+    \end{pmatrix}\MHz.
+\end{equation}
+
+\section{Question 1.5: Initial State}
+All spins are initialised in the down state $\dn=(0,1)^T$. Since this is an eigenstate of $I_z$ with eigenvalue $-\tfrac12$, and does not depend on $B_z(c)$, we expect $\av{I_z}=-\tfrac12$ at every position, which is what Fig. \ref{fig:init} shows. The column-dependent field changes each spin's energy, not its state, so the position dependence only appears once the spins evolve.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{single-spin-exp.png}
+  \caption{$\av{I_z}$ for each pixel in a row when all spins start in $\dn$. All
+  rows are identical, so this row is representative of every row.}
+  \label{fig:init}
 \end{figure}
+
 
 \section{Question 1.6}
-Now we "turn on" time, and evolve the initialised states under the rotating frame Hamiltonian, which is now time-independent. This was done for two full periods ($2\cdot T_{rabi}$), and in steps of units given by $T_{rabi}/100$, resulting in $201$ points. See Fig. \ref{fig:q6-expectations} for the expectation values of $\left\langle \mathbf{I}_x \right\rangle $, $\left\langle \mathbf{I}_y \right\rangle $, and $\left\langle \mathbf{I}_z \right\rangle $ for each of the middle column, offset by 5 and 10 columns from the middle, and the last column.
-\begin{figure}[H]
+Starting from $\dn$, each column is evolved under its rotating-frame Hamiltonian $\tilde{\mathcal{H}}(c)$ of Eq. \eqref{eq:Hrot}, which is time-independent in the rotating frame after the RWA, so $|\tilde\psi(t)\rangle=e^{-i2\pi\tilde{\mathcal{H}} t}\dn$. The time series covers $2\TR$ in steps of $\TR/100$ (201 points). The results for the central column and for columns offset by 5, 10 and 127 are in Fig. \ref{fig:rabi}.
+ 
+A spin detuned by $\Delta$ oscillates at the generalised Rabi frequency $\Omega_{\mathrm{eff}}=\sqrt{\OmR^2+\Delta^2}$, with contrast $\OmR^2/\Omega_{\mathrm{eff}}^2$: $\av{I_z}$ rises from $-\tfrac12$ by at most that amount. Table \ref{tab:rabi} lists these values and matches the plots.
+ 
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{rrrrr}
+    \toprule
+    Offset $c$ & $\Delta$ (MHz) & $\Omega_{\mathrm{eff}}$ (MHz) & Contrast & Cycles in $2\TR$\\
+    \midrule
+    0   & 0     & 1.06  & 100\%  & 2    \\
+    5   & 2.50  & 2.71  & 15\%   & 5.1  \\
+    10  & 8.36  & 8.43  & 1.6\%  & 15.9 \\
+    127 & 21.24 & 21.27 & 0.25\% & 40.1 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Detuning, generalised Rabi frequency, contrast and number of
+  oscillations in $2\TR$ for the columns in Fig. \ref{fig:rabi}.}
+  \label{tab:rabi}
+\end{table}
+ 
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
     \centering
+    \includegraphics[width=\textwidth]{single-spin-rabi-000.png}
+    \caption{Central column (column 127, $c=0$): on resonance, full contrast.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{single-spin-rabi-005.png}
+    \caption{Column 132 ($c=5$).}
+  \end{subfigure}\\[1ex]
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{single-spin-rabi-010.png}
+    \caption{Column 137 ($c=10$).}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{single-spin-rabi-127.png}
+    \caption{Last column (column 254, $c=127$): barely driven.}
+  \end{subfigure}
+  \caption{Expectation values $\av{I_x}$, $\av{I_y}$ and $\av{I_z}$ under the
+  rotating-frame Hamiltonian $\tilde{\mathcal{H}}(c)$ for $2\TR$.}
+  \label{fig:rabi}
+\end{figure}
+ 
+In the central column the spin is flipped completely, with $\av{I_z}$ swinging from $-\tfrac12$ to $+\tfrac12$ twice and $\ev{I_x}=0$. As the detuning grows the oscillation becomes faster and its contrast quickly shrinks, so a column only a few pixels from the centre is already driven weakly, and the last column hardly moves from $\dn$. This is the column selectivity that the reconstruction in Question 1.10 relies on.
 
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-rabi-000.png}
-        \caption{Rabi oscillation in the centre column ($c=127$). This is the most driven case as the driving frequency is (by definition) the resonance frequency of this column.}
-        \label{fig:q6-exp-1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-rabi-005.png}
-        \caption{Rabi oscillation in the column 5 places to the right of the centre column ($c=132$)}
-        \label{fig:q6-exp-2}
-    \end{subfigure}
 
-    \vspace{0.5em}
-
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-rabi-010.png}
-        \caption{Rabi oscillation in the column 10 places to the right of the centre column ($c=137$)}
-        \label{fig:q6-exp-3}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-rabi-127.png}
-        \caption{Rabi oscillation in the last column of the image. Here, the expectation value of $\left\langle \mathbf{I}_z \right\rangle $ is effectively $-\frac{1}{2}$, indicating that this is the least driven state.}
-        \label{fig:q6-exp-4}
-    \end{subfigure}
-
-    \caption{The Rabi oscillations at various column indices in the rotating-frame Hamiltonian centred at $c=127$.}
-    \label{fig:q6-expectations}
+\section{Question 1.7: $\pi /2$ Pulse}
+On resonance the pulse is a rotation about $x$ by the angle $\theta=2\pi\OmR t$. A $\pi/2$ pulse takes the spin from $\dn$ into the $xy$-plane, so $\theta=\pi/2$ and
+\begin{equation}
+  t_{\pi/2}=\frac{1}{4\OmR}=\frac{\TR}{4}\approx0.235\us .
+\end{equation}
+This matches Question 1.6, in Fig. \ref{fig:rabi}(a), $\ev{I_z}$ crosses zero at $0.25\,\TR$. Since the spins start at $t=0$, the state after the pulse is simply
+\begin{equation}
+  |\tilde\psi(t_{\pi/2})\rangle=U(t_{\pi/2})\dn,
+\qquad U(t_{\pi/2})=e^{-i2\pi\tilde{\mathcal{H}} t_{\pi/2}},
+\end{equation}
+and no new time evolution is needed. The result is shown in Fig. \ref{fig:pulse}. In the central column $\av{I_y}=+\tfrac12$ and $\av{I_x}=\av{I_z}=0$, i.e.\ the spin lies along $y$. The neighbouring columns show ringing from their different detunings, and the far columns stay essentially in $\dn$.
+ 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{single-spin-pulse.png}
+  \caption{Expectation values of each column after a $\pi/2$ pulse. Only
+  columns near resonance (the centre) are tipped into the $xy$-plane.}
+  \label{fig:pulse}
 \end{figure}
 
-From these plots, we can see that only the near-resonant columns are driven sufficiently for the sign-flipping of the expectation values, which can be seen clearly in part 1.10, as it manifests as a horizontal blurring.
-
-\section{Question 1.7}
-We can now examine the effects of applying a short burst to our magnetic field and see how the various spins respond. To do this, the pulse must have a duration of
-\begin{align*}
-    2\pi \omega _Rt_{\pi /2} &= \frac{\pi }{2} \\
-    \Rightarrow \omega _Rt_{\pi /2}&=\frac{1}{4} \\
-    t_{\pi /2}&=\frac{1}{4}\frac{1}{\omega _R}=\frac{T_{rabi}}{4}\\
-              &= 0.235\mu s.
-\end{align*}
-This matches Fig. \ref{fig:q6-exp-1}, which has the first zero of $\left\langle \mathbf{I}_y \right\rangle$ at $\frac{T_{rabi}}{4}$. The resulting expectation values at different positions is shown in Fig. \ref{fig:q7-expectations}.
-
-\begin{figure}[H]
+\section{Question 1.8: Free Precession}
+We now switch the oscillating field off, so each spin evolves under the laboratory-frame Hamiltonian of Question 1.3, $\mathcal{H}(c)=\gamma_n B_z(c)I_z$, starting from the states of Question 1.7. We simulate $2\TL$ with $\TL=1/(21.24\MHz)\approx47.1\ns$ (the Larmor period of the central spin), in steps of $\TL/100$. The results are in Fig. \ref{fig:larmor}.
+ 
+Each spin precesses about $z$ at its own Larmor frequency $f_L(c)=\gamma_n B_z(c)$: $21.24$, $29.60$ and $42.48\MHz$ for the central column, the column offset by 10, and the last column. This gives $2$, $2.8$ and $4$ cycles in the window. The central column was tipped fully into the $xy$-plane, so $\ev{I_x}$ and $\ev{I_y}$ oscillate with amplitude $\tfrac12$ as a quadrature pair while $\ev{I_z}=0$. The other two columns were hardly tipped by the pulse, so $\ev{I_z}\approx-\tfrac12$ and their transverse component is small and nearly invisible at this scale. Every spin precesses; what falls with distance from resonance is the transverse amplitude left by the $\pi/2$ pulse. Because the precession frequency depends on column, the signal of a spin encodes its position, which the readout in Questions 1.9 and 1.10 uses.
+ 
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/single-spin-pulse.png}
-    \caption{The resulting expectation values of the different columns after a $pi/2$ pulse. Notice that, as before, the effect of the magnetic field is strongest where it is close to resonance, i.e. the centre column.}
-    \label{fig:q7-expectations}
+    \includegraphics[width=\textwidth]{single-spin-larmor-000.png}
+    \caption{Central column ($c=0$).}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{single-spin-larmor-010.png}
+    \caption{Column offset by 10 ($c=10$).}
+  \end{subfigure}\\[1ex]
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{single-spin-larmor-127.png}
+    \caption{Last column ($c=127$).}
+  \end{subfigure}
+  \caption{Larmor precession of different columns in the static field after the
+  $\pi/2$ pulse, for $2\TL$.}
+  \label{fig:larmor}
 \end{figure}
 
-Since we are applying this when the states have no yet be influence by the magnetic field, ($t=0$), the time evolution operator is simply
-\begin{align*}
-    U(t)&=e^{-i 2\pi \tilde{\mathcal{H}}\cdot t}\\
-    U(t_{\pi /2})&=e^{-i 2\pi \tilde{\mathcal{H}}\cdot t_{\pi /2}} \\
-    \Rightarrow \ket{\psi }&=U(t_{\pi /2})\ket{\downarrow}.
-\end{align*}
-
-\section{Question 1.8}
-Once the field has been applied, further time evolution would result in Larmor precession, from the lab frame. This can be examined by continuing the simulation for another 2 periods of the Larmor frequency, which results in the plots in Fig. \ref{fig:q8-expectations}.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-larmor-000.png}
-        \caption{The Larmor precession of the centre column. The expectation value of $\mathbf{I}_z$ is constant, whilst the expectation values of $\mathbf{I}_x$ and $\mathbf{I}_y$ both oscillates at the Larmor frequency. This is because the magnetic field applied in part 1.7 was on resonance with this column's spin, and so it perfectly prepared it in this state.}
-        \label{fig:q8-exp-1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-larmor-010.png}
-        \caption{The Larmor precession of the column 10 places to the right of the centre column. There is still a small amount of precessing around the $z$-axis, however even so close to the centre column it is still far enough away from resonance to have the expectation value of $\mathbf{I}_z$ to be $-0.5$.}
-        \label{fig:q8-exp-2}
-    \end{subfigure}
-
-    \vspace{0.5em}
-
-    \begin{subfigure}[t]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/single-spin-larmor-127.png}
-        \caption{The Larmor precession of the right-most column. This column is the furthest from resonance, so the precession is the weakest. The expectation value of $\mathbf{I}_z$ is still at $-0.5$.}
-        \label{fig:q8-exp-3}
-    \end{subfigure}
-
-    \caption{The Larmor precession different columns. They have all been prepared using the same time-dependent magnetic field from part 1.7, and these plots show the different time evolutions from three different columns.}
-    \label{fig:q8-expectations}
+\section{Question 1.9: Aggregated Signal}
+Each pixel holds many nuclei, so the detector signal of row $r$ is the sum over columns of the number of spins $N(r,c)$ in each pixel times that pixel's $\av{I_x}$,
+\begin{equation}
+  P(r,t)=\sum_c N(r,c)\,\av{I_x}_c(t).
+\end{equation}
+Fig. \ref{fig:signal} shows $P(t)$ for the central row ($r=127$). The signal is dominated by the columns near resonance, which were tipped into the $xy$-plane. It is not a clean sinusoid, because neighbouring columns precess at different frequencies and dephase, and the weights $N(r,c)$ differ between pixels. A single readout cannot resolve individual columns, since the detector only measures the sum.
+ 
+The maximum of $P(t)$ occurs at $t_{\max}=0.65\,\TL\approx30.6\ns$, which we use as the readout time in Question 1.10.
+ 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{aggregate-spin-row.png}
+  \caption{Aggregated signal $P(t)$ of row 127 over $2\TL$. The maximum, at
+  $t_{\max}=0.65\,\TL$, is the readout time used for the reconstruction.}
+  \label{fig:signal}
 \end{figure}
 
-From this, we can see that the further the magnetic field was from each columns resonance, the less it precesses. This drop off is quite abrupt, with the column just 10 places to the right having very minimal precessing. This is the basis for NMR, as we are able to (relatively) precisely target a particular position in space by changing the frequency of the time-dependent magnetic field.
 
-\section{Question 1.9}
-Now that we have the basis for the NMR working for single spins, we are able to generalise and determine the aggregated signal using the actual number of spins per pixel. This is simple to do, as to find the total signal we just multiply the number of spins in a particular row by the expectation value for each column
-\[
-    P(r)=\sum_{c}N(r,c)\left\langle \mathbf{I}_x \right\rangle (c).
-\]
-Testing for a single row, we get the plot in Fig. \ref{fig:q9-expectations}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/aggregate-spin-row.png}
-    \caption{The aggregated signal from the centre row. Since there is nothing to differentiate each column within the row from each other, the expectation value is for the whole row evolved over time.}
-    \label{fig:q9-expectations}
-\end{figure}
-
-This is how we are able to measure the density of hydrogen atoms in our image.
-
-\section{Question 1.10}
-Now that we are able to measure the density of hydrogen atoms within a row for a given magnetic field $B_z$, we can "scan" this magnetic field over the whole image to give us an intensity for each pixel, which will allow us to reconstruct the image. This is done by varying the centre of the Gaussian defining the magnetic field. This gives the image in Fig. \ref{fig:q10-reconstruction}
-
+\section{Question 1.10: Reconstruction}
+The field profile is shifted by changing the parameter $\mu $ in $G(c)$, which sets the column at which $B_z=0.5 \text{T}$, i.e. the column resonant with the fixed drive frequency $f=21.24\MHz$. For each $\mu $ (each column of the image)
+, we recompute $B_z(c)$ and $\tilde{\mathcal{H}(c)}$ for all columns since the detunings $\Delta (c)$ change with $\mu $, apply the $\pi /2$ pulse in the rotating frame starting from $\dn$, precess in the laboratory frame for $t_{\max}$ (the same value works for every $\mu $ because the resonant column always has the same Larmor frequency), and compute $\av{I_x}_c$ for each column and form the weighted sum over each row
+\begin{equation}
+    I_{\text{rec}}(r,\mu )=\sum_{c}N(r,c)\av{I_x}_c(t_{\max},\mu ),
+\end{equation}
+which gives one column of the reconstructed image. The result is shown in Fig. \ref{fig:recon}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/reconstruction.png}
-    \caption{The reconstructed image compared to the base image. We can see the effects of the spins close to the column being tested as blurring.}
-    \label{fig:q10-reconstruction}
+    \caption{Original image (left) and NMR reconstruction (right).}
+    \label{fig:recon}
 \end{figure}
 
-An important artefact of the NMR process is the horizontal blurring. This is due to how we are constructing the image. Whilst the time-independent $B_z$ field is tuned for the resonance of a particular column, the columns very close either side still have some amount of resonance, and as such they also contribute the to the brightness of the pixels in the column of interest.
+The reconstruction is recognisable as the original image, so scanning the field centre does recover the image, and it makes sense physically. The position is encoded in $B_z(c)$, only spins near the resonance condition respond strongly to the pulse, and moving the resonance across the image reads it out column by column. It differs from the original in three ways.
+\begin{itemize}
+  \item \textbf{Horizontal blurring.} The excitation is not perfectly selective.
+        Columns within a few pixels of $\mu$ are also partly tipped
+        (Table~\ref{tab:rabi}), so they contribute to the signal of the column
+        being read. The width of the resonance, set by $\OmR$ relative to how
+        quickly $B_z$ changes, limits the horizontal resolution.
+  \item \textbf{Ringing and sign changes.} Neighbouring columns precess at
+        different frequencies, so by $t_{\max}$ they have accumulated phase
+        differences of order a radian or more (about $1.6$\,rad for a column
+        detuned by $8.4\MHz$). Their contributions have different signs and
+        partly cancel, which produces ringing near sharp vertical edges.
+  \item \textbf{Different intensity scale.} $\av{I_x}\le\tfrac12$, and partially
+        tipped or out-of-phase neighbours reduce it further, so the absolute
+        scale is not the original's.
+\end{itemize}
+The image is not blurred vertically because $B_z$ does not depend on the row, and so every row sees the same fields and is read out independently.
+
+\section{Conclusion}
+We modelled the nuclei as non-interacting spin-$\frac{1}{2}$ particles in a column-dependent static field and a uniform oscillating drive. In the rotating frame the drive gives a Rabi frequency $\OmR=\gamma _nB_{amp}/2=1.09\MHz$, and only columns close to resonance are driven strongly. A $\pi /2$ pulse followed by free precession encodes each column in its Larmor frequency, and scanning the field centre across the image reconstructs it, up to a horizontal blur and ringing set by the finite width of the resonance.
 
 \end{document}
