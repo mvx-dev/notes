@@ -1,74 +1,90 @@
-\contentsline {section}{\numberline {1}Why Quantum Mechanics?}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Photoelectric Effect}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Planck-Einstein Relations}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Double-Slit Experiment}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Double-Slit with Particles}{3}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Wave Function}{4}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Schr\"odinger Equation}{5}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Wave Packets}{5}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Heisenbery Uncertainty Principle}{6}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Problems}{6}{subsection.1.9}%
-\contentsline {section}{\numberline {2}The Mathematical Formalism of Quantum Mechanics}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Hilbert Space}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Operators}{8}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Linear Operators}{8}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Adjoint Operators}{8}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Hermitian Operators}{9}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Basis of a Hilbert Space}{9}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Observables}{9}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Problems}{9}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Spin and The Postulates of Quantum Mechanics}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Postulate 1}{9}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Application}{10}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Postulate 2}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Application}{10}{subsubsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.3}Postulate 3}{10}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Application}{10}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Postulate 4}{11}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Application}{11}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Postulate 5}{12}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Application}{12}{subsubsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.6}Postulate 6}{13}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Application}{13}{subsubsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.7}Spin Matrices}{13}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Projection Operator}{14}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Exponential of a Matrix}{14}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{15}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Time Evolution Operator}{16}{subsection.3.11}%
-\contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{17}{subsubsection.3.11.1}%
-\contentsline {subsubsection}{\numberline {3.11.2}Time Reversibility}{17}{subsubsection.3.11.2}%
-\contentsline {subsection}{\numberline {3.12}Commutation}{17}{subsection.3.12}%
-\contentsline {subsubsection}{\numberline {3.12.1}Ehrenfest Theorem}{18}{subsubsection.3.12.1}%
-\contentsline {subsection}{\numberline {3.13}Pauli Matrices}{18}{subsection.3.13}%
-\contentsline {subsection}{\numberline {3.14}Non-Hermitian Operators}{19}{subsection.3.14}%
-\contentsline {subsection}{\numberline {3.15}Problems}{19}{subsection.3.15}%
-\contentsline {section}{\numberline {4}Quantum Mechanics in Real Space}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Schr\"odinger Equations in Real Space}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Stationary States}{21}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Low-Energy Truncation}{22}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Non-Stationary States}{22}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Quantum Tunnelling}{23}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Particle in a Step-Like Potential}{23}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Quantum Tunnelling}{24}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Double-Well}{25}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Approximation 1: Infinite Barrier}{25}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Approximation 2: Finite Wells}{26}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Tunnelling Splitting}{26}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}Tunnelling Oscillations}{26}{subsubsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.4}Relation to Spin}{27}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Position and Momentum Operators}{27}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Position Eigenbasis}{27}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Momentum Operator}{28}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Commutation Relations}{28}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Dynamics and Control of a Quantum Bit}{28}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Time Evolution}{29}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Rabi Formula and Oscillation}{30}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Time-Dependent Hamiltonian}{31}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Rotating Frame}{31}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Change of Basis}{32}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Magnetic Resonance}{33}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Density Operator}{33}{subsection.7.7}%
-\contentsline {subsubsection}{\numberline {7.7.1}Properties of the Density Operator}{33}{subsubsection.7.7.1}%
-\contentsline {subsubsection}{\numberline {7.7.2}Density Operator for Mixed States}{34}{subsubsection.7.7.2}%
-\contentsline {subsubsection}{\numberline {7.7.3}Populations and Coherences}{34}{subsubsection.7.7.3}%
-\contentsline {subsubsection}{\numberline {7.7.4}State Purity}{35}{subsubsection.7.7.4}%
+\contentsline {section}{\numberline {1}Why Quantum Mechanics?}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Photoelectric Effect}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Planck-Einstein Relations}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Double-Slit Experiment}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Double-Slit with Particles}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Wave Function}{5}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Schr\"odinger Equation}{6}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Wave Packets}{6}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Heisenbery Uncertainty Principle}{7}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Problems}{7}{subsection.1.9}%
+\contentsline {section}{\numberline {2}The Mathematical Formalism of Quantum Mechanics}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Hilbert Space}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Operators}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Linear Operators}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Adjoint Operators}{9}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hermitian Operators}{10}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Basis of a Hilbert Space}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Observables}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Problems}{10}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Spin and The Postulates of Quantum Mechanics}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Postulate 1}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Application}{11}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Postulate 2}{11}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Application}{11}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Postulate 3}{11}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Application}{11}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Postulate 4}{12}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Application}{12}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Postulate 5}{13}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Application}{13}{subsubsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.6}Postulate 6}{14}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Application}{14}{subsubsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.7}Spin Matrices}{14}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Projection Operator}{15}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Exponential of a Matrix}{15}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Hamiltonian Eigenbasis}{16}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Time Evolution Operator}{17}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}Unitary Operators}{18}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.2}Time Reversibility}{18}{subsubsection.3.11.2}%
+\contentsline {subsection}{\numberline {3.12}Commutation}{18}{subsection.3.12}%
+\contentsline {subsubsection}{\numberline {3.12.1}Ehrenfest Theorem}{19}{subsubsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.13}Pauli Matrices}{19}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.14}Non-Hermitian Operators}{20}{subsection.3.14}%
+\contentsline {subsection}{\numberline {3.15}Problems}{20}{subsection.3.15}%
+\contentsline {section}{\numberline {4}Quantum Mechanics in Real Space}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Schr\"odinger Equations in Real Space}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Stationary States}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Low-Energy Truncation}{23}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Non-Stationary States}{23}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Quantum Tunnelling}{24}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Particle in a Step-Like Potential}{24}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Quantum Tunnelling}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Double-Well}{26}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Approximation 1: Infinite Barrier}{26}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Approximation 2: Finite Wells}{27}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Tunnelling Splitting}{27}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Tunnelling Oscillations}{27}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}Relation to Spin}{28}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Position and Momentum Operators}{28}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Position Eigenbasis}{28}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Momentum Operator}{29}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Commutation Relations}{29}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Dynamics and Control of a Quantum Bit}{29}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Time Evolution}{30}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Rabi Formula and Oscillation}{31}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Time-Dependent Hamiltonian}{32}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Rotating Frame}{32}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Change of Basis}{33}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Magnetic Resonance}{34}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Density Operator}{34}{subsection.7.7}%
+\contentsline {subsubsection}{\numberline {7.7.1}Properties of the Density Operator}{34}{subsubsection.7.7.1}%
+\contentsline {subsubsection}{\numberline {7.7.2}Density Operator for Mixed States}{35}{subsubsection.7.7.2}%
+\contentsline {subsubsection}{\numberline {7.7.3}Populations and Coherences}{35}{subsubsection.7.7.3}%
+\contentsline {subsubsection}{\numberline {7.7.4}State Purity}{36}{subsubsection.7.7.4}%
+\contentsline {section}{\numberline {8}Coupling and Entanglement of Quantum Particles}{36}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Coupled Quantum Systems}{36}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Tensor Product}{38}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Construction of a Large Hilbert Space}{38}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Operators in a Tensor Product Hilbert Space}{38}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Product States}{39}{subsubsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.3}Coupled Spins}{39}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Singlet/Triplet States}{40}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Entangled States}{41}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Bell's Inequality}{41}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.6.1}Violation of Bell's Inequality}{41}{subsubsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.7}Local Realism}{42}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Multi-Particle Density Matrices}{43}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.9}Partial Trace}{43}{subsection.8.9}%
+\contentsline {subsubsection}{\numberline {8.9.1}Partial Trace Over Non-Product States}{44}{subsubsection.8.9.1}%
+\contentsline {subsection}{\numberline {8.10}Entanglement Entropy}{45}{subsection.8.10}%

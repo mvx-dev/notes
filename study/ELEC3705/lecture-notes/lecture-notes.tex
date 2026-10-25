@@ -1802,4 +1802,534 @@ which shows that $\rho _{\psi }$ does not describe a pure state. However, it sti
 \]
 which is less than $\text{Tr}\left( \rho _{\psi }^2 \right)$. $\text{Tr}(\rho ^2)$ is called state purity.
 
+\section{Coupling and Entanglement of Quantum Particles}
+\subsection{Coupled Quantum Systems}
+The previous systems were all single-particle systems, and as such they have analogues in the classical world. The more interesting stuff happens when we look at more than one particle.
+
+Consider a spin. It can described by basis state vectors
+\[
+    \ket{\uparrow} =\begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix},\quad \ket{\downarrow} =\begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix},
+\]
+and all its physical properties can be described by suitable combination of Pauli matrices. The way the Pauli matrices act on the basis states is
+\begin{align*}
+    \sigma _x \ket{\uparrow} &= \ket{\downarrow},&\quad \sigma _x \ket{\downarrow}&= \ket{\uparrow} \\
+    \sigma _y \ket{\uparrow} &= i \ket{\downarrow},&\quad \sigma _y \ket{\downarrow}&=-i \ket{\uparrow} \\
+    \sigma _z \ket{\uparrow} &= \ket{ \uparrow},&\quad \sigma _z \ket{\downarrow}&=-\ket{\downarrow}.
+\end{align*}
+We can extend these definitions to describe the combined state of two spins. For the basis of our Hilbert space, we can encode the spins using binary, giving
+\[
+    \ket{\uparrow \uparrow}=\begin{pmatrix}
+        1 \\ 0\\0\\0
+    \end{pmatrix},\quad \ket{\uparrow \downarrow}=\begin{pmatrix}
+        0 \\ 1 \\ 0 \\ 0
+    \end{pmatrix},\quad \ket{\downarrow \uparrow} =\begin{pmatrix}
+        0\\0\\1\\0
+    \end{pmatrix},\quad \ket{\downarrow \downarrow}=\begin{pmatrix}
+        0\\0\\0\\1
+    \end{pmatrix},
+\]
+which is obviously orthonormal. Next, we want to construct the Pauli matrices for each spin. The natural rule to apply is that each matrix should act on its own spin like a normal Pauli matrix, and leave the other spin untouched. Starting with the Pauli-$z$ matrices, they should behave as
+\[
+    \sigma _{z1}\ket{ \uparrow \uparrow}=\ket{\uparrow \uparrow},\quad\sigma _{z1}\ket{\uparrow \downarrow}=\ket{\uparrow \downarrow},\quad\sigma _{z1}\ket{\downarrow \uparrow}=-\ket{\downarrow \uparrow},\quad\sigma _{z1}\ket{\downarrow \downarrow}=-\ket{\downarrow \downarrow},
+\]
+which therefore gives the operator to be
+\[
+    \sigma _{z1}=\begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & 1 & 0 & 0\\
+        0 & 0&-1 &0 \\
+        0&0&0&-1
+    \end{pmatrix}.
+\]
+Similarly for the other spin, we have
+\[
+    \sigma _{z2}\ket{ \uparrow \uparrow}=\ket{\uparrow \uparrow},\quad\sigma _{z2}\ket{\uparrow \downarrow}=-\ket{\uparrow \downarrow},\quad\sigma _{z2}\ket{\downarrow \uparrow}=\ket{\downarrow \uparrow},\quad\sigma _{z2}\ket{\downarrow \downarrow}=-\ket{\downarrow \downarrow},
+\]
+and therefore
+\[
+    \sigma _{z2}=\begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0&1 &0 \\
+        0&0&0&-1
+    \end{pmatrix}.
+\]
+Now with the Pauli-$x$ matrices, we want them to behave as
+\[
+    \sigma _{x1}\ket{\uparrow \uparrow}=\ket{\downarrow \uparrow},\quad \sigma _{x1}\ket{\uparrow \downarrow}=\ket{\downarrow \downarrow},\quad\sigma _{x1}\ket{\downarrow \uparrow}=\ket{\uparrow \uparrow},\quad\sigma _{x1}\ket{\downarrow \downarrow}=\ket{\uparrow \downarrow},
+\]
+and therefore
+\[
+    \sigma _{x1}=\begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&1\\
+        1&0&0&0\\
+        0&1&0&0
+    \end{pmatrix}.
+\]
+Similarly,
+\[
+    \sigma _{x1}\ket{\uparrow \uparrow}=\ket{\uparrow \downarrow},\quad \sigma _{x1}\ket{\uparrow \downarrow}=\ket{\uparrow \uparrow},\quad\sigma _{x1}\ket{\downarrow \uparrow}=\ket{\downarrow \downarrow},\quad\sigma _{x1}\ket{\downarrow \downarrow}=\ket{\downarrow \uparrow},
+\]
+therefore
+\[
+    \sigma _{x2}=\begin{pmatrix}
+        0&1&0&0\\
+        1&0&0&0\\
+        0&0&0&1\\
+        0&0&1&0
+    \end{pmatrix}.
+\]
+
+\subsection{Tensor Product}
+Rather than constructing these matrices by hand, we can obtain these matrices describing multiple quantum systems by using the tensor product (or Kronecker product). Given two matrices $A$ and $B$ (here $2\times 2$ matrices for simplicity), their tensor product is obtained as the block matrix
+\begin{align*}
+    A\otimes B &=\begin{pmatrix}
+        a_{11}B&a_{12}B\\
+        a_{21}&Ba_{22}B
+    \end{pmatrix} \\
+               &=\begin{pmatrix}
+                   a_{11}b_{11}&a_{11}b_{12}&a_{12}b_{11}&a_{12}b_{12}\\
+                   a_{11}b_{21}&a_{11}b_{22}&a_{12}b_{21}&a_{12}b_{22}\\
+                   a_{21}b_{11}&a_{21}b_{12}&a_{22}b_{11}&a_{22}b_{12}\\
+                   a_{21}b_{21}&a_{21}b_{22}&a_{22}b_{21}&a_{22}b_{22}\\
+               \end{pmatrix}.
+\end{align*}
+This is valid for any dimension of matrices being multiplied. If $A$ has dimensions $m\times n$ and $B$ has dimensions $p\times q$, then $A\otimes B$ has $mp\times nq$ dimensions. The tensor product is associative
+\[
+    (A\otimes B)\otimes C=A\otimes (B\otimes C),
+\]
+so we just write $A\otimes B\otimes C$.
+
+\subsubsection{Construction of a Large Hilbert Space}
+Now we can use the tensor product to automatically and systematically construct the Hilbert space of as many particles as is necessary. Consider two spins, each one described in the basis
+\[
+    \ket{\uparrow}_i=\begin{pmatrix}
+        0\\1
+    \end{pmatrix},\quad \ket{\downarrow}_i\begin{pmatrix}
+        0 \\1
+    \end{pmatrix}\quad i=1,2.
+\]
+The basis for their combined Hilbert space is obtained by taking all the combinations of tensor products of individual basis vectors
+\begin{align*}
+    \ket{\uparrow \uparrow} &= \ket{\uparrow}_1\otimes \ket{\uparrow}_2&\quad \ket{\uparrow \downarrow}&=\ket{\uparrow}_1\otimes \ket{\downarrow}_2 \\
+                            &=\begin{pmatrix}
+                                1\times (1\quad 0)^T\\
+                                0\times (1\quad 0)^T
+                            \end{pmatrix}=\begin{pmatrix}
+                                1\\0\\0\\0
+                            \end{pmatrix},&\quad&=\begin{pmatrix}
+                                1\times (0\quad 1)^T\\
+                                0\times (0\quad 1)^T
+                            \end{pmatrix}=\begin{pmatrix}
+                                0\\1\\0\\0
+                            \end{pmatrix}\\
+    \ket{\downarrow \uparrow}&=\ket{\downarrow}_1\otimes \ket{\uparrow}_2&\quad \ket{\downarrow \downarrow}&=\ket{\uparrow}_1\otimes \ket{\uparrow}_2 \\
+                             &=\begin{pmatrix}
+                                 0\times (1\quad 0)^T \\
+                                 1\times (1\quad 0)^T
+                             \end{pmatrix}=\begin{pmatrix}
+                                 0\\0\\1\\0
+                             \end{pmatrix},&\quad&=\begin{pmatrix}
+                                 0\times (0\quad 1)^T \\
+                                 1\times(0\quad 1)^T
+                             \end{pmatrix}=\begin{pmatrix}
+                                 0\\0\\0\\1
+                             \end{pmatrix}.
+\end{align*}
+\subsubsection{Operators in a Tensor Product Hilbert Space}
+Similarly to how we constructed the spin states using the tensor product, we can also obtain the operators by using the same product. To do this, we take the tensor product of the desired operator and identity matrix, with the operator in the position we want affected, and the identity matrix in the position we want left alone.
+
+For example, take the two $\sigma _{xi}$ operators from before. We can describe them as
+\begin{align*}
+    \sigma _{x1} &= \sigma _x\otimes \mathbb{I}=\begin{pmatrix}
+        0\times\begin{pmatrix}
+            1&0\\0&1
+        \end{pmatrix}& 1\times\begin{pmatrix}
+        1&0\\0&1
+        \end{pmatrix}\\
+        1\times\begin{pmatrix}
+            1&0\\0&1
+        \end{pmatrix}& 0\times\begin{pmatrix}
+        1&0\\0&1
+        \end{pmatrix}
+    \end{pmatrix}=\begin{pmatrix}
+    0&0&1&0\\
+    0&0&0&1\\
+    1&0&0&0\\
+    0&1&0&0
+    \end{pmatrix}\\
+        \sigma _{x2}&=\mathbb{I}\otimes \sigma _x=\begin{pmatrix}
+        1\times\begin{pmatrix}
+            0&1\\1&0
+        \end{pmatrix}&0\times\begin{pmatrix}
+        0&1\\1&0
+        \end{pmatrix}\\
+        0\times\begin{pmatrix}
+            0&1\\1&0
+        \end{pmatrix}&1\times\begin{pmatrix}
+        0&1\\1&0
+        \end{pmatrix}
+    \end{pmatrix}=\begin{pmatrix}
+    0&1&0&0\\
+    1&0&0&0\\
+    0&0&0&1\\
+    0&0&1&0
+    \end{pmatrix}.
+\end{align*}
+In general, if we have $N$ spins,
+\[
+    \sigma _{xi}=\mathbb{I}\otimes \mathbb{I}\otimes \cdots\otimes \sigma _x\otimes \cdots\otimes \mathbb{I},
+\]
+i.e. there are $N$ total products, with the $i$-th position being the operator.
+
+\subsubsection{Product States}
+In the Hilbert space describing the two spins, we can use the tensor product to write states that represent combinations of individual spin states. For example, to express the state where spin $1$ is pointing along $+z$ and spin $2$ is pointing along $+x$, we can write
+\[
+    \ket{\psi _1}=\ket{1}=\begin{pmatrix}
+        1\\0
+    \end{pmatrix},\quad \ket{\psi _2}=\ket{X}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1\\1
+    \end{pmatrix}.
+\]
+The corresponding product state in the combined Hilbert space of the two spins is
+\[
+    \ket{\psi }=\ket{\psi _1}\otimes \ket{\psi _2}=\begin{pmatrix}
+        1\\0
+    \end{pmatrix}\otimes \frac{1}{\sqrt{2}}\begin{pmatrix}
+        1\\1
+    \end{pmatrix}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1\\1\\0\\0
+    \end{pmatrix}.
+\]
+States obtained from the tensor product of individual particle states are called separable, and they describe the individual properties of separate systems. For example, you can easily verify that
+\[
+    \bra{\psi }\sigma _{z1}\ket{\psi }=1,\quad \text{and}\quad \bra{\psi }\sigma _{x 2}\ket{\psi }=1
+\]
+as expected.
+
+\subsection{Coupled Spins}
+Consider two electron spins, each described by vector Pauli matrices $\mathbf{\sigma }_1,$ $\mathbf{\sigma }_2$. When placed in close proximity, they can interact in a variety of ways
+\begin{itemize}
+    \item \textbf{Dipolar interaction}: each spin produces a magnetic field, which in turn affect the energy of the other. This is analogous to the classical case.
+    \item \textbf{Exchange interaction}: the orbits of the electrons overlap, and the quantum mechanical eigenstates of the system are symmetric/antisymmetric combinations of orbitals, to which correspond antisymmetry/symmetric spin configurations.
+\end{itemize}
+In any case, the two-spin Hamiltonian can be written in a simplified form as
+\[
+    \mathcal{H}=J\mathbf{\sigma }_1\cdot\mathbf{\sigma }_2,
+\]
+where $J<0$ corresponds to a ferromagnetic interaction (favours parallel spin alignment), and $J>0$ corresponds to an antiferromagnetic interaction (favours antiparallel spin alignment).
+
+We can write out the product of the Pauli matrices
+\begin{align*}
+    \mathcal{H} &= J\mathbf{\sigma }_1\cdot\mathbf{\sigma }_2\\
+                &= J \left( \sigma _{x1}\sigma _{x2}+\sigma _{y1}\sigma _{y 2}+\sigma _{z1}\sigma _{z 2} \right)\\
+                &= J\begin{pmatrix}
+                    1&0&0&0\\
+                    0&-1&2&0\\
+                    0&2&-1&0\\
+                    0&0&0&1
+                \end{pmatrix}.
+\end{align*}
+The eigenstates of this matrix are
+\begin{align*}
+    \ket{T_+} &=\begin{pmatrix}
+        1\\0\\0\\0
+    \end{pmatrix}=\ket{\uparrow \uparrow}\\
+        \ket{T_0} &=\begin{pmatrix}
+            0\\1\\1\\0
+        \end{pmatrix}= \frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}+\ket{\downarrow \uparrow} \right) \\
+            \ket{T_-}&=\begin{pmatrix}
+            0\\0\\0\\1
+        \end{pmatrix}=\ket{\downarrow \downarrow}\\
+            \ket{S}&=\begin{pmatrix}
+            0\\-1\\1\\0
+        \end{pmatrix}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right).
+\end{align*}
+The first three states are triplet states, with eigenvalue $E_T=J$ (3-fold degenerate), and the last state is a singlet state with eigenvalue $E_S=-3J$ (non-degenerate). This gives the singlet-triplet energy splitting to be $4J$. The factor $4$ comes from the definition of the Hamiltonian using Pauli matrices, and if instead it had been defined using spin-$\frac{1}{2}$ matrices, the splitting would be just $J$.
+
+\subsection{Singlet/Triplet States}
+To understand the meaning of these eigenstates, it's best to calculate the expectation values of some observable. Consider for example the observable that describes the sum of $z$-projections of the two spins
+\[
+    \sigma _{z,tot}=\sigma _{z1}+\sigma _{z 2}=\begin{pmatrix}
+    2&0&0&0\\
+    0&0&0&0\\
+    0&0&0&0\\
+    0&0&0&-2
+    \end{pmatrix}.
+\]
+Using the eigenstates from above, we get
+\begin{align*}
+    \bra{T_+}\sigma _{z,tot}\ket{T_+} &= 2\\
+    \bra{T_0}\sigma _{z,tot}\ket{T_{0}}&=0\\
+    \bra{T_-}\sigma _{z,tot}\ket{T_-}&=-2\\
+    \bra{S}\sigma _{z,tot}\ket{S}&= 0.
+\end{align*}
+Both $\ket{T_0}$ and $\ket{S}$ have zero total $z$-projection, meaning that there is nothing differing them from each other in this instance. Instead, consider the square of the total spin
+\[
+    \sigma^2=(\sigma _{x1}+\sigma _{x 2})^2+\left( \sigma _{y1}+\sigma _{y 2} \right)^2 +\left( \sigma _{z1}+\sigma _{z 2} \right)^2=\begin{pmatrix}
+        8&0&0&0\\
+        0&4&4&0\\
+        0&4&4&0\\
+        0&0&0&8
+    \end{pmatrix}.
+\]
+This gives the expectation values
+\begin{align*}
+    \bra{T_+}\sigma^2 \ket{T_+} &= 8\\
+    \bra{T_0}\sigma^2 \ket{T_0} &= 8\\
+    \bra{T_-}\sigma^2 \ket{T_-} &=8\\
+    \bra{S}\sigma^2 \ket{S}&=0.
+\end{align*}
+All triplet states have the same value of the square of the total spin, whereas the singlet state has zero total spin.
+
+\subsection{Entangled States}
+Consider the singlet state, what is the direction of spin 1 and spin 2 in this state? We can start by writing it out
+\[
+    \ket{S}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right)=\frac{1}{\sqrt{2}} \left[\begin{pmatrix}
+        0\\1\\0\\0
+    \end{pmatrix}-\begin{pmatrix}
+        0\\0\\1\\0
+    \end{pmatrix} \right] =\frac{1}{\sqrt{2}}\begin{pmatrix}
+        0\\1\\-1\\0
+    \end{pmatrix}.
+\]
+To understand where each spin points, we need to write it as a product state, i.e. find the two 2-dimensional vectors $\ket{\psi _1}$ and $\ket{\psi_2 }$ that satisfy
+\[
+    \ket{S}=\ket{\psi _1}\otimes \ket{\psi _2}, 
+\]
+which is impossible. Therefore, $\ket{S}$ and $\ket{T_0}$ are entangled states that cannot be obtained as the tensor product of two single-particle states. It is not possible to attribute a defined state to the individual constituents. This is the meaning of the first postulate of quantum mechanics. For instance, in a 4-dimensional Hilbert space constructed as the tensor product of two 2-dimensional spaces, you can have legitimate states that are not tensor products of states in the 2D spaces.
+
+\subsection{Bell's Inequality}
+Consider two spins, which are prepared initially in some joint state $\ket{\psi }$. We can separate them out, and measure their projection along two axes (defined as the colatitude $\theta $) on each side, $\alpha $ and $\alpha'$ on the left, and $\beta $ and $\beta'$ on the right. Express them as Pauli matrices, so that the outcome of the measurement can only be $+1$ or $-1$. This can repeated multiple times, which allows us to calculate the quantity
+\[
+    M=ab-ab'+a'b+a'b'=a(b-b')+a'(b+b').
+\]
+An important note for this is that measurement outcomes can only be $\pm 1$, so it's obvious to see that $M$ can only take values $\pm 2$. Therefore, if the experiment is repeated many times and the average value of $M$ is calculate, we should expect that
+\[
+    -2\leq \left\langle M \right\rangle \leq 2.
+\]
+This is known as the Clauser-Horne-Shimony-Holt (CHSH) formulation of Bell's inequality.
+
+\subsubsection{Violation of Bell's Inequality}
+Assume the two spins were initially prepared in a singlet state
+\[
+    \ket{S}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right)=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        0\\1\\-1\\0
+    \end{pmatrix}.
+\]
+We wish to calculate the probability $\mathcal{P}_{1,1}$ of obtaining the outcome $a=1,$ $b=1$ from the measurement of the individual spins along angles $\alpha $ and $\beta $. The expression of the eigenstate operator $S_u$ making an angle $\theta $ with the vertical axis, with positive eigenvalue
+\[
+    \ket{U_{\theta }}=\cos \frac{\theta }{2}\ket{\uparrow}+\sin \frac{\theta }{2}\ket{\downarrow}=\begin{pmatrix}
+        \cos \frac{\theta }{2}\\ \sin \frac{\theta }{2}
+    \end{pmatrix}.
+\]
+Therefore, the probability is
+\[
+    \mathcal{P}_{1,1}=\left| \braket{S}{U_\alpha U_\beta } \right|^2,
+\]
+where $\ket{U_\alpha U_\beta }=\ket{U_\alpha }\otimes \ket{U_\beta }$. Expanding this out, we get
+\begin{align*}
+    \mathcal{P}_{1,1} &= \left| \braket{S}{U_\alpha U_\beta } \right|^2\\
+                      &= \frac{1}{2} \left| (0\quad 1\quad-1\quad 0)\begin{pmatrix}
+                          \cos \frac{\alpha }{2}\cos \frac{\beta }{2}\\
+                          \cos \frac{\alpha }{2}\sin \frac{\beta }{2} \\
+                          \sin \frac{\alpha }{2}\cos \frac{\beta }{2}\\
+                          \sin \frac{\alpha }{2}\sin \frac{\beta }{2}
+                      \end{pmatrix}\right|^2 \\
+                      &=\frac{1}{2}\left| \cos \frac{\alpha }{2}\sin \frac{\beta }{2}-\sin \frac{\alpha }{2}-\cos \frac{\beta }{2} \right|^2.
+\end{align*}
+We have the trigonometric identity
+\[
+    \sin(\alpha -\beta )=\sin\alpha \cos\beta -\cos\alpha \sin\beta ,
+\]
+therefore
+\[
+    \mathcal{P}_{1,1}=\frac{1}{2}\sin^2 \left( \frac{\alpha -\beta }{2} \right).
+\]
+Similarly, we find
+\begin{align*}
+    \mathcal{P}_{-1,-1} &= \frac{1}{2}\sin^2 \left( \frac{\alpha -\beta }{2} \right) \\
+    \mathcal{P}_{1,-1}=\mathcal{P}_{-1,1}&=\frac{1}{2}\cos^2 \left( \frac{\alpha -\beta }{2} \right).
+\end{align*}
+From this, we can calculate the expected average of the outcomes of the measurement of the spins along directions $\alpha $ (on the left) and $\beta $ (on the right) to be
+\[
+    \left\langle ab \right\rangle =\mathcal{P}_{1,1}+\mathcal{P}_{-1,-1}-\mathcal{P}_{1,-1}-\mathcal{P}_{-1,1}=-\cos(\alpha -\beta ).
+\]
+Also recall that $\cos 2\theta =\cos^2\theta -\sin^2\theta $, and therefore the Bell quantity $\left\langle M \right\rangle $ can be rewritten as
+\[
+    \left\langle M \right\rangle =-\cos(\alpha -\beta )+\cos(\alpha -\beta')-\cos(\alpha'-\beta )-\cos(\alpha'-\beta').
+\]
+We can choose the angles $\alpha ,\alpha',\beta ,\beta'$ as
+\begin{align*}
+    -\cos(\alpha -\beta ) &= -\frac{\sqrt{2}}{2}\\
+    \cos(\alpha -\beta')&=-\frac{\sqrt{2}}{2}\\
+    -\cos(\alpha'-\beta )&=-\frac{\sqrt{2}}{2}\\
+    -\cos(\alpha'-\beta')&=-\frac{\sqrt{2}}{2},
+\end{align*}
+which we can plug into the above to get
+\[
+    \boxed{\left\langle M \right\rangle =-2\sqrt{2}}
+\]
+An entangled state can violate Bell's inequality.
+
+\subsection{Local Realism}
+Bell's inequality relies upon three assumptions
+\begin{itemize}
+    \item Locality: a physical system cannot be instantly affected by distance objects
+    \item Realism: the physical properties of an object exist already before they are observed
+    \item Free choice: we can freely choose the measurement settings.
+\end{itemize}
+To obtain values $\left\langle M \right\rangle >2$ from the inequality, we must admit that either
+\begin{itemize}
+    \item Non-Realism: the physical properties of the system which give rise to the values $a$, $a'$, $b$, $b'$ do not pre-exist the measurement, and therefore we can't sum the value taken during the different experiments.
+    \item Non-Locality: the choice of measurement axis at one end instantly influences the statistics of the measurement outcomes at the other end
+    \item Super-Determinism: everything, including the action of us setting up a Bell's inequality test and seemingly randomly choosing measurement settings $\alpha $, $\alpha'$, $\beta $, $\beta'$ was already pre-determined.
+\end{itemize}
+
+\subsection{Multi-Particle Density Matrices}
+Recall the definition of a density matrix: a quantum system described by a state $\ket{\psi }$ can also be described by a density matrix 
+\[
+    \rho =\ket{\psi }\bra{\psi }.
+\]
+Now consider two quantum systems, $A$ and $B$ described by states $\ket{\psi _A}$ and $\ket{\psi _B}$, which are vectors in vector spaces with bases
+\begin{align*}
+    \left\{ \ket{u_m} \right\},m &= 1\cdots M \quad \text{for system }A\\
+    \left\{ \ket{\nu _n} \right\},n&=1 \cdots N\quad \text{for system }B
+\end{align*}
+The combined system will be described by the tensor product state $\ket{\psi _C}=\ket{\psi _A}\otimes \ket{\psi _B}$, which is a state defined in a vector space having a basis $\left\{ \ket{w_p} \right\}$, the tensor products of $\left\{ \ket{u_m} \right\}$ and $\left\{ \ket{\nu _n} \right\}$
+\[
+    \left\{ \ket{w_p} \right\}=\left\{ \ket{u_m}\otimes \ket{\nu _n} \right\}, m=1\cdots M,n=1\cdots N\to p=1\cdots M\times N.
+\]
+Note that we will simply write $\ket{u_m}\otimes \ket{\nu _n}$ as $\ket{u_m}\ket{\nu _n}$. It can be shown that the density matrix describing the combined system is just the tensor product of the individual density matrices 
+\[
+    \rho ^C=\rho^A\otimes \rho ^B=\left( \ket{\psi _A} \bra{\psi _A}\right)\otimes \left( \ket{\psi _B}\bra{\psi _B} \right).
+\]
+
+\subsection{Partial Trace}
+Given a tensor-product density matrix $\rho ^C=\rho ^A\otimes \rho ^B$, is it possible to reconstruct the individual ones, $\rho ^A$ and $\rho ^B$? Recall that to find the individual matrix elements, we have
+\begin{align*}
+    \rho ^A_{m,m'} &= \bra{u_m}\rho ^A \ket{u_{m'}}\\
+    \rho ^B_{n,n'} &= \bra{\nu _n}\rho ^B \ket{\nu _{n'}}.
+\end{align*}
+Similarly, for the combined system,
+\[
+    \rho ^C_{p,p'}=\bra{w_p}\rho ^C \ket{w_{p'}}=\bra{u_m}\bra{\nu _n}\rho ^C \ket{u_{m'}}\ket{\nu _{n'}}.
+\]
+An individual density matrix is recovered by taking the partial trace of the combined density matrix over the basis states of the other particle
+\begin{align*}
+    \rho ^A_{m,m'} &= \left( \text{Tr}_B \left( \rho ^C \right) \right)_{m,m'}=\sum_{n}\bra{u_m}\bra{\nu _n}\rho ^C \ket{u_{m'}}\ket{\nu _n}\\
+    \rho ^B_{n,n'}&=\left( \text{Tr}_A \left( \rho ^C \right) \right)_{n,n'}=\sum_{m}\bra{u_m}\bra{\nu _n}\rho ^C \ket{u_m}\ket{\nu _{u'}}.
+\end{align*}
+Note the elements that have the same index. The meaning of the partial trace is that it gives the state of one particle, averaged over the possible states of the other.
+
+\begin{callout}{example}[Example]
+\label{example:s8-e1}
+Given the two states 
+\[
+    \ket{\psi _A}=\begin{pmatrix}
+        0.6\\0.8
+    \end{pmatrix},\quad \ket{\psi _B}=\begin{pmatrix}
+        1\\0
+    \end{pmatrix},
+\]
+find the density matrices $\rho ^A$, $\rho ^B$, and $\rho ^C=\rho ^A\otimes \rho ^B$, and hence find $\rho ^B$ from $\rho ^C$.
+
+We have the density matrices of our two states to be
+\begin{align*}
+    \ket{\psi _A}\Rightarrow\rho ^A &=\begin{pmatrix}
+        0.6\\0.8
+    \end{pmatrix}\left( 0.6\quad 0.8 \right)\\
+                                    &=\begin{pmatrix}
+                                        0.36&0.48\\0.48&0.64
+                                    \end{pmatrix},\\
+        \ket{\psi _B}\Rightarrow\rho ^B&=\begin{pmatrix}
+            1\\0
+        \end{pmatrix}(1\quad 0)  \\
+                                       &=\begin{pmatrix}
+                                           1&0\\0&0
+                                       \end{pmatrix}.
+\end{align*}
+From this, we get
+\begin{align*}
+    \rho ^C &= \rho ^A\otimes \rho ^B \\
+            &=\begin{pmatrix}
+                0.36&0&0.48&0\\
+                0&0&0&0\\
+                0.48&0&0.64&0\\
+                0&0&0&0
+            \end{pmatrix}.
+\end{align*}
+Using the partial trace, we get
+\begin{align*}
+    \rho ^B &= \text{Tr}_A \left( \rho ^C \right) \\
+            &=\left( \bra{0}_A\otimes I_B \right)\rho ^C \left( \ket{0}_A\otimes I_B \right)+\left( \bra{1}_A\otimes I_B \right)\rho ^C \left( \ket{1}_A\otimes I_B \right) \\
+            &=\begin{pmatrix}
+                0.36&0\\0&0
+            \end{pmatrix} +\begin{pmatrix}
+                0.64&0\\0&0
+            \end{pmatrix} \\
+            &=\begin{pmatrix}
+                1&0\\0&0
+            \end{pmatrix}.
+\end{align*}
+\end{callout}
+When a joint state is a product state, averaging over the other has no effect, i.e. there is no influence between the two states.
+
+\subsubsection{Partial Trace Over Non-Product States}
+In the tensor-product vector space, we can find states that are not the tensor product of single-particle states. However, if we use the density matrix $\rho $ instead of the state $\ket{\psi }$, we can always calculate a partial trace. When taking the partial trace over a non-product state, we find that something this is not a pure state, instead it is a mixed state.
+
+For example, the singlet state has a density matrix given by
+\begin{align*}
+    \ket{S} &= \frac{1}{\sqrt{2}}\begin{pmatrix}
+        0\\1\\-1\\0
+    \end{pmatrix}\\
+    \Rightarrow \rho ^S=\frac{1}{2}\begin{pmatrix}
+        0&0&0&0\\
+        0&1&-1&0\\
+        0&-1&1&0\\
+        0&0&0&0
+    \end{pmatrix}.
+\end{align*}
+The trace over spin $A$ is given by 
+\[
+    \rho ^B=\text{Tr}_A(\rho ^S)=\frac{1}{2}\begin{pmatrix}
+        0&0\\0&1
+    \end{pmatrix}+\frac{1}{2}\begin{pmatrix}
+        1&0\\0&0
+    \end{pmatrix}=\begin{pmatrix}
+        0.5 & 0 \\0&0.5
+    \end{pmatrix}.
+\]
+Calculating the state purity, we get 
+\[
+    \text{Tr}\left[ \left( \rho ^B \right)^2 \right]=\text{Tr}\begin{pmatrix}
+        0.25 & 0\\0&0.25
+    \end{pmatrix}=0.5<1.
+\]
+
+\subsection{Entanglement Entropy}
+Entropy is a measure of the "disorder" of a system. Consider a physical system that can have $N$ physical states, each with probability $p_i$ of being occupied. The thermodynamic entropy is 
+\[
+    S=-k_B \sum_{i}p_i \log p_i.
+\]
+$S=0$ is only one state $\ket{j}$ is occupied (i.e. $p_i=\delta _{ij}$), and $S=k_B\log N$ is maximum when $p_i=\frac{1}{N},\quad \forall i$. Shannon entropy extends to this information theory 
+\[
+    S=\sum_{i}p_i\log \left( \frac{1}{p_i} \right),
+\]
+where $p_i$ is the probability of obtaining a piece of information. The information gain $\log_2 \left( \frac{1}{p_i} \right)$ when we receive the message $X_i$, and $p_i$ is the probability of receiving it.
+
+The diagonal elements $\rho _{i i}$ of a density matrix describe the probability $p_i$ of finding a system in the state $\ket{u_i}$. Therefore, it is logical to define the entropy of a quantum state as 
+\[
+    S=-\sum_{i}p_i\log p_i=-\text{Tr}(\rho \log\rho ).
+\]
+For a pure state, $S=0$. For a maximally mixed state, $\rho =\frac{1}{N}\mathbb{I}$, and $S=\log N$. Recall that the partial trace over the density matrix of an entangled state yields a mixed state. We can therefore use the entropy of the partial trace as a measure of entanglement 
+\[
+    S=-\text{Tr}\left( \text{Tr}(\rho )\log \left( \text{Tr}_A(\rho ) \right) \right).
+\]
+
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.13)  12 OCT 2026 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.10.22)  25 OCT 2026 13:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -873,7 +873,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write6
 \openout6 = `lecture-notes.toc'.
 
- [2] [3] [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+ [2] [3] [4] [5{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
 
 LaTeX Warning: Command \textdegree invalid in math mode on input line 765.
 
@@ -881,8 +881,8 @@ LaTeX Warning: Command \textdegree invalid in math mode on input line 765.
 LaTeX Warning: Command \textdegree invalid in math mode on input line 765.
 
 Missing character: There is no ° in font cmr10!
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-runsystem(latexminted cleantemp  --timestamp 20261012165335 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+[17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
+runsystem(latexminted cleantemp  --timestamp 20261025134509 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
  (./lecture-notes.aux)
  ***********
@@ -894,21 +894,21 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 90D2466F9F0486F2CDED770E449997EA;11908.
+(rerunfilecheck)             Checksum: DD8BC8A6B447C873AAF193A9C08FE12D;14926.
  ) 
 Here is how much of TeX's memory you used:
- 34708 strings out of 469515
- 716445 string characters out of 5470807
- 1285093 words of memory out of 5000000
- 62658 multiletter control sequences out of 15000+600000
- 638946 words of font info for 84 fonts, out of 8000000 for 9000
+ 34757 strings out of 469515
+ 717119 string characters out of 5470806
+ 1289146 words of memory out of 5000000
+ 62678 multiletter control sequences out of 15000+600000
+ 639565 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,16n,110p,582b,1154s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,20n,110p,582b,1154s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on lecture-notes.pdf (35 pages, 370276 bytes).
+Output written on lecture-notes.pdf (45 pages, 401153 bytes).
 PDF statistics:
- 750 PDF objects out of 1000 (max. 8388607)
- 642 compressed objects within 7 object streams
- 144 named destinations out of 1000 (max. 500000)
- 749 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 882 PDF objects out of 1000 (max. 8388607)
+ 763 compressed objects within 8 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 877 words of extra memory for PDF output out of 10000 (max. 10000000)
 
