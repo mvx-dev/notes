@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1792896309.6935 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1792896311.02459 0
+["pdflatex"] 1792990790.37814 "lecture-notes.tex" "lecture-notes.pdf" "lecture-notes" 1792990791.65905 0
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1775415801 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0500.tfm" 1775415801 1536 b3387106d9afecbfe14bde2de6eadf47 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1775415801 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -238,10 +238,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1792636851 5381098 9f966685d344a3d34adbc94f52661a01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1792636841 2328196 74f3a2fd5e78640ef54dcc91c3f3ae62 ""
-  "lecture-notes.aux" 1792896310.94801 14952 84ac86c77503771706e5757fd7c7f47d "pdflatex"
-  "lecture-notes.out" 1792896310.95001 14926 dd8bc8a6b447c873aaf193a9c08fe12d "pdflatex"
-  "lecture-notes.tex" 1792896308.98299 120329 0de8317cd9993d22d26036eadabcd3f1 ""
-  "lecture-notes.toc" 1792896310.95101 8033 2bdba2d116920032c4c2a6d23383303c "pdflatex"
+  "lecture-notes.aux" 1792990791.59275 15674 b28308c8fd37fb3ee4559a3eedae962c "pdflatex"
+  "lecture-notes.out" 1792990791.59475 16069 a402ebfc57f381078a58dc0e2f6fae56 "pdflatex"
+  "lecture-notes.tex" 1792990787.14771 124100 688358d6f4059866437e8e811734ebd8 ""
+  "lecture-notes.toc" 1792990791.59475 8531 d5b53e4c2844518bcd97a19b139192cb "pdflatex"
   "preamble.sty" 1790996341.59265 5883 ea09892a8bddaa217cb9fc5c6c4cf2a9 ""
   (generated)
   "lecture-notes.aux"

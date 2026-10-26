@@ -1890,7 +1890,7 @@ Rather than constructing these matrices by hand, we can obtain these matrices de
 \begin{align*}
     A\otimes B &=\begin{pmatrix}
         a_{11}B&a_{12}B\\
-        a_{21}&Ba_{22}B
+        a_{21}B&a_{22}B
     \end{pmatrix} \\
                &=\begin{pmatrix}
                    a_{11}b_{11}&a_{11}b_{12}&a_{12}b_{11}&a_{12}b_{12}\\
@@ -1903,7 +1903,7 @@ This is valid for any dimension of matrices being multiplied. If $A$ has dimensi
 \[
     (A\otimes B)\otimes C=A\otimes (B\otimes C),
 \]
-so we just write $A\otimes B\otimes C$.
+so we just write $A\otimes B\otimes C$. A tensor product can be thought of by replacing each index of matrix $A$ with the entirety of matrix $B$, whilst multiplying the matrix $B$ by the value previously at the index being replaced.
 
 \subsubsection{Construction of a Large Hilbert Space}
 Now we can use the tensor product to automatically and systematically construct the Hilbert space of as many particles as is necessary. Consider two spins, each one described in the basis
@@ -1983,7 +1983,7 @@ For example, take the two $\sigma _{xi}$ operators from before. We can describe 
 \end{align*}
 In general, if we have $N$ spins,
 \[
-    \sigma _{xi}=\mathbb{I}\otimes \mathbb{I}\otimes \cdots\otimes \sigma _x\otimes \cdots\otimes \mathbb{I},
+    \sigma _{xi}=\mathbb{I}\otimes \mathbb{I}\otimes \cdots\otimes \sigma _u\otimes \cdots\otimes \mathbb{I},
 \]
 i.e. there are $N$ total products, with the $i$-th position being the operator.
 
@@ -2331,5 +2331,49 @@ For a pure state, $S=0$. For a maximally mixed state, $\rho =\frac{1}{N}\mathbb{
 \[
     S=-\text{Tr}\left( \text{Tr}(\rho )\log \left( \text{Tr}_A(\rho ) \right) \right).
 \]
+
+\section{Identical Particles in Quantum Mechanics}
+\subsection{Classical and Quantum Identical Particles}
+In the classical world, fundamental particles (electrons, protons, neutrons, etc) are formally identical. We can assign "labels" to identical particles and write a mathematical state where each particle is identified by some physical property, such as position or velocity. However, we can swap the labels, obtaining a different mathematical state that corresponds to the same "physical state", since the particles are identical. The physical predictions won't depend on the choice of labels.
+
+In quantum mechanics, it is more complicated. There is no such thing as trajectory, and due to Heisenberg's uncertainty principle, two particles that come in close proximity to each other cannot be differentiated after the interaction. For example, when two particles collide, it is impossible to differentiate the particles once they move away after the interaction.
+
+\subsection{Permutation Operator}
+Consider two spins described by $2\times 2$ Pauli matrices. Since their Hilbert spaces have the same dimension, each one of them can be described in the same basis $\left\{ \ket{u_i} \right\},i=1,2$. We will use the notation $\ket{u_i(k)}$ for the basis vector $\ket{u_i}$ in the Hilbert space of spin $k$.
+
+The basis for the combined systems is obtained from the tensor product 
+\[
+    \left\{ \ket{u_i(1)\otimes \ket{u_j(2)}} \right\},\quad i=1,2;\ j=1,2.
+\]
+Note that $\ket{u_i(1)u_j(2)}$ can be used as a shorthand from the tensor product inside the brackets. The permutation operator $\mathbf{P}_{21}$ is defined by its action on the basis vectors 
+\[
+    P_{21}\ket{u_{i}(1)u_j(2)}=\ket{u_i(2)u_j(1)}\equiv \ket{u_j(1)u_i(2)},
+\]
+which has the effect of swapping the state of spin 2 with that of spin 1. Note that this is true in general, i.e. there is no assumption that the particles are identical.
+
+In general, the tensor product is not commutative, i.e. $A\otimes B\neq B\otimes A$. Therefore, formally, $\ket{u_i(1)u_j(2)}\neq \ket{u_j(2)u_i(1)}$. However, this does not correspond to a different state, it is just the difference in the order of the tensor product used to create the basis for the composite state. Both tensor products describe spin 1 in state $\ket{u_i}$ and spin 2 in state $\ket{u_j}$.
+
+Another thing to note is that $\ket{u_i(1)u_j(2)}\neq \ket{u_j(1)u_i(2)}$ as the particles may not necessarily be identical particles, e.g. an electron and a proton.
+
+\subsubsection{Properties of the Permutation Operator}
+The permutation operator has the following properties
+\begin{itemize}
+    \item $P_{21}$ is its own inverse, since $P_{21}^2=\mathbb{I}$
+    \item $P_{21}=P^\dagger_{21}$
+    \item $P_{21}$ is unitary $P^\dagger_{21}P_{21}=\mathbb{I}$
+    \item The eigenvalues of $P_{21}$ are $+1$ or $-1$, since their squares are 1
+    \item There are two types of eigenvectors for $P_{21}$:
+        \begin{itemize}
+            \item Symmetric eigenvectors: $P_{21}\ket{\psi _S}=\ket{\psi _S}$\item Antisymmetric eigenvectors: $P_{12}\ket{\psi _A}=-\ket{\psi _A}$.
+        \end{itemize}
+\end{itemize}
+Using this operator, we can construct two more operators
+\begin{align*}
+    S &= \frac{1}{2}\left( \mathbb{I}+P_{21} \right)&\quad&\text{symmetrizer}\\
+    A &= \frac{1}{2}\left( \mathbb{I}-P_{21} \right)&\quad&\text{antisymmetrizer}
+\end{align*}
+
+\subsection{Symmetrization Postulate}
+Since we are cannot meaningfully describe indistinguishable particles with pure states, we need an additional postulate for when dealing with multiple particles.
 
 \end{document}
