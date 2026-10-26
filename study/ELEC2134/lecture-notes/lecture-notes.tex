@@ -948,6 +948,179 @@ Similarly, the number of octaves between two frequencies is
 \subsection{Bode Plot}
 A bode plot is abscissa (logarithmic frequency) vs magnitude (in dB) or degrees. 
 
+\part{AC Circuit Analysis}
+\section{AC Fundamentals}
+In alternating current (AC), the flow of electric charge periodically changes direction, whereas in direct current (DC), the electric charge only ever flows in a single direction. AC is more efficient and economical to transmit over long distances, and has the advantage of being able to step-up or step-down the voltage using a transformer.
+
+\subsection{Characteristics of Alternating Current and Voltage}
+For AC power systems, there are two important quantities,
+\begin{itemize}
+    \item \textbf{Power loss}: the power losses $P_L$ in a conductor are a product of the square of the current and resistance of the conductor 
+    \[
+        P_L=I^2R.
+    \]
+    When transmitting a fixed power through a power line, if the current is doubled, the power loss will be four times greater.
+\item \textbf{Power transmitted}: the power transmitted $P_T$ is equal to the product of the current and the voltage 
+\[
+    P_T=VI.
+\]
+The same amount of power can be transmitted with a lower current by increasing the voltage, which leads to significantly more efficient transmission of power.
+\end{itemize}
+An alternating current or voltage can have different waveforms, but for the most part we will focus on sinusoidal waveforms, given by 
+\[
+    v(t)=V_m \sin \left( 2\pi ft \right)=V_m \sin \left( \frac{2\pi }{T}t \right),
+\]
+where $v(t)$ is the instantaneous voltage at time $t$, $V_m$ is the peak voltage, $f$ is the frequency, and $T$ is the period. Frequency is related to period by 
+\[
+    f=\frac{1}{T} \text{ Hz},
+\]
+but we can simplify both by expressing in angular velocity 
+\[
+    \omega =2\pi f=\frac{2\pi }{f}\text{ rad/s},
+\]
+which we can use to write our sinusoid as 
+\[
+    v(t)=V_m \sin\omega t.
+\]
+
+\subsection{Phase Angle}
+A sinusoidal waveform may or may not always start at $t=0$ (i.e. have it's first 0 crossing at $t=0$). A delay or advance in the waveform is known as the phase angle ($\phi $), which is in degrees or radians. We can include this in our sinusoidal waveform as 
+\[
+    v(t)=V_m \sin \left( \omega t\pm\phi  \right).
+\]
+Note that an advance looks like the waveform has been shifted to the left, however this is an advance as it reaches it's peak \textit{before} a sinusoid with no phase angle.
+\subsubsection{Phase Difference}
+Suppose a waveform $A$ is chosen as the reference waveform with the sinusoid given by 
+\[
+    v(t)=V_m \sin(\omega t).
+\]
+A waveform $B$ is said to lead the waveform $A$ by 45\textdegree if it has a phase angle of $\phi =+45 \degree$,
+\[
+    v(t)=V_m \sin \left( \omega t+45\degree \right).
+\]
+A waveform $C$ is said to lag the waveform $A$ by 60\textdegree if it has a phase angle of $\phi =-60\degree$,
+\[
+    v(t)=V_m\sin \left( \omega t-60\degree \right).
+\]
+Note that a sinusoid can also be expressed as a cosine,
+\[
+    v(t)=V_m\sin \left( \omega t+90\degree \right)=V_m\cos\omega t,\quad v(t)=V_m\cos(\omega t-90\degree)=V_m\sin\omega t.
+\]
+
+\subsection{Measurements of AC Quantities}
+For a sinusoidal waveform, we can measure
+\begin{itemize}
+    \item Peak value: the maximum value the sinusoid reaches
+    \item Peak-to-peak value: the voltage difference between the minimum and maximum of the sinusoid
+    \item Average value: the average value of the sinusoid, usually called the DC component. This is the offset from the horizontal axis.
+    \item Root Mean Square (RMS) value: the measure of the heating effect of the sinusoid. It is the practical amount of power in a sinusoid.
+\end{itemize}
+
+\subsubsection{Peak Value}
+The peak value of a sinusoid is known as the maximum voltage (or current) of the waveform, and occurs at two different positions in a cycle (one positive peak and one negative peak). The magnitude of these peaks are equal, and are $180\degree$ out of phase.
+
+\subsubsection{Peak-to-Peak Value}
+The peak-to-peak value of an AC waveform is the total height between opposite peaks, i.e. the difference between the magnitude of the positive peak and the magnitude of the negative peak.
+
+\subsubsection{Average Value}
+The average value of a sinusoid is the average of all its instantaneous values over a full cycle, given by 
+\[
+    V_{avg}=\frac{1}{T}\int_0^Tv(t)dt=\frac{V_m}{T\omega }\left[ \cos \left( \omega t \right) \right]_{\frac{2\pi }{\omega }}^0.
+\]
+Since the positive and negative alternations are (usually) identical, the average is zero.
+
+\subsubsection{Root Mean Square Value}
+The root mean square value (RMS) is a measure of the heating effect of a sine wave. It can be thought of as the equivalent value of DC that will product the same amount of power in a load as a given sine wave. It is given by 
+\[
+    v_{rms}=\frac{V_m}{\sqrt{2}},\quad i_{rms}=\frac{I_m}{\sqrt{2}}.
+\]
+This is independent of the phase angle or frequency of sine wave, and depends only on the amplitude of the waveform. The $I_{rms}$ of a periodic waveform $i(t)$ is defined as the current which produces the heat (i.e. power) in a given resistor $R$ at the same average rate as a direct current $I_{dc}$ 
+\[
+    P_{average}=RI_{rms}^2=RI_{dc}^2.
+\]
+Consider a periodic current waveform. We can find $I_{rms}$ as
+\begin{align*}
+    P_{avg} &= \frac{1}{T}\int_0^Tp(t)dt\\
+            &= \frac{1}{T}\int_0^Ti^2(t)Rdt\\
+            &= \frac{R}{T}\int_0^Ti^2(t)dt=RI^2_{rms}\\
+    \therefore I^2_{rms}&=\frac{1}{T}\int_0^Ti^2(t)dt\\
+    I_{rms}&= \sqrt{\frac{1}{T}\int_0^Ti^2(t)dt}.
+\end{align*}
+Similarly for voltage,
+\[
+    V_{rms}=\sqrt{\frac{1}{T}\int_0^Tv^2(t)dt}.
+\]
+For a waveform comprised of sinusoids of different frequencies, the RMS value is given by the sum of the squaer of the RMS values of each sinusoid. For an AC current $i(t)$ given by 
+\[
+    i(t)=I_0+\sum_{k}^{n} I_{m,k}\sin(\omega _kt),
+\]
+we have the RMS value of $i(t)$ to be 
+\[
+    I^2_{rms}=I_0^2+\sum_{k}^{n} I^2_{rms,k}.
+\]
+
+\subsection{Phasor Representation}
+A phasor is a line drawn from an origin that has both magnitude and angle. They are used in AC circuits to indicate time varying quantities of current and voltage. They have the form 
+\[
+    \mathbf{V}=V_m\phase{\phi },
+\]
+where $\mathbf{V}$ is the phasor, $V_m$ is the magnitude, and $\phi $ is the phase angle. It is a complex number that represents the amplitude and phase angle of a sinusoid. We can represent it in different forms
+\begin{itemize}
+    \item Rectangular: $\mathbf{V}=V_m\cos\phi +jV_m\sin\phi $
+    \item Polar: $\mathbf{V}=V_m\phase{\phi }$
+    \item Exponential: $\mathbf{V}=V_me^{j\phi }$
+\end{itemize}
+
+\subsection{The Voltage-Current Relationship for Components}
+\subsubsection{Resistor}
+Assume that the current through a resistor is given by 
+\[
+    i(t)=I_m\sin(\omega t)\quad\Rightarrow\mathbf{I}=I_m\phase{0\degree}.
+\]
+Therefore,
+\[
+    v(t)=i(t)R=RI_m\sin\omega t,
+\]
+which gives the phasor representation of the voltage to be 
+\[
+    \mathbf{V}=RI_m\phase{0\degree}.
+\]
+The phase angle of both voltage and current waveforms is $0\degree$, and they are said to be in-phase.
+
+\subsubsection{Inductor}
+Assume that the current through the inductor is given by 
+\[
+    i(t)=I_m\sin\omega t\quad\Rightarrow\mathbf{I}=I_m\phase{0\degree}.
+\]
+We have
+\begin{align*}
+    v_L(t) &= L \frac{d i(t)}{d t}\\
+           &=\omega LI_m\cos\omega t\\
+           &=\omega LI_m\sin \left( \omega t+90\degree \right).
+\end{align*}
+This gives the phasor representation of the voltage to be 
+\[
+    \mathbf{V}_L=\omega LI_m\phase{90\degree},
+\]
+indicating that the voltage leads the current by $90\degree$ OR that the current lags the voltage by $90\degree$.
+
+\subsubsection{Capacitor}
+Assume that the voltage across the capacitor is given by 
+\[
+    v_c(t)=V_m\sin\omega t\quad\Rightarrow\mathbf{V}_c=V_m\phase{0\degree}.
+\]
+We have
+\begin{align*}
+    i(t) &= C \frac{d v_c(t)}{d t}\\
+         &=\omega CV_m\cos\omega t\\
+         &=\omega CV_m\sin \left( \omega t+90\degree \right),
+\end{align*}
+which gives the phasor representation of the current to be 
+\[
+    \mathbf{I}=\omega CV_m\phase{90\degree}.
+\]
+Here, the current leads the voltage by $90\degree$ OR the voltage lags the current by $90\degree$. Note the impedance of a circuit element in an AC circuit is the ratio of the voltage phasor to the current phasor.
+
 \newpage
 \appendix
 \part{Appendix}
