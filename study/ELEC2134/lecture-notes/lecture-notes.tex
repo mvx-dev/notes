@@ -1121,6 +1121,100 @@ which gives the phasor representation of the current to be
 \]
 Here, the current leads the voltage by $90\degree$ OR the voltage lags the current by $90\degree$. Note the impedance of a circuit element in an AC circuit is the ratio of the voltage phasor to the current phasor.
 
+\subsection{Reactance}
+Reactance is the imaginary component of impedance. Since only inductors and capacitors have a complex impedance, they are the only two that have a reactance.
+
+\subsubsection{Inductor}
+For an inductor, the impedance is given by 
+\[
+    Z_L=j\omega L.
+\]
+This gives the reactance of the inductor to be 
+\[
+    X_L=\omega L=2\pi fL\Omega,
+\]
+which we can use to define the impedance to be 
+\[
+    Z_L=j\omega L=jX_L.
+\]
+As frequency increases, the inductive reactance also increases. In a DC circuit, an inductor acts as a short circuit, which transitions to an open circuit at high frequencies.
+
+\subsubsection{Capacitor}
+The impedance of a capacitor is given by 
+\[
+    Z_C=\frac{1}{j\omega C},
+\]
+which gives the reactance 
+\[
+    X_C=\frac{1}{wC}=\frac{1}{2\pi fC}\Omega .
+\]
+In terms of reactance, the impedance of a capacitor is 
+\[
+    Z_C=\frac{1}{j\omega C}=-jX_c.
+\]
+As frequency increases, the reactance decreases. In a purely DC circuit, it acts as an open circuit, and as a short circuit at high frequencies.
+
+\subsection{Impedance}
+\subsubsection{RC Circuit}
+Impedance in a RC (resistor and capacitor in series) is composed of resistance and reactance. The impedance is given by
+\begin{align*}
+    Z &= R+\frac{1}{j\omega C}\\
+      &=R-\frac{j}{\omega C}=R-jX_C.
+\end{align*}
+We can represent this in phasor form by finding the magnitude,
+\begin{align*}
+    \left| Z \right| &= \sqrt{R^2+\frac{-1}{\omega C}^2}\\
+                    &=\sqrt{R^2+X_C^2},
+\end{align*}
+and the angle,
+\begin{align*}
+    \theta  &= \tan^{-1}\left( \frac{-1}{\omega CR} \right)\\
+            &=\tan^{-1}\left( -\frac{X_C}{R} \right).
+\end{align*}
+Here, we take the current to be the reference, however for a parallel RC circuit, the voltage is taken as the reference.
+
+In parallel, we can write the following equations
+\begin{align*}
+    \mathbf{I}_T &= \mathbf{I}_R+j\mathbf{I}_C\\
+    \left| I_T \right|&=\sqrt{I_R^2+I_C^2}\\
+    \tan\theta &=\frac{\mathbf{I}_C}{\mathbf{I}_R}\\
+    \mathbf{I}_T&=\sqrt{I_R^2+I_C^2}\ \phase{0\degree}.
+\end{align*}
+
+\subsubsection{RL Circuit}
+Impedance in an RL (resistor and inductor in series) circuit is composed of resistance and reactance. The impedance is given by
+\begin{align*}
+    Z &= R+j\omega L\\
+      &=R+jX_L,
+\end{align*}
+which can be turned into a phasor
+\begin{align*}
+    \left| Z \right| &= \sqrt{R^2+\left( \omega L \right)^2} \\
+                     &= \sqrt{R^2X_L^2}\\
+    \theta &= \tan^{-1}\left( \frac{\omega L}{R}\right)\\
+                     &=\tan^{-1}\left( \frac{X_L}{R} \right).
+\end{align*}
+If the RL circuit was instead in parallel, we can write the following equations
+\begin{align*}
+    \mathbf{I}_T &= \mathbf{I}_R+\mathbf{I}_L\\
+    \left| I_T \right|&=\sqrt{I_R^2+I_L^2}\\
+    \tan\theta &=\frac{\mathbf{I}_L}{\mathbf{I}_R}\\
+    \mathbf{I}_T&=\sqrt{I_R^2+I_L^2}\ \phase{0\degree}.
+\end{align*}
+
+\subsection{Current and Voltage Division}
+Current division occurs when two components are connected in parallel. Given two components with impedances $Z_1$ and $Z_2$, the current through each is given by
+\begin{align*}
+    I_1 &= \frac{Z_2}{Z_1+Z_2}I\\
+    I_2&=\frac{Z_1}{Z_1+Z_2}.
+\end{align*}
+If the components were instead in series, they would divide the voltage, giving
+\begin{align*}
+    V_1 &= \frac{Z_1}{Z_1+Z_2}V\\
+    V_2&= \frac{Z_2}{Z_1+Z_2}V.
+\end{align*}
+
+
 \newpage
 \appendix
 \part{Appendix}
