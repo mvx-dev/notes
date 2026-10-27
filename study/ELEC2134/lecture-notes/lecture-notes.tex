@@ -1214,6 +1214,67 @@ If the components were instead in series, they would divide the voltage, giving
     V_2&= \frac{Z_2}{Z_1+Z_2}V.
 \end{align*}
 
+\section{AC Circuit Theorems}
+\subsection{Impedance, Admittance, and Susceptance}
+The reciprocal of resistance is known as conductance (G), and is expressed in siemens (S), or $\Omega^{-1}$ (note that this is only if the reactance is zero). It is given by 
+\[
+    G=\frac{1}{R}.
+\]
+Similarly, the reciprocal of impedance is known as admittance (Y), and is also in units of siemens or $\Omega^{-1}$. It is given by 
+\[
+    Y=\frac{1}{Z}=G+jB,
+\]
+where the imaginary part $B$ is called the susceptance, and can be either capacitive $B_C$ or inductive $B_I$. Admittance is used in parallel circuit analysis, as it is equivalent to the same circuit in parallel in terms of impedance, i.e.
+\begin{figure}[htbp]
+    \centering
+    \begin{circuitikz}[american voltages]
+        \draw (0,0) to [short, *-] (2,0) to [generic, l_=$R$] (2,-2) to [generic, l_=$\mathrm{j}X$] (2,-4)
+            (0,0) to [open, v^>=$Z$] (0,-4) to [short, *-] (2,-4);
+        \draw[stealth-stealth] (2.5,-2) to (3,-2);
+        \draw (3.5,0) to [short,*-] ++(1,0) to [generic, l_=$G$] ++(0,-4)
+            (3.5,-4) to [short,*-] ++(2,0) to [generic, l_=$\mathrm{j}B$] ++(0,4) to [short] ++(-1,0)
+            (3.5,0) to [open, v>=$Y$] (3.5,-4);
+    \end{circuitikz}
+    \caption{Transformation between impedance and admittance.}
+    \label{fig:impedance-to-admittance}
+\end{figure}
+Which we can see by plugging in our variables
+\begin{align*}
+    Y &= \frac{1}{Z}\\
+      &=\frac{1}{R+jX}\\
+      &=\frac{1}{R+jX}\frac{R-jX}{R-jX}\\
+      &=\frac{R}{R^2+X^2}-j \frac{X}{R^2+X^2}\\
+      &=G+jB.
+\end{align*}
+This gives the relationship between resistance, reactance, conductance, and susceptance to be
+\begin{table}[H]
+    \centering
+    \label{tab:s7-rxgb-relationship}
+    \begin{tabular}{l|c|c}
+        Component & Impedance & Admittance \\
+        \hline
+        \hline
+        Real & $R=\frac{G}{G^2+B^2}$ & $G=\frac{R}{R^2+X^2}$ \\
+        \hline
+        Imaginary & $X=-\frac{B}{G^2+B^2}$ & $B=-\frac{X}{R^2+X^2}$
+    \end{tabular}
+\end{table}
+Note that $G=\frac{1}{R}\iff X=0$. We can describe the basic elements in terms of impedance and admittance
+\begin{table}[H]
+    \centering
+    \label{tab:s7-basis-elements}
+    \begin{tabular}{c|c|c}
+        Element & Impedance & Admittance \\
+        \hline
+        \hline
+        $R$ & $Z_R=R$ & $Y_R=\frac{1}{R}$ \\
+        $L$ & $Z_L=\mathrm{j}\omega L$ & $Y_L=\frac{1}{\mathrm{j}\omega L}$ \\
+        $C$ & $Z_c=\frac{1}{\mathrm{j}\omega L}$ & $Y_C=\mathrm{j}\omega L$
+    \end{tabular}
+\end{table}
+
+\subsection{Delta-Wye Transformation}
+A Delta $\Delta $ network can be converted to a Wye $\mathrm{Y}$ (or Star network), and vice-versa. This is normally used in three-phase AC circuits.
 
 \newpage
 \appendix
