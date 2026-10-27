@@ -87,17 +87,21 @@
 \contentsline {section}{\numberline {7}AC Circuit Theorems}{29}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Impedance, Admittance, and Susceptance}{29}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Delta-Wye Transformation}{30}{subsection.7.2}%
-\contentsline {part}{IV\hspace {1em}Appendix}{31}{part.4}%
-\contentsline {section}{\numberline {A}Filters}{31}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Types of Filters}{31}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Useful Integrals}{31}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Integrals}{31}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Integration by Parts}{32}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{32}{subsubsection.B.2.1}%
-\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{32}{subsubsection.B.2.2}%
-\contentsline {subsubsection}{\numberline {B.2.3}Sine}{32}{subsubsection.B.2.3}%
-\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{32}{subsubsection.B.2.4}%
-\contentsline {subsection}{\numberline {B.3}Definite Integrals}{32}{subsection.B.3}%
-\contentsline {section}{\numberline {C}Trigonometric Identities}{33}{appendix.C}%
-\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{34}{appendix.D}%
-\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{35}{appendix.E}%
+\contentsline {subsection}{\numberline {7.3}Voltage and Current Sources}{31}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Ideal Sources}{31}{subsubsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.4}Superposition}{31}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Transformation Between Voltage and Current Sources}{31}{subsection.7.5}%
+\contentsline {part}{IV\hspace {1em}Appendix}{32}{part.4}%
+\contentsline {section}{\numberline {A}Filters}{32}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{32}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{32}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{32}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{33}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{33}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{33}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{33}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{33}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{33}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{34}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{35}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{36}{appendix.E}%

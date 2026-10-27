@@ -1274,7 +1274,75 @@ Note that $G=\frac{1}{R}\iff X=0$. We can describe the basic elements in terms o
 \end{table}
 
 \subsection{Delta-Wye Transformation}
-A Delta $\Delta $ network can be converted to a Wye $\mathrm{Y}$ (or Star network), and vice-versa. This is normally used in three-phase AC circuits.
+A Delta $\Delta $ network can be converted to a Wye $\mathrm{Y}$ (or Star network), and vice-versa. This is normally used in three-phase AC circuits. To transform Delta to Wye, each impedance in the Wye network is the product of the impedance in the two adjacent Delta branches, divided by the sum of the three Delta impedances. To transform back, each impedance in the Delta network is the sum of all possible products of Wye impedances taken two at a time, divided by the opposite Wye impedance.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \path (0,0) coordinate(n) node[above,red]{$n$};
+        % We want a star; let's use polar coordinates
+        \draw(n) to[generic, l_=$Z_3$, *-o] ++(-90:3) coordinate(c) node[left,red]{$c$};
+        \draw(n) to[generic, l_=$Z_2$, *-o] ++(30:3)  coordinate(b) node[above,red]{$b$};
+        \draw(n) to[generic, l_=$Z_1$, *-o] ++(150:3) coordinate(a) node[left,red]{$a$};
+        \draw(b) to[generic, l_=$Z_a$, -] (c);
+        \draw(c) to[generic, l_=$Z_b$, -] (a);
+        \draw(a) to[generic, l_=$Z_c$, -] (b);
+    \end{circuitikz}
+    \caption{A Delta-Wye ($\Delta -Y$) network.}
+    \label{fig:s7-delta-wye}
+\end{figure}
+
+From the figure, we can construct the relationship between Delta and Wye. Starting with transforming Delta to Wye,
+\begin{align*}
+    Z_1 &= \frac{Z_bZ_c}{Z_a+Z_b+Z_c}\\
+    Z_2 &= \frac{Z_cZ_a}{Z_a+Z_b+Z_c}\\
+    Z_3 &= \frac{Z_aZ_b}{Z_a+Z_b+Z_c}.
+\end{align*}
+And to transform back,
+\begin{align*}
+    Z_a &= \frac{Z_1Z_2+Z_2Z_3+Z_3Z_1}{Z_1}\\
+    Z_b &= \frac{Z_1Z_2+Z_2Z_3+Z_3Z_1}{Z_2}\\
+    Z_c &= \frac{Z_1Z_2+Z_2Z_3+Z_3Z_1}{Z_3}.
+\end{align*}
+
+A Delta or Wye circuit is balanced if it has equal impedances (load) in all three branches, i.e.
+\begin{align*}
+    Z_Y &= Z_1=Z_2=Z_3\\
+        &= \frac{1}{3}Z_\Delta,\\
+    Z_\Delta &= Z_a=Z_b=Z_c\\
+             &= 3Z_Y.
+\end{align*}
+
+Since all that matters is the connection between the resistors, different arrangements of nodes and wires can still be a Delta/Wye circuit. For a Delta network, it is equivalent to a Pi network, where one resistor is at the top, and either side the other two resistors extend vertically down. Similarly, a T-network is equivalent to a Wye network, with a single resistor connect between two horizontal resistors extending vertically down. These networks are commonly used in power transmission line models.
+
+\subsection{Voltage and Current Sources}
+Sources can be either dependant or independent. A dependent source is controlled by another voltage or current elsewhere in the circuit, for example it might supply 0.5 times the current through a resistor.
+
+\subsubsection{Ideal Sources}
+An ideal voltage source has no internal resistance, and it cannot exist in nature. Practically, they always have a small amount of internal resistance, however this is usually less than $1\Omega $. This internal resistance appears in series with an ideal voltage source.
+
+An ideal current source has an infinite internal resistance, and it also cannot exist in nature. Similar to a voltage source, practical sources have a very high (but not infinite) internal resistance, on the order of mega Ohms. This internal resistance is always in parallel with an ideal current source. In the real world, current sources are rarely created using a battery and resistor in series, rather they are typically constructed using transistors.
+
+\subsection{Superposition}
+Superposition finding the total current or voltage in a circuit by considering only one source at a time. The general process is
+\begin{enumerate}
+    \item Retain one independent source at a time in the circuit and replace all other sources with their internal impedances, i.e. a voltage source should be replaced with a short circuit, a current source should be replaced with an open circuit.
+    \item Determine the output (current or voltage) due to the single source acting alone using any circuit analysis methods.
+    \item Repeat the previous two steps for each of the other independent sources.
+    \item Find the total contribution by adding algebraically all the contributions due to the independent sources.
+\end{enumerate}
+
+\subsection{Transformation Between Voltage and Current Sources}
+Source transformation allows us to consider a voltage source in series with an impedance the same as a current source in parallel with an impedance, and vice-versa. The impedance in both situations remains the same, however the voltage and current is given by Ohm's law 
+\[
+    V_S=Z_SI_S \iff I_S=\frac{V_S}{Z_S}.
+\]
+This can also be used for Thevenin's and Norton's equivalent circuits, which is the same as the DC case.
+\begin{itemize}
+    \item Remove all the independent sources
+    \item Assume a voltage or current source connected across the $a-b$ terminals, generally assumed to be $1\phase{0\degree}$
+    \item Calculate the voltage or current, and hence $Z_{Th}=\frac{v_o}{i_o}$
+\end{itemize}
 
 \newpage
 \appendix
