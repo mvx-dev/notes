@@ -91,17 +91,29 @@
 \contentsline {subsubsection}{\numberline {7.3.1}Ideal Sources}{31}{subsubsection.7.3.1}%
 \contentsline {subsection}{\numberline {7.4}Superposition}{31}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Transformation Between Voltage and Current Sources}{31}{subsection.7.5}%
-\contentsline {part}{IV\hspace {1em}Appendix}{32}{part.4}%
-\contentsline {section}{\numberline {A}Filters}{32}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Types of Filters}{32}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Useful Integrals}{32}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Integrals}{32}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Integration by Parts}{33}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{33}{subsubsection.B.2.1}%
-\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{33}{subsubsection.B.2.2}%
-\contentsline {subsubsection}{\numberline {B.2.3}Sine}{33}{subsubsection.B.2.3}%
-\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{33}{subsubsection.B.2.4}%
-\contentsline {subsection}{\numberline {B.3}Definite Integrals}{33}{subsection.B.3}%
-\contentsline {section}{\numberline {C}Trigonometric Identities}{34}{appendix.C}%
-\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{35}{appendix.D}%
-\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{36}{appendix.E}%
+\contentsline {section}{\numberline {8}AC Circuit Analysis}{31}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Power Transfer}{31}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}AC Power}{32}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Power Calculation}{32}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Power Factor}{33}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Reactive Power}{33}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Apparent Power}{34}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.5}Power Triangle}{34}{subsubsection.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.6}Additional Relationships}{34}{subsubsection.8.2.6}%
+\contentsline {subsubsection}{\numberline {8.2.7}Complex Power}{34}{subsubsection.8.2.7}%
+\contentsline {subsection}{\numberline {8.3}Maximum Power Transfer}{35}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Power Factor Correction}{35}{subsubsection.8.3.1}%
+\contentsline {part}{IV\hspace {1em}Appendix}{36}{part.4}%
+\contentsline {section}{\numberline {A}Filters}{36}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{36}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{36}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{36}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{37}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{37}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{37}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{37}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{37}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{37}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{38}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{39}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{40}{appendix.E}%

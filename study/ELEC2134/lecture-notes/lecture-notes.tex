@@ -1344,6 +1344,161 @@ This can also be used for Thevenin's and Norton's equivalent circuits, which is 
     \item Calculate the voltage or current, and hence $Z_{Th}=\frac{v_o}{i_o}$
 \end{itemize}
 
+\section{AC Circuit Analysis}
+\subsection{Power Transfer}
+Applying an AC signal to a circuit containing resistive and reactive elements results in power transfer from the source to the circuit. Consider the case that the load is purely resistive. This gives our voltage and current to be 
+\[
+    v(t)=V_m\cos\omega t,\quad i(t)=I_m\cos\omega t.
+\]
+Multiplying gives the instantaneous power for the circuit as 
+\begin{align*}
+    p(t)&=v(t)i(t)\\
+        &=V_mI_m \cos^2\omega t,
+\end{align*}
+which is always positive, and so the energy flows continually in the direction from the source to the load. Now, consider the case where the load is purely inductive. Our voltage and current is now 
+\[
+    v(t)=V_m\cos\omega t,\quad i(t)=\frac{v(t)}{Z}=I_m\sin\omega t.
+\]
+This gives the instantaneous power to be 
+\begin{align*}
+    p(t)&=v(t)i(t)\\
+        &=V_mI_m\cos\omega t\sin\omega t\\
+        &=\frac{V_mI_m}{2}\sin^2\omega t,
+\end{align*}
+which gives the average power to be zero. Half the time the power is positive, where the inductor is storing the energy in its magnetic field, and the other half of the time it is returning that energy to the source. That means that in this case, the reactive power flows from the source to the load. Finally, considering a purely capacitive load, we have 
+\[
+    v(t)=V_m\cos\omega t,\quad i(t)=\frac{v(t)}{Z}=-I_m\sin\omega t.
+\]
+The instantaneous power is
+\begin{align*}
+    p(t) &= v(t)i(t)\\
+         &=-V_mI_m\cos\omega t\sin\omega t\\
+         &=-\frac{V_mI_m}{2}\sin^2\omega t.
+\end{align*}
+The power of the capacitive load is the same as the inductive load, except with the opposite sign. For this, we say that the reactive power flows from the load, and that reactive power is positive for an inductance and negative for a capacitance.
+
+\subsection{AC Power}
+If the load contains both inductance and capacitance with reactive powers of equal magnitude, the reactive powers cancel. The power flows back and forth to inductances and capacitances is called reactive power. Even though no average power is consumed by a pure energy-storage element, reactive power is still important. It is possible to have loads composed of energy-storage elements that draw large currents that require heavy-duty wiring, even though little average power is consumed. This means that electric power delivery companies charge their (industrial) customers for reactive power (at a lower rate) as well as for the total energy delivered.
+
+\subsubsection{Power Calculation}
+Consider the voltage, current, and power for a general RLC load, for which the phase $\theta $ can be any value from $-90\degree$ to $+90\degree$. The voltage and current are therefore given by 
+\[
+    v(t)=V_m\cos\omega t,\quad i(t)I_m\cos \left( \omega t-\theta  \right).
+\]
+The instantaneous power is then
+\begin{align*}
+    p(t) &= v(t)i(t)\\
+         &=V_mI_m\cos\omega t\cos \left( \omega t-\theta  \right)\\
+         &=V_mI_m\cos\omega t \left( \cos\omega t\cos\theta  +\sin\omega t\sin\theta \right)\\
+         &=V_mI_m\cos\theta \cos^2\omega t+V_mI_m\sin\theta \sin\omega t\cos\omega t\\
+         &=V_mI_m\cos\theta \left[ \frac{1+\cos 2\omega t}{2} \right]+\frac{V_mI_m}{2}\sin\theta \sin 2\omega t\\
+         &= \frac{V_mI_m}{2}\cos\theta \left[ 1+\cos 2\omega t \right]+\frac{V_mI_m}{2}\sin\theta \sin 2\omega t.
+\end{align*}
+Notice that the term involving $\cos 2\omega t$ and $\sin \omega t$ have average values of zero, thus giving the average power to be 
+\[
+    P=\frac{V_mI_m}{2}\cos\theta =\frac{V_m}{\sqrt{2}}\frac{I_m}{\sqrt{2}}\cos\theta =V_{rms}I_{rms}\cos\theta .
+\]
+The term $\cos\theta $ is called the power factor ($pf$) 
+\[
+    pf=\cos\theta ,
+\]
+and $\theta $ is sometimes called the power angle. It is common to state that the current leads (in capacitive loads, i.e. leading power factor) or lags (in inductive loads, i.e. lagging power factor) the voltage. A typical power factor would be stated to be $90\%$ lagging, which means that $\cos\theta =0.9$, and the current lags the voltage.
+
+\subsubsection{Power Factor}
+Assuming voltage $v(t)$ as the reference, look at the current $i(t)$ relative to the voltage. If the current is lagging the voltage, i.e. lagging power factor, this implies an inductive load. Inversely, if the current is leading the voltage, i.e. leading power factor, this implies a capacitive load. Note that we assume a voltage as having zero phase. In general, the phase of the voltage may have a value other than zero. Then, $\theta $ should be taken as the phase of the voltage $\theta _v$ minus the phase of the current $\theta _i$ 
+\[
+    \theta =\theta _v-\theta _i.
+\]
+The power factor is the cosine of the angle at which the current lags the voltage.
+
+\subsubsection{Reactive Power}
+The power flowing back and forth between the source and the energy-storage element is the last term in the power expression above 
+\[
+    p(t)=\frac{V_mI_m}{2}\sin\theta \sin 2\omega t.
+\]
+The peak value is defined to be the reactive power $Q$
+\[
+    Q=\frac{V_mI_m}{2}\sin\theta =V_{rms}I_{rms}\cos\theta \text{ VAR}.
+\]
+Note that this is in units of Voltage-Amperes Reactive, which is the same as Watts except that it is specified to be reactive power. For a purely resistive load,
+\[
+    \theta =0,\quad \therefore Q=0.
+\]
+$Q$ does not represent the flow of net energy.
+
+\subsubsection{Apparent Power}
+The apparent power is define as the product of the effective voltage $V_{rms}$ and effective current $I_{rms}$, and has units Volt-Ampere (VA). In terms of average power $P$ and reactive power $Q$, it is
+\begin{align*}
+    P^2+Q^2 &= (V_{rms}I_{rms})^2 \left( \cos^2\theta +\sin^2\theta  \right)\\
+            &= \left( V_{rms}I_{rms} \right)^2.
+\end{align*}
+If we say that we have a 5 kW load, that means that $P=5$ kW. If we have a 5kVA load, $V_{rms}I_{rms}=5$kVA. If we say that a load absorbs 5 kVAR, then $Q=5$ kVAR.
+
+\subsubsection{Power Triangle}
+The relationship between real power (average power), reactive power, apparent power, and the power angle can be represented by the power triangle. For an inductive load, in which case $\theta >0$, so the reactive power $Q$ is positive. When $\theta <0$, the reactive power $Q$ is negative.
+
+\subsubsection{Additional Relationships}
+Consider a circuit given by a voltage source and a load $\left| Z \right|\ \phase{\theta }$. We have the following relationships
+\begin{align*}
+    I &= \frac{V}{Z}=\frac{V_m\phase{0\degree}}{\left| z \right|\phase{\theta }}=I_m\phase{-\theta } \\
+    \cos\theta &=\frac{R}{\left| z \right|}\\
+    \sin\theta &=\frac{X}{\left| z \right|} \\
+    I_m&=\frac{V_m}{\left| z \right|}.
+\end{align*}
+That means we can express the real power in a couple of different ways 
+\[
+    P=\frac{V_mI_m}{2}\cos\theta =\frac{V_mI_m}{2}\frac{R}{\left| z \right|}=\frac{I_m^2R}{2}=I_{rms}^2R.
+\]
+Similarly,
+\[
+    Q=I^2_{rms}X.
+\]
+For an inductive load $X$ is positive, whereas for a capacitive load $X$ is negative. We can also see that 
+\[
+    P=\frac{V_{Rrms}^2}{R}\quad \text{and}\quad Q=\frac{V_{Xrms}^2}{X}.
+\]
+
+\subsubsection{Complex Power}
+Consider a circuit with a voltage source and some impedance in series. The complex power, denoted $S$, delivered to the circuit is given by 
+\[
+    S=\frac{1}{2}V\bar{I}=\frac{1}{2}\left( V_m\phase{\theta _v} \right)\left( I_m\phase{-\theta _i} \right)=\frac{V_mI_m}{2}\phase{\theta _v-\theta _i}=\frac{V_mI_m}{2}\phase{\theta}.
+\]
+We can convert this to Cartesian form to get 
+\[
+    S=\frac{1}{2}V\bar{I}=\frac{V_mI_m}{2}\cos\theta +j \frac{V_mI_m}{2}\sin\theta =P+jQ.
+\]
+This means that once we know the complex power $S$, we can find the average power, reactive power, and apparent power
+\begin{align*}
+    P &= \mathfrak{Re}(S)=\mathfrak{Re}\left( \frac{1}{2}V\bar{I} \right)\\
+    Q&=\mathfrak{Im}(S)=\mathfrak{Im}\left( \frac{1}{2}V\bar{I} \right)\\
+    \text{Apparent Power}&=\left| S \right|=\left| \frac{1}{2}V\bar{I} \right|.
+\end{align*}
+
+\subsection{Maximum Power Transfer}
+For a resistive circuit, the power transfer is maximised when the load is made equal to the source resistance. Consider a circuit with voltage $V_{oc}$, equivalent impedance $Z_{eq}=R_{eq}+jX_{eq}$, and load impedance $Z_L=R_L+jX_L$. This gives the maximum current to be 
+\[
+    I_m=\frac{\left| V_{oc} \right|}{\left| Z_{eq}+Z_L \right|}.
+\]
+To find the maximum power transfer, we need to find suitable conditions for the load parameters $R_L$ and $X_L$
+\[
+    P_L=R_LI^2_{rms},\quad P_L=R_L \left( \frac{1}{\sqrt{2}} \right)^2 \frac{\left| V_{oc}^2 \right|}{\left( R_{eq}+R_L \right)^2+\left( X_{eq}+X_L \right)^2}.
+\]
+On average, reactances absorb zero power, and thus any non-zero values of $\left( X_{eq}+X_L \right)^2$ would only reduce $P_L$. We can eliminate this term by imposing $X_L=-X_{eq}$, which gives $P_L$ to become 
+\[
+    P_L=\frac{1}{2}\left| V_{oc} \right|^2 \frac{R_L}{\left( R_{eq}+R_L \right)^2}.
+\]
+Since $P_L$ is minimised when $\frac{d P_L}{d R_L}=0,$ then $R_L=R_{eq}$, so for maximum power transfer,
+\[
+    R_L+jX_L=R_{eq}-jX_{eq}\Rightarrow Z_L=Z_{eq}.
+\]
+We also have the maximum average power to be 
+\[
+    P_{L(max)}=\frac{1}{2}\left| V_{oc} \right|^2 \frac{R_{eq}}{\left( R_{eq}+R_{eq} \right)^2},\quad P_{L(max)}=\frac{1}{8}\frac{\left| V_{oc} \right|^2}{R_{eq}}.
+\]
+
+\subsubsection{Power Factor Correction}
+Large currents can flow through energy storage devices (because of inductance and capacitance, as mentioned above) without average power being delivered. So, in heavy industry, many loads are partially inductive and there is a large amount of reactive power flow, which causes higher currents in the power distribution system. As a result, the lines and transformers must have a higher rating than would be necessary with a purely resistance load. This means that companies charge based on how many energy is delivered at low power factors. This means, it is better to have loads near unity power factor, which is done by placing capacitors in parallel with inductive loads to increase the power factor.
+
 \newpage
 \appendix
 \part{Appendix}
