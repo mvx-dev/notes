@@ -2,11 +2,12 @@
 
 \usepackage{preamble}
 
+
+\begin{document}
+% \institute{UNSW ELEC3705 - Introduction to Quantum Engineering}
 \title{ELEC3705 Lecture Notes}
 \author{Oskar Meszaros (z5636164)}
 \date{September 2026}
-
-\begin{document}
 
 \maketitle
 \tableofcontents
@@ -2512,6 +2513,41 @@ Or, if the spins are in a triple state (which is spin-symmetric)
 which is the second state that we were looking for before.
 
 \subsection{Exchange Coupling}
-In the ammonia molecule from before, the symmetric and antisymmetric orbital combinations have different energy, due to the different amount of wavefunction going under the barrier, once you impose the continuity condition.
+In the ammonia molecule from before, the symmetric and antisymmetric orbital combinations have different energy, due to the different amount of wavefunction going under the barrier, once you impose the continuity condition, i.e. 
+\[
+    E_S<E_A.
+\]
+Since the spin part of the quantum states $\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right)$ and $\left( \ket{\uparrow \downarrow}+\ket{\downarrow \uparrow} \right)$ contributes the same energy (zero), the total states $\ket{\Psi _S}$ and $\ket{\Psi _T}$ differ in energy by $E_A-E_S$, which is called exchange coupling. Note that the states 
+\[
+    \left( \ket{\phi _L\phi _R}-\ket{\phi _R\phi _L} \right)\otimes \ket{\uparrow \uparrow}\quad \text{and}\quad \left( \ket{\phi _L\phi _R}-\ket{\phi _R\phi _L} \right)\otimes \ket{\downarrow \downarrow}
+\]
+are also appropriately antisymmetric. In the absence of a magnetic field, we have two sets of states
+\begin{itemize}
+    \item Single state: this is given by 
+    \[
+        \left( \ket{\phi _L\phi _R}+\ket{\phi _R\phi _L} \right)\otimes \left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right),
+    \]
+    and has energy $E_S$.
+\item Triplet states: these are given by the tensor product with various states,
+\[
+    \left( \ket{\phi _L\phi _R}-\ket{\phi _R\phi _L} \right)\otimes \begin{cases}
+        \ket{\uparrow \uparrow}\\
+        \left( \ket{\uparrow \downarrow}+\ket{\downarrow \uparrow} \right)\\
+        \ket{\downarrow \downarrow}
+    \end{cases},
+\]
+which has energy $E_A$.
+\end{itemize}
+
+\subsubsection{Exchange Hamiltonian}
+From this section, we now know the where the exchange Hamiltonian originates,
+\[
+    \mathcal{H}=J\sigma _1\cdot\sigma _2.
+\]
+Although this appears to only depend on the spin components, the exchange coupling originates from the orbital component of the electrons. Since the singlet-triplet energy splitting is $4J$, we simply have 
+\[
+    J=\frac{E_A-E_S}{4}.
+\]
+The reason we can write it like this, without explicitly including the orbital degrees of freedom, is because there is a one-to-one relation between orbital and spin states, imposed by the symmetrisation postulate.
 
 \end{document}
