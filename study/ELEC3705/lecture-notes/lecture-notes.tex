@@ -2376,4 +2376,142 @@ Using this operator, we can construct two more operators
 \subsection{Symmetrization Postulate}
 Since we are cannot meaningfully describe indistinguishable particles with pure states, we need an additional postulate for when dealing with multiple particles.
 
+\begin{callout*}{important}[Symmetrisation Postulate]
+\label{important:postulate-7}
+When a system consists of several identical particles, only certain kets can describe the physical state of the system. The physical kets must be either completely symmetric or completely antisymmetric, depending on the nature of the particles.
+\end{callout*}
+
+Particles that require symmetric physical kets are called bosons, and the particles that require antisymmetric ones are called fermions. Bosons therefore have an integer spin, and fermions have half-integer spin.
+
+Using this postulate and properties of the permutation operator, we can define a set of rules to construct the physical kets.
+\begin{enumerate}
+    \item Number the particles in a convenient way, and construct the desired ket using tensor products
+    \item For bosons, apply the symmetrizer operator $S$, and the antisymmetrizer operator $A$ for fermions.
+    \item Normalise the resulting ket
+\end{enumerate}
+
+\subsection{Pauli Exclusion Principle}
+Consider the cases where the two particles are in the same state, i.e. $\ket{\phi (1)}$ and $\ket{\phi (2)}$. Following the steps from above, we get
+\begin{enumerate}
+    \item Tensor product ket: $\ket{\psi }=\ket{\phi (1)}\otimes \ket{\phi (2)}\equiv \ket{\phi (1)\phi (2)}$.
+    \item For bosons, 
+    \[
+        S \ket{\psi }=\frac{1}{2}\left( \mathbb{I}+P_{21} \right)\ket{\psi }=\frac{1}{2}\left( \ket{\phi (1)\phi (2)}+\ket{\phi (2)\phi (1)} \right)=\ket{\psi (1)\phi (2)},
+    \]
+    i.e. we get the simple product tensor of the two states, since it is already symmetric. For fermions,
+    \[
+        A \ket{\psi }=\frac{1}{2}\left( \mathbb{I}-P_{21} \right)\ket{\psi }=\frac{1}{2}\left( \ket{\phi (1)\phi (2)}-\ket{\phi (2)\phi (1)} \right)=0,
+    \]
+    i.e. an absurd result.
+\end{enumerate}
+This means that two identical fermions cannot occupy the same individual quantum state, which is known as the Pauli exclusion principle.
+
+This is why we need the symmetrisation postulate, because without it we get physically absurd results in certain cases. Take for example two electron spins in a magnetic field $B_0\parallel z$. Assume the electrons are very close to each other, so that they are unable to be "labelled" by position. The Hamiltonian is of the form 
+\[
+    \mathcal{H}=\frac{\gamma B_0}{2}\left( \sigma _{z1}+\sigma _{z 2} \right)=\gamma B_0\begin{pmatrix}
+        1&0&0&0\\
+        0&0&0&0\\
+        0&0&0&0\\
+        0&0&0&-1
+    \end{pmatrix}
+\]
+in the usual basis. The Hamiltonian is diagonal, and has eigenvalues and vectors 
+\[
+    \gamma B_0\to\begin{pmatrix}
+        1\\0\\0\\0
+    \end{pmatrix}=\ket{\uparrow \uparrow},\quad 0\to\begin{pmatrix}
+        0\\1\\0\\0
+    \end{pmatrix}=\ket{\uparrow \downarrow},\quad 0\to\begin{pmatrix}
+        0\\0\\1\\0
+    \end{pmatrix}=\ket{\downarrow \uparrow},\quad-\gamma B_0\begin{pmatrix}
+        0\\0\\0\\1
+    \end{pmatrix}.
+\]
+Since the $0$ eigenstate has two corresponding eigenvectors, it is called doubly-degenerate. These two states have been written as $\ket{\uparrow \downarrow}$ and $\ket{\downarrow \uparrow}$, however this is completely arbitrary, and could be be any of the form 
+\[
+    \ket{\psi _1}=\alpha _1 \ket{\uparrow \downarrow}+\beta _1 \ket{\downarrow \uparrow},\quad \ket{\psi _2}=\alpha _2 \ket{\uparrow \downarrow}+\beta _2 \ket{\downarrow \uparrow},
+\]
+as long as $\left| \alpha _i \right|^2+\left| \beta _i \right|^2=1$ and the two vectors are orthogonal. This seems to indicate that any of these kets constitute a legitimate mathematical description of the physical state, however the predictions on the outcomes of the measurement of the physical observables depend on the choice of coefficients. For example, we want to pass these spins through a pair of Stern-Gerlach systems, oriented along $+x$. What is the probability of getting $+\frac{\hbar}{2}$? Starting with $\ket{\psi _1}$,the  probability of getting $+\frac{\hbar }{2}$ in both measurements is 
+\[
+    P_{++}=\left| \braket{XX}{\psi _1} \right|^2,
+\]
+where 
+\[
+    \ket{XX}=\ket{X}\otimes \ket{X}=\frac{1}{2}\begin{pmatrix}
+        1\\1\\1\\1
+    \end{pmatrix}.
+\]
+Therefore, 
+\[
+    P_{++}=\frac{1}{4}\left| \left( 1\quad 1\quad 1\quad 1 \right)\begin{pmatrix}
+        0\\\alpha _1\\\beta _2\\0
+    \end{pmatrix} \right|^2=\frac{1}{4}\left| \alpha _1+\beta _1 \right|^2,
+\]
+which can vary between 0 and $\frac{1}{4}$ depending on the choice of coefficients. This means we cannot freely choose the coefficients of $\alpha $ and $\beta $, so this exchange degeneracy must be removed by imposing some specific choice of coefficients. This is what the symmetrisation postulate does, it imposes a choice of coefficients by requiring that the mathematical state obeys a certain symmetry.
+
+\subsubsection{Antisymmetrised State}
+Since electrons are fermions, we need to make an antisymmetric state. The antisymmetriser in 4 dimensions is 
+\[
+    A=\frac{1}{2}\left( \mathbb{I}-P_{21} \right)=\frac{1}{2}\left[\begin{pmatrix}
+            1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
+    \end{pmatrix}-\begin{pmatrix}
+            1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1
+    \end{pmatrix} \right]=\frac{1}{2}\begin{pmatrix}
+            0&0&0&0\\0&1&-1&0\\0&-1&1&0\\0&0&0&0
+    \end{pmatrix}.
+\]
+Start, for example, from the state $\ket{\uparrow \downarrow}$ 
+\[
+    A \ket{\uparrow \downarrow}=\frac{1}{2}\begin{pmatrix}
+        0&0&0&0\\0&1&-1&0\\0&-1&1&0\\0&0&0&0
+    \end{pmatrix}\begin{pmatrix}
+        0&1&0&0
+    \end{pmatrix}=\frac{1}{2}\begin{pmatrix}
+        0&1&-1&0
+    \end{pmatrix}.
+\]
+Normalising, we get 
+\[
+    \ket{\psi _A}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        0&1&-1&0
+    \end{pmatrix}=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right),
+\]
+which is the singlet state. We also need another antisymmetric state with eigenvalue $0$, and orthogonal to this one
+\begin{proof}
+    We have our eigenstate to be 
+    \[
+        \ket{\psi }=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right).
+    \]
+    Reversing the order of the kets gives 
+    \[
+        -\ket{\psi }=\frac{1}{\sqrt{2}}\left( \ket{\downarrow \uparrow}-\ket{\uparrow \downarrow} \right).
+    \]
+    If we didn't need another antisymmetric state, that would mean that $\uparrow=\downarrow$, i.e. 
+    \[
+        \ket{\psi }=\frac{1}{\sqrt{2}}\left( \ket{\uparrow \uparrow}-\ket{\uparrow \uparrow} \right)=0.
+    \]
+    This is not a valid state, thus we need two states. This is the Pauli exclusion principle.
+\end{proof}
+
+\subsubsection{Orbital Wavefunction}
+An important fact that has so far been omitted is that an electron is not described only by its spin, but also by its position. For example, electrons in adjacent potential wells, with a thin, finite barrier in between, so that their wavefunctions overlap. We can use the basis function $\ket{\phi _L}$ and $\ket{\phi _R}$ to describe the position of each electron. The symmetrisation postulate for fermions says that the total mathematical state must be antisymmetric upon permutation of particles, which must include the orbital component.
+
+From the basis states $\ket{\phi _L}$, $\ket{\phi _R}$, $\ket{\uparrow}$, and $\ket{\downarrow}$, we can construct 16 basis states for the tensor product Hilbert space of the two electrons, which will have basis states like
+\begin{itemize}
+    \item $\ket{\phi _L}\otimes \ket{\phi _L}\otimes \ket{\uparrow}\otimes \ket{\uparrow}$: electron 1 on the left with spin up, electron 2 on the left with spin up
+    \item $\ket{\phi _L}\otimes \ket{\phi _R}\otimes \ket{\uparrow}\otimes \ket{\downarrow}$: electron 1 on the left with spin up, electron 2 on the right with spin down, etc.
+\end{itemize}
+Note that this gives illegitimate states, they must be antisymmetrical. If the spin part is antisymmetric, then the total wavefunction will be antisymmetric if the orbital part is symmetric, and vice-versa. For example, if the spins are in a singlet state, we want the orbital wavefunction to be the symmetric combination of left and right (ignoring normalisation factor), 
+\[
+    \ket{\Psi _S}=\left( \ket{\phi _L\phi _R}+\ket{\phi _R\phi _L} \right)\otimes \left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right).
+\]
+Or, if the spins are in a triple state (which is spin-symmetric)
+\[
+    \ket{\Psi _T}=\left( \ket{\phi _L\phi _R}-\ket{\phi _R\phi _L} \right)\otimes \left( \ket{\uparrow \downarrow}+\ket{\downarrow \uparrow} \right),
+\]
+which is the second state that we were looking for before.
+
+\subsection{Exchange Coupling}
+In the ammonia molecule from before, the symmetric and antisymmetric orbital combinations have different energy, due to the different amount of wavefunction going under the barrier, once you impose the continuity condition.
+
 \end{document}
