@@ -1499,6 +1499,187 @@ We also have the maximum average power to be
 \subsubsection{Power Factor Correction}
 Large currents can flow through energy storage devices (because of inductance and capacitance, as mentioned above) without average power being delivered. So, in heavy industry, many loads are partially inductive and there is a large amount of reactive power flow, which causes higher currents in the power distribution system. As a result, the lines and transformers must have a higher rating than would be necessary with a purely resistance load. This means that companies charge based on how many energy is delivered at low power factors. This means, it is better to have loads near unity power factor, which is done by placing capacitors in parallel with inductive loads to increase the power factor.
 
+\section{AC Resonance}
+Resonance is the tendency of a system to oscillate at maximum amplitude at a certain frequency, known as the resonant frequency. This behaviour exists for anything that is periodic, and can be electrical, mechanical, hydraulic, acoustic, etc. Electrical resonance occurs in an electric circuit at a particular frequency when the imaginary parts of impedances of circuit elements cancel each other, i.e. the total impedance is 0, and when the input voltage and current are in phase.
+
+\subsection{Series Resonance}
+In a series RLC circuit, the energy flows back and forth between the capacitance and inductance, and is damped by the resistor.
+
+Consider a series RLC circuit. The impedance seen by the source is
+\begin{align*}
+    Z &= R+j\omega L+\frac{1}{j\omega C}\\
+      &= R+j \left( \omega L-\frac{1}{\omega C} \right)\\
+      &= R+jX,\quad \text{where }X=\omega L-\frac{1}{\omega C}.
+\end{align*}
+The $X$ component is the net reactance of the circuit. Depending on the applied frequency of the source $\omega $, there are three conditions the circuit can be in
+\begin{enumerate}
+    \item $\omega L< \frac{1}{\omega C}$, i.e. $X=0$. This is capacitive behaviour
+    \item $\omega L > \frac{1}{\omega C}$, i.e. $X>0$. This is inductive behaviour
+    \item $\omega L=\frac{1}{\omega C}$, i.e. $X=0$. This is a purely resistive circuit with $I$ and $V$ in phase with each other.
+\end{enumerate}
+This last condition is known as the unity power-factor resonance, and occurs at a specific frequency $\omega _0$ that makes $\omega _0L=\frac{1}{\omega _0C}$,
+\[
+    \omega _0^2=\frac{1}{LC},\quad \omega =\frac{1}{\sqrt{LC}}.
+\]
+This is the resonant frequency of the circuit, and in terms of Hertz it is 
+\[
+    f_0=\frac{1}{2\pi \sqrt{LC}}Hz.
+\]
+Even though the individual frequencies are not zero, at resonance frequency they cancel each other out, making the total impedance 0. At resonance, we have
+\begin{align*}
+    I_0 &=\frac{V_m}{R} \\
+    \Rightarrow V_{L 0}&= \left( \omega _0L \right)L_0=\omega _0L \frac{V_m}{R}=\frac{\omega _0L}{R}V_m\\
+    V_{C 0}&= \left( \frac{1}{\omega _0C} \right)I_0=\frac{1}{\omega _0C}\frac{V_m}{R}=\frac{1}{\omega _0CR}V_m.
+\end{align*}
+At series resonance, $V_{L 0}=V_{C 0}$, due to equal impedance, which means 
+\[
+    \frac{\omega _0L}{R}=\frac{1}{\omega _0RC}.
+\]
+By definition, the quality factor of the series RLC circuit is given by 
+\[
+    Q=\frac{\omega _0L}{R}=\frac{1}{\omega _0RC},
+\]
+which we can rearrange to get 
+\[
+    Q=\frac{\omega _0L}{R}=\frac{1}{R\sqrt{C/L}}.
+\]
+At resonance, $\omega =\omega _0$, the voltage across the inductor is given by 
+\[
+    V_{L 0}=\frac{\omega _0L}{R}V_m=QV_m.
+\]
+Similar, at resonance the voltage across the capacitor is given by 
+\[
+    V_{C 0}=\frac{1}{\omega _0RC}V_m=QV_m.
+\]
+The peak amplitude across the reactive components exceeds the peak amplitude of the applied signal.
+
+\subsubsection{Resonance Voltage Rise}
+We can express the voltage and current in terms of phasors to see clearly what is happening.
+\begin{align*}
+    I &= \frac{V_m}{R}\phase{0\degree}\\
+    V_{R 0}&=V_m\phase{0\degree} \\
+    V_{L 0}&=QV_m\phase{90\degree}\\
+    V_{C 0}&=QV_m\phase{-90\degree}.
+\end{align*}
+From this, we can see that if $Q>1$, then the peak voltage across the components is greater than the applied signal, which is known as resonance voltage rise. The amount of magnification depends on the quality factor. It is interesting to note that the smaller the resistance $R$ in a series RLC circuit, the higher the value of $Q$, and hence greater amount of voltage rise at resonance. Taking the limit of this, we see
+\begin{align*}
+    \lim_{R\to 0} Q &= \lim_{R\to 0} \frac{\omega _0L}{R}=\lim_{R\to 0}\frac{1}{\omega CR} \\
+                    &= \infty,
+\end{align*}
+which would result in an infinite voltage rise. This quality factor is also a measure of the frequency selectivity, with a higher $Q$ corresponding to high selectivity, or lower bandwidth.
+
+Bandwidth is the width of the frequency response of a circuit taken when the magnitude is $-3dB$. Bandwidth is given by 
+\[
+    BW=\omega _U-\omega _L,
+\]
+i.e. the difference between the highest frequency with magnitude greater than $-3dB$ and the lowest frequency with magnitude greater than $-3dB$. We can then express the quality factor in terms of this bandwidth as 
+\[
+    Q=\frac{\omega _0}{MW}=\frac{R}{L}.
+\]
+We can also rewrite the impedance of the circuit in terms of the quality factor and the resonant frequency
+\begin{align*}
+    Z &= R+j \left( \omega L -\frac{1}{\omega C}\right) \\
+      &=R \left[ 1+j \frac{\omega L}{R}-j \frac{1}{\omega CR}\right] \\
+      &=R \left[ 1+jQ \left( \frac{\omega }{\omega _0}-\frac{\omega _0}{\omega } \right) \right].
+\end{align*}
+We can do the same with the magnitude of the current
+\begin{align*}
+    I_m &= \frac{V_m\phase{0\degree}}{Z}\\
+        &=\frac{V_m}{R}\frac{1}{\sqrt{1+Q^2 \left( \frac{\omega }{\omega _0}-\frac{\omega _0}{\omega } \right)^2}}.
+\end{align*}
+The plot of $I_m$ vs $\omega $ for a given $V_m$ has the same profile as the band-pass function. At resonance, the average power $P$ dissipated in the resistance is also maximised, giving 
+\[
+    P_{\text{max}}=\left( \frac{V_m}{\sqrt{2}} \right)^2 \frac{1}{R}=\frac{V_m^2}{2R}.
+\]
+The frequencies at which $P$ is down to half its maximum value are the half-power frequency from the bandwidth expression, $\omega _L$ and $\omega _U$. If $Q \gg 1$, then the half-power frequencies are given by the approximate expressions
+\begin{align*}
+    f_U &\approx f_0+\frac{BW}{2}\\
+    f_L&\approx f_0-\frac{BW}{2}.
+\end{align*}
+
+\subsection{Parallel Resonance}
+In a parallel resonance circuit, we find everything in terms of admittance instead of impedance. We have
+\begin{align*}
+    Y &= Y_R+Y_C+Y_L\\
+      &= G+j\omega C+\frac{1}{j\omega L}\\
+      &= G+j \left( \omega C-\frac{1}{\omega L} \right).
+\end{align*}
+We expect a resonance behaviour when the susceptance $\omega C$ and $-\frac{1}{\omega L}$ cancel each other out, which (as before) is when $\omega =\omega _0$. Hence, we have 
+\[
+    \omega _0C=\frac{1}{\omega _0L},
+\]
+giving the resonance frequency to be 
+\[
+    \omega _0=\frac{1}{\sqrt{LC}}.
+\]
+At resonance, the output voltage has the same phase as the input voltage, and it is purely resistive. The magnitude of the current going through the capacitor and inductor going through the inductor is given by
+\begin{align*}
+    \left| I_C \right| &= \frac{V_m}{\left( \omega _0C \right)^{-1}}=V_m\omega _0C=I_m \left( R\omega _0C \right),\\
+    \left| I_L \right|&= \frac{V_m}{\omega _0L}=\frac{I_mR}{\omega _0L}=I_m \left(  \frac{R}{\omega _0L} \right),
+\end{align*}
+which are equal at resonance. This gives 
+\[
+    \left| I_L \right|=\left| I_C \right|\Rightarrow R\omega _0C=\frac{R}{\omega _0L},
+\]
+which gives the quality factor to be 
+\[
+    Q=R\omega _0C=\frac{R}{\omega _0L}.
+\]
+Similar to the series RLC, we can write the admittance in terms of the resonant frequency and quality factor. We can rearrange the admittance as
+\begin{align*}
+    Y &= G+j \left( \omega C-\frac{1}{\omega L} \right)\\
+      &=G \left[ 1+j \left( \omega CR-\frac{R}{\omega L} \right) \right].
+\end{align*}
+Rewriting, we get
+\begin{align*}
+    Y &= G \left[ 1+jQ \left( \frac{\omega }{\omega _0}-\frac{\omega _0}{\omega } \right) \right]\\
+    V&=V_m\phase{0\degree}, \text{ and } I=I_m\phase{0\degree}\\
+    V&=ZI=\frac{1}{Y}I=\frac{I_m\phase{0\degree}}{G \left[ 1+jQ \left( \frac{\omega }{\omega _0}-\frac{\omega _0}{\omega } \right) \right]}\\
+     &= RI_m \frac{1}{\sqrt{1+Q^2 \left( \frac{\omega }{\omega _0}-\frac{\omega _0}{\omega } \right)^2}}.
+\end{align*}
+Even though the individual admittance $Y_L$ and $Y_C$ are non-zero, their sum vanishes at resonance, making the parallel combination of $L$ and $C$ effectively behave as an open circuit. Therefore, the average power dissipated in the resistance is 
+\[
+    P_{\text{max}}=\left( \frac{I_m}{\sqrt{2}} \right)^2=RI_{rms}^2.
+\]
+The frequencies at which $P$ is down to half its maximum value are the half power frequencies $\omega _L$ and $\omega _U$, and the half-power $BW=\omega _U-\omega _L$ such that 
+\[
+    BW=\frac{1}{RC}.
+\]
+
+\subsection{Practical Resonant Circuit}
+The parallel RLC configuration is known as a tuned circuit, such as in tuned oscillators and tuned amplifiers in radio communications. Of the three components making up an RLC circuit, the inductor is the least ideal because of the winding resistance $R_S$.
+
+We can write a parallel non-ideal RLC circuit as 
+\[
+    Y=\frac{1}{R}+j\omega C+\frac{1}{R_S+j\omega L},
+\]
+which gives 
+\[
+    Y=\frac{1}{R}+\frac{R_S}{R_S^2+\left( \omega L \right)^2}+j\omega \left( C-\frac{L}{R_S^2+\left( \omega L \right)^2} \right).
+\]
+We set the imaginary part to find the frequency at which $Y$ is purely real,
+\begin{align*}
+    C-\frac{L}{R_S^2+\left( \omega L \right)^2} &= 0\\
+    \Rightarrow \omega _0&=\sqrt{\frac{1}{LC}-\frac{R_S^2}{L^2}}.
+\end{align*}
+As the inductor approaches being ideal (i.e. the limit $R_S\to 0$), we approach the same resonant frequency from before. With the introduction of this additional resistance, we can also describe the resonant frequency in terms of the quality factor of the coil 
+\[
+    Q_{coil}=\frac{\omega _0L}{R_S},\quad\Rightarrow\omega _0=\frac{1}{\sqrt{LC}}\left[ \sqrt{1-\frac{1}{Q_{coil}^2}} \right].
+\]
+A parallel circuit has high impedance at its resonant frequency, and therefore it attenuates signals at all frequencies except the resonant frequency. Varying the capacitance of the tuned circuit changes the resonant frequency, and generally inductance is kept constant.
+
+\subsection{Series to Parallel Conversion}
+It is possible to select a parallel resistor $R_P$ and inductor $L_P$ such that, at a given frequency $\omega $, the admittance of the parallel circuit equals that of the series circuit 
+\[
+    \frac{1}{R_P}+\frac{1}{j\omega L_P}=\frac{1}{R_S+j\omega L_S}.
+\]
+Rationalising both sides and equating the real and imaginary components yields
+\begin{align*}
+    \frac{1}{R_P}-j \frac{1}{\omega L_P} &= \frac{R_S}{R_S^2+\omega^2L_S^2}-j \frac{\omega L_S}{R_S^2+\omega^2L_S^2}\\
+    \therefore \frac{1}{R_P}&=\frac{R_S}{R_S^2+\omega^2L_S^2},\quad \Rightarrow R_P=\frac{R_S^2+\omega^2L_S^2}{R_S}\\
+    \therefore -\frac{1}{\omega L_P}&=-\frac{\omega L_S}{R_S^2+\omega^2L_S^2},\quad L_P=\frac{R_S^2+\omega^2L_S^2}{\omega^2L_S}
+\end{align*}
+
 \newpage
 \appendix
 \part{Appendix}
