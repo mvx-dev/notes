@@ -98,3 +98,12 @@
 \contentsline {subsubsection}{\numberline {9.4.2}Orbital Wavefunction}{49}{subsubsection.9.4.2}%
 \contentsline {subsection}{\numberline {9.5}Exchange Coupling}{49}{subsection.9.5}%
 \contentsline {subsubsection}{\numberline {9.5.1}Exchange Hamiltonian}{50}{subsubsection.9.5.1}%
+\contentsline {section}{\numberline {10}Atoms, Bonds, and Crystals}{50}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Hydrogen Atom}{50}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Bohr Orbits}{51}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Quantum Treatment}{51}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Aufbau Principles}{52}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}$\textrm H_2^+$ Molecule}{52}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Large Distance}{52}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}Short Distance}{53}{subsubsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.6}Quantum Description of Solids}{53}{subsection.10.6}%

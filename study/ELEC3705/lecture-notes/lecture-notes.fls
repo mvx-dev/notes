@@ -120,6 +120,14 @@ INPUT /usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texmf-dist/tex/latex/translations/translations.sty
+INPUT /usr/share/texmf-dist/tex/latex/translations/translations.sty
+INPUT /usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/share/texmf-dist/tex/latex/csquotes/csquotes.sty
 INPUT /usr/share/texmf-dist/tex/latex/csquotes/csquotes.sty
 INPUT /usr/share/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -267,8 +275,6 @@ INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
 INPUT /usr/share/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 INPUT /usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 INPUT /usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
-INPUT /usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-INPUT /usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 INPUT /usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 INPUT /usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 INPUT /usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -336,6 +342,9 @@ INPUT /usr/share/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
 INPUT /usr/share/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
 INPUT /usr/share/texmf-dist/tex/latex/graphics/lscape.sty
 INPUT /usr/share/texmf-dist/tex/latex/graphics/lscape.sty
+INPUT /usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+INPUT /usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+INPUT /usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT ./lecture-notes.out
@@ -406,6 +415,8 @@ INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT lecture-notes.aux
 INPUT ./lecture-notes.out
 INPUT ./lecture-notes.out
@@ -420,6 +431,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
