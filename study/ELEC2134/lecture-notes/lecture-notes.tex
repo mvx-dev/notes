@@ -1679,6 +1679,246 @@ Rationalising both sides and equating the real and imaginary components yields
     \therefore \frac{1}{R_P}&=\frac{R_S}{R_S^2+\omega^2L_S^2},\quad \Rightarrow R_P=\frac{R_S^2+\omega^2L_S^2}{R_S}\\
     \therefore -\frac{1}{\omega L_P}&=-\frac{\omega L_S}{R_S^2+\omega^2L_S^2},\quad L_P=\frac{R_S^2+\omega^2L_S^2}{\omega^2L_S}
 \end{align*}
+Note that 
+\[
+    X_P=\omega L_P=\omega \left( \frac{R_S^2+\omega^2L_S^2}{\omega^2L_S} \right)=\frac{R_S^2+\left( \omega L_S \right)^2}{\omega L_S}.
+\]
+This means we can model the internal resistance of the inductor and the resistance of actual resistor as a single resistor, i.e.
+\begin{figure}[htbp]
+    \centering
+    \begin{circuitikz}[american voltages]
+        \draw (0,0) to [short, *-] (3,0) to [resistor, l_=$R_S$] (3,-2) to [inductor, l_=$L_S$] (3,-4)
+            (0,-4) to [short, *-] (3,-4);
+        \draw (2,0) to [resistor, l_=$R$] (2,-4);
+        \draw (3,0) to [short] (4,0) to [capacitor, l_=$C$] (4, -4) to [short] (3,-4);
+        \draw[stealth-stealth] (4.75,-2) to (5.25,-2);
+        \draw (6,0) to [short,*-] ++(1,0) to [resistor, l_=$R\parallel R_P$] ++(0,-4)
+            (6,-4) to [short,*-] ++(2.25,0) to [inductor, l_=$L_P$] ++(0,4) to [short] ++(-1.25,0);
+        \draw (8.25,-4) to [short] ++(1.25,0) to [capacitor, l_=$C$] ++(0,4) to [short] ++(-1.25,0);
+    \end{circuitikz}
+    \caption{Transformation between non-ideal and ideal RLC circuit}
+    \label{fig:parallel-rlc-non-ideal}
+\end{figure}
+
+In summary,
+\begin{itemize}
+    \item The quality factor of the coil is given by $Q_{\text{coil}}=\frac{\omega _0L_S}{R_S}$. Small coil resistance means large $Q_{\text{coil}}$
+    \item The resonant frequency is given by $\omega _0=\frac{1}{\sqrt{L_PC}}$
+    \item The parallel resistance is $R_P=\frac{R_S^2+\omega L_S^2}{R_S}$. Small $R_S$ means large $R_P$
+    \item The parallel inductance is given by $L_P=\frac{R_S^2+\omega^2L_S^2}{\omega^2L_S}$. Small $R_S$ means $L_P\approx L_S$
+    \item The overall quality factor is $Q_{\text{circuit}}=R_P\parallel R \times\omega _0\times C=\frac{R_P\parallel R}{\omega _0L_P}$
+\end{itemize}
+
+\section{Transient Analysis}
+Transient analysis looks at how a circuit or network behaves over time after a sudden change, such as when a switch opens or closes. When a circuit contains energy storage elements, it does not respond instantly to these change, and instead has a transition period before reaching a steady-state condition. There are two types of circuits
+\begin{itemize}
+    \item \textbf{First-order circuits:} These contain only a single energy storage element, and can be described by a first order ODE.
+    \item \textbf{Second-order circuits:} These contain both an inductor and a capacitor. These are described by a second order ODE.
+\end{itemize}
+
+\subsection{Natural Response}
+\subsubsection{Source-Free}
+A source-free first-order circuit is when the transient is the independent source being switched off. The energy stored in the elements is then released through the resistor. The natural response is the behaviour of voltages and currents after the source is switched off at $t=0$.
+
+For a source-free RC circuit, the natural response involves finding the voltage across the capacitor $C$ for $t>0$ by solving the differential equation.
+
+For a source-free RL circuit, the natural response involves finding the current through the inductor $L$ for $t>0$ by solving the differential equation.
+
+\subsubsection{RC Circuit}
+Suppose that after a capacitor in a series RC circuit has been fully charged to $V_S$, the source is disconnected and the capacitor is allowed to discharge through the resistor. This then becomes a source-free circuit. This means to find the voltage across the capacitor, we have to solve 
+\[
+    \frac{v}{R}+c \frac{d v}{d t}=0\quad\Rightarrow \frac{dv}{v}=-\frac{dt}{CR}.
+\]
+By integrating both sides, we get
+\begin{align*}
+    \ln v &= -\frac{t}{RC}+\ln A,\quad \text{where }A \text{ is some constant}.\\
+    \Rightarrow v(t)&=Ae^{-t/RC}\\
+    v(t)&= V_S e^{-t/RC}.
+\end{align*}
+The current is found as 
+\[
+    i(t)=C \frac{d v}{d t}=-\frac{V_s}{R}e^{-t/RC}.
+\]
+We define the time constant $\tau$ to be $\tau =RC$. It is the time require for the response to decay to $1/e$ (about $36.8\%$) of its initial value. When $\tau $ is small it decays faster, and vice-versa. The voltage starts from $V_S$, and decays down to $0$, the current starts at $-\frac{V_S}{R}$ and decays up to $0$.
+
+\subsubsection{RL Circuit}
+If a current source is applied to a parallel RL circuit, after a sufficient amount of time all the current will pass through the inductor, and none through the resistor. The final stored energy in the inductor is given by 
+\[
+    w_L=\frac{1}{2}LI_S^2.
+\]
+Once the load is disconnected, the inductor initially resists the change in current and induces a voltage, giving 
+\[
+    i(0)=I_S\quad v(0)=-RI_S,
+\]
+when measuring across the circuit in the same polarity as the source. We then have the response of the circuit to be
+\begin{align*}
+    i(t)R +L \frac{d i(t)}{d t}&= 0\\
+    \Rightarrow i(t)&= I_Se^{-\frac{t}{L/R}}\\
+    v(t)&= L \frac{d i(t)}{d t}=-RI_Se^{-\frac{t}{L/R}}.
+\end{align*}
+The current starts at the initial current $I_S$, and decays down to $0$, and the voltage starts at $-RI_S$, and decays up to $0$.
+
+\subsection{Forced Response}
+A forced response is the opposite of a natural response. It is where a current or voltage is suddenly applied to the circuit, and this sudden application forces the energy in the circuit to change. The most common functions for this are the unit step, unit impulse, and unit ramp. A unit impulse and unit ramp are the derivatives and integrals of the unit step, respectively.
+
+\subsubsection{RC Circuit}
+When a DC source is suddenly applied, it can be modelled as step function and the response of the circuit is known as the step-response. We can assume that the circuit has some initial condition $v(0)=V_0$. Applying KCL,
+\begin{align*}
+    c \frac{d v(t)}{d t}+\frac{v(t)-V_Su(t)}{R} &= 0\\
+    \frac{d v(t)}{d t}+\frac{v(t)}{RC}&=\frac{V_su(t)}{CR}\\
+    \Rightarrow v(t)&=V_S+(V_0-V_S)e^{-t/RC},\quad t>0.
+\end{align*}
+The $V_S$ is the steady-state response, and the $(V_0-V_S)e^{-t/RC}$ is the transient response. The complete response of a circuit is the natural response (stored energy) and force response (independent source) added together 
+\[
+    v(t)=V_0e^{-t/RC}+V_S(1-e^{-t/RC}), \quad t>0,
+\]
+i.e. $v(t)=v_n(t)+v_f(t)$ (natural voltage, forced voltage).
+
+\subsubsection{RL Circuit}
+For an RL circuit, assume the inductor has zero initial stored energy, so that $i(0)=0$. Connecting current source $I_S$ causes a current, and therefore energy, buildup in the inductor. The response after this connection is given by
+\begin{align*}
+    I_S &= \frac{v(t)}{R}+i(t)\\
+    i(t)+\frac{L}{R}\frac{d i(t)}{d t}&= I_S\\
+    i(t)&=I_Se^{-\frac{t}{L/R}}\\
+    v(t)&=RI_Se^{-\frac{t}{L/R}}.
+\end{align*}
+The current starts at $0$ and approaches $I_S$. The voltage starts at $RI_S$, and decays to 0.
+
+\subsection{Second-Order Circuits}
+A second-order circuit is one containing both inductors and capacitors. Similarly to above, the solution of the source-free RLC circuit is called the natural response of the circuit. The circuit is excited by the energy initially stored in the capacitor and inductor. The equation relating the voltage and current is given by 
+\[
+    \frac{d^2i}{d t^2}+\frac{R}{L}\frac{d i}{d t}+\frac{i}{LC}=0,\quad Ri+L \frac{d i}{d t}+\frac{1}{C}\int_{-\infty}^ti dt=0.
+\]
+We can rewrite the differential form as 
+\[
+    \frac{d^2i}{d t^2}+2\alpha \frac{d i}{d t}-\omega _0^2i=0,
+\]
+where $\alpha =\frac{R}{2L}$, and $\omega _0=\sqrt{\frac{1}{LC}}$. This means that solution depend on the relative values of $\alpha $ and $\omega _0$, where $\alpha $ is the damping factor, and $\omega _0$ is the natural frequency of the system. We can assume the solution has the form $i=Ae^{st}$, which we can substitute into the above to get
+\begin{align*}
+    \frac{d^2i}{d t^2}+\frac{R}{L}\frac{d i}{d t}+\frac{i}{LC} &= 0\\
+    As^2e^{st}+\frac{AR}{L}se^{st}+\frac{A}{LC}e^{st}&=0\\
+    \text{or}\quad Ae^{st}\left( s^2+\frac{R}{L}s +\frac{1}{LC}\right) &=0\\
+    s^2+\frac{R}{L}s+\frac{1}{LC}&=0.
+\end{align*}
+Putting back in $\alpha $ and $\omega _0$, we get the characteristic equation 
+\[
+    s^2+2\alpha s+\omega^2_0=0.
+\]
+The roots of this equation are 
+\[
+    s_1=-\frac{R}{2L}+\sqrt{\left( \frac{R}{2L} \right)^2-\frac{1}{LC}},\quad s_=-\frac{R}{2L}-\sqrt{\left( \frac{R}{2L} \right)^2-\frac{1}{LC}},
+\]
+or 
+\[
+    s_1=-\alpha +\sqrt{\alpha^2-\omega^2_0},\quad s_2=-\alpha -\sqrt{\alpha^2-\omega _0^2}.
+\]
+These indicate two possible solutions for the current 
+\[
+    i_1=A_1e^{s_1t},\quad i_2=A_2e^{s_2t}.
+\]
+A total solution is therefore a linear combination of the two solutions 
+\[
+    i(t)=A_1e^{s_1t}+A_2e^{s_2t},
+\]
+where the constants $A_1$ and $A_2$ are determined from the initial values $i(0)$ and $\frac{d i(0)}{d t}$. This is natural response of a series RLC circuit. Note that we can find $\frac{d i(0)}{d t}$ as 
+\[
+    Ri(0)+L \frac{d i(0)}{d t}+v_c(0)=0,\quad\Rightarrow \frac{d i(0)}{d t}=-\frac{1}{L}\left( v_c(0)+Ri(0) \right).
+\]
+
+\subsection{Series RLC Natural Responses}
+There are three types of solutions (responses) possible in a series RLC circuit
+\begin{enumerate}
+    \item If $\alpha >\omega _0$, the circuit is over damped 
+    \[
+        i(t)=A_1e^{s_1t}+A_2e^{s_2t},\quad \text{where } s_{1,2}=-\alpha \pm \sqrt{\alpha^2-\omega _0^2}.
+    \]
+    Both $s_1$ and $s_2$ are real and negative. The response decays to zero.
+\item If $\alpha =\omega _0$, the circuit is critically damped 
+\[
+    i(t)=\left( A_1+A_2t \right)e^{\alpha t},\quad \text{where } s_{1,2}=-\alpha .
+\]
+The two roots are negative, real, and equal. The response reaches a maximum value at $\frac{1}{\alpha }$ before decaying to zero.
+\item If $\alpha <\omega _0$, the circuit is under damped 
+\[
+    i(t)=e^{-\alpha t}\left( B_1\cos\omega _dt+B_2\sin\omega _dt \right),\quad \text{where } \omega _d=\sqrt{\omega _0^2-\alpha ^2}.
+\]
+Here, $B_1=A_1+B_2$, and $B_2=j(A_1-A_2)$. This response is a decaying oscillation.
+\end{enumerate}
+
+\subsubsection{Under-Damped Condition}
+This is when $\alpha <\omega _0$, and is a decaying oscillation. The roots of this solution are complex numbers, given by 
+\[
+    s_1=-\alpha +\sqrt{-\left( \omega^2_0-\alpha^2 \right)}=-\alpha +j\omega _d,\quad s_2=-\alpha -\sqrt{-\left( \omega _0^2-\alpha^2 \right)}=-\alpha -j\omega _d,
+\]
+where $\omega _d=\sqrt{\omega _0^2-\alpha^2}$. The response is therefore
+\begin{align*}
+    i(t) &= A_1e^{(-\alpha -j\omega _d)t}+A_2e^{\left( -\alpha +j\omega _d \right)t}\\
+         &= e^{-\alpha t}\left( A_1e^{j\omega _dt}+A_2e^{-j\omega _dt} \right).
+\end{align*}
+Using Euler's identities, we get
+\begin{align*}
+    i(t) &= e^{-\alpha t}\left[ A_1 \left( \cos\omega _dt+j\sin\omega _dt \right) +A_2 \left( \cos\omega _dt-j\sin\omega _dt \right)\right] \\
+         &= e^{-\alpha t}\left[ \left( A_1+A_2 \right)\cos\omega _dt+j(A_1-A_2)\sin\omega _dt \right] \\
+         &=e^{-\alpha t}(B_1\cos\omega _dt+B_2\sin\omega _dt),
+\end{align*}
+where $B_1=A_1+A_2$ and $B_2=j(A_1-A_2)$.
+
+\subsection{Series RLC Forced Response}
+The step response is obtained by the sudden application of a DC source to an RLC circuit 
+\[
+    L \frac{d i}{d t}+Ri+v=V_s,\quad i=C \frac{d v}{d t}.
+\]
+This gives the expression 
+\[
+    \frac{d^2v(t)}{d t^2}+\frac{R}{L}\frac{d v(t)}{d t}+\frac{d v(t)}{d LC}=\frac{V_s}{LC}.
+\]
+This is of the same form as the source-free RLC circuit equation above, with the same coefficients. The only difference is different circuit variables in the equation. The solution of the equation should have two components, the transient response $v_t$ and the steady-state response $v_{ss}(t)$ 
+\[
+    v(t)=v_t(t)+v_{ss}(t).
+\]
+The transient response (as in the first-order case) is the same as that for the source-free case (natural response). The steady-state response is the final value of $v(t)$, i.e. $v_{ss}(t)=v(\infty)$.
+
+\subsection{Parallel RLC Natural Response}
+Let the initial current 
+\[
+    i(0)=I_0=\frac{1}{L}\int_{-\infty}^0v(t)dt, \quad v(0)=V_0.
+\]
+Applying KCL to the top node, we get 
+\[
+    \frac{v}{R}+\frac{1}{L}\int_{-\infty}^tvdt+C \frac{d v}{d t}=0.
+\]
+Taking the derivative with respect to $t$ and dividing by $C$, 
+\[
+    \frac{d^2v}{d t^2}+\frac{1}{RC}\frac{dv}{dt}+\frac{1}{RC}v=0,
+\]
+which is the second-order expression for a parallel RLC circuit. As before, there are three possible types of solutions for this differential equation 
+\begin{itemize}
+    \item If $\alpha >\omega _0$, the system is over-damped, $v(t)=A_1e^{s_1t}+A_2e^{s_2t}$, where $s_{1,2}=-\alpha \pm\sqrt{\alpha^2-\omega^2_0}$
+    \item If $\alpha =\omega _0$, the system is critically damped, $v(t)=\left( A_2+A_1t \right)e^{-\alpha t}$, where $s_{1,2}=-\alpha $
+    \item If $\alpha <\omega _0$, the system is under-damped, $v(t)=e^{-\alpha t}\left( B_1\cos\omega _dt+B_2\sin\omega _dt \right),$ where $\omega _d=\sqrt{\omega _0^2-\alpha ^2}$ and 
+    \[
+        s_{1,2}=-\alpha \pm \sqrt{-\left( \omega _0^2-\alpha ^2 \right)}=-\alpha \pm j\omega _d.
+    \]
+\end{itemize}
+
+\subsection{Parallel RLC Forced Response}
+The step response is obtained by the sudden application of a DC source to the circuit, giving the second-order expression 
+\[
+    \frac{d^2i}{d t^2}+\frac{1}{RC}\frac{d i}{d t}+\frac{i}{RC}=\frac{I_S}{LC}.
+\]
+It has the same form as the equation for the source-free parallel RLC circuit, with the same coefficients. The difference is different circuit variables. The solution should have two components, the transient response $i_t(t)$, and the steady-state response $i_{ss}(t)$ 
+\[
+    i_(t)=\begin{cases}
+        A_1^{s_1t}+A_2e^{s_2t} & \alpha >\omega _0 \\
+        \left( A_1+A_2t \right)e^{-\alpha t} & \alpha =\omega _0\\
+        e^{-\alpha t}\left( A_1 \cos\omega _dt+A_2\sin\omega _dt \right) & \alpha <\omega _0
+    \end{cases}.
+\]
+The steady-state response is the final value of $i(t)$ 
+\[
+    i_{ss}(t)=i(\infty)=I_S.
+\]
+The values of $A_1$ and $A_2$ are obtained from the initial conditions $i(0)$ and $\frac{d i(0)}{d t}$.
 
 \newpage
 \appendix
