@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.10.22)  6 NOV 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.10.22)  8 NOV 2026 10:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,22 +951,30 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
 \absvshift=\dimen346
 \absvshift=\dimen347
- [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
-./lecture-notes.tex:1910: Missing $ inserted.
-<inserted text> 
-                $
-l.1910 \begin{cases}
-                    
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+ [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
+runsystem(latexminted cleantemp  --timestamp 20261108103921 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
- 
+ (./lecture-notes.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
+(rerunfilecheck)             Checksum: 2BEF839420D21B2EFE31F89FF5C1CD6A;23044.
+ ) 
 Here is how much of TeX's memory you used:
- 55157 strings out of 469515
- 1327114 string characters out of 5470806
+ 55172 strings out of 469515
+ 1327305 string characters out of 5470806
  2125729 words of memory out of 5000000
- 82959 multiletter control sequences out of 15000+600000
+ 82962 multiletter control sequences out of 15000+600000
  645560 words of font info for 110 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,16n,110p,742b,1083s stack positions out of 10000i,1000n,20000p,200000b,200000s
-./lecture-notes.tex:1910:  ==> Fatal error occurred, no output PDF file produced!
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on lecture-notes.pdf (51 pages, 483217 bytes).
+PDF statistics:
+ 1194 PDF objects out of 1200 (max. 8388607)
+ 1031 compressed objects within 11 object streams
+ 212 named destinations out of 1000 (max. 500000)
+ 1269 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,139 @@
+\contentsline {part}{I\hspace {1em}Transform Methods}{5}{part.1}%
+\contentsline {section}{\numberline {1}Topic 1: Periodic Signals and Fourier Series}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Waveforms and Periodic Functions}{5}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Waveform Fundamentals}{5}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Sinusoid waveforms}{5}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Other Types of Waveforms}{6}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Harmonic Components}{6}{subsubsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.2}Fourier Series}{6}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Frequency Domain Representation}{6}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Fourier Series}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Reconstructing a Waveform}{7}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Alternative Trigonometric Form}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Complex Form of the Fourier Series}{8}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Effect of Shifting}{8}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Half-Wave Symmetry}{8}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Odd Half-Wave Symmetry}{8}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Even Half-Wave Symmetry}{9}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Examples}{9}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Waveforms}{9}{subsubsection.1.7.1}%
+\contentsline {section}{\numberline {2}Topic 2: Aperiodic Signals and Fourier Transforms}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Periodic and Aperiodic Signals}{9}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Fourier Series to Fourier Transform}{10}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Fourier Transform Properties}{10}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Basic Properties}{10}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Differentiation}{11}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Convolution}{11}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Modulation}{11}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {3}Topic 3: Laplace Transforms of Signals and Circuits}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction to Laplace Transform}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Laplace Transform Properties}{12}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Basic Properties}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Initial and Final Value Theorem}{13}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Inverse Laplace Transform}{13}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Partial Fraction Decomposition}{13}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Laplace-Domain Circuit Models}{14}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Resistor}{14}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Inductors}{14}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Capacitors}{14}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Initial Conditions}{15}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Transfer Functions}{15}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Unit Impulse Response}{15}{subsubsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.6}Examples}{15}{subsection.3.6}%
+\contentsline {part}{II\hspace {1em}System Analysis}{17}{part.2}%
+\contentsline {section}{\numberline {4}Topic 4: System Analysis}{18}{section.4}%
+\contentsline {subsection}{\numberline {4.1}$s$-Plane}{18}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Poles and Zeros}{18}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}System Stability}{18}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Real Pole(s)}{18}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Complex Conjugate Poles}{19}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Analysis of a System Without Zeros}{19}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}First-Order System}{19}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Second-Order System}{20}{subsubsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.5}Cascade and Parallel Structures}{21}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Frequency Response}{21}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Decibels}{21}{subsubsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.7}Low-Pass Filter}{21}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Second-Order Low Pass Filter}{22}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Band-Pass Filter}{22}{subsection.4.9}%
+\contentsline {subsubsection}{\numberline {4.9.1}Second-Order Band-Pass Filter}{22}{subsubsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.10}Notch and Band-Stop Filters}{23}{subsection.4.10}%
+\contentsline {subsection}{\numberline {4.11}High-Pass Filter}{23}{subsection.4.11}%
+\contentsline {section}{\numberline {5}Part 5: Bode Plot}{23}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Decibels}{23}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Bode Plot}{24}{subsection.5.2}%
+\contentsline {part}{III\hspace {1em}AC Circuit Analysis}{24}{part.3}%
+\contentsline {section}{\numberline {6}AC Fundamentals}{24}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Characteristics of Alternating Current and Voltage}{24}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Phase Angle}{24}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Phase Difference}{25}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Measurements of AC Quantities}{25}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Peak Value}{25}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Peak-to-Peak Value}{25}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Average Value}{25}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Root Mean Square Value}{26}{subsubsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.4}Phasor Representation}{26}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}The Voltage-Current Relationship for Components}{27}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Resistor}{27}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Inductor}{27}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.3}Capacitor}{27}{subsubsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.6}Reactance}{27}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Inductor}{28}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Capacitor}{28}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Impedance}{28}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}RC Circuit}{28}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}RL Circuit}{29}{subsubsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.8}Current and Voltage Division}{29}{subsection.6.8}%
+\contentsline {section}{\numberline {7}AC Circuit Theorems}{30}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Impedance, Admittance, and Susceptance}{30}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Delta-Wye Transformation}{31}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Voltage and Current Sources}{32}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Ideal Sources}{32}{subsubsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.4}Superposition}{32}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Transformation Between Voltage and Current Sources}{32}{subsection.7.5}%
+\contentsline {section}{\numberline {8}AC Circuit Analysis}{32}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Power Transfer}{32}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}AC Power}{33}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Power Calculation}{33}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Power Factor}{34}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Reactive Power}{34}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Apparent Power}{35}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.5}Power Triangle}{35}{subsubsection.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.6}Additional Relationships}{35}{subsubsection.8.2.6}%
+\contentsline {subsubsection}{\numberline {8.2.7}Complex Power}{35}{subsubsection.8.2.7}%
+\contentsline {subsection}{\numberline {8.3}Maximum Power Transfer}{36}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Power Factor Correction}{36}{subsubsection.8.3.1}%
+\contentsline {section}{\numberline {9}AC Resonance}{36}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Series Resonance}{37}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Resonance Voltage Rise}{38}{subsubsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.2}Parallel Resonance}{39}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Practical Resonant Circuit}{40}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Series to Parallel Conversion}{40}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Transient Analysis}{41}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Natural Response}{41}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Source-Free}{41}{subsubsection.10.1.1}%
+\contentsline {subsubsection}{\numberline {10.1.2}RC Circuit}{42}{subsubsection.10.1.2}%
+\contentsline {subsubsection}{\numberline {10.1.3}RL Circuit}{42}{subsubsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.2}Forced Response}{42}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}RC Circuit}{43}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}RL Circuit}{43}{subsubsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.3}Second-Order Circuits}{43}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Series RLC Natural Responses}{44}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Under-Damped Condition}{45}{subsubsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.5}Series RLC Forced Response}{45}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Parallel RLC Natural Response}{45}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Parallel RLC Forced Response}{46}{subsection.10.7}%
+\contentsline {part}{IV\hspace {1em}Appendix}{47}{part.4}%
+\contentsline {section}{\numberline {A}Filters}{47}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{47}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{47}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{47}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{48}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{48}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{48}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{48}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{48}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{48}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{49}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{50}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{51}{appendix.E}%
