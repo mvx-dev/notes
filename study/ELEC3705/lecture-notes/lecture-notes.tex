@@ -2730,4 +2730,49 @@ Since the barrier seen from energy $E_2$ is lower, we have the new tunnel coupli
 \]
 with $\Delta _2\gg\Delta _1$ because $\left( V_0-E_2 \right)< \left( V_0-E_1 \right)$. Because of the stronger tunnel coupling, the states that originate from the second level split faster than the ones from the first level. In addition, these higher-energy orbitals are physically larger, resulting in more of an overlap. Below a certain value of inter-atomic distance, an energy gap appears again, called the band gap.
 
+\section{Quantum Transport of Electrical Charge}
+\subsection{Ohm's Law}
+From a macroscopic view, Ohm's law is given by 
+\[
+    V=R \cdot I \to I=G\cdot V, 
+\]
+which is equivalent to the local form 
+\[
+    \vec{J}=\sigma \vec{E},
+\]
+where $\sigma $ is the conductivity, the reverse of the resistivity $\rho $. At the microscopic level, the conductivity is expressed as 
+\[
+    \sigma =\frac{1}{\rho }=\frac{ne^2\tau }{m},
+\]
+where $n$ is the density of charge carriers, $e$ is the electron charge, $m$ is the electron effective mass, and $\tau $ is the average time between in-elastic scattering events. This is the Drude model, and it is based on the fact that electric fields accelerates charges, which are then stopped when they hit an obstacle, then accelerate again. The carrier velocity, and therefore current, will depend on the average time between scattering events $\tau $.
+
+We now know that the electrons do not lose their energy by scattering against atoms in a regular crystal lattice. This is because in regular crystal, the quantum mechanical wave function of an electron has the periodicity as the lattice (called Bloch waves). Scattering occurs when you perturb the periodicity, either with an impurity, or with a lattice displacement (thermal vibrations).
+
+\subsection{Quantum Transport}
+If the cross-section of a wire is small enough, quantum effects become important because of wave-particle duality. The maximum energy of the electrons is the Fermi energy $E_F$, given by
+\begin{align*}
+    E_F &= \frac{\hbar^2k_F^2}{2m}\Rightarrow p_f=\hbar k=\sqrt{2mE_F}\\
+    \lambda _F&=\frac{2\pi }{k_F}=\frac{h}{\sqrt{2mE_F}},
+\end{align*}
+therefore $\lambda _F$ is the minimum wavelength of the electrons, and quantum effects arise when the dimensions of the wire approach this wavelength. When the width of the wire is an integer multiple of half this wavelength, it acts as a waveguide, with larger widths carrying more modes. Each mode has a quantum of conductance, 
+\[
+    G_0=\frac{e^2}{h}=\frac{1}{\SI{25.8}{\kohm}}.
+\]
+If there are no defects in the wire, the electrons bounce elastically against the walls, so they don't lose any momentum in the direction of the current flow, and all the dissipated power from this conductance is goes into the contacts. The ballistic wire acts as a waveguide, while the contacts act as non-reflecting termination, because an electron that arrived at the drain never goes back into the wire. This conductance is then like the characteristic impedance of the waveguide, and it's non-zero even if the waveguide has no loss.
+
+\subsection{Quantum Point Contact}
+A quantum point contact (QPC) are constrictions of cross-sectional size comparable to the Fermi wavelength, such that quantum effects are visible. Consider a metallic wire, in this case gold. It has Fermi energy given by 
+\[
+    E_F=\SI{5.53}{\electronvolt}, \quad k_F=\SI{1.21e-10}{\per\metre}\Rightarrow\lambda _F=\SI{5.2}{\angstrom}
+\]
+The lattice constant in bulk gold is $a=\SI{4.08}{\angstrom}$, so to observe quantised conductance the wire needs to only a couple of atoms thick. When two gold contacts are pulled apart, they spontaneously form a single-atom chain just before breaking. We can clamp a piece of gold wire to a substrate, which is bent and the resistance of the gold wire is monitored until it breaks. The resistance plateaus before breaking, and has conductance $2e^2/h$. The factor of $2$ comes because of spin degeneracy, each conductance channel can carry $2$ electrons on opposite spin.
+
+\subsubsection{2-Dimensional Electron Gas}
+Different semi-conductors have different band-gaps, which can be used to make heterostructures with interesting energy profiles. A thin layer of electrons is formed at the interface between GaAs and AlGaAs. Metal gates can be fabricated on top of the structure to deplete the 2DEG if required.
+
+\subsubsection{QPC in Semiconductors}
+The Fermi energy in a semiconductor is much smaller than in a metal, giving a larger Fermi wavelength, and QPCs can be made using much larger structures. For example, in the heterostructure from above, you can make a 2-dimensional electron gas with $\lambda _F\sim 20-40 \unit{\nm}$, comparable to the size of lithographic features made by electron beam lithography. A negatively biased metal gate on top of the 2DEG is used to deplete the electron layer. With a more negative voltage, the QPC can be narrowed until the channel is completely pinched off, which is equivalent to breaking a wire.
+
+This is much easier to control than a broken wire, however very low temperatures are required to observe clear steps in the conductance. Tuning the QPC on the steep slope between two adjacent steps means that the current is very sensitive to the gate voltage. On this slope, the displacement of just one electron is sufficient to alter the conductance in a measurable way, and is often using quantum-dot structures. It can also detect in real-time an electron jumping between the quantum dot and the large 2-dimensional electron gas.
+
 \end{document}
