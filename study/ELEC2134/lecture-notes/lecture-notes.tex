@@ -1825,6 +1825,165 @@ where the constants $A_1$ and $A_2$ are determined from the initial values $i(0)
     Ri(0)+L \frac{d i(0)}{d t}+v_c(0)=0,\quad\Rightarrow \frac{d i(0)}{d t}=-\frac{1}{L}\left( v_c(0)+Ri(0) \right).
 \]
 
+\subsection{Initial and Final Values}
+The initial and final values of a second-order circuit means finding 
+\[
+    \frac{d v}{d t},\frac{d i}{d t},v(0),i(0),v(\infty),i(\infty).
+\]
+Note that $v$ denotes capacitor voltage, and $i$ denotes inductor current, and that these values are always continuous, i.e. 
+\[
+    v(0^-)=v(0^+),\quad i(0^-)=i(0^+).
+\]
+
+\begin{callout}{example}[Example]
+\label{example:s10-e1}
+The switch in Fig. \ref{fig:s10-f1} has been closed for a long time. It is open at $t=0$. Find the initial and final values.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american voltages]
+        \draw (0,3) to [voltage source, l_=$\SI{12}{\volt}$] (0,0) to [short] (4, 0) to [capacitor, l_=$\SI{0.1}{\farad}$] (4, 3) to (3, 3) node[circ]{} to [resistor, l_=$\SI{2}{\ohm}$] (3, 1) to [opening switch] (3, 0) to (3,0) node[circ]{};
+        \draw (0,3) to [resistor, l_=$\SI{4}{\ohm}$] (1.5,3) to [inductor, l_=$\SI{0.25}{\henry}$] (3,3);
+    \end{circuitikz}
+    \caption{Series RLC circuit. The switch opens at $t=0$}
+    \label{fig:s10-f1}
+\end{figure}
+\textbf{Answer}:
+
+If the switch has been closed for a long time before $t=0$, then the inductor acts as a short circuit, and the capacitor as an open circuit. This gives 
+\[
+    i(0^-)=\frac{12}{4+2}=\SI{2}{\ampere},\quad v(0^-)=2i(0)=\SI{4}{\volt}.
+\]
+As the inductor current and capacitor voltage cannot change abruptly, 
+\[
+    i(0^+)=i(0^-)=\SI{2}{\ampere},\quad v(0^+)=v(0^-)=\SI{4}{\volt}.
+\]
+At $t=0^+$, the switch is open, and the equivalent circuit just becomes
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american voltages]
+        \draw (0,3) to [voltage source, l_=$\SI{12}{\volt}$] (0,0) to [short] (4, 0) to [capacitor, l_=$\SI{0.1}{\farad}$] (4, 3);
+        \draw (0,3) to [resistor, l_=$\SI{4}{\ohm}$] (2,3) to [inductor, l_=$\SI{0.25}{\henry}$] (4,3);
+    \end{circuitikz}
+    \caption{Series RLC circuit after the switch is closed.}
+    \label{fig:s10-f2}
+\end{figure}
+The same current flows through the whole circuit, so 
+\[
+    i_C(0^+)=i(0^+)=\SI{2}{\ampere}.
+\]
+Since $C \frac{d v}{d t}=i_C$, we have
+\begin{align*}
+    \frac{d v}{d t} &= \frac{i_C}{C}\\
+    \frac{d v(0^+)}{d t}&= \frac{i(0^+)}{C}=\frac{2}{0.1}\\
+                        &=\SI{20}{\volt\per\second}.
+\end{align*}
+Similarly, since $L \frac{d i}{d t}=v_L$, we have $\frac{d i}{d t}=\frac{v_L}{L}$. We can now obtain $v_L$ by applying KVL to the loop formed by the components 
+\[
+    -12+4i(0^+)+v_L(0^+)+v(0^+)=0,
+\]
+or 
+\[
+    v_L(0^+)=12-8-4=0.
+\]
+Thus, 
+\[
+    \frac{d i(0^+)}{d t}=\frac{v_L(0^+)}{L}=\frac{0}{0.25}=\SI{0}{\ampere\per\second}
+\]
+For $t>0$, the circuit undergoes transience, but as $t \to \infty$, the circuit reaches steady state again. The inductor acts like a short circuit, and the capacitor like an open circuit, and as such our circuit becomes open, and 
+\[
+    i(\infty)=\SI{0}{\ampere},\quad v(\infty)=\SI{12}{\volt}.
+\]
+\end{callout}
+
+\begin{callout}{example}[Example]
+\label{example:s10-e2}
+In the circuit in Fig. \ref{fig:s10-f2}, calculate (a) $i_L(0^+)$, $v_C(0^+)$, $v_R(0^+)$, (b) $di_L(0^+)/dt$, $dv_C(0^+)/dt$, $dv_R(0^+)/dt)$, and (c) $i_L(\infty)$, $v_C(\infty)$, $v_R(\infty)$.
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[european]
+        \draw (0,0) to [isource=$3u(t)\unit{\ampere}$] (0,4) to (2,4) to [resistor=$\SI{4}{\ohm}$] (4,4) to (6,4) to [inductor=$\SI{0.6}{\henry}$, i=$i_L$] (6,0) to (0,0);
+        \draw (2,0) to [resistor=$\SI{2}{\ohm}$, v=$v_R$](2,4);
+        \draw (4,0) to [vsource=$\SI{20}{\volt}$] (4,2) to [C=$\SI{0.5}{\farad}$, v=$v_C$, i=$i_C$] (4,4);
+    \end{circuitikz}
+    \caption{An RLC circuit utilising two different sources.}
+    \label{fig:s10-f2}
+\end{figure}
+\textbf{Answer}:
+
+(a) For $t<0$, $3u(t)=0$, and so this can be replaced with an open circuit. At $t=0^-$, since the circuit has reached steady state, the inductor can be replaced by a short circuit and the capacitor with an open circuit. From this, we get 
+\[
+    i_L(0^-)=0,\quad v_R(0^-)=0,\quad v_C(0^-)=\SI{-20}{\volt}.
+\]
+At $t>0$, $3u(t)=3$, so the circuit now is as it looks in the above figure. Since the inductor current and capacitor voltage cannot change instantaneously, 
+\[
+    i_L(0^+)=i_L(0^-)=0,\quad v_C(0^+)=v_C(0^-)=\SI{-20}{\volt}.
+\]
+Although we do not need to find the voltage across the $\SI{4}{\ohm}$ resistor, we can use it to apply KVL and KCL. Calling it $v_0$, we can apply KCL on the left node to get 
+\[
+    3=\frac{v_R(0^+)}{2}+\frac{v_0(0^+)}{4},
+\]
+and KVL to the middle mesh,
+\[
+    -v_R(0^+)+v_0(0^+)+v_C(0^+)+20=0.
+\]
+Since we know $v_C(0^+)=\SI{-20}{\volt}$, we have
+\begin{align*}
+    -v_R(0^+)+v_0(0^)-20+20 &= 0\\
+    \Rightarrow v_R(0^+)=v_0(0^+).
+\end{align*}
+We can plug this into the KCL expression above to get 
+\[
+    v_R(0^+)=v_0(0^+)=\SI{4}{\volt}.
+\]
+
+(b) Since $L \frac{d i_L}{d t}=v_L$, we get 
+\[
+    \frac{d i_L(0^+)}{d t}=\frac{v_L(0^+)}{L}.
+\]
+Applying KVL now to the mesh on the right, we get 
+\[
+    -20+v_C-v_L(0^+)=0\quad \Rightarrow v_L(0^+)=v_C(0^+)+20=0.
+\]
+Hence, 
+\[
+    \frac{d i_L(0^+)}{d t}=0.
+\]
+Similarly, since $C \frac{d v_C}{d t}=i_C$, then $\frac{d v_C}{d t}=\frac{i_C}{C}$. Applying KCL to the node on the right of the resistor, we get 
+\[
+    \frac{v_0(0^+)}{4}=i_C(0^+)+i_L(0^+).
+\]
+Since $v_0(0^+)=4$ and $i_L(0^+)$, $i_C(0^+)=\frac{4}{4}=\SI{1}{\ampere}$. Then, 
+\[
+    \frac{d v_C(0^+)}{d t}=\frac{i_C(0^+)}{C}=\frac{1}{0.5}=\SI{2}{\volt\per\second}.
+\]
+To get $\frac{d v_R(0^+)}{d t}$, we can apply KCL to the first node again, then take the derivative of each term
+\begin{align*}
+    3 &= \frac{v_R}{2}+\frac{v_0}{4}\\
+    0&=2 \frac{d v_R(0^+)}{d t}+\frac{d v_0(0^+)}{d t}.
+\end{align*}
+Doing the same by applying KVL to the middle mesh,
+\begin{align*}
+    -v_R+v_C+20 +v_0&=0\\
+    -\frac{d v_R(0^+)}{d t}+\frac{d v_C(0^+)}{d t}+\frac{d v_0(0^+)}{d t}=0.
+\end{align*}
+Substituting $\frac{d v_C(0^+)}{d t}=2$ gives 
+\[
+    \frac{d v_R(0^+)}{d t}=2+\frac{d v_0(0^+)}{d t}.
+\]
+Finally, using this equation and the KVL derivative, we get 
+\[
+    \frac{d V_R(0^+)}{d t}=\frac{2}{3}\unit{\volt\per\second}.
+\]
+
+(c) At $t \to \infty$, the circuit reaches steady state. We this is the same as when $t<0$, however with the addition of the current source. By current division, we get 
+\begin{align*}
+    i_L(\infty) &= \frac{2}{2+4}\SI{3}{\ampere}=\SI{1}{\ampere}\\
+    v_R(\infty)&=\frac{4}{2+4}\SI{3}{\ampere}\times 2=\SI{4}{\volt}\\
+    v_C(\infty)&=\SI{-20}{\volt}.
+\end{align*}
+\end{callout}
+
 \subsection{Series RLC Natural Responses}
 There are three types of solutions (responses) possible in a series RLC circuit
 \begin{enumerate}

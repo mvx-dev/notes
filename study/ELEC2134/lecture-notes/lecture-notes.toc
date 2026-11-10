@@ -118,22 +118,23 @@
 \contentsline {subsubsection}{\numberline {10.2.1}RC Circuit}{43}{subsubsection.10.2.1}%
 \contentsline {subsubsection}{\numberline {10.2.2}RL Circuit}{43}{subsubsection.10.2.2}%
 \contentsline {subsection}{\numberline {10.3}Second-Order Circuits}{43}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Series RLC Natural Responses}{44}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Under-Damped Condition}{45}{subsubsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.5}Series RLC Forced Response}{45}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Parallel RLC Natural Response}{45}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Parallel RLC Forced Response}{46}{subsection.10.7}%
-\contentsline {part}{IV\hspace {1em}Appendix}{47}{part.4}%
-\contentsline {section}{\numberline {A}Filters}{47}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Types of Filters}{47}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Useful Integrals}{47}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Integrals}{47}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Integration by Parts}{48}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{48}{subsubsection.B.2.1}%
-\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{48}{subsubsection.B.2.2}%
-\contentsline {subsubsection}{\numberline {B.2.3}Sine}{48}{subsubsection.B.2.3}%
-\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{48}{subsubsection.B.2.4}%
-\contentsline {subsection}{\numberline {B.3}Definite Integrals}{48}{subsection.B.3}%
-\contentsline {section}{\numberline {C}Trigonometric Identities}{49}{appendix.C}%
-\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{50}{appendix.D}%
-\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{51}{appendix.E}%
+\contentsline {subsection}{\numberline {10.4}Initial and Final Values}{44}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Series RLC Natural Responses}{47}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Under-Damped Condition}{48}{subsubsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.6}Series RLC Forced Response}{48}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Parallel RLC Natural Response}{49}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Parallel RLC Forced Response}{49}{subsection.10.8}%
+\contentsline {part}{IV\hspace {1em}Appendix}{50}{part.4}%
+\contentsline {section}{\numberline {A}Filters}{50}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Types of Filters}{50}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Useful Integrals}{50}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Integrals}{50}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Integration by Parts}{51}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Key Formula}{51}{subsubsection.B.2.1}%
+\contentsline {subsubsection}{\numberline {B.2.2}Cosine}{51}{subsubsection.B.2.2}%
+\contentsline {subsubsection}{\numberline {B.2.3}Sine}{51}{subsubsection.B.2.3}%
+\contentsline {subsubsection}{\numberline {B.2.4}Definite Integration by Parts}{51}{subsubsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.3}Definite Integrals}{51}{subsection.B.3}%
+\contentsline {section}{\numberline {C}Trigonometric Identities}{52}{appendix.C}%
+\contentsline {section}{\numberline {D}Common Fourier Transform Pairs and Properties}{53}{appendix.D}%
+\contentsline {section}{\numberline {E}Common Laplace Transform Pairs and Properties}{54}{appendix.E}%
