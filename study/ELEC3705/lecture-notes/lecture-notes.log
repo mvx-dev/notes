@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.10.22)  7 NOV 2026 13:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.10.22)  11 NOV 2026 11:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -967,8 +967,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2667.
 
-[52] [53] [54] [55]
-runsystem(latexminted cleantemp  --timestamp 20261107132101 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
+[52] [53] [54] [55] [56] [57]
+runsystem(latexminted cleantemp  --timestamp 20261111111915 5D4CA94D12F41E4E12DA004896F7D0AA)...executed safely (allowed).
 
  (./lecture-notes.aux)
  ***********
@@ -980,21 +980,21 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `lecture-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 2E86F1B7D5CD8A430877CDBF3CB0C05D;19348.
+(rerunfilecheck)             Checksum: 013E9A0FB27DCEBAA0571F0C0E2E6F0F;20403.
  ) 
 Here is how much of TeX's memory you used:
- 38805 strings out of 469515
- 841415 string characters out of 5470806
- 1374048 words of memory out of 5000000
- 66669 multiletter control sequences out of 15000+600000
+ 38836 strings out of 469515
+ 841814 string characters out of 5470806
+ 1374179 words of memory out of 5000000
+ 66682 multiletter control sequences out of 15000+600000
  640186 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,19n,110p,698b,1616s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,19n,110p,876b,1616s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on lecture-notes.pdf (55 pages, 450162 bytes).
+Output written on lecture-notes.pdf (57 pages, 463743 bytes).
 PDF statistics:
- 1070 PDF objects out of 1200 (max. 8388607)
- 937 compressed objects within 10 object streams
- 212 named destinations out of 1000 (max. 500000)
- 1077 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1124 PDF objects out of 1200 (max. 8388607)
+ 989 compressed objects within 10 object streams
+ 230 named destinations out of 1000 (max. 500000)
+ 1125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

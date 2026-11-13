@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {1.5}Wave Function}{5}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Schr\"odinger Equation}{6}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Wave Packets}{6}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Heisenbery Uncertainty Principle}{7}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.8}Heisenberg Uncertainty Principle}{7}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Problems}{7}{subsection.1.9}%
 \contentsline {section}{\numberline {2}The Mathematical Formalism of Quantum Mechanics}{9}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Hilbert Space}{9}{subsection.2.1}%
@@ -113,3 +113,9 @@
 \contentsline {subsection}{\numberline {11.3}Quantum Point Contact}{55}{subsection.11.3}%
 \contentsline {subsubsection}{\numberline {11.3.1}2-Dimensional Electron Gas}{55}{subsubsection.11.3.1}%
 \contentsline {subsubsection}{\numberline {11.3.2}QPC in Semiconductors}{55}{subsubsection.11.3.2}%
+\contentsline {section}{\numberline {12}Single-Electron Devices}{55}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Energy-Time Uncertainty Principle}{55}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Constants and Conversions}{56}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Small Capacitors}{56}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Charging Energy}{57}{subsubsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.4}Tunnelling Conductance}{57}{subsection.12.4}%

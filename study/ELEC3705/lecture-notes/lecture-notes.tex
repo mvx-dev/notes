@@ -143,7 +143,7 @@ therefore
 \]
 This means that $g(k)$ is the Fourier transform (in space) of the shape of the wave packet at $t=0$, i.e. of the probability amplitude of finding the object at point $x$ at $t=0$.
 
-\subsection{Heisenbery Uncertainty Principle}
+\subsection{Heisenberg Uncertainty Principle}
 Consider a Gaussian wave packet
 \[
     \psi (x,0)=\frac{1}{\sqrt{2\pi }\sigma _x}\exp \left( -\frac{x^2}{2\sigma _x^2} \right). 
@@ -2774,5 +2774,106 @@ Different semi-conductors have different band-gaps, which can be used to make he
 The Fermi energy in a semiconductor is much smaller than in a metal, giving a larger Fermi wavelength, and QPCs can be made using much larger structures. For example, in the heterostructure from above, you can make a 2-dimensional electron gas with $\lambda _F\sim 20-40 \unit{\nm}$, comparable to the size of lithographic features made by electron beam lithography. A negatively biased metal gate on top of the 2DEG is used to deplete the electron layer. With a more negative voltage, the QPC can be narrowed until the channel is completely pinched off, which is equivalent to breaking a wire.
 
 This is much easier to control than a broken wire, however very low temperatures are required to observe clear steps in the conductance. Tuning the QPC on the steep slope between two adjacent steps means that the current is very sensitive to the gate voltage. On this slope, the displacement of just one electron is sufficient to alter the conductance in a measurable way, and is often using quantum-dot structures. It can also detect in real-time an electron jumping between the quantum dot and the large 2-dimensional electron gas.
+
+\section{Single-Electron Devices}
+\subsection{Energy-Time Uncertainty Principle}
+The energy-time uncertainty principle is 
+\[
+    \Delta E\Delta t\geq \frac{\hbar }{2}.
+\]
+This is different from Heisenberg, as $t$ is a parameter and not a dynamical variable. We define $\delta t$ from 
+\[
+    \Delta A=\left| \frac{\left\langle A \right\rangle }{t} \right|\delta t,
+\]
+where $A$ is some observable. This means $\delta t$ represents the typical timescale over which the expectation value of the observable changes in a perceptible way.
+
+\begin{callout}{example}[Example]
+\label{example:s11-e1}
+Spin in a magnetic field has a Hamiltonian 
+\[
+    \mathcal{H}=\omega _0S_Z+\mathcal{H}'.
+\]
+If we had only the first term $\omega _0S_Z$, then $\ket{\uparrow}$ and $\ket{\downarrow}$ would be the eigenstates, and the system would stay in these states indefinitely. The extra $\mathcal{H}'$ term describes the fact that if we prepare the high-energy state $\ket{\uparrow}$, after a while it decays to $\ket{\downarrow}$ as it has lower energy. Physically, it is coupled to a larger system with many states. Since $\ket{\uparrow}$ is no longer an eigenstate of the Hamiltonian, it isn't sharply defined. We say that it has lifetime broadening, meaning that it is an approximate eigenstate with an uncertainty on its energy that relates to its lifetime. Physically, this state is a band of many states that arise from coupling to the larger system, which is what absorbs the energy upon relaxation of $\ket{\uparrow}$ towards $\ket{\downarrow}$.
+\end{callout}
+
+\begin{callout}{example}[Example]
+\label{example:s11-e2}
+Particle in a non-infinite potential well. Since the particle has a non-zero tunnelling probability, it will leave the well after a characteristic time $\tau $. This broadens the energy level of the bound state. The proper way to describe it would be to have a Hamiltonian that couples it to all the states outside the well, which is extremely computationally heavy. Instead, we can approximate it by treating the single-level inside the well, and giving it a broadening $\frac{\hbar }{\tau }$.
+\end{callout}
+
+\subsection{Constants and Conversions}
+From the Planck-Einstein relations, we already know that energy and frequency are converted into the other by 
+\[
+    E=\hbar\omega =hf,
+\]
+where $h=6.64\times 10^{-37}\unit{\joule\second}$. Energy can also be expressed in temperature units, using the relation 
+\[
+    E=k_B T,
+\]
+where $k_B=1.38 \times 10^{-23} \unit{\joule\per\kelvin}$ is the Boltzmann constant. We also have the unit electron volt $\unit{\electronvolt}$, the energy of a single electron with charge $e=1.6\times 10^{-19}\unit{\coulomb}$ subjected to a $\SI{1}{\volt}$ potential 
+\[
+    E=e\cdot V.
+\]
+It is then useful to remember the following conversion 
+\[
+    \boxed{\SI{1}{\kelvin}=\SI{20.84}{\giga\hertz}=\SI{86}{\micro\electronvolt}}
+\]
+
+We can also describe the single-electron charging energy to be 
+\[
+    E_C=\frac{e^2}{2C}.
+\]
+
+\subsection{Small Capacitors}
+We can create small electronic devices in the lab using the shadow evaporation, which uses electron beam lithography (EBL) and thermal evaporation of metals
+\begin{enumerate}
+    \item Spin on a first layer of polymer resist (MAA)
+    \item Spin on a "harder" second layer of polymer resist (PMMA) on top
+    \item Expose pattern with a beam of electrons
+    \item Put device in a special chemical developer to dissolve resist. The first layer is more sensitive to the exposure, and dissolves quicker
+    \item Perform first evaporation of aluminium, at an angle. This is the shadow evaporation
+    \item Oxidise the first aluminium layer, resulting in $\sim \SI{1}{\nano\metre}$ thick $\text{Al}_2 \text{O}_3$
+    \item Perform a second evaporation at the opposite angle
+    \item Dissolve the MAA and PMMA resist in acetone
+\end{enumerate}
+The result is a very small capacitor.
+
+\subsubsection{Charging Energy}
+Consider two layers of aluminium forming. The overlap area is $A=30\times 30 \unit{\nano\metre}^2,$ and the oxide thickness is $d=\SI{1}{\nano\metre}$. If we ignore electron tunnelling, this is just a capacitor with junction capacitance given by 
+\[
+    C=\epsilon _0\epsilon _r \frac{A}{d}=8.85\times 10^{-12}\times 10 \times \frac{\left( 3\times 10^{-8} \right)^2}{10^{-9}}=\SI{80}{\atto\farad}.
+\]
+The charge on a capacitor is $Q=CV$, and the stored energy is 
+\[
+    E=\frac{1}{2}\frac{Q^2}{C}.
+\]
+Charging the capacitor with a single electron, the charge is $Q=e=\SI{1.6e-19}{\coulomb}$ 
+\[
+    E_C=\frac{e^2}{2C}=\frac{\left( 1.6\times 10^{-19} \right)^2}{1.6\times 10^{-16}}=\SI{1.6e-22}{\joule},
+\]
+which is the charging energy. Dividing by the Boltzmann constant, $k_B=\SI{1.38e-23}{\joule\per\kelvin}$ to convert to temperature units 
+\[
+    \frac{E_C}{k_B}=\SI{11.5}{\kelvin}.
+\]
+At $T=\SI{1}{\kelvin}$, the energy necessary to add a single electron to this capacitor is much larger than the available thermal energy.
+
+\subsection{Tunnelling Conductance}
+Since this oxide barrier is not infinitely high and not infinitely thick, there is a non-zero tunnelling probability, and hence a tunnelling conductance $G_T$ 
+\[
+    G_T=\frac{1}{R_T}=e^2N(E_F)\Gamma  _T,
+\]
+where $N(E_F)$ is the density of electron states around the Fermi level and $\Gamma _T=\frac{1}{\tau _T}$ is the tunnel rate. This means it will not indefinitely hold charge, and will discharge with a constant 
+\[
+    \tau =R_TC.
+\]
+Note that this is different from the tunnel time $\tau _T$. The energy uncertainty is then $\Delta E=\frac{\hbar }{\tau }=\frac{\hbar }{R_TC}$. If the resistance approaches the inverse of the quantum conductance, then 
+\[
+    \lim_{R_T\to \hbar/2e^2 } \Delta E=\frac{\hbar }{C}\frac{2e^2}{h}=\frac{e^2}{\pi C},
+\]
+which is comparable to the charging energy 
+\[
+    \frac{e^2}{2c}.
+\]
+If the tunnelling resistance is of the order to the quantum of resistance, then the energy uncertainty is of the order of the charging energy, and the number of electrons stored in the capacitor is not well defined, and has quantum fluctuations
 
 \end{document}
