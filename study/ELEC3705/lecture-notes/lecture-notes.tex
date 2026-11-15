@@ -1309,7 +1309,7 @@ This gives the tunnelling oscillations to have the frequency
 \]
 For ammonia, this is a well defined frequency
 \[
-    \omega _T=\frac{E_{1A-E_{1S}}}{\hbar}\approx 2\pi \times^24 \text{GHz}.
+    \omega _T=\frac{E_{1A}-E_{1S}}{\hbar}\approx 2\pi \times24 \text{GHz}.
 \]
 
 \subsection{Relation to Spin}
@@ -2289,7 +2289,7 @@ For example, the singlet state has a density matrix given by
     \ket{S} &= \frac{1}{\sqrt{2}}\begin{pmatrix}
         0\\1\\-1\\0
     \end{pmatrix}\\
-    \Rightarrow \rho ^S=\frac{1}{2}\begin{pmatrix}
+        \Rightarrow \rho ^S&=\frac{1}{2}\begin{pmatrix}
         0&0&0&0\\
         0&1&-1&0\\
         0&-1&1&0\\
@@ -3013,5 +3013,26 @@ Consider two electron spins, described by
 where $J$ represents the exchange interaction strength, and $\Delta B_z$ represents a vertically oriented magnetic field, having opposite direction at the two spins. This would be strange in bulk structures (the magnetic field is usually the same everywhere), but becomes feasible in nanoscale devices where the electrons are close to each other, so they experience some exchange interaction, but far enough apart that a spatially varying magnetic field can have significantly different values at the two locations.
 
 If we prepare a 2-spin system in the $\ket{ \uparrow \downarrow}$ state and subject it to the effects of only an exchange interaction and a magnetic field gradient, the system never occupies the $\ket{T_+}$ or $\ket{T_-}$ states. Even though we have 2 spins, it effectively behaves like a two-level system, where the basis states are $\ket{S}$ and $\ket{T_0}$, $J$ plays the role of a field along $z$, and $\Delta B_z$ plays the role of a field along $x$. This is how to make one qubit from two electrons, and it is able to controlled solely using electrical pulses, without using magnetic resonance.
+
+\subsection{Cryogenic Methods}
+\subsection{Entropy and Heat}
+Almost all quantum phenomena require very low temperatures to become observable. This is just a consequence of the values of the constants of nature
+\begin{itemize}
+    \item Charging energy: $E_C=\frac{e^2}{2C}$, $C=\SI{100}{\atto\farad}\Rightarrow \frac{E_C}{k_B}\approx\SI{10}{\kelvin}$
+    \item Zeeman energy: $E_z=\hbar\gamma B$, $B=\SI{1}{\tesla}\Rightarrow \frac{E_z}{k_B}\approx \SI{1.3}{\kelvin}$
+\end{itemize}
+The simplest technique to achieve low temperatures is the liquefy an inert gas,
+\begin{itemize}
+    \item $\text{N}_2\to \SI{77}{\kelvin}$
+    \item $\text{H}_2\to \SI{20}{\kelvin}$
+    \item $\text{He}\to \SI{4.2}{\kelvin}$
+\end{itemize}
+Whenever a molecule evaporates from a liquid, it requires a latent heat of evaporation, i.e. the system absorbs heat by increasing it's entropy.
+
+From the second law of thermodynamics, we have 
+\[
+    dQ=TdS,
+\]
+where $dQ$ is the absorbed heat, and $dS$ is the increase in entropy.
 
 \end{document}

@@ -129,3 +129,5 @@
 \contentsline {subsection}{\numberline {12.9}Quantum Computing with Spins in Dots}{60}{subsection.12.9}%
 \contentsline {subsection}{\numberline {12.10}Exchange Coupling}{60}{subsection.12.10}%
 \contentsline {subsection}{\numberline {12.11}Singlet-Triplet Qubit}{61}{subsection.12.11}%
+\contentsline {subsection}{\numberline {12.12}Cryogenic Methods}{61}{subsection.12.12}%
+\contentsline {subsection}{\numberline {12.13}Entropy and Heat}{61}{subsection.12.13}%
