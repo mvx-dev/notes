@@ -2876,4 +2876,142 @@ which is comparable to the charging energy
 \]
 If the tunnelling resistance is of the order to the quantum of resistance, then the energy uncertainty is of the order of the charging energy, and the number of electrons stored in the capacitor is not well defined, and has quantum fluctuations
 
+\subsection{Coulomb Blockade}
+Consider a capacitor with a voltage $V$ applied at its terminals. The charge induced on the plates of the capacitor is therefore 
+\[
+    Q=CV.
+\]
+Since $V$ is a continuously variable quantity, so is $Q$. Note that $Q$ is not related to electrons being added or removed from the plates, and is instead the effect of the electric displacement on the capacitor plates and on the dielectric inbetween.
+
+If an electron tunnels from the negative electrode to the positive one, the charge goes from $Q$ to $Q-\left| e \right|$, i.e. the energy goes from $\frac{Q^2}{2C}$ to $\frac{\left( Q-\left| e \right| \right)^2}{2C}$, which is an energy increase, unless the initial charge was $Q\geq \frac{\left| e \right|}{2}$, i.e. 
+\[
+    V\geq \frac{\left| e \right|}{2C}.
+\]
+This means that there is a threshold voltage below which electron tunnelling is blocked by electrostatic effects, called a Coulomb blockade. If $Q\geq \frac{\left| e \right|}{2}$, then moving an electron to the other side discharges the capacitor.
+
+\subsection{Single-Electron Transistor}
+A single-electron transistor (SET) is a metallic island connected to source/drain contacts by low-$C$ tunnel junctions, and capacitively coupled to a control gate. It can be made by shadow evaporation of aluminium. After the first evaporation, oxygen is introduced to the evaporation chamber to oxidise the aluminium with a controlled thickness, then the chip is rotated by an angle and the metal is evaporated again. A SET is equivalent to a circuit as below
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[straight voltages]
+        \draw (0,0) to [battery2, v<=$V_{DS}$, invert] (0,3) to (2,3) to [C, l_=$C_D$] (2,1.5) to [C, l_=$C_S$] (2,0) to (0,0);
+        \draw (2,1.5) to [C=$C_G$] (4,1.5) to [battery2, v>=$V_{GS}$] (4,0) to (2,0);
+    \end{circuitikz}
+    \label{fig:s11-f1}
+\end{figure}
+The charge on $C_G$ doesn't need to be an integer multiple of $e$. Its a polarisation charge that can take any continuous value $Q_G=C_GV_G$. We will use a normalised charge $n_G=\frac{C_GV_G}{e}$. Note also that $V_G\neq V_{GS}$ because there can be a voltage drop across the source/island junction. Instead, the charge on the island has a discrete value, because the tunnel barriers are designed to have resistance $R> \frac{h}{2e^2}$. The typical values for the tunnelling resistance are $R\approx 50-100 \unit{\kilo\ohm}$, however this only works at low temperature ($\sim \SI{1}{\kelvin}$) because you would need $k_B T<E_C$. The island is coupled to the rest of the world via three capacitors. The charging energy is given by 
+\[
+    E_C=\frac{e^2}{2C_{\Sigma }},
+\]
+where $C_{\Sigma}=C_S+C_D+C_G$.
+
+\subsubsection{SET Energy}
+Starting with the case where the tunnelling resistances are infinite, the electron number on the island cannot change. The energy of the SET is then a parabola, and represents 
+\[
+    E=\frac{Q^2}{2C_{\Sigma }}=\frac{\left( en_G \right)^2}{2C_{\Sigma }}.
+\]
+Even if the electron number is fixed, the capacitor $C_G$ can be charged because of the polarisation of the dielectric upon applying a voltage $V_G$. If we allow for electron tunnelling on and off the island, the energy is then a series of overlapping parabola, where each minima is an electron number. Consider a point with energy $E_1$ above the $n=1$ minima. If there are zero electrons on the island, there is a polarisation charge on $C_G$, responsible for the energy increase. If now an electron tunnels onto the island, it exactly compensates the polarisation charge, so $C_G$ is discharged and $E=0$. For $n_G=n+\frac{1}{2}$, where $n$ is the number of excess charges on the island, there are two island numbers with the same energy, $n=0$ or $1$. Therefore, an electron can tunnel on and off at no energy cost. As a function of $n_G$, the energy follows the minimum energy, defined by the bottoms of the parabola, if tunnelling is allowed to maintain the charge number with the lowest energy.
+
+\subsubsection{Electrochemical Potential}
+The total energy of the island with a voltage $V_G$ applied to the gate and $n$ excess electrons is 
+\[
+    E(n)=\frac{\left( -en+C_GV_G \right)^2}{2C_{\Sigma }}.
+\]
+Here, we are ignoring any quantum effects due to the confinement of electrons in the potential, and we ignore the polarisation charge induced by the source-drain voltage. We can see that this energy is quadratic with applied voltage $V_G$ (or induced charge $n_G$). We define the electrochemical potential as the energy required to add the $n$th electron (with $n-1$ electrons already on it).
+\begin{align*}
+    \mu (n) &= E(n)-E(n-1)\\
+            &= \frac{\left( -en+C_GV_G \right)^2}{2C_{\Sigma }}-\frac{\left( -e(n-1) +C_GV_G\right)^2}{2C_{\Sigma }}\\
+            &=\frac{e^2}{C_{\Sigma }}\left( n-\frac{1}{2}-n_G \right).
+\end{align*}
+This is linear in the induced gate charge $n_G$. It can be pictured as a ladder of levels that's shifted up or down by applying the gate voltage. The energy spacing between the electrochemical potential levels is constant (it is independent of both $n$ and $n_G$) 
+\[
+    E_{add}=\mu (n)-\mu (n-1)=\frac{e^2}{2C_{\Sigma }}=2E_C.
+\]
+This is called the addition energy, and it's the energy required to add the next electron. Note that this can also be defined as the charging energy, as it corresponds to the energy required to charge the island with an additional single electron.
+
+The current between the source and drain can only flow at the charge degeneracy points, $n_G=n+\frac{1}{2}$, where $\mu (n+1)=0$, and therefore is a function of gate voltage $V_G=\frac{en_G}{C_G}$ where you find sharp current peaks.
+
+Note that is $V_{DS}\geq \frac{e}{C_{\Sigma }}$, there is always current flowing, because there is at least one degeneracy point within the source-drain voltage range (the bias window), which is why nanometre-sized devices are required. Otherwise, $C_{\Sigma }$ is large and any tiniest voltage will give you some current.
+
+\subsubsection{SET as an Electrometre}
+The Coulomb peaks have a finite width, defined by 
+\[
+    \delta V=\max \begin{cases}
+        k_B T/e & \Rightarrow \text{thermal broadening} \\
+        \frac{\hbar \Gamma }{e} & \Rightarrow \text{lifetime broadening}\\
+        \sim V_{DS}& \Rightarrow \text{bias window}
+    \end{cases}.
+\]
+Like the QPC, the SET is a quantum device whose conductance can be extremely sensitive to the electrostatic potential in its surroundings. The most sensitive point is on the shoulder of a Coulomb peak. Notice that quantum mechanics here only enters in the tunnelling of electrons on and off the island. The Coulomb blockade is a classical effect.
+
+The spacing between the peaks corresponds to taking one electron from infinity and adding it to the island. A much smaller charge displacement can be easily resolved. The minimum detectable charge $\Delta Q$ depends on the noise floor of the measuring electronics $\Delta I_N$, and on the sharpness of the peaks. The electronics noise depends on the bandwidth $\Delta I_N \propto \sqrt{BW}$. Typical values are $\Delta Q\sim \frac{10 \mu e}{\sqrt{\unit{\hertz}}}$, meaning you can detect a charge signal of $0.01e \approx 1 \unit{\micro\second}$ at one time.
+
+\subsection{Quantum Dots}
+In the SET, the Coulomb blockade peaks are visible when 
+\[
+    E_C \gg k_B T \text{ (low temperature) AND } R_T\gg \frac{h}{2e^2} \text{ (well-defined electron number)}.
+\]
+However, the actual number of electrons on the island is macroscopic, and the quantum energy spectrum is a quasi-continuum, similar to a particle in a box. In contrast, a quantum dot is a structure where the gap between single-particle energy levels (a quantum effect) is large and comparable to the charge energy (a classical effect), like a very tight particle in a box.
+
+Consider a confinement potential in 2 dimensions with two energy minima with a finite barrier between. If an electron is placed in a minima, the wavefunctions would be the 2 dimensional equivalent of a $H_2^+$ molecule. This is effectively what a quantum dot represents.
+
+In the quantum dot semiconductor, however, we can choose whatever shape and size we want, and verify that the orbital energies change accordingly
+
+\subsection{2D Orbital Eigenstates}
+The orbital eigenstates of an electron confined in 2 dimensions by a parabolic potential are called Fock-Darwin states. $n$ sets the number of nodes in the radial direction whereas $l$ sets the size of the dip in the centre and the radial extent of the wavefunction. Each time you add an electron, you need to pay the classical Coulomb charging energy, as in an SET, however the single-particle levels are now quantised. Each orbital can take 2 electrons. For the next electron, you need to pay the addition, plus the extra energy to occupy the next-up quantum orbital. This can be measured via the current through the quantum dot, and you can scan an artificial periodic table just by changing a gate voltage.
+
+\subsection{Quantum Computing with Spins in Dots}
+Two spins coupled by an exchanged interaction of strength $J$ in zero magnetic field form a singlet state and degenerate triplet states 
+\[
+    \mathcal{H}=J \vec{S}_1 \cdot \vec{S}_2=\frac{J}{4}\left( \sigma _{x1}\sigma _{x 2}+\sigma _{y 1}\sigma _{y 2}+\sigma _{z 1}\sigma _{z 2} \right)=\frac{J}{4}\begin{pmatrix}
+        1&0&0&0\\
+        0&-1&2&0\\
+        0&2&-1&0\\
+        0&0&0&1
+    \end{pmatrix}.
+\]
+This has the eigenstates
+\begin{align*}
+    \ket{T_+} &= \ket{\uparrow \uparrow}\\
+    \ket{T_0}&= \frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}+\ket{\downarrow \uparrow} \right)\\
+    \ket{T_-}&= \ket{\downarrow \downarrow}\\
+    \ket{S}&= \frac{1}{\sqrt{2}}\left( \ket{\uparrow \downarrow}-\ket{\downarrow \uparrow} \right).
+\end{align*}
+These use the $S$ matrices rather than the Pauli matrices, so the splitting is $J$ instead of $4J$.
+
+\subsection{Exchange Coupling}
+We saw above that exchange coupling is a consequence of the symmetrisation postulate, and the presence of a finite-height barrier between two potential wells, which gives the symmetric/anti-symmetric orbital configurations their different energies. Using quantum dots, we change the height of the tunnel barrier using an electrostatic gate, thereby controlling the exchange coupling.
+
+In a double dot, the exchange interaction $J$ can be controlled by the voltage $V_J$ applied to the middle gates (which raises or lowers the barrier) 
+\[
+    \mathcal{H}_J=J(t)\vec{S}_L \cdot \vec{S}_R.
+\]
+This means we can pulse the exchange interaction $J$ whenever we want. If we turn on the exchange interaction for a precisely controlled time $\tau _S$ such that $J\tau _S=\pi $, we implement a SWAP operation on the spins 
+\[
+    U_S=e^{-i \mathcal{H}_J\tau _S}=\begin{pmatrix}
+        1&0&0&0\\
+        0&0&1&0\\
+        0&1&0&0\\
+        0&0&0&1
+    \end{pmatrix}.
+\]
+This operation conserves the total spin and the $z$ projection (i.e. $\mathcal{H}_J$ commutes with both $\vec{S}^2$ and $S_z$), so by itself it isn't very useful as it doesn't allow the full exploration of the full Hilbert space of the coupled system. However,if we stop the SWAP operation halfway through, we perform a $\sqrt{\text{SWAP}}$, which is an entangling operation 
+\[
+    U_S^{1/2}=e^{-i \mathcal{H}_J \tau _S/2}=\begin{pmatrix}
+        1&0&0&0\\
+        0&\frac{1+i}{2}&\frac{1-i}{2}&0\\
+        0&\frac{1-i}{2}&\frac{1+i}{2}&0\\
+        0&0&0&1
+    \end{pmatrix}.
+\]
+
+\subsection{Singlet-Triplet Qubit}
+Consider two electron spins, described by 
+\[
+    \mathcal{H}=J\vec{S}_1 \cdot \vec{S}_2+\gamma \Delta B_z \left( S_{z1}-S_{z2} \right),
+\]
+where $J$ represents the exchange interaction strength, and $\Delta B_z$ represents a vertically oriented magnetic field, having opposite direction at the two spins. This would be strange in bulk structures (the magnetic field is usually the same everywhere), but becomes feasible in nanoscale devices where the electrons are close to each other, so they experience some exchange interaction, but far enough apart that a spatially varying magnetic field can have significantly different values at the two locations.
+
+If we prepare a 2-spin system in the $\ket{ \uparrow \downarrow}$ state and subject it to the effects of only an exchange interaction and a magnetic field gradient, the system never occupies the $\ket{T_+}$ or $\ket{T_-}$ states. Even though we have 2 spins, it effectively behaves like a two-level system, where the basis states are $\ket{S}$ and $\ket{T_0}$, $J$ plays the role of a field along $z$, and $\Delta B_z$ plays the role of a field along $x$. This is how to make one qubit from two electrons, and it is able to controlled solely using electrical pulses, without using magnetic resonance.
+
 \end{document}

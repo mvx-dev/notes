@@ -119,3 +119,13 @@
 \contentsline {subsection}{\numberline {12.3}Small Capacitors}{56}{subsection.12.3}%
 \contentsline {subsubsection}{\numberline {12.3.1}Charging Energy}{57}{subsubsection.12.3.1}%
 \contentsline {subsection}{\numberline {12.4}Tunnelling Conductance}{57}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Coulomb Blockade}{57}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Single-Electron Transistor}{58}{subsection.12.6}%
+\contentsline {subsubsection}{\numberline {12.6.1}SET Energy}{58}{subsubsection.12.6.1}%
+\contentsline {subsubsection}{\numberline {12.6.2}Electrochemical Potential}{59}{subsubsection.12.6.2}%
+\contentsline {subsubsection}{\numberline {12.6.3}SET as an Electrometre}{59}{subsubsection.12.6.3}%
+\contentsline {subsection}{\numberline {12.7}Quantum Dots}{60}{subsection.12.7}%
+\contentsline {subsection}{\numberline {12.8}2D Orbital Eigenstates}{60}{subsection.12.8}%
+\contentsline {subsection}{\numberline {12.9}Quantum Computing with Spins in Dots}{60}{subsection.12.9}%
+\contentsline {subsection}{\numberline {12.10}Exchange Coupling}{60}{subsection.12.10}%
+\contentsline {subsection}{\numberline {12.11}Singlet-Triplet Qubit}{61}{subsection.12.11}%
