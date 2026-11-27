@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage{preamble}
+
+\title{Research Spotlight}
+\author{Oskar Meszaros (z5636164)}
+\date{November 2026}
+
+\begin{document}
+
+\maketitle
+\section{Narrative}
+\begin{enumerate}
+    \item background/explanation \begin{enumerate}
+        \item what CHSH is
+        \item how entangled photons are made
+    \end{enumerate}
+    \item what we expected
+    \item problems
+    \begin{enumerate}
+        \item detector inefficiency (include some plots showing coincidence rates)
+        \item scheduling
+    \end{enumerate}
+    \item changes \begin{enumerate}
+        \item more time
+        \item more efficiency with time we did use
+    \end{enumerate}
+    \item conclusion
+\end{enumerate}
+
+\section{script}
+\subsection{intro}
+Leading up to the birth of quantum mechanics, physicists observed properties of light that, when modelled, could not describe all of these different observed properties of light.
+
+In 1804, Thomas Young conducted the now famous two-slit interference experiment which was consistent with a wave description of light. This theory had further evidence from later experiments, such as the 1818 experiment by Francois Arago, which showed diffraction in the form of a Poisson Spot.
+
+In the beginning of the 20th century, however, Max Planck was able successfully describe black-body radiation using a quantisation of light. Later, Albert Einstein presented a theory to explain the photoelectric effect by also modelling light as a quantised particle. These remained somewhat controversial until an experiment by Arthur Compton showed that light had a momentum, which was consistent with both Planck's and Einstein's theories.
+
+So, what does this mean, and why is it useful?
+
+\subsection{entanglement and bell states}
+Well, since light is a quantum object, it is able to be entangled. Entanglement just means that we can't describe individual elements within a system without regarding the other particles within that system.
+
+For photons specifically, we can have two, or more, photons that have correlated polarisations. This means if we have two entangled photons and measure the polarisation of one photon, the other photon must have either the same (or opposite) polarisation within the same direction, i.e. if we measure the linear polarisation of a photon in the x-axis, the polarisation of the other photon must have a correlated polarisation in that same axis.
+
+We can denote the polarisation of the photons as $\ket{0}$ and $\ket{1}$ for polarisation in one direction vs the other.
+
+We can formalise two entangled photons used bell states. Bell states form a basis for the simplest entanglement, and we can represent it as presented. Here, the subscript denotes the particle that each particular state applies to.
+
+When we measure one photon, the state that we measure is completely random, however once we know that state we also immediately know the state of the other photon in the entangled system.
+
+\subsection{the experiment}
+We can create these photons using spontaneous parametric down conversion. it works by a pump photon in a nonlinear crystal occasionally splits into two lower-energy photons, which can be polarisation-entangled.
+
+These entangle photons were then sent through two arms, Alice and Bob. The Alice arm went through a polariser and straight into a detector, which was connected to a correlation detector in a computer. The Bob arm also went through a polariser, however the beam was split using a beam splitter, with one side going straight into a second detector, and the other side going through a half-wave plate and into another detector.
+
+The idea behind this setup is the Alice arm will detect if the polarisation of one photon is aligned with the polariser, whereas in the Bob arm we are measuring which way the other photon is polarised. Using these measurements, we are able to measure the correlation between the two detectors, which would be our Bell test.
+
+a really important part of this setup is the alignment of the optical pieces, specifically the coupling between the microscope objective and the optical fibre. this processes was what we spent the most of our time on, and as I will talk about later, caused the experiment to not be viable.
+
+in order to characterise the efficiency of the detector at the specific wavelength that we were operating at, we directly measured the output of the SPDC source without going through any optical pieces, other than the fibre itself. From this, we discovered that this setup only resulted in less 1 coincidence per second on average, which is nowhere near enough to perform the experiment.
+
+As part of this testing, we also performed a photon antibunching experiment, which was our milestone experiment to verify that we were getting entangled pairs out of the SPDC source.
+
+Nevertheless, we attempted a Bell test using the setup. The SPDC source was turned to the maximum of 150mW, however even at this level the photon counts were indistinguishable from the background noise, and we were unable to get a meaningful result
+
+\subsection{Problems}
+There were a few problems that caused these lack of results. Most important among these was a (suspected) misalignment within the source itself, which resulted in a lower photon-pair count.
+
+Additionally, this already low photon count was further reduced by poor coupling between the microscope objectives and the optical fibre, meaning less of the generated photon-pairs were going through the setup to get to the detectors. Once they did get to the detectors, the reported efficiency of the detector at the wavelength we were working at was roughly 10\%. There was also the expected losses from the optical components.
+
+\subsection{References}
+[1] T. Young, “I. The Bakerian Lecture. Experiments and calculations relative to physical optics,” Phil. Trans. R. Soc., no. 94, pp. 1–16, Dec. 1804, doi: 10.1098/rstl.1804.0001.
+
+[2] F. Arago, “Mémoire sur la diffraction de la lumière,” Annales de Chimie et de Physique, 1818.
+
+[3] M. Planck, “Ueber das Gesetz der Energieverteilung im Normalspectrum,” Annalen der Physik, vol. 309, no. 3, pp. 553–563, 1901, doi: 10.1002/andp.19013090310.
+
+[4] A. Einstein, “Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt,” Annalen der Physik, vol. 322, no. 6, pp. 132–148, 1905, doi: 10.1002/andp.19053220607.
+
+\section{Other bullshit}
+frensel diffraction: By Aleksandr Berdnikov - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/Special:Redirect/page/53008370
+
+\section{updated script}
+\subsection{title}
+This project asked a seemingly simple question, does light contain fixed properties prior to measurement?
+
+\subsection{Light is strange}
+It has taken a while to settle on our current definition of light. Young's two-slit experiment and Arago's Poisson spot shows wave behaviour, but Planck's blackbody radiation and Einstein's photoelectric effect need light to come in packets, called photons. This property of light that makes it behave as both is described using quantum mechanics.
+
+\subsection{The Question}
+Einstein suspected that quantum randomness hides pre-set properties we cannot see, called hidden variables. If so, this means a photon's polarisation would be fixed before measurement, and if not, it really is undecided until a measurement is made. In 1964, John Bell showed that this can tested experimentally.
+
+\subsection{Entanglement}
+This test uses entangled photons. Measure the polarisation of one of the pair, and you immediately know something about the other. On its own that's not special, a pair of gloves does the same thing. What is special is that the correlations persists when we measure at different angles, and this is what pre-set properties struggle to explain.
+
+\subsection{The Bell test}
+We measure how often the two photons agree at different polariser angles and combine the results into one number, $S$. If properties are pre-set, $S$ cannot exceed 2. Quantum mechanics predicts up to 2.8, so this number can tell us what the case is.
+
+\subsection{Making entangled photons}
+We make the pairs by spontaneous parametric down conversion. A laser photon passes through a special crystal and occasionally splits into two lower-energy photons, which can be entangled in polarisation
+
+\subsection{The setup}
+Each photon is sent down an optical fibre to one of two arms, Alice and Bob. Alice's photon passes a polariser and is detected. Bob's photon goes through a beam splitter, and one output goes to a detector while the other passes through a half-wave plate, which rotates the polarisation so we can measure a different angle at the same time. A time tagger records when photons arrives, so we can find which ones arrived as a pair.
+
+\subsection{Alignment}
+Almost everything in this experiment depends on alignment, especially focusing light into the thin optical fibres with a microscope objective. A tiny misalignment loses most of the photons. This is where we spent most of our time.
+
+\subsection{Did we make pairs?}
+Our milestone experiment was checking that the source really produced pairs. Plotting the arrival-time difference between the two detectors, we see a sharp peak about 24 times the background, with arrival times matching to within a few nanoseconds. This means the source works, however the rate was under one pair per second.
+
+\subsection{The Bell test run}
+We still ran the Bell test at the maximum pump power of 150 milliwatts. In about 10 minutes, we recorded 353 coincidences. The test needs those split across many angle settings, however we were unable to do this due to time constraints, so we cannot resolve any angle-dependent correlation, and could not test Bell's inequality.
+
+\subsection{Why so few?}
+We had losses at every stage, a misalignment within the source, poor fibre coupling, losses in the optics, and detectors with a reported efficiency of roughly 10\% at our wavelength. A pair needs both detected, so just the detector efficiency meant only 1 in 100 pairs reaching the detectors counts as a coincidence.
+
+\subsection{What we learned and whats next}
+The first lesson I learnt was time management. Alignment took up so much of the time that we ran out of time to align the Bell test as a whole. Second, we learned just how hard alignment is, and how easy it was to lose that alignment. Third, I learned how to modify a pre-existing experiment for different requirements. To get better results from this experiment, we would need a fixed source and coupling, collecting longer runs, and trying to align faster. A successful Bell test would confirm that the lack of pre-existing properties is real. Thank you.
+
+\end{document}
